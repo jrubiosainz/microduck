@@ -1,8 +1,7 @@
 # follow-me-among-others — color-selective crowd following
 
-A new behavior built from
-[`../follow-me-left-right-turns`](../follow-me-left-right-turns/) without
-modifying that validated base.
+A new behavior built from [`../follow-me`](../follow-me/) without modifying that
+validated base.
 
 Five pedestrians in blue, green, red, yellow and purple walk continuously on
 independent smooth routes. Microduck must repeatedly stop following, search the

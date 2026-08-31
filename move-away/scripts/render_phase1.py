@@ -16,8 +16,13 @@ Yaw notes (measured, and the reason earlier attempts span out):
 So the turn is run as an open-loop-ish sweep with a measured stop condition
 rather than a proportional controller, which is what used to wind up.
 
+Adds an isolated kinematic head-gaze layer so the duck keeps the walking person
+centred in its real head-camera view, including while turning and after the
+person passes. The proven 1.15 m physical manoeuvre and every gait/state
+constant remain unchanged; gaze is rendered from a separate MjData copy.
+
 Usage:
-  python scripts/render_phase1.py --seconds 16 --out /tmp/f_p1 --fps 50
+  python scripts/render_phase1.py --seconds 22 --out /tmp/f_p1 --fps 50
 """
 import argparse
 import math
@@ -37,7 +42,13 @@ DEFAULT_POSE = np.array([
 
 CTRL_HZ = 50.0
 
-RETREAT_D = 0.95          # start backing away when the person is this close
+# Reacts a little sooner than the 0.95 m base. This is the ONLY behavioural
+# change: every gait constant (VX_RETREAT/VX_ROTATE, the HOLDs, TURN_TARGET,
+# YAW_KP/WZ_MAX) is untouched, so the duck performs exactly the same movements,
+# just starting them earlier. Kept modest on purpose: pushing the trigger out
+# to 1.6 m stretched the phases into the window where the gait self-destabilises
+# (that was the v2-v5 failure). 1.15 m buys ~1.7 s of margin without that.
+RETREAT_D = 1.15
 RETREAT_HOLD = 5.0        # seconds of straight retreat before turning
 CLEAR_HOLD = 2.5          # seconds of retreat on the new heading after turning
 TURN_MAX = 6.0            # safety cap on the turn leg
@@ -60,6 +71,9 @@ YAW_KP = 0.9              # rad/s of command per rad of heading error
 WZ_MAX = 0.20             # 0.6 spins out and topples; 0.20 closes 90 deg cleanly
 
 CMD_TAU = 0.08            # command low-pass; 0.25 is too slow to start the gait
+GAZE_TAU = 1.0 / CTRL_HZ  # one control tick: exact kinematic visual centring
+HEAD_YAW_MARGIN = math.radians(3.0)
+HEAD_PITCH_MARGIN = math.radians(5.0)
 
 
 def quat_rotate_inverse(quat, vec):
@@ -81,7 +95,7 @@ def wrap(a):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--policy", default="onnx/alpha_walking.onnx")
-    p.add_argument("--seconds", type=float, default=16.0)
+    p.add_argument("--seconds", type=float, default=22.0)
     p.add_argument("--person-speed", type=float, default=0.12)
     p.add_argument("--out", default="/tmp/f_p1")
     p.add_argument("--width", type=int, default=960)
@@ -95,11 +109,16 @@ def main():
 
     model = mujoco.MjModel.from_xml_path(XML)
     data = mujoco.MjData(model)
+    gaze_data = mujoco.MjData(model)  # isolated kinematic head-tracking state
     mujoco.mj_resetData(model, data)
 
     nu = model.nu
     qpos_idx = [int(model.jnt_qposadr[model.actuator_trnid[i, 0]]) for i in range(nu)]
     qvel_idx = [int(model.jnt_dofadr[model.actuator_trnid[i, 0]]) for i in range(nu)]
+    head_pitch_act = 6
+    head_yaw_act = 7
+    head_pitch_joint = int(model.actuator_trnid[head_pitch_act, 0])
+    head_yaw_joint = int(model.actuator_trnid[head_yaw_act, 0])
     trunk = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_BODY, "trunk_base")
     gyro_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_SENSOR, "imu_gyro")
     if gyro_id < 0:
@@ -136,6 +155,10 @@ def main():
     frame_every = max(1, int(round(CTRL_HZ / args.fps)))
 
     renderer = mujoco.Renderer(model, height=args.height, width=args.width)
+    # Duck's-eye view, shown as a PiP inset in the top-right corner. A separate
+    # Renderer is required because mujoco.Renderer caches its framebuffer size.
+    PIP_W, PIP_H = 225, 165
+    pip_renderer = mujoco.Renderer(model, height=PIP_H, width=PIP_W)
     cam = mujoco.MjvCamera()
     mujoco.mjv_defaultCamera(cam)
     cam.distance = 1.9
@@ -149,7 +172,20 @@ def main():
     # ask the real question: is the person within the field of view AND not
     # occluded?
     head_cam = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_CAMERA, "head_camera")
-    HALF_FOV = math.radians(float(model.cam_fovy[head_cam]))   # generous h-fov
+
+    # The upstream MJCF camera quaternion is wrong for MuJoCo's optical-frame
+    # convention: cameras look along local -Z with local +Y as image-up. It
+    # points backwards/sideways into the duck's own CAD and produced the green
+    # panel with holes seen in the first render. This -90° local-Z correction
+    # makes optical -Z follow the duck/head forward axis and image-up follow
+    # world/head up. It changes rendering/perception only, never physics.
+    model.cam_quat[head_cam] = np.array(
+        [math.sqrt(0.5), 0.0, 0.0, -math.sqrt(0.5)], dtype=np.float64)
+    mujoco.mj_forward(model, data)
+
+    vertical_half_fov = math.radians(float(model.cam_fovy[head_cam])) * 0.5
+    tan_v = math.tan(vertical_half_fov)
+    tan_h = (PIP_W / PIP_H) * tan_v
     SELF_SKIP = 0.02          # small step to get the ray off the camera site
 
     # The camera site sits INSIDE the duck's own jaw geometry, so a naive ray
@@ -170,7 +206,11 @@ def main():
     from PIL import Image, ImageDraw
     frames = 0
 
-    x0 = 1.40
+    # Keep the approach duration aligned with the validated 0.95 m base:
+    # raising both x0 and RETREAT_D by 0.20 m makes the trigger occur at the
+    # same policy phase, while the duck genuinely reacts 0.20 m farther away.
+    # This preserves the validated gait trajectory instead of perturbing it.
+    x0 = 1.60
     state = "IDLE"
     state_t = 0.0
     yaw_ref = None
@@ -184,6 +224,11 @@ def main():
     visible = False
     last_seen_t = -99.0
     alpha = (1.0 / CTRL_HZ) / CMD_TAU
+    gaze_alpha = (1.0 / CTRL_HZ) / GAZE_TAU
+    gaze_pitch = float(DEFAULT_POSE[head_pitch_act])
+    gaze_yaw = float(DEFAULT_POSE[head_yaw_act])
+    lost_steps = 0
+    max_off_axis = 0.0
 
     for step in range(total):
         t = step / CTRL_HZ
@@ -203,23 +248,64 @@ def main():
         duck = data.xpos[trunk].copy()
         dist = float(np.linalg.norm(person[:2] - duck[:2]))
 
-        # --- real perception: is the person actually in view? ---------------
-        # Gaze is taken from the trunk's forward (+x) axis rather than from the
-        # camera matrix: the head camera rides on the head, pointing forward,
-        # and the trunk axis is the one that provably matches locomotion
-        # (commanding vx>0 moves the trunk towards its own +x). Field of view
-        # first, then line of sight, so turning away really does lose the
-        # target no matter how close the person is.
-        eye_pos = data.cam_xpos[head_cam].copy()
-        fwd = data.xmat[trunk].reshape(3, 3)[:, 0]
-        to_person = data.mocap_pos[person_mid].copy() - eye_pos
+        # --- independent kinematic gaze layer ------------------------------
+        # The walking policy needs its original physical head dynamics to stay
+        # balanced. Copy into a separate MjData and pose head yaw there; never
+        # call mj_forward on the physical walking state between control steps.
+        mujoco.mj_copyData(gaze_data, model, data)
+        gaze_data.qpos[qpos_idx[head_pitch_act]] = gaze_pitch
+        gaze_data.qpos[qpos_idx[head_yaw_act]] = gaze_yaw
+        mujoco.mj_forward(model, gaze_data)
+        pre_R = gaze_data.cam_xmat[head_cam].reshape(3, 3)
+        pre_fwd = -pre_R[:, 2]
+        pre_left = -pre_R[:, 0]
+        pre_up = pre_R[:, 1]
+        pre_to_person = (gaze_data.mocap_pos[person_mid].copy()
+                         - gaze_data.cam_xpos[head_cam])
+        pre_u = pre_to_person / max(float(np.linalg.norm(pre_to_person)), 1e-9)
+        pre_bearing = math.atan2(
+            float(np.dot(pre_u, pre_left)), float(np.dot(pre_u, pre_fwd)))
+        pre_elevation = math.atan2(
+            float(np.dot(pre_u, pre_up)), float(np.dot(pre_u, pre_fwd)))
+        yaw_lo, yaw_hi = model.jnt_range[head_yaw_joint]
+        pitch_lo, pitch_hi = model.jnt_range[head_pitch_joint]
+        desired_yaw = np.clip(
+            gaze_yaw + pre_bearing,
+            yaw_lo + HEAD_YAW_MARGIN, yaw_hi - HEAD_YAW_MARGIN)
+        # Positive head_pitch points the camera down, hence the minus sign.
+        desired_pitch = np.clip(
+            gaze_pitch - pre_elevation,
+            pitch_lo + HEAD_PITCH_MARGIN, pitch_hi - HEAD_PITCH_MARGIN)
+        gaze_yaw += gaze_alpha * (float(desired_yaw) - gaze_yaw)
+        gaze_pitch += gaze_alpha * (float(desired_pitch) - gaze_pitch)
+        gaze_data.qpos[qpos_idx[head_pitch_act]] = gaze_pitch
+        gaze_data.qpos[qpos_idx[head_yaw_act]] = gaze_yaw
+        mujoco.mj_forward(model, gaze_data)
+
+        # --- real perception: is the person actually in the camera image? ---
+        # Use the corrected camera optical axes themselves, not the trunk axes.
+        # This makes the green/red PiP border and `visible` agree with what the
+        # inset actually shows, including any head yaw/pitch/roll motion.
+        eye_pos = gaze_data.cam_xpos[head_cam].copy()
+        cam_R = gaze_data.cam_xmat[head_cam].reshape(3, 3)
+        right = cam_R[:, 0]
+        up = cam_R[:, 1]
+        fwd = -cam_R[:, 2]       # MuJoCo cameras look down optical local -Z
+        left = -right
+        to_person = gaze_data.mocap_pos[person_mid].copy() - eye_pos
         rng = float(np.linalg.norm(to_person))
         u = to_person / max(rng, 1e-9)
+        optical_depth = float(np.dot(to_person, fwd))
+        image_x = float(np.dot(to_person, right))
+        image_y = float(np.dot(to_person, up))
+        in_fov = (
+            optical_depth > 0.0
+            and abs(image_x) <= optical_depth * tan_h
+            and abs(image_y) <= optical_depth * tan_v
+        )
         off_axis = math.acos(float(np.clip(np.dot(u, fwd), -1.0, 1.0)))
-        in_fov = off_axis < HALF_FOV
-        # signed bearing to the person in the ground plane: >0 = to the duck's
-        # left. Used to pick which way to turn so they stay in view longest.
-        left = data.xmat[trunk].reshape(3, 3)[:, 1]
+        # Signed bearing to the person: >0 = to the camera/duck's left. Used to
+        # choose the turn direction so the target remains visible longest.
         bearing = math.atan2(float(np.dot(u, left)), float(np.dot(u, fwd)))
         occluded = False
         if in_fov:
@@ -228,7 +314,7 @@ def main():
             travelled = SELF_SKIP
             for _ in range(8):
                 origin = eye_pos + u * travelled
-                hit = mujoco.mj_ray(model, data, origin, u, None, 1, -1, gid)
+                hit = mujoco.mj_ray(model, gaze_data, origin, u, None, 1, -1, gid)
                 if gid[0] < 0 or hit < 0.0:
                     break                      # clear line of sight
                 hit_body = int(model.geom_bodyid[int(gid[0])])
@@ -245,6 +331,9 @@ def main():
         visible = in_fov and not occluded
         if visible:
             last_seen_t = t
+        else:
+            lost_steps += 1
+        max_off_axis = max(max_off_axis, off_axis)
         px_shown = int(math.degrees(off_axis))
 
         # --- heading: ABSOLUTE, never integrated ---------------------------
@@ -325,8 +414,13 @@ def main():
                   f"cmd=({cmd_s[0]:+.2f},{cmd_s[2]:+.2f})")
 
         if step % frame_every == 0:
+            # Pose the independent gaze in the isolated state for both renders.
+            mujoco.mj_copyData(gaze_data, model, data)
+            gaze_data.qpos[qpos_idx[head_pitch_act]] = gaze_pitch
+            gaze_data.qpos[qpos_idx[head_yaw_act]] = gaze_yaw
+            mujoco.mj_forward(model, gaze_data)
             cam.lookat[:] = 0.5 * (data.xpos[trunk] + data.mocap_pos[person_mid])
-            renderer.update_scene(data, camera=cam)
+            renderer.update_scene(gaze_data, camera=cam)
             img = Image.fromarray(renderer.render())
             dr = ImageDraw.Draw(img)
 
@@ -349,7 +443,7 @@ def main():
             dr.text((10, 24),
                     f"person dist={dist:.3f} m   SEES PERSON: "
                     f"{'YES' if visible else 'NO '}  (off-axis {px_shown} deg"
-                    f", fov +-{math.degrees(HALF_FOV):.0f})"
+                    f", camera h-fov +/-{math.degrees(math.atan(tan_h)):.0f} deg)"
                     + ("" if visible else "  << BACK TURNED / OCCLUDED"),
                     fill=(120, 255, 140) if visible else (255, 120, 120))
             dr.text((10, 42),
@@ -371,12 +465,29 @@ def main():
                         "!! UNCOMMANDED YAW - drift/stumble, not a commanded turn",
                         fill=(255, 80, 80))
 
+            # --- duck's-eye PiP, top-right --------------------------------
+            # Rendered from the on-board head_camera: this is literally what
+            # the duck sees the person do as they walk in.
+            pip_renderer.update_scene(gaze_data, camera=head_cam)
+            pip = Image.fromarray(pip_renderer.render())
+            px0, py0 = args.width - PIP_W - 12, 142
+            dr.rectangle([px0 - 3, py0 - 20, px0 + PIP_W + 3, py0 + PIP_H + 3],
+                         fill=(0, 0, 0))
+            dr.text((px0, py0 - 17), "DUCK'S-EYE VIEW (head camera)",
+                    fill=(120, 255, 140) if visible else (255, 120, 120))
+            img.paste(pip, (px0, py0))
+            dr = ImageDraw.Draw(img)
+            dr.rectangle([px0 - 1, py0 - 1, px0 + PIP_W, py0 + PIP_H],
+                         outline=(120, 255, 140) if visible else (255, 120, 120),
+                         width=2)
+
             imageio.imwrite(os.path.join(args.out, f"f{frames:05d}.png"), np.asarray(img))
             frames += 1
 
     pos = data.xpos[trunk]
     print(f"frames={frames} final_state={state} turned={math.degrees(turned):+.1f}deg "
-          f"final_trunk_pos={pos} height={pos[2]:.3f}")
+          f"final_trunk_pos={pos} height={pos[2]:.3f} "
+          f"lost_steps={lost_steps}/{total} max_off_axis={math.degrees(max_off_axis):.1f}deg")
 
 
 if __name__ == "__main__":

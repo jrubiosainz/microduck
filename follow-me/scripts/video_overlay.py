@@ -5,15 +5,16 @@ import math
 from PIL import Image, ImageDraw, ImageFont
 
 PIP_W, PIP_H = 225, 165
-PHASES = ["READY", "FORWARD", "LEFT TURN", "STOP", "RIGHT", "BACKWARD", "DONE"]
+PHASES = ["READY", "FORWARD", "LEFT TURN", "STOP", "RIGHT TURN", "BACKWARD", "DONE"]
 PHASE_COLORS = {
     "READY": (180, 210, 255),
     "FORWARD": (100, 235, 145),
     "LEFT TURN": (255, 205, 80),
     "STOP": (255, 120, 120),
-    "RIGHT": (120, 215, 255),
+    "RIGHT TURN": (120, 215, 255),
     "BACKWARD": (215, 155, 255),
     "DONE": (180, 255, 180),
+    "STOPPED": (255, 120, 120),
 }
 
 
@@ -35,19 +36,18 @@ def compose(main_rgb, pip_rgb, *, t, total_seconds, person, duck_pos,
     phase_color = PHASE_COLORS[person.phase]
 
     draw.rectangle([0, 0, width, 126], fill=(4, 8, 14))
-    draw.text((12, 8), f"FOLLOW-ME   t={t:05.2f}s   PHASE: {person.phase}",
-              fill=phase_color, font=font)
-    draw.text((12, 31),
-              f"follow error={follow['error']:.3f} m   target gap=0.500 m   "
-              f"person range={follow['person_range']:.3f} m",
-              fill=(235, 240, 245), font=small)
+    replay = (follow['replay_phase'] if person.moving else 'STOPPED')
+    replay_color = PHASE_COLORS.get(replay, (235, 240, 245))
+    draw.text((12, 8), f"FOLLOW-ME · TRUE LEFT / RIGHT   t={t:05.2f}s", fill=phase_color, font=font)
+    draw.text((12, 31), f"LEADER: {person.phase:<9}   DUCK REPLAYS: {replay:<9}",
+              fill=replay_color, font=small)
     draw.text((12, 51),
-              f"command  vx={command[0]:+.3f}  vy={command[1]:+.3f}  "
-              f"wz={command[2]:+.3f} rad/s",
+              f"world-path lag={follow['spatial_lag']:.3f} m   "
+              f"trail error={follow['error']:.3f} m   person range={follow['person_range']:.3f} m",
               fill=(235, 240, 245), font=small)
     draw.text((12, 71),
-              f"heading error={math.degrees(follow['yaw_error']):+5.1f} deg   "
-              f"actual yaw rate={yaw_rate:+6.1f} deg/s",
+              f"command vx={command[0]:+.3f} vy={command[1]:+.3f} wz={command[2]:+.3f}   "
+              f"heading error={math.degrees(follow['yaw_error']):+5.1f} deg",
               fill=(235, 240, 245), font=small)
     stable = duck_pos[2] >= 0.09
     draw.text((12, 91),
@@ -65,7 +65,7 @@ def compose(main_rgb, pip_rgb, *, t, total_seconds, person, duck_pos,
     border = (100, 255, 130) if visible else (255, 90, 90)
     draw.rectangle([px0 - 4, py0 - 22, px0 + PIP_W + 4, py0 + PIP_H + 4],
                    fill=(2, 5, 8))
-    draw.text((px0, py0 - 19), "DUCK'S-EYE VIEW · STABILIZED HEAD CAMERA",
+    draw.text((px0, py0 - 19), "DUCK VIEW · STABILIZED HEAD CAM",
               fill=border, font=small)
     image.paste(pip, (px0, py0))
     draw = ImageDraw.Draw(image)
@@ -79,7 +79,7 @@ def compose(main_rgb, pip_rgb, *, t, total_seconds, person, duck_pos,
     bar_y = height - 34
     x0, x1 = 12, width - 12
     draw.rectangle([x0, bar_y, x1, bar_y + 12], fill=(25, 34, 46))
-    boundaries = [0, 2, 7, 15, 18, 24, 30, total_seconds]
+    boundaries = [0, 2, 7, 15, 18, 35, 41, total_seconds]
     for index, phase in enumerate(PHASES):
         left = x0 + (x1 - x0) * boundaries[index] / total_seconds
         right = x0 + (x1 - x0) * boundaries[index + 1] / total_seconds
