@@ -1,25 +1,25 @@
-# move-away-early-camera — apartarse antes + cámara a bordo
+# move-away-early-camera — earlier reaction with onboard camera
 
-Evolución conservadora de [`../move-away`](../move-away), creada el 31-ago-2026.
-La base validada permanece intacta.
+A conservative evolution of [`../move-away`](../move-away), created on 2026-08-31.
+The validated baseline remains untouched.
 
-El comportamiento es el mismo:
+The behavior is unchanged:
 
 ```
 IDLE → RETREAT → TURN → CLEAR → DONE
 ```
 
-Sólo incorpora dos cambios:
+It introduces only two changes:
 
-1. **Vista en tiempo real de la cámara del pato**, en un cuadro arriba a la derecha del vídeo.
-2. **Reacción a 1,15 m**, 20 cm antes que el umbral original de 0,95 m.
+1. **A live view from the duck's camera**, shown in the upper-right corner of the video.
+2. **Reaction at 1.15 m**, 20 cm earlier than the original 0.95 m threshold.
 
-Vídeo validado: [`media/move-away-early-camera.mp4`](media/move-away-early-camera.mp4).
+Validated video: [`media/move-away-early-camera.mp4`](media/move-away-early-camera.mp4).
 
-## Ejecutar
+## Running it
 
-Desde un checkout de `microduck_rl` con su entorno (`mujoco`, `onnxruntime`,
-`imageio`, Pillow y ffmpeg):
+From a `microduck_rl` checkout with its environment (`mujoco`, `onnxruntime`,
+`imageio`, Pillow, and ffmpeg):
 
 ```bash
 python scripts/render_phase1.py --seconds 19 --out /tmp/move-away-early-camera --fps 50
@@ -28,41 +28,40 @@ ffmpeg -framerate 50 -i /tmp/move-away-early-camera/f%05d.png \
   media/move-away-early-camera.mp4
 ```
 
-`assets/scene_yield.xml` va en `src/mjlab_microduck/robot/microduck/` y
-`onnx/alpha_walking.onnx` en `onnx/`.
+Place `assets/scene_yield.xml` under `src/mjlab_microduck/robot/microduck/`
+and `onnx/alpha_walking.onnx` under `onnx/`.
 
-## Por qué la persona empieza a 1,60 m
+## Why the person starts at 1.60 m
 
-La base comenzaba con la persona a 1,40 m y disparaba a 0,95 m. Esta versión
-suma los mismos 20 cm tanto a la posición inicial como al umbral:
+The baseline placed the person at 1.40 m and triggered at 0.95 m. This version
+adds the same 20 cm to both the initial position and the trigger threshold:
 
-- inicio: **1,40 → 1,60 m**
-- disparo: **0,95 → 1,15 m**
+- initial position: **1.40 → 1.60 m**
+- trigger distance: **0.95 → 1.15 m**
 
-Así el pato comienza exactamente en la misma fase temporal de la política ONNX
-que en la versión validada, pero cuando la persona aún está 20 cm más lejos.
-Esto conserva la trayectoria estable de la base. Cambiar sólo el instante de
-activación alteraba la fase de la marcha y algunas pruebas acababan girando de
-más o cayéndose.
+This makes the duck start at exactly the same temporal phase of the ONNX policy
+as in the validated version, but while the person is still 20 cm farther away.
+That preserves the baseline's stable trajectory. Changing only the activation
+time altered the gait phase, and some tests over-rotated or fell over.
 
-## Cámara en pantalla
+## On-screen camera
 
-Se usa un segundo `mujoco.Renderer` asociado a `head_camera`. Cada fotograma se
-pega como PiP de 225×165 px (75% del tamaño inicial) en la esquina superior
-derecha, con borde verde si la persona está visible y rojo si queda fuera del
-campo de visión u ocluida.
-Es la cámara a bordo real del modelo, no una cámara exterior aproximada.
+A second `mujoco.Renderer` is attached to `head_camera`. Every frame receives a
+225×165 px PiP—75% of the initial size—in the upper-right corner. Its border is
+green while the person is visible and red when the person is outside the field
+of view or occluded.
 
-**Corrección del frame óptico:** el cuaternión de `head_camera` exportado por el
-MJCF upstream no respeta la convención de cámara de MuJoCo (la cámara mira por
-su eje local `-Z` y usa `+Y` como arriba). Por eso el primer render mostraba
-geometría interna/lateral en lugar de la persona. El script aplica en runtime
-una rotación local de −90° alrededor de Z (`[√½, 0, 0, −√½]`), con lo que `-Z`
-apunta hacia delante y la vertical de la imagen coincide con la cabeza. La
-detección usa después esos mismos ejes ópticos y el frustum real del PiP, de
-modo que la imagen y `SEES PERSON` coinciden durante el giro.
+This is the model's real onboard camera, not an approximate external camera.
 
-## Parámetros de estabilidad heredados (no tocados)
+**Optical-frame correction:** the `head_camera` quaternion exported by the
+upstream MJCF does not follow MuJoCo's camera convention (`-Z` is forward and
+`+Y` is up). The initial render therefore showed internal/side geometry instead
+of the person. At runtime, the script applies a −90° local rotation around Z
+(`[√½, 0, 0, −√½]`), making `-Z` point forward and aligning the image vertically
+with the head. Detection then uses those same optical axes and the PiP's real
+frustum, so the image and `SEES PERSON` status agree throughout the turn.
+
+## Inherited stability parameters — unchanged
 
 - `VX_RETREAT = -0.28`
 - `VX_ROTATE = -0.31`
@@ -71,5 +70,5 @@ modo que la imagen y `SEES PERSON` coinciden durante el giro.
 - `TURN_CUT = 45°`
 - `CMD_TAU = 0.08`
 
-Se mantienen también la percepción por ray-cast y todas las demás constantes
-de la versión `move-away` validada.
+Ray-cast perception and every other constant from the validated `move-away`
+version are unchanged.

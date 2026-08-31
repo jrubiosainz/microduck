@@ -1,41 +1,40 @@
-# move-away-head-tracking — apartarse sin perder de vista a la persona
+# move-away-head-tracking — moving aside without losing sight of the person
 
-Evolución conservadora de [`../move-away-early-camera`](../move-away-early-camera),
-creada el 31-ago-2026. La mejor base anterior permanece intacta.
+A conservative evolution of [`../move-away-early-camera`](../move-away-early-camera),
+created on 2026-08-31. The previous best baseline remains untouched.
 
-Mantiene exactamente la maniobra validada:
+It preserves the validated maneuver exactly:
 
 ```
 IDLE → RETREAT → TURN → CLEAR → DONE
 ```
 
-Y añade una capa de mirada independiente que orienta yaw y pitch de la cabeza
-hacia la persona durante toda la secuencia. El vídeo dura 22 segundos: la
-persona continúa caminando 3 segundos más que en la base de 19 s.
+It adds an independent gaze layer that aims the head's yaw and pitch toward the
+person throughout the sequence. The video lasts 22 seconds: the person keeps
+walking for 3 seconds longer than in the 19-second baseline.
 
-## Demostración
+## Demo
 
-[![Demostración animada: microduck se aparta sin perder de vista a la persona](media/move-away-head-tracking-demo.gif)](media/move-away-head-tracking.mp4)
+[![Animated demo: microduck moves aside without losing sight of the person](media/move-away-head-tracking-demo.gif)](media/move-away-head-tracking.mp4)
 
-▶️ **[Ver o descargar el vídeo completo en MP4 (22 s, 50 fps)](media/move-away-head-tracking.mp4)**
+▶️ **[Watch or download the full MP4 video (22 s, 50 fps)](media/move-away-head-tracking.mp4)**
 
-La vista grande muestra la maniobra completa y el PiP superior derecho es la
-cámara real del pato siguiendo a la persona. Haz clic en la animación para abrir
-el vídeo original.
+The main view shows the full maneuver, while the upper-right PiP is the duck's
+real camera tracking the person. Click the animation to open the original video.
 
-## Resultado validado
+## Validated results
 
-- **Visibilidad:** `1100/1100` pasos de control; `lost_steps=0`.
-- **Error angular máximo:** `1.2°` respecto al centro de la cámara.
-- **Movimiento:** misma transición y trayectoria que la base validada.
-- **Estabilidad final:** `trunk z=0.116`, erguido en `DONE`.
-- **Vídeo:** 22 s, 960×640, 50 fps, H.264.
-- **PiP:** 225×165 px, arriba a la derecha.
+- **Visibility:** `1100/1100` control steps; `lost_steps=0`.
+- **Maximum angular error:** `1.2°` from the camera center.
+- **Motion:** same transition sequence and trajectory as the validated baseline.
+- **Final stability:** upright in `DONE`, with `trunk z=0.116`.
+- **Video:** 22 s, 960×640, 50 fps, H.264.
+- **PiP:** 225×165 px, upper-right corner.
 
-## Ejecutar
+## Running it
 
-Desde un checkout de `microduck_rl` con su entorno (`mujoco`, `onnxruntime`,
-`imageio`, Pillow y ffmpeg):
+From a `microduck_rl` checkout with its environment (`mujoco`, `onnxruntime`,
+`imageio`, Pillow, and ffmpeg):
 
 ```bash
 python scripts/render_phase1.py \
@@ -45,43 +44,43 @@ ffmpeg -framerate 50 -i /tmp/move-away-head-tracking/f%05d.png \
   media/move-away-head-tracking.mp4
 ```
 
-`assets/scene_yield.xml` va en `src/mjlab_microduck/robot/microduck/` y
-`onnx/alpha_walking.onnx` en `onnx/`.
+Place `assets/scene_yield.xml` under `src/mjlab_microduck/robot/microduck/`
+and `onnx/alpha_walking.onnx` under `onnx/`.
 
-## Cómo funciona el seguimiento
+## How tracking works
 
-La dirección hacia el torso de la persona se proyecta sobre los ejes ópticos
-reales de `head_camera`. Un servo visual corrige:
+The direction from the camera to the person's torso is projected onto the real
+optical axes of `head_camera`. A visual servo corrects:
 
-- `head_yaw`: error horizontal;
-- `head_pitch`: error vertical.
+- `head_yaw`: horizontal error;
+- `head_pitch`: vertical error.
 
-La cámara usa la convención de MuJoCo (`-Z` = mirada, `+Y` = arriba) y conserva
-la corrección de frame óptico de la versión anterior. La comprobación de
-visibilidad usa el frustum real del PiP y ray-cast contra la escena.
+The camera follows MuJoCo's convention (`-Z` is forward and `+Y` is up) and
+retains the optical-frame correction introduced in the previous version.
+Visibility is checked against the PiP's real frustum and through a scene ray cast.
 
-### Separación entre mirada y locomoción
+### Separating gaze from locomotion
 
-La cabeza representa una fracción grande de la masa del microduck. Dos pruebas
-controlándola físicamente durante la marcha hicieron caer al robot, incluso
-preservando la salida estabilizadora de la política. La ONNX de locomoción no
-fue entrenada con una trayectoria externa de cabeza.
+The head represents a large fraction of microduck's total mass. Two experiments
+that moved it physically while walking caused the robot to fall, even when the
+policy's stabilizing output was preserved. The locomotion ONNX policy was not
+trained to compensate for an external head trajectory.
 
-Por eso esta versión usa una **capa cinemática independiente de mirada**:
+This version therefore uses an **independent kinematic gaze layer**:
 
-1. la física y la política de marcha avanzan en el `MjData` original sin ningún
-   cambio respecto a la base estable;
-2. percepción y render usan una copia aislada de `MjData` con yaw/pitch de
-   cabeza orientados hacia la persona;
-3. esa pose nunca se reinyecta en la dinámica de locomoción.
+1. locomotion physics and policy inference advance in the original `MjData`,
+   unchanged from the stable baseline;
+2. perception and rendering use an isolated `MjData` copy whose head yaw and
+   pitch are aimed at the person;
+3. that pose is never fed back into the locomotion dynamics.
 
-Esto equivale a separar el controlador de mirada del controlador de marcha,
-como debe hacerse en el robot real, y evita presentar como estable una dinámica
-que la política actual no sabe compensar.
+This mirrors the proper separation between gaze and locomotion controllers on
+the physical robot, and avoids claiming dynamic stability that the current
+policy cannot actually provide.
 
-## Parámetros heredados sin cambios
+## Inherited parameters — unchanged
 
-- reacción: `RETREAT_D = 1.15 m`, persona desde `x0 = 1.60 m`;
+- reaction: `RETREAT_D = 1.15 m`, person starts at `x0 = 1.60 m`;
 - `VX_RETREAT = -0.28`;
 - `VX_ROTATE = -0.31`;
 - `RETREAT_HOLD = 5.0 s`;
@@ -89,5 +88,5 @@ que la política actual no sabe compensar.
 - `TURN_CUT = 45°`;
 - `CMD_TAU = 0.08`.
 
-Nunca se modificó `move-away-early-camera/`; esta variante vive íntegramente en
-su propia carpeta.
+`move-away-early-camera/` was never modified; this variant lives entirely in
+its own folder.

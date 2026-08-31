@@ -1,32 +1,31 @@
 # microduck
 
-Base de trabajo propia sobre el simulador del Mini BDX (microduck / microduck_rl de Pollen Robotics).
+A dedicated workspace built on Pollen Robotics' Mini BDX simulator (`microduck` / `microduck_rl`).
 
-La idea: cada comportamiento que llegue a funcionar de verdad en simulación se congela
-en su propia subcarpeta, y se va incrementando desde ahí sólo con pasos seguros.
+The approach is simple: every behavior that genuinely works in simulation is frozen in
+its own subfolder, and further improvements are made incrementally from that baseline.
 
-> **Mejor versión actual:** [`move-away-head-tracking/`](move-away-head-tracking/) —
-> nueva base recomendada para cualquier incremento futuro.
+> **Current best version:** [`move-away-head-tracking/`](move-away-head-tracking/) —
+> the recommended baseline for future iterations.
 
-## Comportamientos
+## Behaviors
 
-| Carpeta | Estado | Qué hace |
+| Folder | Status | Description |
 |---|---|---|
-| [`move-away/`](move-away/) | ✅ funciona | Base congelada: detecta a una persona, retrocede, gira 90° y se aparta. |
-| [`move-away-early-camera/`](move-away-early-camera/) | ✅ validada | Maniobra estable iniciada a 1,15 m; cámara real del pato en PiP 225×165; validación de 19 s con la persona caminando 3 s adicionales. |
-| [`move-away-head-tracking/`](move-away-head-tracking/) | 🏆 mejor actual | Extiende a 22 s y mantiene a la persona en la cámara durante 1100/1100 pasos mediante una capa cinemática independiente de mirada. |
+| [`move-away/`](move-away/) | ✅ working | Frozen baseline: detects an approaching person, backs up, turns about 90°, and moves out of the way. |
+| [`move-away-early-camera/`](move-away-early-camera/) | ✅ validated | Stable maneuver triggered at 1.15 m, with the duck's real camera shown in a 225×165 PiP; validated over 19 seconds with the person walking for 3 additional seconds. |
+| [`move-away-head-tracking/`](move-away-head-tracking/) | 🏆 current best | Extends the sequence to 22 seconds and keeps the person in view for all 1100/1100 control steps through an independent kinematic gaze layer. |
 
-## Convenciones
+## Conventions
 
-- Una subcarpeta por comportamiento. Nunca se toca un comportamiento ya validado
-  para probar el siguiente: se copia y se itera en la copia.
-- Cada subcarpeta lleva su `README.md` con los parámetros MEDIDOS (no supuestos)
-  y el vídeo de la versión buena en `media/`.
-- Las políticas ONNX son las de stock de `microduck_rl`; aquí no se entrena nada
-  todavía, se conduce la marcha con comandos de velocidad desde una capa de
-  comportamiento.
+- One behavior per subfolder. A validated behavior is never modified to test the
+  next idea: copy it and iterate in the copy.
+- Every subfolder includes a `README.md` with MEASURED parameters—not assumptions—
+  and the validated video under `media/`.
+- The ONNX policies are the stock policies from `microduck_rl`. Nothing is trained
+  here yet; a behavior layer drives locomotion through velocity commands.
 
 ## Upstream
 
-- Simulador / políticas: https://github.com/pollen-robotics/microduck_rl
-- Firmware del robot: https://github.com/pollen-robotics/microduck
+- Simulator and policies: https://github.com/pollen-robotics/microduck_rl
+- Robot firmware: https://github.com/pollen-robotics/microduck
