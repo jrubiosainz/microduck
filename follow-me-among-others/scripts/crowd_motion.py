@@ -53,11 +53,11 @@ def _ellipse(color: str, t: float, *, center, radii, omega, phase,
 def crowd_trajectory(t: float) -> dict[str, PersonState]:
     """Five logical but deliberately unsynchronised walking routes."""
     return {
-        "BLUE": _ellipse("BLUE", t, center=(1.02, 0.25), radii=(0.52, 0.25),
+        "BLUE": _ellipse("BLUE", t, center=(1.80, 0.75), radii=(0.52, 0.25),
                          omega=0.080, phase=0.10, wobble=0.025),
         "GREEN": _ellipse("GREEN", t, center=(0.92, 0.52), radii=(0.46, 0.24),
                           omega=-0.073, phase=1.75, wobble=0.030),
-        "RED": _ellipse("RED", t, center=(1.12, -0.52), radii=(0.56, 0.24),
+        "RED": _ellipse("RED", t, center=(1.20, 1.15), radii=(0.56, 0.24),
                         omega=0.068, phase=3.75, wobble=0.020),
         "YELLOW": _ellipse("YELLOW", t, center=(0.82, 1.00), radii=(0.62, 0.20),
                            omega=-0.092, phase=5.05, wobble=0.035),
@@ -102,7 +102,7 @@ class FootstepTrail:
 
 
 class SearchFollowStateMachine:
-    """Enforce BUSCO→ENCUENTRO→SIGO→PARO for four target selections."""
+    """Enforce SEARCH→FOUND→FOLLOW→STOP for four target selections."""
 
     FOUND_SECONDS = 1.0
     FOLLOW_SECONDS = 9.0
@@ -112,7 +112,7 @@ class SearchFollowStateMachine:
 
     def __init__(self):
         self.index = 0
-        self.state = "BUSCO"
+        self.state = "SEARCH"
         self.state_since = 0.0
         self.cycles = []
         self.current = {
@@ -134,31 +134,31 @@ class SearchFollowStateMachine:
             return "DONE", TARGET_SEQUENCE[-1], False
         elapsed = t - self.state_since
         changed = False
-        if self.state == "BUSCO":
+        if self.state == "SEARCH":
             seen = camera.get("target_visible", False)
             centered = camera.get("target_off_axis", math.pi) < math.radians(8.0)
             if elapsed >= self.MIN_SEARCH_SECONDS and seen and centered:
-                self.state = "ENCUENTRO"
+                self.state = "FOUND"
                 self.current["found_s"] = t
                 self.current["search_duration_s"] = elapsed
                 changed = True
             elif elapsed >= self.MAX_SEARCH_SECONDS:
                 raise RuntimeError(f"camera failed to find {self.target} in {elapsed:.2f}s")
-        elif self.state == "ENCUENTRO" and elapsed >= self.FOUND_SECONDS:
-            self.state = "SIGO"
+        elif self.state == "FOUND" and elapsed >= self.FOUND_SECONDS:
+            self.state = "FOLLOW"
             self.current["follow_start_s"] = t
             changed = True
-        elif self.state == "SIGO" and elapsed >= self.FOLLOW_SECONDS:
-            self.state = "PARO"
+        elif self.state == "FOLLOW" and elapsed >= self.FOLLOW_SECONDS:
+            self.state = "STOP"
             self.current["stop_s"] = t
             changed = True
-        elif self.state == "PARO" and elapsed >= self.STOP_SECONDS:
+        elif self.state == "STOP" and elapsed >= self.STOP_SECONDS:
             self.current["cycle_end_s"] = t
             self.cycles.append(dict(self.current))
             self.index += 1
             if self.done:
                 return "DONE", TARGET_SEQUENCE[-1], True
-            self.state = "BUSCO"
+            self.state = "SEARCH"
             self.current = {
                 "selection": self.index + 1,
                 "target": self.target,
@@ -186,7 +186,12 @@ class CrowdFollowController:
         if not active:
             raw = (0.0, 0.0, 0.0)
         else:
-            vx = 0.24 if abs(yaw_error) < math.radians(45) else 0.16
+            # The stock walking policy has a hard gait-onset threshold.  The
+            # old 0.16 command used for large heading errors can leave it
+            # standing still (the RED hand-off exposed this).  Keep the
+            # measured 0.24 walking command while turning, as in the validated
+            # left/right base, so every target switch actually initiates gait.
+            vx = 0.24
             if distance < 0.14:
                 vx = 0.0
             if abs(yaw_error) < math.radians(4):

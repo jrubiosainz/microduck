@@ -7,7 +7,7 @@ its own subfolder, and further improvements are made incrementally from that bas
 
 > **Current follow behavior:**
 > [`follow-me-among-others/`](follow-me-among-others/) — Microduck searches a
-> moving crowd by shirt color and repeats `BUSCO → ENCUENTRO → SIGO → PARO` for
+> moving crowd by shirt color and repeats `SEARCH → FOUND → FOLLOW → STOP` for
 > blue, green, red and blue. The frozen avoidance baseline remains
 > [`move-away-head-tracking/`](move-away-head-tracking/).
 

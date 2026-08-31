@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render BUSCO→ENCUENTRO→SIGO→PARO among moving pedestrians."""
+"""Render SEARCH→FOUND→FOLLOW→STOP among moving pedestrians."""
 import argparse
 import json
 import math
@@ -153,8 +153,8 @@ def main():
         duck_yaw_before = yaw_of_body(data, trunk_id)
         active_trail = trail_states[target]
         command, follow = controller.update(
-            state == "SIGO", active_trail, duck_pos_before, duck_yaw_before)
-        if state == "SIGO":
+            state == "FOLLOW", active_trail, duck_pos_before, duck_yaw_before)
+        if state == "FOLLOW":
             data.mocap_pos[target_mocap] = np.array([
                 active_trail.pos[0], active_trail.pos[1], 0.012])
         else:
@@ -200,6 +200,7 @@ def main():
             "person_range_m": person_range,
             "yaw_error_deg": math.degrees(follow["yaw_error"]),
             "duck_yaw_deg": math.degrees(duck_yaw),
+            "duck_xy": duck_pos[:2].tolist(),
             "trunk_z_m": float(duck_pos[2]),
             "command": command.tolist(),
         }
@@ -227,6 +228,9 @@ def main():
                   f"seen={camera_state['target_visible']} "
                   f"off={math.degrees(camera_state['target_off_axis']):5.1f} "
                   f"err={follow_error:.3f} range={person_range:.3f} "
+                  f"duck=({duck_pos[0]:+.2f},{duck_pos[1]:+.2f}) "
+                  f"trail=({active_trail.pos[0]:+.2f},{active_trail.pos[1]:+.2f}) "
+                  f"yaw={math.degrees(duck_yaw):+.1f} "
                   f"z={duck_pos[2]:.3f} cmd="
                   f"({command[0]:+.2f},{command[1]:+.2f},{command[2]:+.2f})")
 
@@ -257,16 +261,42 @@ def main():
         raise RuntimeError(
             f"sequence incomplete after {args.seconds:.1f}s: "
             f"selection={machine.index + 1}, state={machine.state}")
-    follow_rows = [r for r in records if r["state"] == "SIGO"]
+    follow_rows = [r for r in records if r["state"] == "FOLLOW"]
+    follow_by_selection = []
+    for selection_index, target_color in enumerate(TARGET_SEQUENCE, start=1):
+        rows = [r for r in follow_rows if r["selection"] == selection_index]
+        positions = [np.asarray(r["duck_xy"], dtype=np.float64) for r in rows]
+        path_distance = sum(float(np.linalg.norm(b - a))
+                            for a, b in zip(positions, positions[1:]))
+        net_displacement = float(np.linalg.norm(positions[-1] - positions[0]))
+        follow_by_selection.append({
+            "selection": selection_index,
+            "target": target_color,
+            "path_distance_m": path_distance,
+            "net_displacement_m": net_displacement,
+            "start_error_m": rows[0]["follow_error_m"],
+            "end_error_m": rows[-1]["follow_error_m"],
+            "min_error_m": min(r["follow_error_m"] for r in rows),
+            "start_yaw_error_deg": rows[0]["yaw_error_deg"],
+            "end_yaw_error_deg": rows[-1]["yaw_error_deg"],
+        })
     summary = {
         "duration_s": args.seconds,
         "control_steps": total_steps,
         "frames": frames,
         "target_sequence_requested": list(TARGET_SEQUENCE),
         "target_sequence_completed": [c["target"] for c in machine.cycles],
-        "pattern": ["BUSCO", "ENCUENTRO", "SIGO", "PARO"],
+        "pattern": ["SEARCH", "FOUND", "FOLLOW", "STOP"],
         "cycles_completed": len(machine.cycles),
         "cycles": machine.cycles,
+        "follow_by_selection": follow_by_selection,
+        "all_follow_segments_moved": all(
+            segment["path_distance_m"] >= 0.40
+            and segment["net_displacement_m"] >= 0.30
+            for segment in follow_by_selection),
+        "all_follow_segments_approached": all(
+            segment["min_error_m"] <= segment["start_error_m"] - 0.05
+            for segment in follow_by_selection),
         "transitions": transitions,
         "trail_distance_m": TRAIL_DISTANCE,
         "follow_rmse_m": math.sqrt(sum(
@@ -292,7 +322,7 @@ def main():
             r["target_visible"] for r in follow_rows) / len(follow_rows),
         "stationary_state_command_max": max(
             float(np.linalg.norm(r["command"])) for r in records
-            if r["state"] in ("BUSCO", "ENCUENTRO", "PARO", "DONE")),
+            if r["state"] in ("SEARCH", "FOUND", "STOP", "DONE")),
         "min_trunk_z_m": min(r["trunk_z_m"] for r in records),
         "final_trunk_z_m": records[-1]["trunk_z_m"],
         "fallen_steps": sum(r["trunk_z_m"] < 0.09 for r in records),
@@ -301,6 +331,10 @@ def main():
         "camera_search_target_visible_steps": camera_search.search_target_visible_steps,
     }
     Path(args.metrics).write_text(json.dumps(summary, indent=2) + "\n")
+    if not summary["all_follow_segments_moved"]:
+        raise RuntimeError("one or more FOLLOW segments did not produce locomotion")
+    if not summary["all_follow_segments_approached"]:
+        raise RuntimeError("one or more FOLLOW segments never approached its target")
     print(json.dumps(summary, indent=2))
 
 

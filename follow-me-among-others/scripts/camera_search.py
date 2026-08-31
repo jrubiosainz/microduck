@@ -144,9 +144,10 @@ class CrowdCameraSearch:
                 np.dot(unit, forward), -1.0, 1.0)))
             best_off_axis = min(best_off_axis, off_axis)
             if in_fov:
-                # The semantic color detector uses rendered segmentation, where
-                # any visible shirt fragment is sufficient. Central raycasts
-                # are too strict in a crowd (one arm can cover one sample).
+                # This is an explicit semantic proxy, not pixel recognition:
+                # the simulator supplies each actor's identity and world pose,
+                # and this routine tests known shirt/head sample points against
+                # the camera frustum.  The PiP is rendered for inspection only.
                 visible = True
         return visible, best_off_axis, center_distance
 
@@ -174,7 +175,7 @@ class CrowdCameraSearch:
     def update(self, data, *, target_color, mode, mode_elapsed, duck_yaw):
         self._pose_gaze(data, duck_yaw)
         target = self._person_target(target_color)
-        if mode == "BUSCO":
+        if mode == "SEARCH":
             # One complete panoramic sweep in 4.5 s. Recognition remains
             # color-selective: distractors can cross the PiP without firing.
             self.view_yaw = wrap(duck_yaw - math.pi + 2.0 * math.pi * mode_elapsed / 4.5)
@@ -200,7 +201,7 @@ class CrowdCameraSearch:
         self.samples += 1
         if target_visible:
             self.target_visible_steps += 1
-            if mode == "BUSCO":
+            if mode == "SEARCH":
                 self.search_target_visible_steps += 1
         self.max_target_off_axis = max(
             self.max_target_off_axis,

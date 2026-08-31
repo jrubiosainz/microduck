@@ -13,13 +13,13 @@ COLOR_RGB = {
     "PURPLE": (190, 90, 245),
 }
 STATE_RGB = {
-    "BUSCO": (255, 210, 75),
-    "ENCUENTRO": (75, 255, 150),
-    "SIGO": (90, 190, 255),
-    "PARO": (255, 105, 110),
+    "SEARCH": (255, 210, 75),
+    "FOUND": (75, 255, 150),
+    "FOLLOW": (90, 190, 255),
+    "STOP": (255, 105, 110),
     "DONE": (180, 255, 180),
 }
-PIPELINE = ("BUSCO", "ENCUENTRO", "SIGO", "PARO")
+PIPELINE = ("SEARCH", "FOUND", "FOLLOW", "STOP")
 
 
 def _font(size=14):
@@ -71,7 +71,7 @@ def compose(main_rgb, pip_rgb, *, t, total_seconds, state, state_elapsed,
     border = accent if camera["target_visible"] else (255, 190, 60)
     draw.rectangle([px0 - 4, py0 - 24, px0 + PIP_W + 4, py0 + PIP_H + 4],
                    fill=(2, 5, 8))
-    label = (f"SEARCHING {target}" if state == "BUSCO"
+    label = (f"SEARCHING {target}" if state == "SEARCH"
              else f"TRACKING {target}")
     draw.text((px0, py0 - 21), f"DUCK CAMERA · {label}", fill=border, font=small)
     image.paste(pip, (px0, py0))
@@ -82,7 +82,8 @@ def compose(main_rgb, pip_rgb, *, t, total_seconds, state, state_elapsed,
     draw.line([cx - 9, cy, cx + 9, cy], fill=(255, 245, 95), width=1)
     draw.line([cx, cy - 9, cx, cy + 9], fill=(255, 245, 95), width=1)
     if camera["target_visible"]:
-        draw.text((px0 + 8, py0 + 8), f"{target} FOUND", fill=accent, font=small)
+        status = "VISIBLE" if state == "SEARCH" else "LOCKED"
+        draw.text((px0 + 8, py0 + 8), f"{target} {status}", fill=accent, font=small)
 
     # Make the requested repeated control pattern explicit.
     pipe_x, pipe_y = 16, height - 82

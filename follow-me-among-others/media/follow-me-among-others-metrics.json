@@ -15,10 +15,10 @@
     "BLUE"
   ],
   "pattern": [
-    "BUSCO",
-    "ENCUENTRO",
-    "SIGO",
-    "PARO"
+    "SEARCH",
+    "FOUND",
+    "FOLLOW",
+    "STOP"
   ],
   "cycles_completed": 4,
   "cycles": [
@@ -26,173 +26,221 @@
       "selection": 1,
       "target": "BLUE",
       "search_start_s": 0.0,
-      "found_s": 2.34,
-      "search_duration_s": 2.34,
-      "follow_start_s": 3.34,
-      "stop_s": 12.34,
-      "cycle_end_s": 13.84
+      "found_s": 2.44,
+      "search_duration_s": 2.44,
+      "follow_start_s": 3.44,
+      "stop_s": 12.44,
+      "cycle_end_s": 13.94
     },
     {
       "selection": 2,
       "target": "GREEN",
-      "search_start_s": 13.84,
-      "found_s": 16.62,
-      "search_duration_s": 2.780000000000001,
-      "follow_start_s": 17.62,
-      "stop_s": 26.62,
-      "cycle_end_s": 28.12
+      "search_start_s": 13.94,
+      "found_s": 16.5,
+      "search_duration_s": 2.5600000000000005,
+      "follow_start_s": 17.5,
+      "stop_s": 26.5,
+      "cycle_end_s": 28.0
     },
     {
       "selection": 3,
       "target": "RED",
-      "search_start_s": 28.12,
-      "found_s": 28.54,
-      "search_duration_s": 0.41999999999999815,
-      "follow_start_s": 29.54,
-      "stop_s": 38.540000000000006,
-      "cycle_end_s": 40.040000000000006
+      "search_start_s": 28.0,
+      "found_s": 29.34,
+      "search_duration_s": 1.3399999999999999,
+      "follow_start_s": 30.34,
+      "stop_s": 39.34,
+      "cycle_end_s": 40.84
     },
     {
       "selection": 4,
       "target": "BLUE",
-      "search_start_s": 40.040000000000006,
-      "found_s": 44.14,
-      "search_duration_s": 4.099999999999994,
-      "follow_start_s": 45.14,
-      "stop_s": 54.14,
-      "cycle_end_s": 55.64
+      "search_start_s": 40.84,
+      "found_s": 41.92,
+      "search_duration_s": 1.0799999999999983,
+      "follow_start_s": 42.92,
+      "stop_s": 51.92,
+      "cycle_end_s": 53.42
     }
   ],
+  "follow_by_selection": [
+    {
+      "selection": 1,
+      "target": "BLUE",
+      "path_distance_m": 1.2645654652841691,
+      "net_displacement_m": 0.7821005083430846,
+      "start_error_m": 2.3359368698774747,
+      "end_error_m": 1.608753912934873,
+      "min_error_m": 1.608753912934873,
+      "start_yaw_error_deg": 7.665724428087388,
+      "end_yaw_error_deg": -1.0716329960243358
+    },
+    {
+      "selection": 2,
+      "target": "GREEN",
+      "path_distance_m": 0.9564470002054479,
+      "net_displacement_m": 0.5006299406033459,
+      "start_error_m": 0.58279835626898,
+      "end_error_m": 0.13877298524962717,
+      "min_error_m": 0.12923402868497708,
+      "start_yaw_error_deg": 74.1490151129663,
+      "end_yaw_error_deg": -31.325484275686502
+    },
+    {
+      "selection": 3,
+      "target": "RED",
+      "path_distance_m": 1.2492557944513571,
+      "net_displacement_m": 0.7181077965774174,
+      "start_error_m": 0.3968018878134832,
+      "end_error_m": 0.23463613567374192,
+      "min_error_m": 0.20174322272878217,
+      "start_yaw_error_deg": -50.50607873409688,
+      "end_yaw_error_deg": -101.72244597447491
+    },
+    {
+      "selection": 4,
+      "target": "BLUE",
+      "path_distance_m": 0.8791312841234885,
+      "net_displacement_m": 0.43444843807606326,
+      "start_error_m": 0.23732362106784205,
+      "end_error_m": 0.32209509515557344,
+      "min_error_m": 0.1276462423878412,
+      "start_yaw_error_deg": -28.828836594501716,
+      "end_yaw_error_deg": -112.69729519390562
+    }
+  ],
+  "all_follow_segments_moved": true,
+  "all_follow_segments_approached": true,
   "transitions": [
     {
-      "t": 2.34,
-      "from": "BUSCO",
-      "to": "ENCUENTRO",
+      "t": 2.44,
+      "from": "SEARCH",
+      "to": "FOUND",
       "target": "BLUE",
       "selection": 1
     },
     {
-      "t": 3.34,
-      "from": "ENCUENTRO",
-      "to": "SIGO",
+      "t": 3.44,
+      "from": "FOUND",
+      "to": "FOLLOW",
       "target": "BLUE",
       "selection": 1
     },
     {
-      "t": 12.34,
-      "from": "SIGO",
-      "to": "PARO",
+      "t": 12.44,
+      "from": "FOLLOW",
+      "to": "STOP",
       "target": "BLUE",
       "selection": 1
     },
     {
-      "t": 13.84,
-      "from": "PARO",
-      "to": "BUSCO",
+      "t": 13.94,
+      "from": "STOP",
+      "to": "SEARCH",
       "target": "GREEN",
       "selection": 2
     },
     {
-      "t": 16.62,
-      "from": "BUSCO",
-      "to": "ENCUENTRO",
+      "t": 16.5,
+      "from": "SEARCH",
+      "to": "FOUND",
       "target": "GREEN",
       "selection": 2
     },
     {
-      "t": 17.62,
-      "from": "ENCUENTRO",
-      "to": "SIGO",
+      "t": 17.5,
+      "from": "FOUND",
+      "to": "FOLLOW",
       "target": "GREEN",
       "selection": 2
     },
     {
-      "t": 26.62,
-      "from": "SIGO",
-      "to": "PARO",
+      "t": 26.5,
+      "from": "FOLLOW",
+      "to": "STOP",
       "target": "GREEN",
       "selection": 2
     },
     {
-      "t": 28.12,
-      "from": "PARO",
-      "to": "BUSCO",
+      "t": 28.0,
+      "from": "STOP",
+      "to": "SEARCH",
       "target": "RED",
       "selection": 3
     },
     {
-      "t": 28.54,
-      "from": "BUSCO",
-      "to": "ENCUENTRO",
+      "t": 29.34,
+      "from": "SEARCH",
+      "to": "FOUND",
       "target": "RED",
       "selection": 3
     },
     {
-      "t": 29.54,
-      "from": "ENCUENTRO",
-      "to": "SIGO",
+      "t": 30.34,
+      "from": "FOUND",
+      "to": "FOLLOW",
       "target": "RED",
       "selection": 3
     },
     {
-      "t": 38.540000000000006,
-      "from": "SIGO",
-      "to": "PARO",
+      "t": 39.34,
+      "from": "FOLLOW",
+      "to": "STOP",
       "target": "RED",
       "selection": 3
     },
     {
-      "t": 40.040000000000006,
-      "from": "PARO",
-      "to": "BUSCO",
+      "t": 40.84,
+      "from": "STOP",
+      "to": "SEARCH",
       "target": "BLUE",
       "selection": 4
     },
     {
-      "t": 44.14,
-      "from": "BUSCO",
-      "to": "ENCUENTRO",
+      "t": 41.92,
+      "from": "SEARCH",
+      "to": "FOUND",
       "target": "BLUE",
       "selection": 4
     },
     {
-      "t": 45.14,
-      "from": "ENCUENTRO",
-      "to": "SIGO",
+      "t": 42.92,
+      "from": "FOUND",
+      "to": "FOLLOW",
       "target": "BLUE",
       "selection": 4
     },
     {
-      "t": 54.14,
-      "from": "SIGO",
-      "to": "PARO",
+      "t": 51.92,
+      "from": "FOLLOW",
+      "to": "STOP",
       "target": "BLUE",
       "selection": 4
     },
     {
-      "t": 55.64,
-      "from": "PARO",
+      "t": 53.42,
+      "from": "STOP",
       "to": "DONE",
       "target": "BLUE",
       "selection": 4
     }
   ],
   "trail_distance_m": 0.55,
-  "follow_rmse_m": 0.9717983115314919,
-  "follow_max_m": 1.5499552745218845,
-  "person_range_follow_mean_m": 0.9548103451299977,
-  "person_range_follow_min_m": 0.456124983909987,
-  "person_range_follow_max_m": 1.5575864268710327,
-  "search_duration_mean_s": 2.4099999999999984,
-  "search_duration_max_s": 4.099999999999994,
+  "follow_rmse_m": 1.0278337976504326,
+  "follow_max_m": 2.3359368698774747,
+  "person_range_follow_mean_m": 0.9285065263278016,
+  "person_range_follow_min_m": 0.2702289096994996,
+  "person_range_follow_max_m": 2.4487189012781334,
+  "search_duration_mean_s": 1.8549999999999995,
+  "search_duration_max_s": 2.5600000000000005,
   "found_while_target_visible": true,
   "wrong_color_locks": 0,
   "camera_target_visible_follow_pct": 100.0,
   "stationary_state_command_max": 0.0,
-  "min_trunk_z_m": 0.11397009590330713,
-  "final_trunk_z_m": 0.11627410625146592,
+  "min_trunk_z_m": 0.11354618767664425,
+  "final_trunk_z_m": 0.11626975383645077,
   "fallen_steps": 0,
-  "camera_target_visible_steps": 2590,
-  "camera_search_steps": 482,
-  "camera_search_target_visible_steps": 72
+  "camera_target_visible_steps": 2698,
+  "camera_search_steps": 371,
+  "camera_search_target_visible_steps": 69
 }
