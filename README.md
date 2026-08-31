@@ -5,8 +5,10 @@ A dedicated workspace built on Pollen Robotics' Mini BDX simulator (`microduck` 
 The approach is simple: every behavior that genuinely works in simulation is frozen in
 its own subfolder, and further improvements are made incrementally from that baseline.
 
-> **Current best version:** [`move-away-head-tracking/`](move-away-head-tracking/) —
-> the recommended baseline for future iterations.
+> **Latest behavior:** [`follow-me/`](follow-me/) — a person leads a complete
+> forward/left/stop/right/backward route while Microduck follows and keeps them
+> visible. The frozen avoidance baseline remains
+> [`move-away-head-tracking/`](move-away-head-tracking/).
 
 ## Behaviors
 
@@ -14,7 +16,8 @@ its own subfolder, and further improvements are made incrementally from that bas
 |---|---|---|
 | [`move-away/`](move-away/) | ✅ working | Frozen baseline: detects an approaching person, backs up, turns about 90°, and moves out of the way. |
 | [`move-away-early-camera/`](move-away-early-camera/) | ✅ validated | Stable maneuver triggered at 1.15 m, with the duck's real camera shown in a 225×165 PiP; validated over 19 seconds with the person walking for 3 additional seconds. |
-| [`move-away-head-tracking/`](move-away-head-tracking/) | 🏆 current best | Extends the sequence to 22 seconds and keeps the person in view for all 1100/1100 control steps through an independent kinematic gaze layer. |
+| [`move-away-head-tracking/`](move-away-head-tracking/) | 🏆 avoidance baseline | Extends the sequence to 22 seconds and keeps the person in view for all 1100/1100 control steps through an independent kinematic gaze layer. |
+| [`follow-me/`](follow-me/) | ✅ validated | Follows an animated person through forward, left-turn, stop, screen-right and backward phases; includes measured tracking metrics and a stabilized head-camera PiP. |
 
 ## Conventions
 
