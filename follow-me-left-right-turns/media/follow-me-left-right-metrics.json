@@ -1,0 +1,117 @@
+{
+  "duration_s": 44.0,
+  "control_steps": 2200,
+  "frames": 2200,
+  "trail_distance_m": 0.65,
+  "target_semantics": "leader world-space path point TRAIL_DISTANCE metres earlier",
+  "follow_rmse_m": 0.6057779293976578,
+  "follow_mean_m": 0.3853311433269739,
+  "follow_max_m": 1.6618502441434202,
+  "person_range_mean_m": 0.857329621048067,
+  "person_range_min_m": 0.5185774989396463,
+  "person_range_max_m": 1.3627018210636999,
+  "min_trunk_z_m": 0.11398634736846808,
+  "final_trunk_z_m": 0.11625631684662979,
+  "fallen_steps": 0,
+  "camera_visible_steps": 2200,
+  "camera_lost_steps": 0,
+  "camera_visible_pct": 100.0,
+  "camera_rms_off_axis_deg": 5.604483222482723e-07,
+  "camera_max_off_axis_deg": 1.9090959104164224e-06,
+  "leader_phase_first_seen_s": {
+    "READY": 0.02,
+    "FORWARD": 2.0,
+    "LEFT TURN": 7.0,
+    "STOP": 15.0,
+    "RIGHT TURN": 18.0,
+    "BACKWARD": 35.0,
+    "DONE": 41.0
+  },
+  "duck_command_phase_first_seen_s": {
+    "STOPPED": 0.02,
+    "FORWARD": 2.02,
+    "LEFT TURN": 12.44,
+    "STOP": 23.419999999999998,
+    "RIGHT TURN": 23.44,
+    "BACKWARD": 35.02
+  },
+  "left_turn_delay_s": 5.4399999999999995,
+  "right_turn_delay_s": 5.440000000000001,
+  "backward_delay_s": 0.020000000000003126,
+  "leader_left_turn_yaw_delta_deg": 90.0,
+  "leader_right_turn_yaw_delta_deg": -90.0,
+  "duck_left_turn_yaw_delta_deg": 86.38826942867188,
+  "duck_right_turn_yaw_delta_deg": -83.99453325152541,
+  "phases": {
+    "BACKWARD": {
+      "samples": 300,
+      "follow_rmse_m": 1.0008379777038419,
+      "follow_max_m": 1.6263707632359807,
+      "person_range_mean_m": 1.080352117346078,
+      "person_range_min_m": 0.8574335573460016,
+      "person_range_max_m": 1.3323622390281897,
+      "min_trunk_z_m": 0.11507421722688231,
+      "camera_visible_pct": 100.0
+    },
+    "DONE": {
+      "samples": 151,
+      "follow_rmse_m": 1.6604398382372583,
+      "follow_max_m": 1.6618502441434202,
+      "person_range_mean_m": 1.3612993531851851,
+      "person_range_min_m": 1.3336858991094027,
+      "person_range_max_m": 1.3627018210636999,
+      "min_trunk_z_m": 0.11624819181163633,
+      "camera_visible_pct": 100.0
+    },
+    "FORWARD": {
+      "samples": 250,
+      "follow_rmse_m": 0.06313395849437002,
+      "follow_max_m": 0.13165271068201723,
+      "person_range_mean_m": 0.6158875437307493,
+      "person_range_min_m": 0.5216858237204809,
+      "person_range_max_m": 0.6841091698275654,
+      "min_trunk_z_m": 0.11398634736846808,
+      "camera_visible_pct": 100.0
+    },
+    "LEFT TURN": {
+      "samples": 400,
+      "follow_rmse_m": 0.0830784753382841,
+      "follow_max_m": 0.13497981807112858,
+      "person_range_mean_m": 0.6129171966940641,
+      "person_range_min_m": 0.5185774989396463,
+      "person_range_max_m": 0.7296517982859133,
+      "min_trunk_z_m": 0.11470262824641547,
+      "camera_visible_pct": 100.0
+    },
+    "READY": {
+      "samples": 99,
+      "follow_rmse_m": 0.0016247333066697833,
+      "follow_max_m": 0.002213441873519126,
+      "person_range_mean_m": 0.6484274260072004,
+      "person_range_min_m": 0.6478028168056476,
+      "person_range_max_m": 0.6500948970222586,
+      "min_trunk_z_m": 0.11549163090523974,
+      "camera_visible_pct": 100.0
+    },
+    "RIGHT TURN": {
+      "samples": 850,
+      "follow_rmse_m": 0.3160339177423586,
+      "follow_max_m": 0.40030416939480645,
+      "person_range_mean_m": 0.9221285744930067,
+      "person_range_min_m": 0.728942255385292,
+      "person_range_max_m": 1.0010534898702477,
+      "min_trunk_z_m": 0.11405092738430295,
+      "camera_visible_pct": 100.0
+    },
+    "STOP": {
+      "samples": 150,
+      "follow_rmse_m": 0.11119601037384112,
+      "follow_max_m": 0.11249531576200344,
+      "person_range_mean_m": 0.7288064044458639,
+      "person_range_min_m": 0.7247188106707828,
+      "person_range_max_m": 0.7318713234791939,
+      "min_trunk_z_m": 0.11626391471398424,
+      "camera_visible_pct": 100.0
+    }
+  }
+}

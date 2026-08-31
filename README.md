@@ -5,10 +5,11 @@ A dedicated workspace built on Pollen Robotics' Mini BDX simulator (`microduck` 
 The approach is simple: every behavior that genuinely works in simulation is frozen in
 its own subfolder, and further improvements are made incrementally from that baseline.
 
-> **Current follow behavior:** [`follow-me-footsteps/`](follow-me-footsteps/) —
-> Microduck follows the leader's queued world-space footsteps and reaches each
-> corner after the leader instead of mirroring the turn immediately. The frozen
-> avoidance baseline remains [`move-away-head-tracking/`](move-away-head-tracking/).
+> **Current follow behavior:**
+> [`follow-me-left-right-turns/`](follow-me-left-right-turns/) — Microduck follows
+> queued world-space footsteps through genuinely opposite left (`+86.4°`) and
+> right (`−84.0°`) turns. The frozen avoidance baseline remains
+> [`move-away-head-tracking/`](move-away-head-tracking/).
 
 ## Behaviors
 
@@ -18,7 +19,8 @@ its own subfolder, and further improvements are made incrementally from that bas
 | [`move-away-early-camera/`](move-away-early-camera/) | ✅ validated | Stable maneuver triggered at 1.15 m, with the duck's real camera shown in a 225×165 PiP; validated over 19 seconds with the person walking for 3 additional seconds. |
 | [`move-away-head-tracking/`](move-away-head-tracking/) | 🏆 avoidance baseline | Extends the sequence to 22 seconds and keeps the person in view for all 1100/1100 control steps through an independent kinematic gaze layer. |
 | [`follow-me/`](follow-me/) | ⚠️ comparison v1 | Original follow demo. Locomotion works, but it mirrors the leader's current pose and therefore cuts corners instead of following the same footsteps. |
-| [`follow-me-footsteps/`](follow-me-footsteps/) | 🏆 current follow | Uses a 0.65 m world-space trail: leader turns at 7.00 s, duck reaches the same corner and turns at 12.44 s. Includes footprint marker, metrics and stabilized head-camera PiP. |
+| [`follow-me-footsteps/`](follow-me-footsteps/) | ✅ validated path queue | Uses a 0.65 m world-space trail, but retains the original ambiguous turn labels/directions for comparison. |
+| [`follow-me-left-right-turns/`](follow-me-left-right-turns/) | 🏆 current follow | Keeps the delayed footprint queue and replaces the old one-direction/strafe pair with true opposite curves: leader `+90°/−90°`, duck `+86.4°/−84.0°`. |
 
 ## Conventions
 
