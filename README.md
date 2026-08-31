@@ -13,6 +13,7 @@ scripts, stock policy, measured parameters and the video that was actually produ
 | Folder | Status | Description |
 |---|---|---|
 | [`move-away/`](move-away/) | ✅ validated | Detects an approaching person, backs up, turns about 90° and clears the path, keeping the person in view for all 1100/1100 control steps through an independent kinematic gaze layer. |
+| [`move-away-crowd/`](move-away-crowd/) | ✅ validated | Scans eight independently moving adults, predicts the most urgent near-pass, and completes four contact-free evasions from different bearings; five adults carry boxes. |
 | [`follow-me/`](follow-me/) | ✅ validated | Follows a leader along a delayed 0.65 m world-space footprint queue, with true opposite turns: leader `+90°/−90°`, duck `+86.4°/−84.0°`. |
 | [`follow-me-among-others/`](follow-me-among-others/) | ✅ validated | Five independently moving colored people; camera-gated acquisition and queued-footprint following in the exact sequence blue → green → red → blue. |
 

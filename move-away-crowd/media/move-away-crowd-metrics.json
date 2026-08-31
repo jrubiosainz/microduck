@@ -1,0 +1,312 @@
+{
+  "duration_s": 52.0,
+  "control_steps": 2600,
+  "ctrl_hz": 50.0,
+  "decimation": 10,
+  "duck_planar_radius_m": 0.11623874935290637,
+  "cycles_completed": 4,
+  "distinct_adults": [
+    "green",
+    "orange",
+    "pink",
+    "red"
+  ],
+  "approach_sectors": [
+    "E",
+    "NW",
+    "S",
+    "W"
+  ],
+  "cycles": [
+    {
+      "cycle": 1,
+      "threat": "orange",
+      "carries_box": true,
+      "approach_sector": "E",
+      "lock_s": 1.52,
+      "lock_bearing_deg": 8.263103939448074,
+      "lock_clearance_m": 0.37235840118023217,
+      "lock_ttc_s": 5.0,
+      "lock_range_m": 1.1741171404656934,
+      "evade_start_s": 2.44,
+      "evade_end_s": 6.22,
+      "evade_duration_s": 3.78,
+      "evade_timeout": false,
+      "evade_path_m": 0.5455192612560711,
+      "evade_net_m": 0.3317232521729446,
+      "counterfactual_clearance_m": 0.28360209059075714,
+      "achieved_predicted_clearance_m": 0.4224162712438917,
+      "clearance_gain_m": 0.13881418065313456,
+      "actual_min_clearance_m": 0.09773600363025521,
+      "lock_visible_pct": 98.29787234042553,
+      "evade_visible_pct": 100.0,
+      "lock_is_threat": true,
+      "lock_top_ranked": true,
+      "lock_tightest_clearance": true,
+      "moved": true,
+      "improved": true
+    },
+    {
+      "cycle": 2,
+      "threat": "green",
+      "carries_box": true,
+      "approach_sector": "S",
+      "lock_s": 10.46,
+      "lock_bearing_deg": -91.82705365029766,
+      "lock_clearance_m": 0.06618885331658136,
+      "lock_ttc_s": 4.453431343419296,
+      "lock_range_m": 0.9296044156913494,
+      "evade_start_s": 11.3,
+      "evade_end_s": 15.4,
+      "evade_duration_s": 4.1,
+      "evade_timeout": false,
+      "evade_path_m": 0.9032368665301167,
+      "evade_net_m": 0.7496411330640756,
+      "counterfactual_clearance_m": 0.011357411809406187,
+      "achieved_predicted_clearance_m": 0.42123245402658593,
+      "clearance_gain_m": 0.40987504221717974,
+      "actual_min_clearance_m": 0.12846058431797847,
+      "lock_visible_pct": 95.95141700404858,
+      "evade_visible_pct": 100.0,
+      "lock_is_threat": true,
+      "lock_top_ranked": true,
+      "lock_tightest_clearance": true,
+      "moved": true,
+      "improved": true
+    },
+    {
+      "cycle": 3,
+      "threat": "red",
+      "carries_box": true,
+      "approach_sector": "W",
+      "lock_s": 19.66,
+      "lock_bearing_deg": -162.45995538597188,
+      "lock_clearance_m": 0.16627873525013778,
+      "lock_ttc_s": 3.2798223303894942,
+      "lock_range_m": 0.7165643561621652,
+      "evade_start_s": 19.96,
+      "evade_end_s": 22.580000000000002,
+      "evade_duration_s": 2.620000000000001,
+      "evade_timeout": false,
+      "evade_path_m": 0.5327770592339701,
+      "evade_net_m": 0.4369839051028146,
+      "counterfactual_clearance_m": 0.18104470161366915,
+      "achieved_predicted_clearance_m": 0.6486865184846176,
+      "clearance_gain_m": 0.4676418168709484,
+      "actual_min_clearance_m": 0.08577781656094109,
+      "lock_visible_pct": 93.15068493150685,
+      "evade_visible_pct": 100.0,
+      "lock_is_threat": true,
+      "lock_top_ranked": true,
+      "lock_tightest_clearance": true,
+      "moved": true,
+      "improved": true
+    },
+    {
+      "cycle": 4,
+      "threat": "pink",
+      "carries_box": false,
+      "approach_sector": "NW",
+      "lock_s": 41.58,
+      "lock_bearing_deg": 137.16087553670653,
+      "lock_clearance_m": 0.37363390281947045,
+      "lock_ttc_s": 5.0,
+      "lock_range_m": 1.1034161265237754,
+      "evade_start_s": 42.480000000000004,
+      "evade_end_s": 45.54,
+      "evade_duration_s": 3.059999999999995,
+      "evade_timeout": false,
+      "evade_path_m": 0.4430147350303785,
+      "evade_net_m": 0.28845663582503117,
+      "counterfactual_clearance_m": 0.28982638927183796,
+      "achieved_predicted_clearance_m": 0.42153800155215987,
+      "clearance_gain_m": 0.1317116122803219,
+      "actual_min_clearance_m": 0.25665656650489144,
+      "lock_visible_pct": 98.48484848484848,
+      "evade_visible_pct": 100.0,
+      "lock_is_threat": true,
+      "lock_top_ranked": true,
+      "lock_tightest_clearance": true,
+      "moved": true,
+      "improved": true
+    }
+  ],
+  "transitions": [
+    {
+      "t": 1.52,
+      "from": "SCANNING",
+      "to": "THREAT_LOCK",
+      "locked": "orange",
+      "cycle": 1
+    },
+    {
+      "t": 2.44,
+      "from": "THREAT_LOCK",
+      "to": "EVADING",
+      "locked": "orange",
+      "cycle": 1
+    },
+    {
+      "t": 6.22,
+      "from": "EVADING",
+      "to": "SETTLING",
+      "locked": "orange",
+      "cycle": 1
+    },
+    {
+      "t": 7.82,
+      "from": "SETTLING",
+      "to": "CLEAR",
+      "locked": "orange",
+      "cycle": 1
+    },
+    {
+      "t": 9.040000000000001,
+      "from": "CLEAR",
+      "to": "SCANNING",
+      "locked": null,
+      "cycle": 2
+    },
+    {
+      "t": 10.46,
+      "from": "SCANNING",
+      "to": "THREAT_LOCK",
+      "locked": "green",
+      "cycle": 2
+    },
+    {
+      "t": 11.3,
+      "from": "THREAT_LOCK",
+      "to": "EVADING",
+      "locked": "green",
+      "cycle": 2
+    },
+    {
+      "t": 15.4,
+      "from": "EVADING",
+      "to": "SETTLING",
+      "locked": "green",
+      "cycle": 2
+    },
+    {
+      "t": 17.02,
+      "from": "SETTLING",
+      "to": "CLEAR",
+      "locked": "green",
+      "cycle": 2
+    },
+    {
+      "t": 18.240000000000002,
+      "from": "CLEAR",
+      "to": "SCANNING",
+      "locked": null,
+      "cycle": 3
+    },
+    {
+      "t": 19.66,
+      "from": "SCANNING",
+      "to": "THREAT_LOCK",
+      "locked": "red",
+      "cycle": 3
+    },
+    {
+      "t": 19.96,
+      "from": "THREAT_LOCK",
+      "to": "EVADING",
+      "locked": "red",
+      "cycle": 3
+    },
+    {
+      "t": 22.580000000000002,
+      "from": "EVADING",
+      "to": "SETTLING",
+      "locked": "red",
+      "cycle": 3
+    },
+    {
+      "t": 24.2,
+      "from": "SETTLING",
+      "to": "CLEAR",
+      "locked": "red",
+      "cycle": 3
+    },
+    {
+      "t": 25.400000000000002,
+      "from": "CLEAR",
+      "to": "SCANNING",
+      "locked": null,
+      "cycle": 4
+    },
+    {
+      "t": 41.58,
+      "from": "SCANNING",
+      "to": "THREAT_LOCK",
+      "locked": "pink",
+      "cycle": 4
+    },
+    {
+      "t": 42.480000000000004,
+      "from": "THREAT_LOCK",
+      "to": "EVADING",
+      "locked": "pink",
+      "cycle": 4
+    },
+    {
+      "t": 45.54,
+      "from": "EVADING",
+      "to": "SETTLING",
+      "locked": "pink",
+      "cycle": 4
+    },
+    {
+      "t": 47.14,
+      "from": "SETTLING",
+      "to": "CLEAR",
+      "locked": "pink",
+      "cycle": 4
+    },
+    {
+      "t": 48.34,
+      "from": "CLEAR",
+      "to": "SCANNING",
+      "locked": null,
+      "cycle": 5
+    }
+  ],
+  "min_trunk_z_m": 0.11258614592666395,
+  "final_trunk_z_m": 0.11626428157327934,
+  "nominal_trunk_z_m": 0.116,
+  "fallen_steps": 0,
+  "min_clearance_any_adult_m": 0.08577781656094109,
+  "contact_steps": 0,
+  "stationary_command_max": 0.0,
+  "stationary_steps": 1922,
+  "evading_steps": 678,
+  "evading_pct": 26.076923076923077,
+  "state_step_counts": {
+    "SCANNING": 1210,
+    "THREAT_LOCK": 148,
+    "EVADING": 678,
+    "SETTLING": 322,
+    "CLEAR": 242
+  },
+  "gates": {
+    "cycles": true,
+    "distinct_adults": true,
+    "approach_sectors": true,
+    "no_falls": true,
+    "min_trunk_z": true,
+    "final_trunk_z": true,
+    "no_contact": true,
+    "still_when_still": true,
+    "evade_moved": true,
+    "evade_improved": true,
+    "no_wrong_locks": true,
+    "lock_visibility": true
+  },
+  "all_gates_pass": true,
+  "frames": 2600,
+  "fps": 50,
+  "width": 960,
+  "height": 640
+}
