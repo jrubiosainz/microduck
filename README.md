@@ -9,7 +9,8 @@ en su propia subcarpeta, y se va incrementando desde ahí sólo con pasos seguro
 
 | Carpeta | Estado | Qué hace |
 |---|---|---|
-| [`move-away/`](move-away/) | ✅ funciona | El pato detecta a una persona que se le acerca, retrocede, gira 90° y se aparta de su camino. |
+| [`move-away/`](move-away/) | ✅ funciona | Base congelada: detecta a una persona, retrocede, gira 90° y se aparta. |
+| [`move-away-early-camera/`](move-away-early-camera/) | ✅ validado | La misma maniobra estable, iniciada a 1,15 m, con vista en tiempo real de la cámara del pato arriba a la derecha. |
 
 ## Convenciones
 
