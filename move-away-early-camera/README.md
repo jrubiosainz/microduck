@@ -22,7 +22,7 @@ Desde un checkout de `microduck_rl` con su entorno (`mujoco`, `onnxruntime`,
 `imageio`, Pillow y ffmpeg):
 
 ```bash
-python scripts/render_phase1.py --seconds 16 --out /tmp/move-away-early-camera --fps 50
+python scripts/render_phase1.py --seconds 19 --out /tmp/move-away-early-camera --fps 50
 ffmpeg -framerate 50 -i /tmp/move-away-early-camera/f%05d.png \
   -c:v libx264 -pix_fmt yuv420p -movflags +faststart \
   media/move-away-early-camera.mp4
@@ -48,8 +48,9 @@ más o cayéndose.
 ## Cámara en pantalla
 
 Se usa un segundo `mujoco.Renderer` asociado a `head_camera`. Cada fotograma se
-pega como PiP de 300×220 px en la esquina superior derecha, con borde verde si
-la persona está visible y rojo si queda fuera del campo de visión u ocluida.
+pega como PiP de 225×165 px (75% del tamaño inicial) en la esquina superior
+derecha, con borde verde si la persona está visible y rojo si queda fuera del
+campo de visión u ocluida.
 Es la cámara a bordo real del modelo, no una cámara exterior aproximada.
 
 **Corrección del frame óptico:** el cuaternión de `head_camera` exportado por el

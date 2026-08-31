@@ -21,7 +21,7 @@ same proven manoeuvre at 1.15 m instead of 0.95 m. The gait and state durations
 are intentionally unchanged.
 
 Usage:
-  python scripts/render_phase1.py --seconds 16 --out /tmp/f_p1 --fps 50
+  python scripts/render_phase1.py --seconds 19 --out /tmp/f_p1 --fps 50
 """
 import argparse
 import math
@@ -91,7 +91,7 @@ def wrap(a):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--policy", default="onnx/alpha_walking.onnx")
-    p.add_argument("--seconds", type=float, default=16.0)
+    p.add_argument("--seconds", type=float, default=19.0)
     p.add_argument("--person-speed", type=float, default=0.12)
     p.add_argument("--out", default="/tmp/f_p1")
     p.add_argument("--width", type=int, default=960)
@@ -148,7 +148,7 @@ def main():
     renderer = mujoco.Renderer(model, height=args.height, width=args.width)
     # Duck's-eye view, shown as a PiP inset in the top-right corner. A separate
     # Renderer is required because mujoco.Renderer caches its framebuffer size.
-    PIP_W, PIP_H = 300, 220
+    PIP_W, PIP_H = 225, 165
     pip_renderer = mujoco.Renderer(model, height=PIP_H, width=PIP_W)
     cam = mujoco.MjvCamera()
     mujoco.mjv_defaultCamera(cam)
