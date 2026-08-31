@@ -163,7 +163,20 @@ def main():
     # ask the real question: is the person within the field of view AND not
     # occluded?
     head_cam = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_CAMERA, "head_camera")
-    HALF_FOV = math.radians(float(model.cam_fovy[head_cam]))   # generous h-fov
+
+    # The upstream MJCF camera quaternion is wrong for MuJoCo's optical-frame
+    # convention: cameras look along local -Z with local +Y as image-up. It
+    # points backwards/sideways into the duck's own CAD and produced the green
+    # panel with holes seen in the first render. This -90° local-Z correction
+    # makes optical -Z follow the duck/head forward axis and image-up follow
+    # world/head up. It changes rendering/perception only, never physics.
+    model.cam_quat[head_cam] = np.array(
+        [math.sqrt(0.5), 0.0, 0.0, -math.sqrt(0.5)], dtype=np.float64)
+    mujoco.mj_forward(model, data)
+
+    vertical_half_fov = math.radians(float(model.cam_fovy[head_cam])) * 0.5
+    tan_v = math.tan(vertical_half_fov)
+    tan_h = (PIP_W / PIP_H) * tan_v
     SELF_SKIP = 0.02          # small step to get the ray off the camera site
 
     # The camera site sits INSIDE the duck's own jaw geometry, so a naive ray
@@ -221,23 +234,30 @@ def main():
         duck = data.xpos[trunk].copy()
         dist = float(np.linalg.norm(person[:2] - duck[:2]))
 
-        # --- real perception: is the person actually in view? ---------------
-        # Gaze is taken from the trunk's forward (+x) axis rather than from the
-        # camera matrix: the head camera rides on the head, pointing forward,
-        # and the trunk axis is the one that provably matches locomotion
-        # (commanding vx>0 moves the trunk towards its own +x). Field of view
-        # first, then line of sight, so turning away really does lose the
-        # target no matter how close the person is.
+        # --- real perception: is the person actually in the camera image? ---
+        # Use the corrected camera optical axes themselves, not the trunk axes.
+        # This makes the green/red PiP border and `visible` agree with what the
+        # inset actually shows, including any head yaw/pitch/roll motion.
         eye_pos = data.cam_xpos[head_cam].copy()
-        fwd = data.xmat[trunk].reshape(3, 3)[:, 0]
+        cam_R = data.cam_xmat[head_cam].reshape(3, 3)
+        right = cam_R[:, 0]
+        up = cam_R[:, 1]
+        fwd = -cam_R[:, 2]       # MuJoCo cameras look down optical local -Z
+        left = -right
         to_person = data.mocap_pos[person_mid].copy() - eye_pos
         rng = float(np.linalg.norm(to_person))
         u = to_person / max(rng, 1e-9)
+        optical_depth = float(np.dot(to_person, fwd))
+        image_x = float(np.dot(to_person, right))
+        image_y = float(np.dot(to_person, up))
+        in_fov = (
+            optical_depth > 0.0
+            and abs(image_x) <= optical_depth * tan_h
+            and abs(image_y) <= optical_depth * tan_v
+        )
         off_axis = math.acos(float(np.clip(np.dot(u, fwd), -1.0, 1.0)))
-        in_fov = off_axis < HALF_FOV
-        # signed bearing to the person in the ground plane: >0 = to the duck's
-        # left. Used to pick which way to turn so they stay in view longest.
-        left = data.xmat[trunk].reshape(3, 3)[:, 1]
+        # Signed bearing to the person: >0 = to the camera/duck's left. Used to
+        # choose the turn direction so the target remains visible longest.
         bearing = math.atan2(float(np.dot(u, left)), float(np.dot(u, fwd)))
         occluded = False
         if in_fov:
@@ -367,7 +387,7 @@ def main():
             dr.text((10, 24),
                     f"person dist={dist:.3f} m   SEES PERSON: "
                     f"{'YES' if visible else 'NO '}  (off-axis {px_shown} deg"
-                    f", fov +-{math.degrees(HALF_FOV):.0f})"
+                    f", camera h-fov +/-{math.degrees(math.atan(tan_h)):.0f} deg)"
                     + ("" if visible else "  << BACK TURNED / OCCLUDED"),
                     fill=(120, 255, 140) if visible else (255, 120, 120))
             dr.text((10, 42),

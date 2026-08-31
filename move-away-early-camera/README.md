@@ -52,6 +52,15 @@ pega como PiP de 300×220 px en la esquina superior derecha, con borde verde si
 la persona está visible y rojo si queda fuera del campo de visión u ocluida.
 Es la cámara a bordo real del modelo, no una cámara exterior aproximada.
 
+**Corrección del frame óptico:** el cuaternión de `head_camera` exportado por el
+MJCF upstream no respeta la convención de cámara de MuJoCo (la cámara mira por
+su eje local `-Z` y usa `+Y` como arriba). Por eso el primer render mostraba
+geometría interna/lateral en lugar de la persona. El script aplica en runtime
+una rotación local de −90° alrededor de Z (`[√½, 0, 0, −√½]`), con lo que `-Z`
+apunta hacia delante y la vertical de la imagen coincide con la cabeza. La
+detección usa después esos mismos ejes ópticos y el frustum real del PiP, de
+modo que la imagen y `SEES PERSON` coinciden durante el giro.
+
 ## Parámetros de estabilidad heredados (no tocados)
 
 - `VX_RETREAT = -0.28`
