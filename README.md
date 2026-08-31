@@ -5,7 +5,7 @@ Base de trabajo propia sobre el simulador del Mini BDX (microduck / microduck_rl
 La idea: cada comportamiento que llegue a funcionar de verdad en simulación se congela
 en su propia subcarpeta, y se va incrementando desde ahí sólo con pasos seguros.
 
-> **Mejor versión actual:** [`move-away-early-camera/`](move-away-early-camera/) —
+> **Mejor versión actual:** [`move-away-head-tracking/`](move-away-head-tracking/) —
 > nueva base recomendada para cualquier incremento futuro.
 
 ## Comportamientos
@@ -13,8 +13,8 @@ en su propia subcarpeta, y se va incrementando desde ahí sólo con pasos seguro
 | Carpeta | Estado | Qué hace |
 |---|---|---|
 | [`move-away/`](move-away/) | ✅ funciona | Base congelada: detecta a una persona, retrocede, gira 90° y se aparta. |
-| [`move-away-early-camera/`](move-away-early-camera/) | 🏆 mejor actual | Maniobra estable iniciada a 1,15 m; cámara real del pato en PiP 225×165; validación de 19 s con la persona caminando 3 s adicionales. |
-| [`move-away-head-tracking/`](move-away-head-tracking/) | 🧪 candidata validada | Extiende a 22 s y mantiene a la persona en la cámara durante 1100/1100 pasos mediante una capa cinemática independiente de mirada. |
+| [`move-away-early-camera/`](move-away-early-camera/) | ✅ validada | Maniobra estable iniciada a 1,15 m; cámara real del pato en PiP 225×165; validación de 19 s con la persona caminando 3 s adicionales. |
+| [`move-away-head-tracking/`](move-away-head-tracking/) | 🏆 mejor actual | Extiende a 22 s y mantiene a la persona en la cámara durante 1100/1100 pasos mediante una capa cinemática independiente de mirada. |
 
 ## Convenciones
 
