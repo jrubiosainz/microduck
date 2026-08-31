@@ -14,6 +14,7 @@ en su propia subcarpeta, y se va incrementando desde ahí sólo con pasos seguro
 |---|---|---|
 | [`move-away/`](move-away/) | ✅ funciona | Base congelada: detecta a una persona, retrocede, gira 90° y se aparta. |
 | [`move-away-early-camera/`](move-away-early-camera/) | 🏆 mejor actual | Maniobra estable iniciada a 1,15 m; cámara real del pato en PiP 225×165; validación de 19 s con la persona caminando 3 s adicionales. |
+| [`move-away-head-tracking/`](move-away-head-tracking/) | 🧪 candidata validada | Extiende a 22 s y mantiene a la persona en la cámara durante 1100/1100 pasos mediante una capa cinemática independiente de mirada. |
 
 ## Convenciones
 
