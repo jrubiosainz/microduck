@@ -5,12 +5,15 @@ Base de trabajo propia sobre el simulador del Mini BDX (microduck / microduck_rl
 La idea: cada comportamiento que llegue a funcionar de verdad en simulación se congela
 en su propia subcarpeta, y se va incrementando desde ahí sólo con pasos seguros.
 
+> **Mejor versión actual:** [`move-away-early-camera/`](move-away-early-camera/) —
+> nueva base recomendada para cualquier incremento futuro.
+
 ## Comportamientos
 
 | Carpeta | Estado | Qué hace |
 |---|---|---|
 | [`move-away/`](move-away/) | ✅ funciona | Base congelada: detecta a una persona, retrocede, gira 90° y se aparta. |
-| [`move-away-early-camera/`](move-away-early-camera/) | ✅ validado | La misma maniobra estable, iniciada a 1,15 m, con vista en tiempo real de la cámara del pato arriba a la derecha. |
+| [`move-away-early-camera/`](move-away-early-camera/) | 🏆 mejor actual | Maniobra estable iniciada a 1,15 m; cámara real del pato en PiP 225×165; validación de 19 s con la persona caminando 3 s adicionales. |
 
 ## Convenciones
 
