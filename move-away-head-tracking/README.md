@@ -13,7 +13,15 @@ Y añade una capa de mirada independiente que orienta yaw y pitch de la cabeza
 hacia la persona durante toda la secuencia. El vídeo dura 22 segundos: la
 persona continúa caminando 3 segundos más que en la base de 19 s.
 
-Vídeo validado: [`media/move-away-head-tracking.mp4`](media/move-away-head-tracking.mp4).
+## Demostración
+
+[![Demostración animada: microduck se aparta sin perder de vista a la persona](media/move-away-head-tracking-demo.gif)](media/move-away-head-tracking.mp4)
+
+▶️ **[Ver o descargar el vídeo completo en MP4 (22 s, 50 fps)](media/move-away-head-tracking.mp4)**
+
+La vista grande muestra la maniobra completa y el PiP superior derecho es la
+cámara real del pato siguiendo a la persona. Haz clic en la animación para abrir
+el vídeo original.
 
 ## Resultado validado
 
