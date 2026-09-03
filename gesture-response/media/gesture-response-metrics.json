@@ -1,0 +1,1914 @@
+{
+  "seconds": 87.2,
+  "ticks": 4360,
+  "ctrl_hz": 50.0,
+  "decimation": 10,
+  "timestep": 0.002,
+  "policy": {
+    "path": "/Users/jesusrubio/.openclaw/workspace/projects/microduck-lab/gesture-response/onnx/alpha_walking.onnx",
+    "sha256": "e36332d383997d51401897734cd3e79cf5038406feddb18b4d57ecfb141daa6c",
+    "sha256_matches_stock": true,
+    "obs_dim": 61,
+    "action_scale": 0.9,
+    "gyro_sensor": "imu_ang_vel"
+  },
+  "sequence": {
+    "accepted": [
+      "COME",
+      "STOP",
+      "TURN_LEFT",
+      "TURN_RIGHT",
+      "BACK_UP",
+      "WAVE"
+    ],
+    "expected": [
+      "COME",
+      "STOP",
+      "TURN_LEFT",
+      "TURN_RIGHT",
+      "BACK_UP",
+      "WAVE"
+    ],
+    "matches": true,
+    "count": 6
+  },
+  "acquisition": {
+    "wanted": "mira",
+    "state": "locked",
+    "locked": "mira",
+    "found_at_s": 0.04,
+    "locked_at_s": 0.42,
+    "people_seen_during_search": [
+      "mira",
+      "teo",
+      "ines",
+      "saskia"
+    ]
+  },
+  "wrong_person": {
+    "saskia": {
+      "readable_command_ticks": 0,
+      "commands": {},
+      "max_confidence": 0.0,
+      "in_range_ticks": 4065,
+      "first_s": null,
+      "last_s": null,
+      "windows": [],
+      "longest_window_ticks": 0,
+      "longest_window_s": 0.0,
+      "sustained_past_confirm": false
+    },
+    "teo": {
+      "readable_command_ticks": 122,
+      "commands": {
+        "COME": 122
+      },
+      "max_confidence": 1.0,
+      "in_range_ticks": 3413,
+      "first_s": 14.54,
+      "last_s": 16.96,
+      "windows": [
+        {
+          "command": "COME",
+          "from_s": 14.54,
+          "to_s": 16.96,
+          "ticks": 122
+        }
+      ],
+      "longest_window_ticks": 122,
+      "longest_window_s": 2.44,
+      "sustained_past_confirm": true
+    },
+    "ines": {
+      "readable_command_ticks": 0,
+      "commands": {},
+      "max_confidence": 0.0,
+      "in_range_ticks": 3848,
+      "first_s": null,
+      "last_s": null,
+      "windows": [],
+      "longest_window_ticks": 0,
+      "longest_window_s": 0.0,
+      "sustained_past_confirm": false
+    },
+    "bruno": {
+      "readable_command_ticks": 0,
+      "commands": {},
+      "max_confidence": 0.0,
+      "in_range_ticks": 4025,
+      "first_s": null,
+      "last_s": null,
+      "windows": [],
+      "longest_window_ticks": 0,
+      "longest_window_s": 0.0,
+      "sustained_past_confirm": false
+    }
+  },
+  "partial": {
+    "window": {
+      "from_s": 40.0,
+      "to_s": 45.2
+    },
+    "ticks": 260,
+    "visible_ticks": 260,
+    "readable_ticks": 260,
+    "visible_fraction": 1.0,
+    "readable_fraction": 1.0,
+    "accepted": 0,
+    "logged_rejections": 4,
+    "rejection_reasons": [
+      "no template's measured margin reached 0.55 (best none at 0.00)",
+      "no template's measured margin reached 0.55 (best none at 0.00)",
+      "no template's measured margin reached 0.55 (best none at 0.00)",
+      "no template's measured margin reached 0.55 (best none at 0.00)"
+    ]
+  },
+  "turns": {
+    "TURN_LEFT": {
+      "direction": "left",
+      "turned_deg": 64.57,
+      "target_deg": 72.0,
+      "error_deg": 7.43,
+      "sign_correct": true,
+      "reached": true,
+      "path_m": 0.5395
+    },
+    "TURN_RIGHT": {
+      "direction": "right",
+      "turned_deg": -64.47,
+      "target_deg": -72.0,
+      "error_deg": 7.53,
+      "sign_correct": true,
+      "reached": true,
+      "path_m": 0.5116
+    }
+  },
+  "turns_opposite": true,
+  "back_up": {
+    "back_m": 0.3424,
+    "target_m": 0.4,
+    "path_m": 0.4242,
+    "reached": true,
+    "command_vx_min": -0.32
+  },
+  "approach": {
+    "start_range_m": 2.8987,
+    "end_range_m": 1.6992,
+    "range_reduction_m": 1.1995,
+    "path_m": 1.8025,
+    "min_clearance_m": 1.3181,
+    "interrupted_by": "STOP"
+  },
+  "stop": {
+    "command_before_stop": 0.26,
+    "interrupts_command": "COME",
+    "hold_s": 1.98,
+    "drift_m": 0.0028,
+    "ticks_to_zero": 0
+  },
+  "episodes": [
+    {
+      "index": 0,
+      "command": "COME",
+      "template": "COME",
+      "person": "mira",
+      "observed_at_s": 0.42,
+      "confirmed_at_s": 8.02,
+      "confirm_held_s": 0.9,
+      "confirm_fraction": 1.0,
+      "confirm_readable_fraction": 1.0,
+      "confirm_ticks": 380,
+      "confirm_visible_ticks": 380,
+      "confirm_readable_ticks": 380,
+      "confirm_visible_fraction": 1.0,
+      "confirm_arm_readable_fraction": 1.0,
+      "confidence": 1.0,
+      "rule": "one arm raised forward, beckoning: come here; margin 1.00 past every window edge (rule-margin proxy, not a probability)",
+      "features": {
+        "raised_arms": 1,
+        "hand_travel": 1.2684,
+        "hand_wander": 4.6274,
+        "fully_readable": true,
+        "extension": 0.8174,
+        "elevation_deg": 58.4068,
+        "forward": 0.3953,
+        "lateral": -0.1647
+      },
+      "executed_at_s": 8.02,
+      "ended_at_s": 20.08,
+      "execute_state": "EXECUTE_APPROACH",
+      "start_xy": [
+        -0.0005,
+        -1.5987
+      ],
+      "end_xy": [
+        0.0275,
+        -0.3991
+      ],
+      "start_yaw_deg": 89.8,
+      "end_yaw_deg": 84.73,
+      "start_range_m": 2.8987,
+      "end_range_m": 1.6993,
+      "range_reduction_m": 1.1994,
+      "path_m": 1.8025,
+      "yaw_delta_deg": -5.92,
+      "back_along_heading_m": -1.1984,
+      "forward_along_heading_m": 1.1984,
+      "command_peak": 0.26,
+      "command_vx_peak": 0.26,
+      "command_vx_min": 0.0,
+      "min_clearance_m": 1.3181,
+      "command_before_stop": 0.0,
+      "ticks_to_zero": null,
+      "stop_hold_s": 0.0,
+      "stop_drift_m": 0.0,
+      "interrupted_by": "STOP",
+      "interrupts_command": "",
+      "execute_ended_s": 20.08,
+      "execute_yaw_delta_deg": -4.94,
+      "execute_back_m": -1.1998,
+      "execute_path_m": 1.8025,
+      "execute_end_range_m": 1.6992,
+      "execute_min_clearance_m": 1.3181,
+      "execute_in_standoff_band": false
+    },
+    {
+      "index": 1,
+      "command": "STOP",
+      "template": "STOP",
+      "person": "mira",
+      "observed_at_s": 0.42,
+      "confirmed_at_s": 20.08,
+      "confirm_held_s": 0.9,
+      "confirm_fraction": 1.0,
+      "confirm_readable_fraction": 1.0,
+      "confirm_ticks": 603,
+      "confirm_visible_ticks": 603,
+      "confirm_readable_ticks": 603,
+      "confirm_visible_fraction": 1.0,
+      "confirm_arm_readable_fraction": 1.0,
+      "confidence": 1.0,
+      "rule": "one straight arm raised, open palm, held still: stop; margin 1.00 past every window edge (rule-margin proxy, not a probability)",
+      "features": {
+        "raised_arms": 1,
+        "hand_travel": 0.0984,
+        "hand_wander": 66.2732,
+        "fully_readable": true,
+        "extension": 0.9995,
+        "elevation_deg": 34.7222,
+        "forward": 0.7991,
+        "lateral": -0.1907
+      },
+      "executed_at_s": 20.08,
+      "ended_at_s": 24.06,
+      "execute_state": "EXECUTE_STOP",
+      "start_xy": [
+        0.0278,
+        -0.399
+      ],
+      "end_xy": [
+        0.0257,
+        -0.3971
+      ],
+      "start_yaw_deg": 84.86,
+      "end_yaw_deg": 91.59,
+      "start_range_m": 1.6992,
+      "end_range_m": 1.6973,
+      "range_reduction_m": 0.0019,
+      "path_m": 0.0235,
+      "yaw_delta_deg": 6.73,
+      "back_along_heading_m": -0.0017,
+      "forward_along_heading_m": 0.0017,
+      "command_peak": 0.0,
+      "command_vx_peak": 0.0,
+      "command_vx_min": 0.0,
+      "min_clearance_m": 1.1759,
+      "command_before_stop": 0.26,
+      "ticks_to_zero": 0,
+      "stop_hold_s": 1.98,
+      "stop_drift_m": 0.0028,
+      "interrupted_by": "",
+      "interrupts_command": "COME",
+      "execute_ended_s": 22.44,
+      "execute_yaw_delta_deg": 6.5,
+      "execute_back_m": -0.0017,
+      "execute_path_m": 0.0227,
+      "execute_end_range_m": 1.6972,
+      "execute_min_clearance_m": 1.1759,
+      "execute_in_standoff_band": false
+    },
+    {
+      "index": 2,
+      "command": "TURN_LEFT",
+      "template": "POINT_RIGHT_ARM",
+      "person": "mira",
+      "observed_at_s": 24.08,
+      "confirmed_at_s": 30.68,
+      "confirm_held_s": 0.9,
+      "confirm_fraction": 1.0,
+      "confirm_readable_fraction": 1.0,
+      "confirm_ticks": 330,
+      "confirm_visible_ticks": 330,
+      "confirm_readable_ticks": 330,
+      "confirm_visible_fraction": 1.0,
+      "confirm_arm_readable_fraction": 1.0,
+      "confidence": 1.0,
+      "rule": "straight arm out to the instructor's right, horizontal; margin 1.00 past every window edge (rule-margin proxy, not a probability)",
+      "features": {
+        "raised_arms": 1,
+        "hand_travel": 0.0938,
+        "hand_wander": 7.4507,
+        "fully_readable": true,
+        "extension": 0.9997,
+        "elevation_deg": -1.9997,
+        "forward": 0.0168,
+        "lateral": -0.999
+      },
+      "executed_at_s": 30.68,
+      "ended_at_s": 35.78,
+      "execute_state": "EXECUTE_TURN_LEFT",
+      "start_xy": [
+        0.0254,
+        -0.3971
+      ],
+      "end_xy": [
+        -0.1864,
+        -0.1079
+      ],
+      "start_yaw_deg": 91.85,
+      "end_yaw_deg": 152.31,
+      "start_range_m": 1.6973,
+      "end_range_m": 1.4202,
+      "range_reduction_m": 0.2771,
+      "path_m": 0.5657,
+      "yaw_delta_deg": 60.47,
+      "back_along_heading_m": -0.2959,
+      "forward_along_heading_m": 0.2959,
+      "command_peak": 0.58,
+      "command_vx_peak": 0.3,
+      "command_vx_min": 0.0,
+      "min_clearance_m": 1.1944,
+      "command_before_stop": 0.0,
+      "ticks_to_zero": null,
+      "stop_hold_s": 0.0,
+      "stop_drift_m": 0.0,
+      "interrupted_by": "",
+      "interrupts_command": "",
+      "execute_ended_s": 34.16,
+      "execute_yaw_delta_deg": 64.57,
+      "execute_back_m": -0.305,
+      "execute_path_m": 0.5395,
+      "execute_end_range_m": 1.4103,
+      "execute_min_clearance_m": 1.2004,
+      "execute_in_standoff_band": false
+    },
+    {
+      "index": 3,
+      "command": "TURN_RIGHT",
+      "template": "POINT_LEFT_ARM",
+      "person": "mira",
+      "observed_at_s": 35.8,
+      "confirmed_at_s": 52.28,
+      "confirm_held_s": 0.9,
+      "confirm_fraction": 1.0,
+      "confirm_readable_fraction": 1.0,
+      "confirm_ticks": 1079,
+      "confirm_visible_ticks": 1079,
+      "confirm_readable_ticks": 1079,
+      "confirm_visible_fraction": 1.0,
+      "confirm_arm_readable_fraction": 1.0,
+      "confidence": 1.0,
+      "rule": "straight arm out to the instructor's left, horizontal; margin 1.00 past every window edge (rule-margin proxy, not a probability)",
+      "features": {
+        "raised_arms": 1,
+        "hand_travel": 0.0865,
+        "hand_wander": 11.0662,
+        "fully_readable": true,
+        "extension": 0.9997,
+        "elevation_deg": -1.9997,
+        "forward": 0.0168,
+        "lateral": 0.999
+      },
+      "executed_at_s": 52.28,
+      "ended_at_s": 57.24,
+      "execute_state": "EXECUTE_TURN_RIGHT",
+      "start_xy": [
+        -0.187,
+        -0.1085
+      ],
+      "end_xy": [
+        -0.3409,
+        0.2157
+      ],
+      "start_yaw_deg": 151.61,
+      "end_yaw_deg": 95.51,
+      "start_range_m": 1.4209,
+      "end_range_m": 1.1366,
+      "range_reduction_m": 0.2843,
+      "path_m": 0.5423,
+      "yaw_delta_deg": -56.12,
+      "back_along_heading_m": -0.2895,
+      "forward_along_heading_m": 0.2895,
+      "command_peak": 0.58,
+      "command_vx_peak": 0.3,
+      "command_vx_min": 0.0,
+      "min_clearance_m": 0.902,
+      "command_before_stop": 0.0,
+      "ticks_to_zero": null,
+      "stop_hold_s": 0.0,
+      "stop_drift_m": 0.0,
+      "interrupted_by": "",
+      "interrupts_command": "",
+      "execute_ended_s": 55.62,
+      "execute_yaw_delta_deg": -64.47,
+      "execute_back_m": -0.2946,
+      "execute_path_m": 0.5116,
+      "execute_end_range_m": 1.1404,
+      "execute_min_clearance_m": 0.9254,
+      "execute_in_standoff_band": false
+    },
+    {
+      "index": 4,
+      "command": "BACK_UP",
+      "template": "BACK_UP",
+      "person": "mira",
+      "observed_at_s": 57.26,
+      "confirmed_at_s": 62.7,
+      "confirm_held_s": 0.9,
+      "confirm_fraction": 1.0,
+      "confirm_readable_fraction": 1.0,
+      "confirm_ticks": 520,
+      "confirm_visible_ticks": 520,
+      "confirm_readable_ticks": 520,
+      "confirm_visible_fraction": 1.0,
+      "confirm_arm_readable_fraction": 1.0,
+      "confidence": 1.0,
+      "rule": "both arms forward, palms out, pushing away: back up; margin 1.00 past every window edge (rule-margin proxy, not a probability)",
+      "features": {
+        "raised_arms": 2,
+        "hand_travel": 1.2912,
+        "hand_wander": 1.4007,
+        "fully_readable": true,
+        "extension": 0.9206,
+        "elevation_deg": 30.8525,
+        "forward": 0.7734,
+        "lateral": 0.1628
+      },
+      "executed_at_s": 62.7,
+      "ended_at_s": 69.04,
+      "execute_state": "EXECUTE_BACK_UP",
+      "start_xy": [
+        -0.3409,
+        0.2157
+      ],
+      "end_xy": [
+        -0.3518,
+        -0.154
+      ],
+      "start_yaw_deg": 96.31,
+      "end_yaw_deg": 85.26,
+      "start_range_m": 1.1366,
+      "end_range_m": 1.496,
+      "range_reduction_m": -0.3594,
+      "path_m": 0.457,
+      "yaw_delta_deg": -11.03,
+      "back_along_heading_m": 0.3663,
+      "forward_along_heading_m": -0.3663,
+      "command_peak": 0.32,
+      "command_vx_peak": 0.0,
+      "command_vx_min": -0.32,
+      "min_clearance_m": 0.6676,
+      "command_before_stop": 0.0,
+      "ticks_to_zero": null,
+      "stop_hold_s": 0.0,
+      "stop_drift_m": 0.0,
+      "interrupted_by": "",
+      "interrupts_command": "",
+      "execute_ended_s": 67.44,
+      "execute_yaw_delta_deg": -9.84,
+      "execute_back_m": 0.3424,
+      "execute_path_m": 0.4242,
+      "execute_end_range_m": 1.4744,
+      "execute_min_clearance_m": 0.6676,
+      "execute_in_standoff_band": false
+    },
+    {
+      "index": 5,
+      "command": "WAVE",
+      "template": "WAVE",
+      "person": "mira",
+      "observed_at_s": 69.06,
+      "confirmed_at_s": 74.7,
+      "confirm_held_s": 0.9,
+      "confirm_fraction": 1.0,
+      "confirm_readable_fraction": 1.0,
+      "confirm_ticks": 599,
+      "confirm_visible_ticks": 599,
+      "confirm_readable_ticks": 599,
+      "confirm_visible_fraction": 1.0,
+      "confirm_arm_readable_fraction": 1.0,
+      "confidence": 1.0,
+      "rule": "one high straight arm sweeping above the shoulder: goodbye; margin 1.00 past every window edge (rule-margin proxy, not a probability)",
+      "features": {
+        "raised_arms": 1,
+        "hand_travel": 2.3036,
+        "hand_wander": 5.79,
+        "fully_readable": true,
+        "extension": 0.9902,
+        "elevation_deg": 68.3348,
+        "forward": 0.3393,
+        "lateral": -0.136
+      },
+      "executed_at_s": 74.7,
+      "ended_at_s": 77.32,
+      "execute_state": "GOODBYE",
+      "start_xy": [
+        -0.3521,
+        -0.1541
+      ],
+      "end_xy": [
+        -0.3522,
+        -0.1541
+      ],
+      "start_yaw_deg": 84.77,
+      "end_yaw_deg": 84.8,
+      "start_range_m": 1.4961,
+      "end_range_m": 1.4961,
+      "range_reduction_m": -0.0,
+      "path_m": 0.0018,
+      "yaw_delta_deg": 0.02,
+      "back_along_heading_m": 0.0,
+      "forward_along_heading_m": -0.0,
+      "command_peak": 0.0,
+      "command_vx_peak": 0.0,
+      "command_vx_min": 0.0,
+      "min_clearance_m": 1.2587,
+      "command_before_stop": 0.0,
+      "ticks_to_zero": null,
+      "stop_hold_s": 0.0,
+      "stop_drift_m": 0.0,
+      "interrupted_by": "",
+      "interrupts_command": "",
+      "execute_ended_s": 0.0,
+      "execute_yaw_delta_deg": 0.0,
+      "execute_back_m": 0.0,
+      "execute_path_m": 0.0,
+      "execute_end_range_m": 0.0,
+      "execute_min_clearance_m": null,
+      "execute_in_standoff_band": false
+    }
+  ],
+  "transitions": [
+    {
+      "t": 0.42,
+      "from": "READY",
+      "to": "OBSERVE",
+      "person": "mira",
+      "reason": "mira acquired; watching for a command"
+    },
+    {
+      "t": 7.14,
+      "from": "OBSERVE",
+      "to": "CONFIRM",
+      "command": "COME",
+      "confidence": 1.0,
+      "reason": "reading a possible COME"
+    },
+    {
+      "t": 8.02,
+      "from": "CONFIRM",
+      "to": "EXECUTE_APPROACH",
+      "command": "COME",
+      "confidence": 1.0,
+      "held_s": 0.9,
+      "reason": "COME confirmed after 0.90s sustained"
+    },
+    {
+      "t": 20.08,
+      "from": "EXECUTE_APPROACH",
+      "to": "EXECUTE_STOP",
+      "command": "STOP",
+      "confidence": 1.0,
+      "held_s": 0.9,
+      "interrupted": "COME",
+      "reason": "STOP confirmed mid-COME: interrupting a manoeuvre already under way"
+    },
+    {
+      "t": 22.44,
+      "from": "EXECUTE_STOP",
+      "to": "ACK",
+      "reason": "stopped and held"
+    },
+    {
+      "t": 24.06,
+      "from": "ACK",
+      "to": "READY",
+      "reason": "acknowledged; ready for the next command"
+    },
+    {
+      "t": 24.08,
+      "from": "READY",
+      "to": "OBSERVE",
+      "person": "mira",
+      "reason": "mira acquired; watching for a command"
+    },
+    {
+      "t": 29.8,
+      "from": "OBSERVE",
+      "to": "CONFIRM",
+      "command": "TURN_LEFT",
+      "confidence": 1.0,
+      "reason": "reading a possible TURN_LEFT"
+    },
+    {
+      "t": 30.68,
+      "from": "CONFIRM",
+      "to": "EXECUTE_TURN_LEFT",
+      "command": "TURN_LEFT",
+      "confidence": 1.0,
+      "held_s": 0.9,
+      "reason": "TURN_LEFT confirmed after 0.90s sustained"
+    },
+    {
+      "t": 34.16,
+      "from": "EXECUTE_TURN_LEFT",
+      "to": "ACK",
+      "turned_deg": 64.57,
+      "reason": "turned +64.6 deg (target +72)"
+    },
+    {
+      "t": 35.78,
+      "from": "ACK",
+      "to": "READY",
+      "reason": "acknowledged; ready for the next command"
+    },
+    {
+      "t": 35.8,
+      "from": "READY",
+      "to": "OBSERVE",
+      "person": "mira",
+      "reason": "mira acquired; watching for a command"
+    },
+    {
+      "t": 51.4,
+      "from": "OBSERVE",
+      "to": "CONFIRM",
+      "command": "TURN_RIGHT",
+      "confidence": 1.0,
+      "reason": "reading a possible TURN_RIGHT"
+    },
+    {
+      "t": 52.28,
+      "from": "CONFIRM",
+      "to": "EXECUTE_TURN_RIGHT",
+      "command": "TURN_RIGHT",
+      "confidence": 1.0,
+      "held_s": 0.9,
+      "reason": "TURN_RIGHT confirmed after 0.90s sustained"
+    },
+    {
+      "t": 55.62,
+      "from": "EXECUTE_TURN_RIGHT",
+      "to": "ACK",
+      "turned_deg": -64.47,
+      "reason": "turned -64.5 deg (target -72)"
+    },
+    {
+      "t": 57.24,
+      "from": "ACK",
+      "to": "READY",
+      "reason": "acknowledged; ready for the next command"
+    },
+    {
+      "t": 57.26,
+      "from": "READY",
+      "to": "OBSERVE",
+      "person": "mira",
+      "reason": "mira acquired; watching for a command"
+    },
+    {
+      "t": 61.82,
+      "from": "OBSERVE",
+      "to": "CONFIRM",
+      "command": "BACK_UP",
+      "confidence": 0.807,
+      "reason": "reading a possible BACK_UP"
+    },
+    {
+      "t": 62.7,
+      "from": "CONFIRM",
+      "to": "EXECUTE_BACK_UP",
+      "command": "BACK_UP",
+      "confidence": 1.0,
+      "held_s": 0.9,
+      "reason": "BACK_UP confirmed after 0.90s sustained"
+    },
+    {
+      "t": 67.44,
+      "from": "EXECUTE_BACK_UP",
+      "to": "ACK",
+      "back_m": 0.342,
+      "reason": "reversed 0.342 m along the pre-action heading"
+    },
+    {
+      "t": 69.04,
+      "from": "ACK",
+      "to": "READY",
+      "reason": "acknowledged; ready for the next command"
+    },
+    {
+      "t": 69.06,
+      "from": "READY",
+      "to": "OBSERVE",
+      "person": "mira",
+      "reason": "mira acquired; watching for a command"
+    },
+    {
+      "t": 73.82,
+      "from": "OBSERVE",
+      "to": "CONFIRM",
+      "command": "WAVE",
+      "confidence": 1.0,
+      "reason": "reading a possible WAVE"
+    },
+    {
+      "t": 74.7,
+      "from": "CONFIRM",
+      "to": "GOODBYE",
+      "command": "WAVE",
+      "confidence": 1.0,
+      "held_s": 0.9,
+      "reason": "WAVE confirmed after 0.90s sustained"
+    },
+    {
+      "t": 77.32,
+      "from": "GOODBYE",
+      "to": "DONE",
+      "reason": "waved off: the session is complete"
+    }
+  ],
+  "timeouts": [],
+  "interrupts": [
+    {
+      "t": 20.08,
+      "interrupted": "COME",
+      "from_state": "EXECUTE_APPROACH"
+    }
+  ],
+  "rejections": [
+    {
+      "t": 1.1,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.1955,
+        "hand_wander": 1.202,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 2.3,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.1779,
+        "hand_wander": 1.2565,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 3.5,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.2019,
+        "hand_wander": 1.1781,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 4.7,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.1949,
+        "hand_wander": 1.1777,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 5.9,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.1995,
+        "hand_wander": 1.178,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 7.1,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 1,
+      "fully_readable": true,
+      "extension": 0.8681,
+      "elevation_deg": 53.37,
+      "features": {
+        "raised_arms": 1,
+        "hand_travel": 2.6597,
+        "hand_wander": 1.5807,
+        "fully_readable": true,
+        "extension": 0.8681,
+        "elevation_deg": 53.3748,
+        "forward": 0.4839,
+        "lateral": -0.1846
+      }
+    },
+    {
+      "t": 11.9,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best COME at 0.18)",
+      "best_confidence": 0.1806,
+      "raised_arms": 1,
+      "fully_readable": true,
+      "extension": 0.8967,
+      "elevation_deg": 17.81,
+      "features": {
+        "raised_arms": 1,
+        "hand_travel": 1.7883,
+        "hand_wander": 2.4098,
+        "fully_readable": true,
+        "extension": 0.8967,
+        "elevation_deg": 17.8063,
+        "forward": 0.8396,
+        "lateral": -0.1549
+      }
+    },
+    {
+      "t": 13.1,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 1.4996,
+        "hand_wander": 1.1655,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 14.3,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.2001,
+        "hand_wander": 1.1826,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 15.5,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.1903,
+        "hand_wander": 1.1937,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 16.7,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.2029,
+        "hand_wander": 1.1784,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 17.9,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 1,
+      "fully_readable": true,
+      "extension": 0.9993,
+      "elevation_deg": -0.23,
+      "features": {
+        "raised_arms": 1,
+        "hand_travel": 1.6708,
+        "hand_wander": 1.1684,
+        "fully_readable": true,
+        "extension": 0.9993,
+        "elevation_deg": -0.2277,
+        "forward": 0.984,
+        "lateral": -0.1743
+      }
+    },
+    {
+      "t": 19.1,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 1,
+      "fully_readable": true,
+      "extension": 0.9995,
+      "elevation_deg": 34.72,
+      "features": {
+        "raised_arms": 1,
+        "hand_travel": 0.3776,
+        "hand_wander": 1.2673,
+        "fully_readable": true,
+        "extension": 0.9995,
+        "elevation_deg": 34.7222,
+        "forward": 0.7991,
+        "lateral": -0.1907
+      }
+    },
+    {
+      "t": 25.18,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.2017,
+        "hand_wander": 1.1679,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 26.38,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.1904,
+        "hand_wander": 1.2056,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 27.58,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.1993,
+        "hand_wander": 1.1794,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 28.78,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 1,
+      "fully_readable": true,
+      "extension": 0.9997,
+      "elevation_deg": -2.0,
+      "features": {
+        "raised_arms": 1,
+        "hand_travel": 1.4565,
+        "hand_wander": 1.1277,
+        "fully_readable": true,
+        "extension": 0.9997,
+        "elevation_deg": -1.9997,
+        "forward": 0.0168,
+        "lateral": -0.999
+      }
+    },
+    {
+      "t": 32.92,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 1,
+      "fully_readable": true,
+      "extension": 0.9997,
+      "elevation_deg": -4.37,
+      "features": {
+        "raised_arms": 1,
+        "hand_travel": 0.1355,
+        "hand_wander": 3.0759,
+        "fully_readable": true,
+        "extension": 0.9997,
+        "elevation_deg": -4.3712,
+        "forward": 0.019,
+        "lateral": -0.9966
+      }
+    },
+    {
+      "t": 34.14,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 1.2768,
+        "hand_wander": 1.1497,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 35.34,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.2041,
+        "hand_wander": 1.1899,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 36.9,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.1601,
+        "hand_wander": 1.3947,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 38.1,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.1989,
+        "hand_wander": 1.1911,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 39.3,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.1779,
+        "hand_wander": 1.2249,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 40.52,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 1,
+      "fully_readable": true,
+      "extension": 0.863,
+      "elevation_deg": 16.69,
+      "features": {
+        "raised_arms": 1,
+        "hand_travel": 1.787,
+        "hand_wander": 1.2013,
+        "fully_readable": true,
+        "extension": 0.863,
+        "elevation_deg": 16.6912,
+        "forward": 0.8122,
+        "lateral": -0.1541
+      }
+    },
+    {
+      "t": 41.74,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 1,
+      "fully_readable": true,
+      "extension": 0.7774,
+      "elevation_deg": 49.78,
+      "features": {
+        "raised_arms": 1,
+        "hand_travel": 0.2374,
+        "hand_wander": 1.5255,
+        "fully_readable": true,
+        "extension": 0.7774,
+        "elevation_deg": 49.7775,
+        "forward": 0.4823,
+        "lateral": -0.1393
+      }
+    },
+    {
+      "t": 42.96,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 1,
+      "fully_readable": true,
+      "extension": 0.7774,
+      "elevation_deg": 49.78,
+      "features": {
+        "raised_arms": 1,
+        "hand_travel": 0.0989,
+        "hand_wander": 14.2735,
+        "fully_readable": true,
+        "extension": 0.7774,
+        "elevation_deg": 49.7775,
+        "forward": 0.4823,
+        "lateral": -0.1393
+      }
+    },
+    {
+      "t": 44.16,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 1,
+      "fully_readable": true,
+      "extension": 0.7774,
+      "elevation_deg": 49.78,
+      "features": {
+        "raised_arms": 1,
+        "hand_travel": 0.0837,
+        "hand_wander": 17.2726,
+        "fully_readable": true,
+        "extension": 0.7774,
+        "elevation_deg": 49.7775,
+        "forward": 0.4823,
+        "lateral": -0.1393
+      }
+    },
+    {
+      "t": 45.38,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 2.1099,
+        "hand_wander": 1.3388,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 46.6,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.1837,
+        "hand_wander": 1.2203,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 47.8,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.1657,
+        "hand_wander": 1.4091,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 49.02,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.1974,
+        "hand_wander": 1.1867,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 50.24,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 1,
+      "fully_readable": true,
+      "extension": 0.9996,
+      "elevation_deg": -9.19,
+      "features": {
+        "raised_arms": 1,
+        "hand_travel": 1.4199,
+        "hand_wander": 1.143,
+        "fully_readable": true,
+        "extension": 0.9996,
+        "elevation_deg": -9.1902,
+        "forward": 0.0225,
+        "lateral": 0.9865
+      }
+    },
+    {
+      "t": 54.52,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 1,
+      "fully_readable": true,
+      "extension": 0.9997,
+      "elevation_deg": -4.4,
+      "features": {
+        "raised_arms": 1,
+        "hand_travel": 0.1289,
+        "hand_wander": 3.9628,
+        "fully_readable": true,
+        "extension": 0.9997,
+        "elevation_deg": -4.4013,
+        "forward": 0.0185,
+        "lateral": 0.9966
+      }
+    },
+    {
+      "t": 55.74,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 1.2049,
+        "hand_wander": 1.1402,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 56.96,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.1949,
+        "hand_wander": 1.1564,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 58.36,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.1751,
+        "hand_wander": 1.2447,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 59.56,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.1935,
+        "hand_wander": 1.2161,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 60.78,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.1552,
+        "hand_wander": 1.4355,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 66.34,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best BACK_UP at 0.50)",
+      "best_confidence": 0.5019,
+      "raised_arms": 2,
+      "fully_readable": true,
+      "extension": 0.9982,
+      "elevation_deg": 6.55,
+      "features": {
+        "raised_arms": 2,
+        "hand_travel": 0.7873,
+        "hand_wander": 7.7022,
+        "fully_readable": true,
+        "extension": 0.9982,
+        "elevation_deg": 6.5478,
+        "forward": 0.9738,
+        "lateral": -0.1877
+      }
+    },
+    {
+      "t": 67.54,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 1.515,
+        "hand_wander": 1.2292,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 68.76,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.2014,
+        "hand_wander": 1.1713,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 70.16,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.2028,
+        "hand_wander": 1.1837,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 71.36,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.1794,
+        "hand_wander": 1.2426,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 72.56,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 0,
+      "fully_readable": true,
+      "extension": null,
+      "elevation_deg": null,
+      "features": {
+        "raised_arms": 0,
+        "hand_travel": 0.198,
+        "hand_wander": 1.1902,
+        "fully_readable": true
+      }
+    },
+    {
+      "t": 73.76,
+      "person": "mira",
+      "reason": "no template's measured margin reached 0.55 (best none at 0.00)",
+      "best_confidence": 0.0,
+      "raised_arms": 1,
+      "fully_readable": true,
+      "extension": 0.9902,
+      "elevation_deg": 68.91,
+      "features": {
+        "raised_arms": 1,
+        "hand_travel": 2.9769,
+        "hand_wander": 1.5453,
+        "fully_readable": true,
+        "extension": 0.9902,
+        "elevation_deg": 68.9147,
+        "forward": 0.3413,
+        "lateral": -0.1021
+      }
+    }
+  ],
+  "final_state": "DONE",
+  "tally": {
+    "ticks": 4360,
+    "min_trunk_z": 0.11306,
+    "final_trunk_z": 0.11627,
+    "fallen_steps": 0,
+    "path_m": 3.4263,
+    "walk_path_m": 3.2778,
+    "zero_violations": [],
+    "zero_violation_count": 0,
+    "sub_gait_ticks": 0,
+    "sub_gait_examples": [],
+    "max_abs_vy": 0.0,
+    "max_abs_vx": 0.3,
+    "min_vx": -0.32,
+    "command_ticks_by_state": {
+      "READY": 25,
+      "OBSERVE": 1868,
+      "CONFIRM": 220,
+      "EXECUTE_APPROACH": 603,
+      "EXECUTE_STOP": 118,
+      "ACK": 323,
+      "EXECUTE_TURN_LEFT": 174,
+      "EXECUTE_TURN_RIGHT": 167,
+      "EXECUTE_BACK_UP": 237,
+      "GOODBYE": 131,
+      "DONE": 494
+    },
+    "path_by_state": {
+      "READY": 0.00286,
+      "OBSERVE": 0.02173,
+      "CONFIRM": 0.00261,
+      "EXECUTE_APPROACH": 1.80252,
+      "EXECUTE_STOP": 0.02269,
+      "ACK": 0.09053,
+      "EXECUTE_TURN_LEFT": 0.53951,
+      "EXECUTE_TURN_RIGHT": 0.51161,
+      "EXECUTE_BACK_UP": 0.42419,
+      "GOODBYE": 0.00177,
+      "DONE": 0.00629
+    },
+    "nonzero_ticks_by_state": {
+      "EXECUTE_APPROACH": 603,
+      "EXECUTE_TURN_LEFT": 174,
+      "EXECUTE_TURN_RIGHT": 167,
+      "EXECUTE_BACK_UP": 237
+    },
+    "min_clearance_m": 0.5971,
+    "min_clearance_body": "mira",
+    "min_clearance_t_s": 61.68,
+    "min_scenery_gap_m": 0.6277,
+    "min_scenery_geom": "obs_cone_w",
+    "contacts": 0,
+    "outside_area_ticks": 0,
+    "interlock_ticks": 0,
+    "interlock_reasons": {},
+    "aim_in_frustum_ticks": 4359,
+    "aim_in_frustum_fraction": 0.9998,
+    "instructor_visible_ticks": 4359,
+    "instructor_arm_readable_ticks": 4360,
+    "monitor_ticks": 3145,
+    "monitor_visible_ticks": 3145,
+    "monitor_visible_fraction": 1.0,
+    "monitor_los_ticks": 3145,
+    "occluder_hits": {},
+    "people_seen": [
+      "ines",
+      "mira",
+      "saskia",
+      "teo"
+    ],
+    "zero_state_ticks": 3179,
+    "zero_state_path_m": 0.14848,
+    "worst_zero_episode_m": 0.04392
+  },
+  "zero_state_ticks_checked": 3179,
+  "geometry": {
+    "duck_planar_radius_m": 0.1162,
+    "duck_exact_radius_m": 0.0827,
+    "duck_lateral_half_m": 0.0752,
+    "instructor_mark": [
+      0.0,
+      1.3
+    ],
+    "fixtures": [
+      "obs_rack_e",
+      "obs_post_n",
+      "obs_rack_w",
+      "obs_bench_s",
+      "obs_cone_e",
+      "obs_cone_w"
+    ],
+    "scenery_geoms": [
+      "wall_e",
+      "wall_w",
+      "wall_n",
+      "wall_s",
+      "obs_rack_e",
+      "obs_post_n",
+      "obs_rack_w",
+      "obs_bench_s",
+      "obs_cone_e",
+      "obs_cone_w"
+    ]
+  },
+  "thresholds": {
+    "confirm_s": 0.9,
+    "confirm_min_fraction": 0.85,
+    "acquire_confirm_s": 0.4,
+    "motion_window_s": 1.1,
+    "min_confidence": 0.55,
+    "standoff_min_m": 0.45,
+    "standoff_max_m": 0.75,
+    "turn_target_deg": 72.0,
+    "turn_tolerance_deg": 8.0,
+    "back_up_target_m": 0.4,
+    "stop_hold_s": 2.0,
+    "vx_onset": 0.24,
+    "vx_reverse_onset": -0.32,
+    "vx_back_up": -0.32,
+    "gait_onset_eps": 1e-06,
+    "fallen_trunk_z": 0.09,
+    "nominal_trunk_z": 0.116
+  },
+  "gates": [
+    {
+      "name": "sequence_exact_order",
+      "passed": true,
+      "detail": "accepted ['COME', 'STOP', 'TURN_LEFT', 'TURN_RIGHT', 'BACK_UP', 'WAVE'] == expected ['COME', 'STOP', 'TURN_LEFT', 'TURN_RIGHT', 'BACK_UP', 'WAVE']"
+    },
+    {
+      "name": "sequence_six_commands",
+      "passed": true,
+      "detail": "6 commands accepted"
+    },
+    {
+      "name": "session_completed",
+      "passed": true,
+      "detail": "final state DONE"
+    },
+    {
+      "name": "no_timeouts",
+      "passed": true,
+      "detail": "0 phase ceilings fired: []"
+    },
+    {
+      "name": "locked_the_instructor",
+      "passed": true,
+      "detail": "locked 'mira', wanted 'mira'"
+    },
+    {
+      "name": "acquisition_had_alternatives",
+      "passed": true,
+      "detail": "camera confirmed ['mira', 'teo', 'ines', 'saskia'] during the search"
+    },
+    {
+      "name": "every_episode_from_instructor",
+      "passed": true,
+      "detail": "0 episodes from somebody else"
+    },
+    {
+      "name": "distractor_gestures_were_readable",
+      "passed": true,
+      "detail": "['teo'] were classifiable, fully readable and in range - the state an identity-blind robot would have obeyed"
+    },
+    {
+      "name": "distractor_gesture_sustained_past_confirm",
+      "passed": true,
+      "detail": "['teo'] held a full command past the 0.90s confirm window and were still ignored"
+    },
+    {
+      "name": "zero_wrong_person_commands",
+      "passed": true,
+      "detail": "no episode was opened on a distractor"
+    },
+    {
+      "name": "partial_rejected",
+      "passed": true,
+      "detail": "0 commands accepted during the partial gesture"
+    },
+    {
+      "name": "partial_was_visible",
+      "passed": true,
+      "detail": "instructor visible on 100.0% of the partial's ticks - so it was refused on its measurement, not on not being seen"
+    },
+    {
+      "name": "partial_was_readable",
+      "passed": true,
+      "detail": "arm fully readable on 100.0% of its ticks"
+    },
+    {
+      "name": "partial_rejection_logged",
+      "passed": true,
+      "detail": "4 explicit rejections logged"
+    },
+    {
+      "name": "every_command_camera_confirmed",
+      "passed": true,
+      "detail": "worst episode had the instructor visible on 100.0% of its confirm ticks"
+    },
+    {
+      "name": "every_command_arm_readable",
+      "passed": true,
+      "detail": "worst episode had the arm fully readable on 100.0% of its confirm ticks"
+    },
+    {
+      "name": "confirm_window_sustained",
+      "passed": true,
+      "detail": "every acceptance held at least 0.90s"
+    },
+    {
+      "name": "monitor_visibility",
+      "passed": true,
+      "detail": "instructor visible on 100.00% of monitoring ticks"
+    },
+    {
+      "name": "approach_closed_real_distance",
+      "passed": true,
+      "detail": "range 2.899 -> 1.699 m (+1.200 m)"
+    },
+    {
+      "name": "approach_walked_real_path",
+      "passed": true,
+      "detail": "1.802 m of real path"
+    },
+    {
+      "name": "stop_interrupted_real_motion",
+      "passed": true,
+      "detail": "the command on the tick before the STOP was 0.260, and it interrupted 'COME'"
+    },
+    {
+      "name": "stop_zeroed_within_one_tick",
+      "passed": true,
+      "detail": "exact zero reached 0 ticks after the STOP state began"
+    },
+    {
+      "name": "stop_held_still",
+      "passed": true,
+      "detail": "held 1.98s below the settled speed (bar 2.00s, less the one control tick the measurement lags the machine by)"
+    },
+    {
+      "name": "stop_drift_negligible",
+      "passed": true,
+      "detail": "2.8 mm of drift while stopped"
+    },
+    {
+      "name": "turn_left_real_heading_change",
+      "passed": true,
+      "detail": "trunk yaw turned 64.57 deg (target +72)"
+    },
+    {
+      "name": "turn_right_real_heading_change",
+      "passed": true,
+      "detail": "trunk yaw turned -64.47 deg (target -72)"
+    },
+    {
+      "name": "turns_are_opposite",
+      "passed": true,
+      "detail": "the two named turns produced opposite-signed real heading changes"
+    },
+    {
+      "name": "turns_were_walked_arcs",
+      "passed": true,
+      "detail": "each turn walked a real arc rather than pivoting"
+    },
+    {
+      "name": "back_up_real_displacement",
+      "passed": true,
+      "detail": "0.342 m backward along the pre-action heading (target 0.40)"
+    },
+    {
+      "name": "back_up_used_reverse_gait",
+      "passed": true,
+      "detail": "reverse command reached -0.320, at or past the measured onset -0.32"
+    },
+    {
+      "name": "zero_states_exactly_zero",
+      "passed": true,
+      "detail": "0 ticks where a zero-command state emitted a nonzero command"
+    },
+    {
+      "name": "no_sub_gait_commands",
+      "passed": true,
+      "detail": "0 ticks commanded between zero and a measured gait onset"
+    },
+    {
+      "name": "no_lateral_command",
+      "passed": true,
+      "detail": "max |vy| = 0.0"
+    },
+    {
+      "name": "stillness_is_real",
+      "passed": true,
+      "detail": "worst zero-command episode accumulated 43.9 mm of path"
+    },
+    {
+      "name": "zero_contacts",
+      "passed": true,
+      "detail": "0 ticks with a nonpositive surface clearance"
+    },
+    {
+      "name": "positive_clearance_to_people",
+      "passed": true,
+      "detail": "closest approach to a person 0.5971 m (mira at 61.68s)"
+    },
+    {
+      "name": "clearance_outside_standoff_floor",
+      "passed": true,
+      "detail": "never closer than 0.5971 m to anybody"
+    },
+    {
+      "name": "positive_clearance_to_scenery",
+      "passed": true,
+      "detail": "closest approach to scenery 0.6277 m (obs_cone_w)"
+    },
+    {
+      "name": "stayed_inside_the_area",
+      "passed": true,
+      "detail": "0 ticks outside the training floor"
+    },
+    {
+      "name": "zero_falls",
+      "passed": true,
+      "detail": "0 ticks below 0.09 m"
+    },
+    {
+      "name": "trunk_height_held",
+      "passed": true,
+      "detail": "minimum trunk height 0.1131 m"
+    },
+    {
+      "name": "final_height_nominal",
+      "passed": true,
+      "detail": "final trunk height 0.1163 m against a nominal 0.116"
+    },
+    {
+      "name": "no_forbidden_states",
+      "passed": true,
+      "detail": "none of ['EXECUTE_UNCONFIRMED', 'OBEY_STRANGER'] was ever entered"
+    },
+    {
+      "name": "stock_policy_sha256",
+      "passed": true,
+      "detail": "e36332d383997d51... matches the frozen stock walking policy"
+    },
+    {
+      "name": "observation_is_61d",
+      "passed": true,
+      "detail": "61-D observation"
+    },
+    {
+      "name": "action_scale_is_0_9",
+      "passed": true,
+      "detail": "action scale 0.9"
+    },
+    {
+      "name": "exact_gyro_sensor",
+      "passed": true,
+      "detail": "angular-velocity sensor 'imu_ang_vel'"
+    },
+    {
+      "name": "control_rate_50hz",
+      "passed": true,
+      "detail": "50.0 Hz with decimation 10 from a 0.002 s timestep"
+    }
+  ],
+  "gates_passed": 48,
+  "gates_total": 48,
+  "all_gates_passed": true,
+  "render": {
+    "out": "media/gesture-response.mp4",
+    "fps": 50,
+    "width": 960,
+    "height": 640,
+    "crf": 20,
+    "frames": 4360,
+    "bytes": 5667149
+  }
+}

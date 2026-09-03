@@ -1,0 +1,788 @@
+{
+  "seconds": 95.0,
+  "control_steps": 4750,
+  "control_hz": 50.0,
+  "follower": "mara",
+  "observation_dim": 61,
+  "action_scale": 0.9,
+  "gyro_sensor": "imu_ang_vel",
+  "policy_sha256": "e36332d383997d51401897734cd3e79cf5038406feddb18b4d57ecfb141daa6c",
+  "fallen_steps": 0,
+  "contact_steps": 0,
+  "min_trunk_z_m": 0.11277,
+  "final_trunk_z_m": 0.11627,
+  "path_m": 10.0306,
+  "min_person_clearance_m": 0.145,
+  "min_person_clearance_name": "mara",
+  "min_follower_clearance_m": 0.145,
+  "min_scenery_clearance_m": 0.1613,
+  "min_scenery_clearance_geom": "obs_hall_screen",
+  "duck_planar_radius_m": 0.1162,
+  "duck_exact_radius_m": 0.0827,
+  "adult_half_extent_m": 0.1138,
+  "adult_half_extent_basis": "pose-zero sample; not a gait maximum",
+  "states_visited": [
+    "ARRIVE",
+    "CHECK_FOLLOWER",
+    "DONE",
+    "INDICATE",
+    "LEAD",
+    "PLAN",
+    "RECEIVE_DESTINATION",
+    "RESUME",
+    "WAIT_FOR_PERSON"
+  ],
+  "declared_states": [
+    "RECEIVE_DESTINATION",
+    "PLAN",
+    "LEAD",
+    "CHECK_FOLLOWER",
+    "WAIT_FOR_PERSON",
+    "RESUME",
+    "ARRIVE",
+    "INDICATE",
+    "DONE"
+  ],
+  "forbidden_states": [
+    "ABANDON",
+    "SEARCH"
+  ],
+  "forbidden_state_steps": {
+    "ABANDON": 0,
+    "SEARCH": 0
+  },
+  "state_steps": {
+    "RECEIVE_DESTINATION": 150,
+    "PLAN": 60,
+    "LEAD": 2606,
+    "CHECK_FOLLOWER": 58,
+    "WAIT_FOR_PERSON": 1157,
+    "RESUME": 300,
+    "ARRIVE": 1,
+    "INDICATE": 200,
+    "DONE": 218
+  },
+  "state_seconds": {
+    "RECEIVE_DESTINATION": 3.0,
+    "PLAN": 1.2,
+    "LEAD": 52.12,
+    "CHECK_FOLLOWER": 1.16,
+    "WAIT_FOR_PERSON": 23.14,
+    "RESUME": 6.0,
+    "ARRIVE": 0.02,
+    "INDICATE": 4.0,
+    "DONE": 4.36
+  },
+  "state_command_max": {
+    "RECEIVE_DESTINATION": 0.0,
+    "PLAN": 0.0,
+    "LEAD": 0.55,
+    "CHECK_FOLLOWER": 0.0,
+    "WAIT_FOR_PERSON": 0.0,
+    "RESUME": 0.353974,
+    "ARRIVE": 0.24,
+    "INDICATE": 0.0,
+    "DONE": 0.0
+  },
+  "zero_command_states": [
+    "RECEIVE_DESTINATION",
+    "PLAN",
+    "CHECK_FOLLOWER",
+    "WAIT_FOR_PERSON",
+    "INDICATE",
+    "DONE"
+  ],
+  "zero_command_violations": [],
+  "transitions": [
+    {
+      "t": 3.0,
+      "from": "RECEIVE_DESTINATION",
+      "to": "PLAN",
+      "destination": "LIFTS",
+      "acknowledged_for_s": 1.4,
+      "reason": "request acknowledged"
+    },
+    {
+      "t": 4.2,
+      "from": "PLAN",
+      "to": "LEAD",
+      "destination": "LIFTS",
+      "route_m": 7.8149,
+      "bends": 5,
+      "searched_for_s": 1.2,
+      "reason": "route planned; leading off"
+    },
+    {
+      "t": 25.08,
+      "from": "LEAD",
+      "to": "CHECK_FOLLOWER",
+      "cause": "lag",
+      "distance_m": 1.5953,
+      "visible": true,
+      "reason": "lag confirmed by measurement"
+    },
+    {
+      "t": 25.66,
+      "from": "CHECK_FOLLOWER",
+      "to": "WAIT_FOR_PERSON",
+      "distance_m": 1.5966,
+      "visible": true,
+      "reason": "visual contact established; waiting here for her"
+    },
+    {
+      "t": 36.08,
+      "from": "WAIT_FOR_PERSON",
+      "to": "RESUME",
+      "distance_m": 0.8611,
+      "reason": "she caught up and is visible; leading on"
+    },
+    {
+      "t": 39.08,
+      "from": "RESUME",
+      "to": "LEAD",
+      "reason": "resumed and back on the route"
+    },
+    {
+      "t": 48.1,
+      "from": "LEAD",
+      "to": "CHECK_FOLLOWER",
+      "cause": "lag",
+      "distance_m": 1.5768,
+      "visible": true,
+      "reason": "lag confirmed by measurement"
+    },
+    {
+      "t": 48.68,
+      "from": "CHECK_FOLLOWER",
+      "to": "WAIT_FOR_PERSON",
+      "distance_m": 1.5838,
+      "visible": true,
+      "reason": "visual contact established; waiting here for her"
+    },
+    {
+      "t": 61.4,
+      "from": "WAIT_FOR_PERSON",
+      "to": "RESUME",
+      "distance_m": 0.8433,
+      "reason": "she caught up and is visible; leading on"
+    },
+    {
+      "t": 64.4,
+      "from": "RESUME",
+      "to": "LEAD",
+      "reason": "resumed and back on the route"
+    },
+    {
+      "t": 86.62,
+      "from": "LEAD",
+      "to": "ARRIVE",
+      "remaining_m": 0.0,
+      "reason": "reached the end of the planned route"
+    },
+    {
+      "t": 86.64,
+      "from": "ARRIVE",
+      "to": "INDICATE",
+      "reason": "facing the destination; indicating"
+    },
+    {
+      "t": 90.64,
+      "from": "INDICATE",
+      "to": "DONE",
+      "reason": "arrival indicated"
+    }
+  ],
+  "requested_destination": "LIFTS",
+  "request_t_s": 1.6,
+  "destination_candidates": [
+    "LIFTS",
+    "CAFE",
+    "HELPDESK"
+  ],
+  "destination_candidate_count": 3,
+  "all_destination_keys": [
+    "LIFTS",
+    "CAFE",
+    "HELPDESK"
+  ],
+  "resolved_destination": "LIFTS",
+  "resolution_correct": true,
+  "plan": {
+    "destination": "LIFTS",
+    "waypoints": [
+      [
+        -2.8487,
+        -1.6496
+      ],
+      [
+        -1.8,
+        -1.85
+      ],
+      [
+        -1.44,
+        -1.85
+      ],
+      [
+        -0.27,
+        -0.05
+      ],
+      [
+        0.99,
+        0.49
+      ],
+      [
+        1.53,
+        0.49
+      ],
+      [
+        2.3073,
+        -1.1514
+      ],
+      [
+        2.88,
+        -1.62
+      ]
+    ],
+    "length_m": 7.8149,
+    "straight_line_m": 5.7287,
+    "detour_ratio": 1.3641,
+    "straight_line_blocked_by": "hall_screen",
+    "bends": [
+      {
+        "turn_deg": 10.819,
+        "hand": "left",
+        "radius_m": 0.62,
+        "arc_len_m": 0.1171,
+        "start_s_m": 1.0089,
+        "end_s_m": 1.126
+      },
+      {
+        "turn_deg": -33.778,
+        "hand": "right",
+        "radius_m": 0.62,
+        "arc_len_m": 0.3655,
+        "start_s_m": 3.2638,
+        "end_s_m": 3.6293
+      },
+      {
+        "turn_deg": -23.199,
+        "hand": "right",
+        "radius_m": 0.62,
+        "arc_len_m": 0.251,
+        "start_s_m": 4.6846,
+        "end_s_m": 4.9357
+      },
+      {
+        "turn_deg": -64.661,
+        "hand": "right",
+        "radius_m": 0.62,
+        "arc_len_m": 0.6997,
+        "start_s_m": 4.956,
+        "end_s_m": 5.6557
+      },
+      {
+        "turn_deg": 25.371,
+        "hand": "left",
+        "radius_m": 0.62,
+        "arc_len_m": 0.2745,
+        "start_s_m": 6.9399,
+        "end_s_m": 7.2144
+      }
+    ],
+    "bend_count": 5,
+    "grid_cells": 4212,
+    "free_cells": 1729,
+    "static_blocked_cells": 1876,
+    "crowd_blocked_cells": 607,
+    "crowd_blockers": {
+      "ivan": 164,
+      "pablo": 140,
+      "noor": 143,
+      "sena": 107,
+      "tessa": 18,
+      "omar": 35
+    },
+    "crowd_tubes": [
+      {
+        "name": "noor",
+        "pos": [
+          0.2163,
+          -1.1015
+        ],
+        "velocity": [
+          -0.0446,
+          0.1495
+        ],
+        "speed_mps": 0.156
+      },
+      {
+        "name": "pablo",
+        "pos": [
+          -0.1263,
+          1.1665
+        ],
+        "velocity": [
+          0.0746,
+          -0.1278
+        ],
+        "speed_mps": 0.148
+      },
+      {
+        "name": "ivan",
+        "pos": [
+          -2.5534,
+          -1.1992
+        ],
+        "velocity": [
+          0.1989,
+          -0.0497
+        ],
+        "speed_mps": 0.205
+      },
+      {
+        "name": "sena",
+        "pos": [
+          0.2282,
+          1.5833
+        ],
+        "velocity": [
+          0.1261,
+          -0.0222
+        ],
+        "speed_mps": 0.128
+      },
+      {
+        "name": "omar",
+        "pos": [
+          2.8488,
+          0.5512
+        ],
+        "velocity": [
+          -0.1004,
+          0.1004
+        ],
+        "speed_mps": 0.142
+      },
+      {
+        "name": "tessa",
+        "pos": [
+          1.0978,
+          -1.5852
+        ],
+        "velocity": [
+          -0.1174,
+          -0.0117
+        ],
+        "speed_mps": 0.118
+      }
+    ],
+    "cells_expanded": 856,
+    "raw_vertices": 80,
+    "simplified_vertices": 8,
+    "min_planned_clearance_m": 0.2964,
+    "min_planned_clearance_at": [
+      1.4427,
+      0.4097
+    ],
+    "route_clearance_required_m": 0.1903,
+    "corner_radius_m": 0.62,
+    "corner_radii_tried": 1,
+    "static_inflate_m": 0.3003,
+    "crowd_inflate_m": 0.4402,
+    "crowd_inflate_full_m": 0.5503,
+    "crowd_tier_used": 0.8,
+    "crowd_tiers_tried": 2,
+    "crowd_inflate_floor_m": 0.4103,
+    "grid_m": 0.09
+  },
+  "planned": true,
+  "lead_seconds": 58.12,
+  "lead_path_m": 9.9264,
+  "lead_net_m": 5.5035,
+  "max_cross_track_m": 0.0847,
+  "route_progress_final": 0.9618,
+  "route_remaining_final_m": 0.2983,
+  "follower_walked_m": 15.2606,
+  "follower_trail_gap_final_m": 0.62,
+  "min_lead_gap_m": 0.5093,
+  "follower_ahead_steps": 0,
+  "trail_gap_floor_m": 0.62,
+  "max_follower_range_m": 1.6126,
+  "safety_max_distance_m": 3.2,
+  "max_safety_breach_s": 0.0,
+  "safety_max_interval_s": 6.0,
+  "max_check_path_m": 0.0286,
+  "check_still_path_m": 0.03,
+  "episodes": [
+    {
+      "index": 0,
+      "cause": "lag",
+      "detected_at_s": 25.08,
+      "distance_at_detect_m": 1.5953,
+      "visible_at_detect": true,
+      "los_available_at_detect": true,
+      "lagging_for_s": 1.2,
+      "unseen_for_s": 0.0,
+      "lag_threshold_m": 1.45,
+      "lost_threshold_s": 1.6,
+      "route_remaining_at_detect_m": 5.0649,
+      "checked_at_s": 25.66,
+      "distance_at_check_m": 1.5966,
+      "contact_established_for_s": 0.6,
+      "head_on_her_at_check": true,
+      "bearing_inside_head_reach_at_check": false,
+      "resumed_at_s": 36.08,
+      "distance_at_resume_m": 0.8611,
+      "visible_at_resume": true,
+      "recovered_for_s": 1.0,
+      "catchup_threshold_m": 0.95,
+      "resume_confirm_s": 1.0,
+      "wait_duration_s": 10.42,
+      "episode_duration_s": 11.0,
+      "monitor_seconds": 11.0,
+      "wait_only_seconds": 10.42,
+      "max_command_while_waiting": 0.0,
+      "duck_moved_while_waiting_m": 0.0063,
+      "duck_moved_while_monitoring_m": 0.0296,
+      "squaring_up_path_m": 0.0233,
+      "follower_closed_m": 0.7365,
+      "waiting_spot_xy": [
+        -0.6798,
+        -0.6092
+      ],
+      "waiting_spot_scenery_clearance_m": 0.452,
+      "los_steps": 550,
+      "visible_with_los_steps": 497,
+      "visible_fraction_with_los": 0.9036
+    },
+    {
+      "index": 1,
+      "cause": "lag",
+      "detected_at_s": 48.1,
+      "distance_at_detect_m": 1.5768,
+      "visible_at_detect": true,
+      "los_available_at_detect": true,
+      "lagging_for_s": 1.2,
+      "unseen_for_s": 0.0,
+      "lag_threshold_m": 1.45,
+      "lost_threshold_s": 1.6,
+      "route_remaining_at_detect_m": 3.5065,
+      "checked_at_s": 48.68,
+      "distance_at_check_m": 1.5838,
+      "contact_established_for_s": 0.6,
+      "head_on_her_at_check": true,
+      "bearing_inside_head_reach_at_check": false,
+      "resumed_at_s": 61.4,
+      "distance_at_resume_m": 0.8433,
+      "visible_at_resume": true,
+      "recovered_for_s": 1.0,
+      "catchup_threshold_m": 0.95,
+      "resume_confirm_s": 1.0,
+      "wait_duration_s": 12.72,
+      "episode_duration_s": 13.3,
+      "monitor_seconds": 13.3,
+      "wait_only_seconds": 12.72,
+      "max_command_while_waiting": 0.0,
+      "duck_moved_while_waiting_m": 0.0078,
+      "duck_moved_while_monitoring_m": 0.0364,
+      "squaring_up_path_m": 0.0286,
+      "follower_closed_m": 0.7356,
+      "waiting_spot_xy": [
+        0.529,
+        0.2974
+      ],
+      "waiting_spot_scenery_clearance_m": 0.3742,
+      "los_steps": 665,
+      "visible_with_los_steps": 665,
+      "visible_fraction_with_los": 1.0
+    }
+  ],
+  "episode_count": 2,
+  "lag_threshold_m": 1.45,
+  "lag_confirm_s": 1.2,
+  "lost_confirm_s": 1.6,
+  "catchup_threshold_m": 0.95,
+  "resume_confirm_s": 1.0,
+  "declared_stalls": [
+    {
+      "start_s": 17.0,
+      "end_s": 27.0,
+      "speed_factor": 0.0,
+      "ramp_s": 1.2,
+      "label": "stops to look at the departures board",
+      "episode_indices": [
+        0
+      ],
+      "detected": true,
+      "detection_lag_s": 8.08
+    },
+    {
+      "start_s": 44.0,
+      "end_s": 55.0,
+      "speed_factor": 0.1,
+      "ramp_s": 1.2,
+      "label": "slows to a crawl while rounding the partition",
+      "episode_indices": [
+        1
+      ],
+      "detected": true,
+      "detection_lag_s": 4.1
+    }
+  ],
+  "stalls_detected": 2,
+  "arrival": {
+    "arrived_at_s": 86.64,
+    "destination": "LIFTS",
+    "follower_distance_at_arrival_m": 0.8952,
+    "indicated_for_s": 4.0
+  },
+  "arrived": true,
+  "final_destination_distance_m": 0.8673,
+  "final_destination_band_m": [
+    0.3,
+    0.95
+  ],
+  "final_facing_error_deg": 3.46,
+  "face_tolerance_deg": 42.0,
+  "final_follower_distance_m": 0.4769,
+  "final_person_near_m": 1.6,
+  "indicate_seconds": 4.0,
+  "indicate_required_s": 4.0,
+  "people": [
+    "mara",
+    "noor",
+    "pablo",
+    "ivan",
+    "sena",
+    "omar",
+    "tessa"
+  ],
+  "other_adults": [
+    "noor",
+    "pablo",
+    "ivan",
+    "sena",
+    "omar",
+    "tessa"
+  ],
+  "moving_adults": 6,
+  "crowd_names": [
+    "noor",
+    "pablo",
+    "ivan"
+  ],
+  "visible_steps": 4270,
+  "visible_fraction": 0.8989,
+  "los_steps": 4750,
+  "visible_with_los_steps": 4270,
+  "visible_fraction_with_los": 0.8989,
+  "monitor_steps": 1215,
+  "monitor_los_steps": 1215,
+  "monitor_visible_with_los_steps": 1162,
+  "monitor_visible_fraction_with_los": 0.9564,
+  "monitor_records": 1215,
+  "blocked_by": {
+    "out_of_frustum": 442,
+    "ivan_torso": 3,
+    "tessa_torso": 35
+  },
+  "timeouts": [],
+  "all_gates_pass": true,
+  "gate_results": [
+    {
+      "gate": "the request was resolved to the correct one of >= 3 candidates",
+      "pass": true,
+      "evidence": "requested 'LIFTS' at 1.6s, resolved to 'LIFTS' out of ['LIFTS', 'CAFE', 'HELPDESK']"
+    },
+    {
+      "gate": "the duck acknowledged before moving, at exactly zero command",
+      "pass": true,
+      "evidence": "RECEIVE_DESTINATION for 3.0s at max command 0.0"
+    },
+    {
+      "gate": "the planned route has at least 3 bends",
+      "pass": true,
+      "evidence": "5 bends: left +10.8 deg, right -33.8 deg, right -23.2 deg, right -64.7 deg, left +25.4 deg"
+    },
+    {
+      "gate": "the planned route avoids the inflated obstacles",
+      "pass": true,
+      "evidence": "min planned clearance 0.2964 m at [1.4427, 0.4097], required 0.1903 m (corner radius 0.62 m, 1 tried)"
+    },
+    {
+      "gate": "the planner refused cells BECAUSE of the crowd, not only the walls",
+      "pass": true,
+      "evidence": "607 crowd-blocked cells {'ivan': 164, 'pablo': 140, 'noor': 143, 'sena': 107, 'tessa': 18, 'omar': 35} against 1876 static-blocked"
+    },
+    {
+      "gate": "the route is a genuine detour, not the straight line",
+      "pass": true,
+      "evidence": "7.8149 m against a 5.7287 m straight line (x1.3641), which hall_screen blocks"
+    },
+    {
+      "gate": "the duck physically led at least 3.5 m of path",
+      "pass": true,
+      "evidence": "9.9264 m walked in LEAD/RESUME over 58.12s"
+    },
+    {
+      "gate": "the lead made at least 3.0 m of net progress",
+      "pass": true,
+      "evidence": "net 5.5035 m between the first and last leading tick"
+    },
+    {
+      "gate": "the person actually walked at least 3.0 m behind the duck",
+      "pass": true,
+      "evidence": "she walked 15.2606 m along the duck's own trail"
+    },
+    {
+      "gate": "the duck LED: the follower was never ahead of it on the path",
+      "pass": true,
+      "evidence": "0 step(s) with her ahead; minimum trail gap 0.5093 m against a 0.62 m floor"
+    },
+    {
+      "gate": "the duck stayed on its planned route",
+      "pass": true,
+      "evidence": "max cross-track 0.0847 m"
+    },
+    {
+      "gate": "at least 2 lag/loss episodes were DETECTED from measurement",
+      "pass": true,
+      "evidence": "episode 0: lag at 25.08s (distance 1.5953 m, visible True, lagging for 1.2s, unseen for 0.0s); episode 1: lag at 48.1s (distance 1.5768 m, visible True, lagging for 1.2s, unseen for 0.0s)"
+    },
+    {
+      "gate": "every declared stall produced a detected episode",
+      "pass": true,
+      "evidence": "'stops to look at the departures board' 17.0-27.0s -> episodes [0] (lag 8.08s); 'slows to a crawl while rounding the partition' 44.0-55.0s -> episodes [1] (lag 4.1s)"
+    },
+    {
+      "gate": "the command was EXACTLY zero for every WAITING tick",
+      "pass": true,
+      "evidence": "episode 0: max command 0.0 over 10.42s of WAIT_FOR_PERSON, duck moved 0.0063 m; episode 1: max command 0.0 over 12.72s of WAIT_FOR_PERSON, duck moved 0.0078 m; 0 violation(s) in ['RECEIVE_DESTINATION', 'PLAN', 'CHECK_FOLLOWER', 'WAIT_FOR_PERSON', 'INDICATE', 'DONE']"
+    },
+    {
+      "gate": "the duck was equally still while CHECKING, not only while waiting",
+      "pass": true,
+      "evidence": "episode 0: drifted 0.0233 m in CHECK_FOLLOWER against a 0.03 m bound (10 s of exact zero MEASURES 0.0057 m of path); episode 1: drifted 0.0286 m in CHECK_FOLLOWER against a 0.03 m bound (10 s of exact zero MEASURES 0.0057 m of path)"
+    },
+    {
+      "gate": "every wait lasted at least 1.5s and she closed at least 0.35 m",
+      "pass": true,
+      "evidence": "episode 0: waited 10.42s, she closed 0.7365 m; episode 1: waited 12.72s, she closed 0.7356 m"
+    },
+    {
+      "gate": "every resume was justified by measured catch-up AND visibility",
+      "pass": true,
+      "evidence": "episode 0: resumed at 0.8611 m <= 0.95 m, visible True, sustained 1.0s; episode 1: resumed at 0.8433 m <= 0.95 m, visible True, sustained 1.0s"
+    },
+    {
+      "gate": "each waiting spot kept positive clearance to the scenery",
+      "pass": true,
+      "evidence": "episode 0: waited at [-0.6798, -0.6092] with 0.452 m clearance; episode 1: waited at [0.529, 0.2974] with 0.3742 m clearance"
+    },
+    {
+      "gate": "the duck never left her beyond the safety maximum for a prolonged interval",
+      "pass": true,
+      "evidence": "longest continuous interval beyond 3.2 m was 0.0s against a 6.0s limit (max range 1.6126 m)"
+    },
+    {
+      "gate": "the duck reached the destination it was ASKED for",
+      "pass": true,
+      "evidence": "arrived at 'LIFTS' at 86.64s, requested 'LIFTS'"
+    },
+    {
+      "gate": "the final distance to the destination is inside its band",
+      "pass": true,
+      "evidence": "0.8673 m against band [0.3, 0.95]"
+    },
+    {
+      "gate": "the duck finished facing the destination",
+      "pass": true,
+      "evidence": "facing error 3.46 deg <= 42.0 deg"
+    },
+    {
+      "gate": "the arrival was indicated for at least 4s",
+      "pass": true,
+      "evidence": "INDICATE for 4.0s"
+    },
+    {
+      "gate": "the person finished safely nearby",
+      "pass": true,
+      "evidence": "she finished 0.4769 m away, limit 1.6 m"
+    },
+    {
+      "gate": "the duck arrived BEFORE her, as a guide must",
+      "pass": true,
+      "evidence": "final trail gap 0.62 m"
+    },
+    {
+      "gate": "the follower was visible in >= 95% of CHECK/WAIT steps where line of sight existed",
+      "pass": true,
+      "evidence": "95.64% of 1215 LOS steps in 1215 monitor steps (89.89% over the whole run)"
+    },
+    {
+      "gate": "at least 5 other adults were moving in the hall",
+      "pass": true,
+      "evidence": "6 of 6 other adults changed position: ['noor', 'pablo', 'ivan', 'sena', 'omar', 'tessa']"
+    },
+    {
+      "gate": "positive clearance to every person at all times",
+      "pass": true,
+      "evidence": "min 0.1450 m to mara"
+    },
+    {
+      "gate": "positive clearance to every obstacle, wall and fixture",
+      "pass": true,
+      "evidence": "min 0.1613 m to obs_hall_screen"
+    },
+    {
+      "gate": "zero contacts",
+      "pass": true,
+      "evidence": "0 steps with non-positive clearance"
+    },
+    {
+      "gate": "every declared state was visited",
+      "pass": true,
+      "evidence": "visited ['ARRIVE', 'CHECK_FOLLOWER', 'DONE', 'INDICATE', 'LEAD', 'PLAN', 'RECEIVE_DESTINATION', 'RESUME', 'WAIT_FOR_PERSON']"
+    },
+    {
+      "gate": "every visited state is one this behavior declares",
+      "pass": true,
+      "evidence": "visited ['ARRIVE', 'CHECK_FOLLOWER', 'DONE', 'INDICATE', 'LEAD', 'PLAN', 'RECEIVE_DESTINATION', 'RESUME', 'WAIT_FOR_PERSON']"
+    },
+    {
+      "gate": "exactly zero ABANDON and SEARCH steps",
+      "pass": true,
+      "evidence": "forbidden state steps: {'ABANDON': 0, 'SEARCH': 0}"
+    },
+    {
+      "gate": "no phase hit its ceiling",
+      "pass": true,
+      "evidence": "timeouts: none"
+    },
+    {
+      "gate": "zero falls",
+      "pass": true,
+      "evidence": "0 steps below 0.09 m"
+    },
+    {
+      "gate": "trunk never below 0.09 m",
+      "pass": true,
+      "evidence": "min 0.1128 m"
+    },
+    {
+      "gate": "final trunk height near the nominal 0.116 m",
+      "pass": true,
+      "evidence": "0.1163 m"
+    },
+    {
+      "gate": "the exact imu_ang_vel sensor, 61-D observation and 0.9 action scale",
+      "pass": true,
+      "evidence": "gyro=imu_ang_vel, obs=61-D, action_scale=0.9"
+    },
+    {
+      "gate": "the byte-identical stock walking policy",
+      "pass": true,
+      "evidence": "sha256 e36332d383997d51401897734cd3e79cf5038406feddb18b4d57ecfb141daa6c"
+    }
+  ]
+}

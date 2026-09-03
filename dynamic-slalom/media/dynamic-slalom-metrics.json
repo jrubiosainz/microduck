@@ -1,0 +1,1653 @@
+{
+  "gyro_sensor": "imu_ang_vel",
+  "observation_dim": 61,
+  "action_scale": 0.9,
+  "policy_sha256": "e36332d383997d51401897734cd3e79cf5038406feddb18b4d57ecfb141daa6c",
+  "control_hz": 50.0,
+  "decimation": 10,
+  "seconds": 92.0,
+  "steps": 4600,
+  "path_m": 11.4983,
+  "net_m": 7.4787,
+  "start_xy": [
+    -4.0501,
+    -0.0
+  ],
+  "final_xy": [
+    3.4286,
+    -0.0182
+  ],
+  "min_trunk_z_m": 0.11298,
+  "final_trunk_z_m": 0.11627,
+  "fallen_steps": 0,
+  "contact_steps": 0,
+  "walk_path_m": 11.3724,
+  "walk_seconds": 71.32,
+  "turning_path": {
+    "path_m": 11.4983,
+    "net_m": 7.4787,
+    "excess_over_net_m": 4.0196,
+    "max_left_offset_m": 0.316,
+    "max_right_offset_m": -0.262,
+    "lateral_span_m": 0.578,
+    "lateral_path_m": 7.1095,
+    "yaw_travel_deg": 2295.4
+  },
+  "passes": [
+    {
+      "index": 0,
+      "threat": "mara",
+      "side": "right",
+      "began_at_s": 5.5,
+      "ended_at_s": 12.7,
+      "waited_s": 3.6,
+      "chosen_clearance_m": 0.166,
+      "rejected_side": "left",
+      "rejected_clearance_m": 0.0192,
+      "measured_min_clearance_m": 0.5895,
+      "decision": {}
+    },
+    {
+      "index": 1,
+      "threat": "tobin",
+      "side": "left",
+      "began_at_s": 15.9,
+      "ended_at_s": 26.96,
+      "waited_s": 1.9,
+      "chosen_clearance_m": 0.1663,
+      "rejected_side": "right",
+      "rejected_clearance_m": -0.0004,
+      "measured_min_clearance_m": 1.0518,
+      "decision": {}
+    },
+    {
+      "index": 2,
+      "threat": "ines",
+      "side": "right",
+      "began_at_s": 30.82,
+      "ended_at_s": 42.48,
+      "waited_s": 0.0,
+      "chosen_clearance_m": 0.2403,
+      "rejected_side": "left",
+      "rejected_clearance_m": 0.2318,
+      "measured_min_clearance_m": 0.9472,
+      "decision": {}
+    },
+    {
+      "index": 3,
+      "threat": "dev",
+      "side": "left",
+      "began_at_s": 46.2,
+      "ended_at_s": 56.58,
+      "waited_s": 2.76,
+      "chosen_clearance_m": 0.1614,
+      "rejected_side": "right",
+      "rejected_clearance_m": -0.1633,
+      "measured_min_clearance_m": 0.9783,
+      "decision": {}
+    },
+    {
+      "index": 4,
+      "threat": "karl",
+      "side": "right",
+      "began_at_s": 59.02,
+      "ended_at_s": 61.86,
+      "waited_s": 0.0,
+      "chosen_clearance_m": 0.5047,
+      "rejected_side": "left",
+      "rejected_clearance_m": 0.4345,
+      "measured_min_clearance_m": 0.9034,
+      "decision": {}
+    }
+  ],
+  "pass_sides": [
+    "right",
+    "left",
+    "right",
+    "left",
+    "right"
+  ],
+  "expected_pass_sides": [
+    "right",
+    "left",
+    "right",
+    "left",
+    "right"
+  ],
+  "alternating": true,
+  "waits": [
+    {
+      "index": 0,
+      "threat": "mara",
+      "began_at_s": 1.9,
+      "rejected_side": "right",
+      "rejected_clearance_m": -0.163,
+      "ended_at_s": 5.5,
+      "duration_s": 3.6,
+      "resolved_side": "right",
+      "resolved_clearance_m": 0.166
+    },
+    {
+      "index": 1,
+      "threat": "tobin",
+      "began_at_s": 14.0,
+      "rejected_side": "right",
+      "rejected_clearance_m": 0.2674,
+      "ended_at_s": 15.9,
+      "duration_s": 1.9,
+      "resolved_side": "left",
+      "resolved_clearance_m": 0.1663
+    },
+    {
+      "index": 2,
+      "threat": "dev",
+      "began_at_s": 43.44,
+      "rejected_side": "right",
+      "rejected_clearance_m": -0.0245,
+      "ended_at_s": 46.2,
+      "duration_s": 2.76,
+      "resolved_side": "left",
+      "resolved_clearance_m": 0.1614
+    }
+  ],
+  "replans": [
+    {
+      "t": 13.32,
+      "after_pass": 1,
+      "goal_remaining_m": 6.858,
+      "lateral_error_m": -0.2109
+    },
+    {
+      "t": 27.56,
+      "after_pass": 2,
+      "goal_remaining_m": 5.755,
+      "lateral_error_m": 0.3028
+    },
+    {
+      "t": 43.1,
+      "after_pass": 3,
+      "goal_remaining_m": 4.226,
+      "lateral_error_m": -0.2535
+    },
+    {
+      "t": 57.18,
+      "after_pass": 4,
+      "goal_remaining_m": 3.244,
+      "lateral_error_m": 0.2774
+    },
+    {
+      "t": 62.46,
+      "after_pass": 5,
+      "goal_remaining_m": 2.636,
+      "lateral_error_m": 0.1851
+    }
+  ],
+  "pass_count": 5,
+  "wait_count": 3,
+  "prediction_bracketing": [
+    {
+      "index": 0,
+      "threat": "mara",
+      "side": "right",
+      "predicted_clearance_m": 0.166,
+      "measured_clearance_m": 0.5895,
+      "margin_m": 0.4235,
+      "conservative": true,
+      "measured_positive": true,
+      "rejected_side": "left",
+      "rejected_clearance_m": 0.0192
+    },
+    {
+      "index": 1,
+      "threat": "tobin",
+      "side": "left",
+      "predicted_clearance_m": 0.1663,
+      "measured_clearance_m": 1.049,
+      "margin_m": 0.8827,
+      "conservative": true,
+      "measured_positive": true,
+      "rejected_side": "right",
+      "rejected_clearance_m": -0.0004
+    },
+    {
+      "index": 2,
+      "threat": "ines",
+      "side": "right",
+      "predicted_clearance_m": 0.2403,
+      "measured_clearance_m": 0.9472,
+      "margin_m": 0.7069,
+      "conservative": true,
+      "measured_positive": true,
+      "rejected_side": "left",
+      "rejected_clearance_m": 0.2318
+    },
+    {
+      "index": 3,
+      "threat": "dev",
+      "side": "left",
+      "predicted_clearance_m": 0.1614,
+      "measured_clearance_m": 0.9708,
+      "margin_m": 0.8094,
+      "conservative": true,
+      "measured_positive": true,
+      "rejected_side": "right",
+      "rejected_clearance_m": -0.1633
+    },
+    {
+      "index": 4,
+      "threat": "karl",
+      "side": "right",
+      "predicted_clearance_m": 0.5047,
+      "measured_clearance_m": 0.762,
+      "margin_m": 0.2573,
+      "conservative": true,
+      "measured_positive": true,
+      "rejected_side": "left",
+      "rejected_clearance_m": 0.4345
+    }
+  ],
+  "predict_horizon_s": 10.5,
+  "safe_clearance_bar_m": 0.16,
+  "lateral_offsets_m": [
+    0.26,
+    0.38,
+    0.5
+  ],
+  "state_order": [
+    "ADVANCE",
+    "THREAT",
+    "WAIT",
+    "CHOOSE_RIGHT",
+    "PASS",
+    "REPLAN",
+    "ADVANCE",
+    "THREAT",
+    "WAIT",
+    "CHOOSE_LEFT",
+    "PASS",
+    "REPLAN",
+    "ADVANCE",
+    "THREAT",
+    "CHOOSE_RIGHT",
+    "PASS",
+    "REPLAN",
+    "ADVANCE",
+    "THREAT",
+    "WAIT",
+    "CHOOSE_LEFT",
+    "PASS",
+    "REPLAN",
+    "ADVANCE",
+    "THREAT",
+    "CHOOSE_RIGHT",
+    "PASS",
+    "REPLAN",
+    "ADVANCE",
+    "GOAL",
+    "DONE"
+  ],
+  "encounter_cycles": 5,
+  "replans_after_pass": 5,
+  "goal_xy": [
+    3.72,
+    0.0
+  ],
+  "reached_goal_at_s": 79.98,
+  "goal_steps": 602,
+  "goal_seconds": 12.04,
+  "min_goal_distance_m": 0.2882,
+  "goal_visible_fraction": 0.7443478260869565,
+  "goal_visible_fraction_with_los": 0.7590529247910863,
+  "goal_los_steps": 4308,
+  "min_body_clearance_m": 0.5895,
+  "min_body_clearance_name": "mara",
+  "min_clearance_by_body_m": {
+    "dev": 0.9708,
+    "ines": 0.9472,
+    "karl": 0.762,
+    "mara": 0.5895,
+    "noor": 1.5,
+    "pilar": 1.5,
+    "tobin": 1.049
+  },
+  "min_scenery_clearance_m": 0.3144,
+  "min_scenery_clearance_geom": "obs_cone_mid",
+  "duck_planar_radius_m": 0.1162,
+  "duck_exact_planar_radius_m": 0.0827,
+  "duck_exact_lateral_half_width_m": 0.071,
+  "actor_lateral_half_m": 0.255,
+  "declared_states": [
+    "PLAN",
+    "ADVANCE",
+    "THREAT",
+    "CHOOSE_LEFT",
+    "CHOOSE_RIGHT",
+    "WAIT",
+    "PASS",
+    "REPLAN",
+    "GOAL",
+    "DONE"
+  ],
+  "states_visited": [
+    "ADVANCE",
+    "CHOOSE_LEFT",
+    "CHOOSE_RIGHT",
+    "DONE",
+    "GOAL",
+    "PASS",
+    "PLAN",
+    "REPLAN",
+    "THREAT",
+    "WAIT"
+  ],
+  "state_steps": {
+    "PLAN": 20,
+    "ADVANCE": 1159,
+    "THREAT": 98,
+    "WAIT": 413,
+    "CHOOSE_RIGHT": 770,
+    "PASS": 580,
+    "REPLAN": 152,
+    "CHOOSE_LEFT": 807,
+    "GOAL": 94,
+    "DONE": 507
+  },
+  "state_seconds": {
+    "PLAN": 0.4,
+    "ADVANCE": 23.18,
+    "THREAT": 1.96,
+    "WAIT": 8.26,
+    "CHOOSE_RIGHT": 15.4,
+    "PASS": 11.6,
+    "REPLAN": 3.04,
+    "CHOOSE_LEFT": 16.14,
+    "GOAL": 1.88,
+    "DONE": 10.14
+  },
+  "state_command_max": {
+    "PLAN": 0.0,
+    "ADVANCE": 0.457144,
+    "THREAT": 0.34,
+    "WAIT": 0.0,
+    "CHOOSE_RIGHT": 0.58,
+    "PASS": 0.285401,
+    "REPLAN": 0.58,
+    "CHOOSE_LEFT": 0.58,
+    "GOAL": 0.0,
+    "DONE": 0.0
+  },
+  "state_path_m": {
+    "PLAN": 0.00278,
+    "ADVANCE": 4.0549,
+    "THREAT": 0.34424,
+    "WAIT": 0.09167,
+    "CHOOSE_RIGHT": 2.29235,
+    "PASS": 1.77592,
+    "REPLAN": 0.52684,
+    "CHOOSE_LEFT": 2.37819,
+    "GOAL": 0.02536,
+    "DONE": 0.00607
+  },
+  "zero_command_states": [
+    "WAIT",
+    "GOAL",
+    "DONE"
+  ],
+  "zero_command_violations": [],
+  "max_abs_vy_command": 0.0,
+  "zero_state_path_m": {
+    "WAIT": 0.09167,
+    "GOAL": 0.02536,
+    "DONE": 0.00607
+  },
+  "zero_episodes": [
+    {
+      "state": "WAIT",
+      "from_s": 1.92,
+      "to_s": 5.52,
+      "path_m": 0.03241,
+      "net_m": 0.01117
+    },
+    {
+      "state": "WAIT",
+      "from_s": 14.02,
+      "to_s": 15.92,
+      "path_m": 0.02849,
+      "net_m": 0.00936
+    },
+    {
+      "state": "WAIT",
+      "from_s": 43.46,
+      "to_s": 46.22,
+      "path_m": 0.03077,
+      "net_m": 0.0046
+    },
+    {
+      "state": "GOAL",
+      "from_s": 80.0,
+      "to_s": 81.88,
+      "path_m": 0.02536,
+      "net_m": 0.00489
+    },
+    {
+      "state": "DONE",
+      "from_s": 81.88,
+      "to_s": 92.0,
+      "path_m": 0.00607,
+      "net_m": 0.00032
+    }
+  ],
+  "worst_zero_episode_path_m": 0.03241,
+  "worst_zero_episode_net_m": 0.01117,
+  "zero_drift_reference_m": 0.0057,
+  "longest_illegal_zero_run": 20,
+  "illegal_zero_windows": [
+    {
+      "from_s": 0.02,
+      "to_s": 0.42,
+      "steps": 20
+    }
+  ],
+  "forbidden_state_steps": {
+    "BARGE_THROUGH": 0,
+    "FREEZE_FOREVER": 0
+  },
+  "transitions": [
+    {
+      "t": 0.4,
+      "from": "PLAN",
+      "to": "ADVANCE",
+      "goal_remaining_m": 7.768,
+      "reason": "plan computed; walking the lane to the goal"
+    },
+    {
+      "t": 1.4,
+      "from": "ADVANCE",
+      "to": "THREAT",
+      "threat": "mara",
+      "ttc_s": 10.5,
+      "range_m": 2.494,
+      "reason": "mara predicted to cross the planned line"
+    },
+    {
+      "t": 1.9,
+      "from": "THREAT",
+      "to": "WAIT",
+      "threat": "mara",
+      "reason": "NEITHER corridor predicted safe"
+    },
+    {
+      "t": 5.5,
+      "from": "WAIT",
+      "to": "CHOOSE_RIGHT",
+      "threat": "mara",
+      "chosen_clearance_m": 0.166,
+      "rejected": "left@0.019m",
+      "reason": "passing right: predicted 0.166 m against 0.019 m on the left"
+    },
+    {
+      "t": 10.08,
+      "from": "CHOOSE_RIGHT",
+      "to": "PASS",
+      "side": "right",
+      "reason": "on the right corridor; passing"
+    },
+    {
+      "t": 12.7,
+      "from": "PASS",
+      "to": "REPLAN",
+      "reason": "the crossing is behind; replanning"
+    },
+    {
+      "t": 13.32,
+      "from": "REPLAN",
+      "to": "ADVANCE",
+      "goal_remaining_m": 6.858,
+      "reason": "replanned; walking the new line to the goal"
+    },
+    {
+      "t": 13.5,
+      "from": "ADVANCE",
+      "to": "THREAT",
+      "threat": "tobin",
+      "ttc_s": 10.5,
+      "range_m": 2.983,
+      "reason": "tobin predicted to cross the planned line"
+    },
+    {
+      "t": 14.0,
+      "from": "THREAT",
+      "to": "WAIT",
+      "threat": "tobin",
+      "reason": "NEITHER corridor predicted safe"
+    },
+    {
+      "t": 15.9,
+      "from": "WAIT",
+      "to": "CHOOSE_LEFT",
+      "threat": "tobin",
+      "chosen_clearance_m": 0.1663,
+      "rejected": "right@-0.000m",
+      "reason": "passing left: predicted 0.166 m against -0.000 m on the right"
+    },
+    {
+      "t": 24.42,
+      "from": "CHOOSE_LEFT",
+      "to": "PASS",
+      "side": "left",
+      "reason": "on the left corridor; passing"
+    },
+    {
+      "t": 26.96,
+      "from": "PASS",
+      "to": "REPLAN",
+      "reason": "the crossing is behind; replanning"
+    },
+    {
+      "t": 27.56,
+      "from": "REPLAN",
+      "to": "ADVANCE",
+      "goal_remaining_m": 5.755,
+      "reason": "replanned; walking the new line to the goal"
+    },
+    {
+      "t": 30.5,
+      "from": "ADVANCE",
+      "to": "THREAT",
+      "threat": "ines",
+      "ttc_s": 10.5,
+      "range_m": 2.978,
+      "reason": "ines predicted to cross the planned line"
+    },
+    {
+      "t": 30.82,
+      "from": "THREAT",
+      "to": "CHOOSE_RIGHT",
+      "threat": "ines",
+      "chosen_clearance_m": 0.2403,
+      "rejected": "left@0.232m",
+      "reason": "passing right: predicted 0.240 m against 0.232 m on the left"
+    },
+    {
+      "t": 38.82,
+      "from": "CHOOSE_RIGHT",
+      "to": "PASS",
+      "side": "right",
+      "reason": "on the right corridor; passing"
+    },
+    {
+      "t": 42.48,
+      "from": "PASS",
+      "to": "REPLAN",
+      "reason": "the crossing is behind; replanning"
+    },
+    {
+      "t": 43.1,
+      "from": "REPLAN",
+      "to": "ADVANCE",
+      "goal_remaining_m": 4.226,
+      "reason": "replanned; walking the new line to the goal"
+    },
+    {
+      "t": 43.12,
+      "from": "ADVANCE",
+      "to": "THREAT",
+      "threat": "dev",
+      "ttc_s": 10.5,
+      "range_m": 2.415,
+      "reason": "dev predicted to cross the planned line"
+    },
+    {
+      "t": 43.44,
+      "from": "THREAT",
+      "to": "WAIT",
+      "threat": "dev",
+      "reason": "NEITHER corridor predicted safe"
+    },
+    {
+      "t": 46.2,
+      "from": "WAIT",
+      "to": "CHOOSE_LEFT",
+      "threat": "dev",
+      "chosen_clearance_m": 0.1614,
+      "rejected": "right@-0.163m",
+      "reason": "passing left: predicted 0.161 m against -0.163 m on the right"
+    },
+    {
+      "t": 53.82,
+      "from": "CHOOSE_LEFT",
+      "to": "PASS",
+      "side": "left",
+      "reason": "on the left corridor; passing"
+    },
+    {
+      "t": 56.58,
+      "from": "PASS",
+      "to": "REPLAN",
+      "reason": "the crossing is behind; replanning"
+    },
+    {
+      "t": 57.18,
+      "from": "REPLAN",
+      "to": "ADVANCE",
+      "goal_remaining_m": 3.244,
+      "reason": "replanned; walking the new line to the goal"
+    },
+    {
+      "t": 58.7,
+      "from": "ADVANCE",
+      "to": "THREAT",
+      "threat": "karl",
+      "ttc_s": 2.1,
+      "range_m": 1.2,
+      "reason": "karl predicted to cross the planned line"
+    },
+    {
+      "t": 59.02,
+      "from": "THREAT",
+      "to": "CHOOSE_RIGHT",
+      "threat": "karl",
+      "chosen_clearance_m": 0.5047,
+      "rejected": "left@0.434m",
+      "reason": "passing right: predicted 0.505 m against 0.434 m on the left"
+    },
+    {
+      "t": 61.84,
+      "from": "CHOOSE_RIGHT",
+      "to": "PASS",
+      "side": "right",
+      "reason": "on the right corridor; passing"
+    },
+    {
+      "t": 61.86,
+      "from": "PASS",
+      "to": "REPLAN",
+      "reason": "the crossing is behind; replanning"
+    },
+    {
+      "t": 62.46,
+      "from": "REPLAN",
+      "to": "ADVANCE",
+      "goal_remaining_m": 2.636,
+      "reason": "replanned; walking the new line to the goal"
+    },
+    {
+      "t": 79.98,
+      "from": "ADVANCE",
+      "to": "GOAL",
+      "reason": "reached the arrival band"
+    },
+    {
+      "t": 81.86,
+      "from": "GOAL",
+      "to": "DONE",
+      "reason": "arrived and stopped in the band"
+    }
+  ],
+  "timeouts": [],
+  "subject_visibility": {
+    "goal": {
+      "role": "goal",
+      "steps": 2512,
+      "los_steps": 2420,
+      "visible_with_los": 2420,
+      "fraction_with_los": 1.0
+    },
+    "mara": {
+      "role": "pedestrian",
+      "steps": 434,
+      "los_steps": 434,
+      "visible_with_los": 433,
+      "fraction_with_los": 0.9976958525345622
+    },
+    "tobin": {
+      "role": "cart",
+      "steps": 546,
+      "los_steps": 524,
+      "visible_with_los": 524,
+      "fraction_with_los": 1.0
+    },
+    "ines": {
+      "role": "box",
+      "steps": 416,
+      "los_steps": 416,
+      "visible_with_los": 416,
+      "fraction_with_los": 1.0
+    },
+    "dev": {
+      "role": "cart",
+      "steps": 535,
+      "los_steps": 470,
+      "visible_with_los": 467,
+      "fraction_with_los": 0.9936170212765958
+    },
+    "karl": {
+      "role": "pedestrian",
+      "steps": 157,
+      "los_steps": 157,
+      "visible_with_los": 157,
+      "fraction_with_los": 1.0
+    }
+  },
+  "subject_sequence": [
+    {
+      "subject": "goal",
+      "from_s": 0.02,
+      "to_s": 1.4
+    },
+    {
+      "subject": "mara",
+      "from_s": 1.42,
+      "to_s": 10.08
+    },
+    {
+      "subject": "goal",
+      "from_s": 10.1,
+      "to_s": 13.5
+    },
+    {
+      "subject": "tobin",
+      "from_s": 13.52,
+      "to_s": 24.42
+    },
+    {
+      "subject": "goal",
+      "from_s": 24.44,
+      "to_s": 30.5
+    },
+    {
+      "subject": "ines",
+      "from_s": 30.52,
+      "to_s": 38.82
+    },
+    {
+      "subject": "goal",
+      "from_s": 38.84,
+      "to_s": 43.12
+    },
+    {
+      "subject": "dev",
+      "from_s": 43.14,
+      "to_s": 53.82
+    },
+    {
+      "subject": "goal",
+      "from_s": 53.84,
+      "to_s": 58.7
+    },
+    {
+      "subject": "karl",
+      "from_s": 58.72,
+      "to_s": 61.84
+    },
+    {
+      "subject": "goal",
+      "from_s": 61.86,
+      "to_s": 92.0
+    }
+  ],
+  "visible_fraction_with_los": 0.9990952273241348,
+  "monitor_steps": 2088,
+  "monitor_los_steps": 2001,
+  "monitor_visible_fraction_with_los": 0.9980009995002499,
+  "blocked_by": {
+    "out_of_frustum": 58,
+    "mara_torso": 8,
+    "ines_box": 15,
+    "ines_torso": 17,
+    "obs_cone_mid": 15
+  },
+  "interlock_holds": 0,
+  "interlock_reasons": {},
+  "actor_names": [
+    "mara",
+    "tobin",
+    "ines",
+    "dev",
+    "karl",
+    "noor",
+    "pilar"
+  ],
+  "crossing_actor_names": [
+    "mara",
+    "tobin",
+    "ines",
+    "dev",
+    "karl",
+    "noor"
+  ],
+  "actor_routes": [
+    {
+      "name": "mara",
+      "corners": [
+        [
+          -4.66,
+          -2.52
+        ],
+        [
+          -3.06,
+          -2.52
+        ],
+        [
+          -2.88,
+          -1.42
+        ],
+        [
+          -2.62,
+          -0.18
+        ],
+        [
+          -2.46,
+          1.34
+        ],
+        [
+          -2.28,
+          2.52
+        ],
+        [
+          -0.58,
+          2.52
+        ]
+      ],
+      "length_m": 8.2268,
+      "speed_mps": 0.255,
+      "start_t_s": -5.369677600385666,
+      "hold_windows_s": [],
+      "finish_t_s": 26.892,
+      "corner_radius_m": 0.3,
+      "bends": [
+        {
+          "turn_deg": 80.707,
+          "hand": "left",
+          "radius_m": 0.3,
+          "arc_len_m": 0.4226,
+          "start_s_m": 1.3451,
+          "end_s_m": 1.7677
+        },
+        {
+          "turn_deg": -2.549,
+          "hand": "right",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0133,
+          "start_s_m": 2.6207,
+          "end_s_m": 2.6341
+        },
+        {
+          "turn_deg": 5.833,
+          "hand": "left",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0305,
+          "start_s_m": 3.8791,
+          "end_s_m": 3.9096
+        },
+        {
+          "turn_deg": -2.664,
+          "hand": "right",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0139,
+          "start_s_m": 5.4158,
+          "end_s_m": 5.4297
+        },
+        {
+          "turn_deg": -81.327,
+          "hand": "right",
+          "radius_m": 0.3,
+          "arc_len_m": 0.4258,
+          "start_s_m": 6.3587,
+          "end_s_m": 6.7845
+        }
+      ],
+      "kind": "pedestrian",
+      "encounter": "E1"
+    },
+    {
+      "name": "tobin",
+      "corners": [
+        [
+          -3.1,
+          2.52
+        ],
+        [
+          -1.5,
+          2.52
+        ],
+        [
+          -1.32,
+          1.42
+        ],
+        [
+          -1.06,
+          0.18
+        ],
+        [
+          -0.9,
+          -1.34
+        ],
+        [
+          -0.72,
+          -2.52
+        ],
+        [
+          0.98,
+          -2.52
+        ]
+      ],
+      "length_m": 8.2268,
+      "speed_mps": 0.208,
+      "start_t_s": 5.021789480296423,
+      "hold_windows_s": [],
+      "finish_t_s": 44.574,
+      "corner_radius_m": 0.3,
+      "bends": [
+        {
+          "turn_deg": -80.707,
+          "hand": "right",
+          "radius_m": 0.3,
+          "arc_len_m": 0.4226,
+          "start_s_m": 1.3451,
+          "end_s_m": 1.7677
+        },
+        {
+          "turn_deg": 2.549,
+          "hand": "left",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0133,
+          "start_s_m": 2.6207,
+          "end_s_m": 2.6341
+        },
+        {
+          "turn_deg": -5.833,
+          "hand": "right",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0305,
+          "start_s_m": 3.8791,
+          "end_s_m": 3.9096
+        },
+        {
+          "turn_deg": 2.664,
+          "hand": "left",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0139,
+          "start_s_m": 5.4158,
+          "end_s_m": 5.4297
+        },
+        {
+          "turn_deg": 81.327,
+          "hand": "left",
+          "radius_m": 0.3,
+          "arc_len_m": 0.4258,
+          "start_s_m": 6.3587,
+          "end_s_m": 6.7845
+        }
+      ],
+      "kind": "cart",
+      "encounter": "E2"
+    },
+    {
+      "name": "ines",
+      "corners": [
+        [
+          -1.68,
+          -2.52
+        ],
+        [
+          -0.08,
+          -2.52
+        ],
+        [
+          0.1,
+          -1.42
+        ],
+        [
+          0.36,
+          -0.18
+        ],
+        [
+          0.52,
+          1.34
+        ],
+        [
+          0.7,
+          2.52
+        ],
+        [
+          2.4,
+          2.52
+        ]
+      ],
+      "length_m": 8.2268,
+      "speed_mps": 0.232,
+      "start_t_s": 22.647121603024384,
+      "hold_windows_s": [],
+      "finish_t_s": 58.107,
+      "corner_radius_m": 0.3,
+      "bends": [
+        {
+          "turn_deg": 80.707,
+          "hand": "left",
+          "radius_m": 0.3,
+          "arc_len_m": 0.4226,
+          "start_s_m": 1.3451,
+          "end_s_m": 1.7677
+        },
+        {
+          "turn_deg": -2.549,
+          "hand": "right",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0133,
+          "start_s_m": 2.6207,
+          "end_s_m": 2.6341
+        },
+        {
+          "turn_deg": 5.833,
+          "hand": "left",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0305,
+          "start_s_m": 3.8791,
+          "end_s_m": 3.9096
+        },
+        {
+          "turn_deg": -2.664,
+          "hand": "right",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0139,
+          "start_s_m": 5.4158,
+          "end_s_m": 5.4297
+        },
+        {
+          "turn_deg": -81.327,
+          "hand": "right",
+          "radius_m": 0.3,
+          "arc_len_m": 0.4258,
+          "start_s_m": 6.3587,
+          "end_s_m": 6.7845
+        }
+      ],
+      "kind": "box",
+      "encounter": "E3"
+    },
+    {
+      "name": "dev",
+      "corners": [
+        [
+          -0.73,
+          2.52
+        ],
+        [
+          0.87,
+          2.52
+        ],
+        [
+          1.05,
+          1.42
+        ],
+        [
+          1.31,
+          0.18
+        ],
+        [
+          1.47,
+          -1.34
+        ],
+        [
+          1.65,
+          -2.52
+        ],
+        [
+          3.35,
+          -2.52
+        ]
+      ],
+      "length_m": 8.2268,
+      "speed_mps": 0.16,
+      "start_t_s": 27.94832632438535,
+      "hold_windows_s": [],
+      "finish_t_s": 79.366,
+      "corner_radius_m": 0.3,
+      "bends": [
+        {
+          "turn_deg": -80.707,
+          "hand": "right",
+          "radius_m": 0.3,
+          "arc_len_m": 0.4226,
+          "start_s_m": 1.3451,
+          "end_s_m": 1.7677
+        },
+        {
+          "turn_deg": 2.549,
+          "hand": "left",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0133,
+          "start_s_m": 2.6207,
+          "end_s_m": 2.6341
+        },
+        {
+          "turn_deg": -5.833,
+          "hand": "right",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0305,
+          "start_s_m": 3.8791,
+          "end_s_m": 3.9096
+        },
+        {
+          "turn_deg": 2.664,
+          "hand": "left",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0139,
+          "start_s_m": 5.4158,
+          "end_s_m": 5.4297
+        },
+        {
+          "turn_deg": 81.327,
+          "hand": "left",
+          "radius_m": 0.3,
+          "arc_len_m": 0.4258,
+          "start_s_m": 6.3587,
+          "end_s_m": 6.7845
+        }
+      ],
+      "kind": "cart",
+      "encounter": "E4"
+    },
+    {
+      "name": "karl",
+      "corners": [
+        [
+          -0.23,
+          -2.52
+        ],
+        [
+          1.37,
+          -2.52
+        ],
+        [
+          1.55,
+          -1.42
+        ],
+        [
+          1.81,
+          -0.18
+        ],
+        [
+          1.97,
+          1.34
+        ],
+        [
+          2.15,
+          2.52
+        ],
+        [
+          3.85,
+          2.52
+        ]
+      ],
+      "length_m": 8.2268,
+      "speed_mps": 0.3,
+      "start_t_s": 45.425774039672184,
+      "hold_windows_s": [],
+      "finish_t_s": 72.848,
+      "corner_radius_m": 0.3,
+      "bends": [
+        {
+          "turn_deg": 80.707,
+          "hand": "left",
+          "radius_m": 0.3,
+          "arc_len_m": 0.4226,
+          "start_s_m": 1.3451,
+          "end_s_m": 1.7677
+        },
+        {
+          "turn_deg": -2.549,
+          "hand": "right",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0133,
+          "start_s_m": 2.6207,
+          "end_s_m": 2.6341
+        },
+        {
+          "turn_deg": 5.833,
+          "hand": "left",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0305,
+          "start_s_m": 3.8791,
+          "end_s_m": 3.9096
+        },
+        {
+          "turn_deg": -2.664,
+          "hand": "right",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0139,
+          "start_s_m": 5.4158,
+          "end_s_m": 5.4297
+        },
+        {
+          "turn_deg": -81.327,
+          "hand": "right",
+          "radius_m": 0.3,
+          "arc_len_m": 0.4258,
+          "start_s_m": 6.3587,
+          "end_s_m": 6.7845
+        }
+      ],
+      "kind": "pedestrian",
+      "encounter": "E4"
+    },
+    {
+      "name": "noor",
+      "corners": [
+        [
+          0.7,
+          -2.52
+        ],
+        [
+          2.3,
+          -2.52
+        ],
+        [
+          2.48,
+          -1.42
+        ],
+        [
+          2.74,
+          -0.18
+        ],
+        [
+          2.9,
+          1.34
+        ],
+        [
+          3.08,
+          2.52
+        ],
+        [
+          4.78,
+          2.52
+        ]
+      ],
+      "length_m": 8.2268,
+      "speed_mps": 0.238,
+      "start_t_s": 42.089631142443935,
+      "hold_windows_s": [],
+      "finish_t_s": 76.656,
+      "corner_radius_m": 0.3,
+      "bends": [
+        {
+          "turn_deg": 80.707,
+          "hand": "left",
+          "radius_m": 0.3,
+          "arc_len_m": 0.4226,
+          "start_s_m": 1.3451,
+          "end_s_m": 1.7677
+        },
+        {
+          "turn_deg": -2.549,
+          "hand": "right",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0133,
+          "start_s_m": 2.6207,
+          "end_s_m": 2.6341
+        },
+        {
+          "turn_deg": 5.833,
+          "hand": "left",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0305,
+          "start_s_m": 3.8791,
+          "end_s_m": 3.9096
+        },
+        {
+          "turn_deg": -2.664,
+          "hand": "right",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0139,
+          "start_s_m": 5.4158,
+          "end_s_m": 5.4297
+        },
+        {
+          "turn_deg": -81.327,
+          "hand": "right",
+          "radius_m": 0.3,
+          "arc_len_m": 0.4258,
+          "start_s_m": 6.3587,
+          "end_s_m": 6.7845
+        }
+      ],
+      "kind": "box",
+      "encounter": "E5"
+    },
+    {
+      "name": "pilar",
+      "corners": [
+        [
+          -4.3,
+          2.05
+        ],
+        [
+          -2.6,
+          1.9
+        ],
+        [
+          -0.8,
+          2.15
+        ],
+        [
+          1.2,
+          1.88
+        ],
+        [
+          3.1,
+          2.1
+        ],
+        [
+          4.2,
+          1.8
+        ]
+      ],
+      "length_m": 8.5923,
+      "speed_mps": 0.112,
+      "start_t_s": 1.0,
+      "hold_windows_s": [],
+      "finish_t_s": 77.717,
+      "corner_radius_m": 0.3,
+      "bends": [
+        {
+          "turn_deg": 12.95,
+          "hand": "left",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0678,
+          "start_s_m": 1.6726,
+          "end_s_m": 1.7404
+        },
+        {
+          "turn_deg": -15.596,
+          "hand": "right",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0817,
+          "start_s_m": 3.4825,
+          "end_s_m": 3.5642
+        },
+        {
+          "turn_deg": 14.293,
+          "hand": "left",
+          "radius_m": 0.3,
+          "arc_len_m": 0.0748,
+          "start_s_m": 5.5036,
+          "end_s_m": 5.5785
+        },
+        {
+          "turn_deg": -21.86,
+          "hand": "right",
+          "radius_m": 0.3,
+          "arc_len_m": 0.1145,
+          "start_s_m": 7.3956,
+          "end_s_m": 7.5101
+        }
+      ],
+      "kind": "pedestrian",
+      "encounter": ""
+    }
+  ],
+  "encounter_order": [
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "E5"
+  ],
+  "lane_crossings": [
+    {
+      "actor": "mara",
+      "encounter": "E1",
+      "t_s": 10.62,
+      "x_m": -2.6008,
+      "northbound": true
+    },
+    {
+      "actor": "tobin",
+      "encounter": "E2",
+      "t_s": 24.62,
+      "x_m": -1.0409,
+      "northbound": false
+    },
+    {
+      "actor": "ines",
+      "encounter": "E3",
+      "t_s": 40.22,
+      "x_m": 0.3791,
+      "northbound": true
+    },
+    {
+      "actor": "dev",
+      "encounter": "E4",
+      "t_s": 53.42,
+      "x_m": 1.329,
+      "northbound": false
+    },
+    {
+      "actor": "karl",
+      "encounter": "E4",
+      "t_s": 59.02,
+      "x_m": 1.8293,
+      "northbound": true
+    },
+    {
+      "actor": "noor",
+      "encounter": "E5",
+      "t_s": 59.22,
+      "x_m": 2.7591,
+      "northbound": true
+    }
+  ],
+  "moving_actors": 7,
+  "moving_fraction": {
+    "mara": 0.292,
+    "tobin": 0.429,
+    "ines": 0.386,
+    "dev": 0.559,
+    "karl": 0.298,
+    "noor": 0.376,
+    "pilar": 0.834
+  },
+  "max_actor_heading_step_deg": 1.1459,
+  "max_bodies_in_lane": 2,
+  "lane_occupied_seconds": 21.8,
+  "static_obstacle_names": [
+    "obs_crate_nw",
+    "obs_cone_sw",
+    "obs_crate_w",
+    "obs_pallet_s",
+    "obs_cone_mid",
+    "obs_crate_e",
+    "obs_cone_ne"
+  ],
+  "static_obstacle_count": 7,
+  "actor_count": 7,
+  "obstacle_and_actor_count": 14,
+  "tracker_max_raw_speed_mps": 0.3,
+  "tracker_max_filtered_speed_mps": 0.3,
+  "tracker_max_raw_accel_mps2": 10.6695,
+  "tracker_max_filtered_accel_mps2": 0.9615,
+  "all_gates_pass": true,
+  "gate_results": [
+    {
+      "gate": "the duck physically walked at least 8.0 m",
+      "pass": true,
+      "evidence": "11.4983 m of path, 11.3724 m of it in the walking states over 71.32s"
+    },
+    {
+      "gate": "the journey made at least 7.0 m of net progress toward the goal",
+      "pass": true,
+      "evidence": "net 7.4787 m from [-4.0501, -0.0] to [3.4286, -0.0182], goal at [3.72, 0.0]"
+    },
+    {
+      "gate": "THE DUCK REACHED THE GOAL BAND - the destination, not merely the absence of contact",
+      "pass": true,
+      "evidence": "first inside the band at 79.98s, closest approach 0.2882 m to its centre, stood in it for 12.04s"
+    },
+    {
+      "gate": "the duck ended the run inside the band",
+      "pass": true,
+      "evidence": "final position [3.4286, -0.0182] against the band centre [3.72, 0.0]"
+    },
+    {
+      "gate": "at least 4 dynamic crossing encounters were resolved",
+      "pass": true,
+      "evidence": "5 passes: 0:mara right at 5.5s; 1:tobin left at 15.9s; 2:ines right at 30.82s; 3:dev left at 46.2s; 4:karl right at 59.02s"
+    },
+    {
+      "gate": "the pass sides ALTERNATED and both hands were used",
+      "pass": true,
+      "evidence": "sides ['right', 'left', 'right', 'left', 'right'] (alternating=True), expected ['right', 'left', 'right', 'left', 'right']"
+    },
+    {
+      "gate": "at least 1 WAIT because NEITHER corridor was predicted safe",
+      "pass": true,
+      "evidence": "wait 0 on mara: 3.6s, best rejected corridor was the right at -0.163 m, resolved right at 0.166 m; wait 1 on tobin: 1.9s, best rejected corridor was the right at 0.2674 m, resolved left at 0.1663 m; wait 2 on dev: 2.76s, best rejected corridor was the right at -0.0245 m, resolved left at 0.1614 m"
+    },
+    {
+      "gate": "EVERY choice was justified by a positive predicted clearance above the 0.16 m planner bar",
+      "pass": true,
+      "evidence": "mara: chose right on a predicted 0.166 m; tobin: chose left on a predicted 0.1663 m; ines: chose right on a predicted 0.2403 m; dev: chose left on a predicted 0.1614 m; karl: chose right on a predicted 0.5047 m"
+    },
+    {
+      "gate": "the REJECTED side was never better than the one chosen",
+      "pass": true,
+      "evidence": "mara: right 0.166 m vs left 0.0192 m (margin +0.147 m); tobin: left 0.1663 m vs right -0.0004 m (margin +0.167 m); ines: right 0.2403 m vs left 0.2318 m (margin +0.009 m); dev: left 0.1614 m vs right -0.1633 m (margin +0.325 m); karl: right 0.5047 m vs left 0.4345 m (margin +0.070 m)"
+    },
+    {
+      "gate": "the duck REPLANNED after every pass",
+      "pass": true,
+      "evidence": "5 replans immediately after a pass, 5 in total, over 5 encounter cycles"
+    },
+    {
+      "gate": "every prediction conservatively BRACKETED the measured closest approach",
+      "pass": true,
+      "evidence": "mara (right): predicted 0.166 m, measured 0.5895 m (margin +0.4235 m); tobin (left): predicted 0.1663 m, measured 1.049 m (margin +0.8827 m); ines (right): predicted 0.2403 m, measured 0.9472 m (margin +0.7069 m); dev (left): predicted 0.1614 m, measured 0.9708 m (margin +0.8094 m); karl (right): predicted 0.5047 m, measured 0.762 m (margin +0.2573 m)"
+    },
+    {
+      "gate": "every measured closest approach during a pass was positive",
+      "pass": true,
+      "evidence": "mara: 0.5895 m; tobin: 1.049 m; ines: 0.9472 m; dev: 0.9708 m; karl: 0.762 m"
+    },
+    {
+      "gate": "REAL lateral displacement on BOTH hands, achieved by turning",
+      "pass": true,
+      "evidence": "lane offset ranged -0.262 to 0.316 m, a span of 0.578 m, with 7.1095 m of lateral path"
+    },
+    {
+      "gate": "the path is a TURNING path, not a straight line",
+      "pass": true,
+      "evidence": "11.4983 m of path against 7.4787 m net - 4.0196 m of excess - and 2295.4 deg of accumulated yaw, with NO strafe command available"
+    },
+    {
+      "gate": "the command carried no lateral term at ANY tick",
+      "pass": true,
+      "evidence": "largest |vy| over all 4600 control ticks: 0.0; the policy has no strafe, so every metre of lateral displacement was bought by turning"
+    },
+    {
+      "gate": "positive clearance to every moving body at all times",
+      "pass": true,
+      "evidence": "min 0.5895 m to mara; per body {'dev': 0.9708, 'ines': 0.9472, 'karl': 0.762, 'mara': 0.5895, 'noor': 1.5, 'pilar': 1.5, 'tobin': 1.049}"
+    },
+    {
+      "gate": "positive clearance to every static obstacle and wall - NO PATH THROUGH ANY STATIC BODY",
+      "pass": true,
+      "evidence": "min 0.3144 m to obs_cone_mid over 7 static obstacles"
+    },
+    {
+      "gate": "zero contacts",
+      "pass": true,
+      "evidence": "0 steps with non-positive clearance"
+    },
+    {
+      "gate": "the command was EXACTLY zero in every zero-command state",
+      "pass": true,
+      "evidence": "0 violation(s) across WAIT=0.0, GOAL=0.0, DONE=0.0"
+    },
+    {
+      "gate": "every zero-command state was a real standstill on the floor",
+      "pass": true,
+      "evidence": "WAIT@1.92s: 0.03241 m of path, 0.01117 m net; WAIT@14.02s: 0.02849 m of path, 0.00936 m net; WAIT@43.46s: 0.03077 m of path, 0.0046 m net; GOAL@80.0s: 0.02536 m of path, 0.00489 m net; DONE@81.88s: 0.00607 m of path, 0.00032 m net -- each against a 0.045 m path and 0.02 m net bound per episode; MEASURED settling from a walk is 0.030 m of path and 0.010 m net, and 0.0057 m per 10 s from a standstill"
+    },
+    {
+      "gate": "NO ZERO-COMMAND PLATEAU outside WAIT and GOAL",
+      "pass": true,
+      "evidence": "longest run of exact zeros outside the permitted states: 20 tick(s) (0.40s); windows [{'from_s': 0.02, 'to_s': 0.42, 'steps': 20}]"
+    },
+    {
+      "gate": "the negotiated body was visible in >= 90% of monitoring steps where line of sight existed",
+      "pass": true,
+      "evidence": "99.80% of 2001 LOS steps in 2088 monitor steps (99.91% over the whole run)"
+    },
+    {
+      "gate": "THE GOAL was visible in >= 70% of steps where line of sight to it existed",
+      "pass": true,
+      "evidence": "75.91% of 4308 steps with line of sight, measured through the SAME head camera the PiP renders from"
+    },
+    {
+      "gate": "at least 7 obstacles and actors populate the course",
+      "pass": true,
+      "evidence": "7 static (['obs_crate_nw', 'obs_cone_sw', 'obs_crate_w', 'obs_pallet_s', 'obs_cone_mid', 'obs_crate_e', 'obs_cone_ne']) + 7 moving = 14"
+    },
+    {
+      "gate": "at least 5 actors were genuinely moving",
+      "pass": true,
+      "evidence": "7 of 7 moved; fractions {'mara': 0.292, 'tobin': 0.429, 'ines': 0.386, 'dev': 0.559, 'karl': 0.298, 'noor': 0.376, 'pilar': 0.834}"
+    },
+    {
+      "gate": "every scripted body's heading is continuous",
+      "pass": true,
+      "evidence": "largest single-tick heading change 1.1459 deg against a 6.0 deg bound"
+    },
+    {
+      "gate": "the traffic actually got in the way",
+      "pass": true,
+      "evidence": "up to 2 bodies in the duck's lane at once, occupied for 21.8s"
+    },
+    {
+      "gate": "every declared state was visited",
+      "pass": true,
+      "evidence": "visited ['ADVANCE', 'CHOOSE_LEFT', 'CHOOSE_RIGHT', 'DONE', 'GOAL', 'PASS', 'PLAN', 'REPLAN', 'THREAT', 'WAIT']"
+    },
+    {
+      "gate": "every visited state is one this behavior declares",
+      "pass": true,
+      "evidence": "visited ['ADVANCE', 'CHOOSE_LEFT', 'CHOOSE_RIGHT', 'DONE', 'GOAL', 'PASS', 'PLAN', 'REPLAN', 'THREAT', 'WAIT']"
+    },
+    {
+      "gate": "exactly zero BARGE_THROUGH and FREEZE_FOREVER steps",
+      "pass": true,
+      "evidence": "forbidden state steps: {'BARGE_THROUGH': 0, 'FREEZE_FOREVER': 0}"
+    },
+    {
+      "gate": "no phase hit its ceiling",
+      "pass": true,
+      "evidence": "timeouts: none"
+    },
+    {
+      "gate": "zero falls",
+      "pass": true,
+      "evidence": "0 steps below 0.09 m"
+    },
+    {
+      "gate": "trunk never below 0.09 m",
+      "pass": true,
+      "evidence": "min 0.1130 m"
+    },
+    {
+      "gate": "final trunk height near the nominal 0.116 m",
+      "pass": true,
+      "evidence": "0.1163 m"
+    },
+    {
+      "gate": "the exact imu_ang_vel sensor, 61-D observation and 0.9 action scale",
+      "pass": true,
+      "evidence": "gyro=imu_ang_vel, obs=61-D, action_scale=0.9"
+    },
+    {
+      "gate": "the byte-identical stock walking policy",
+      "pass": true,
+      "evidence": "sha256 e36332d383997d51401897734cd3e79cf5038406feddb18b4d57ecfb141daa6c"
+    }
+  ]
+}

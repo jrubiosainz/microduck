@@ -1,0 +1,562 @@
+{
+  "duration_s": 46.0,
+  "control_steps": 2300,
+  "ctrl_hz": 50.0,
+  "decimation": 10,
+  "duck_planar_radius_m": 0.11623874935290635,
+  "safety_margin_s": 1.5,
+  "state_sequence": [
+    "APPROACH_CURB",
+    "STOP",
+    "LOOK_LEFT",
+    "LOOK_RIGHT",
+    "LOOK_LEFT_AGAIN",
+    "WAIT_FOR_GAP",
+    "CROSSING",
+    "SAFE"
+  ],
+  "expected_state_sequence": [
+    "APPROACH_CURB",
+    "STOP",
+    "LOOK_LEFT",
+    "LOOK_RIGHT",
+    "LOOK_LEFT_AGAIN",
+    "WAIT_FOR_GAP",
+    "CROSSING",
+    "SAFE"
+  ],
+  "state_step_counts": {
+    "APPROACH_CURB": 191,
+    "STOP": 66,
+    "LOOK_LEFT": 120,
+    "LOOK_RIGHT": 121,
+    "LOOK_LEFT_AGAIN": 96,
+    "WAIT_FOR_GAP": 610,
+    "CROSSING": 362,
+    "SAFE": 734
+  },
+  "transitions": [
+    {
+      "t": 3.8200000000000003,
+      "from": "APPROACH_CURB",
+      "to": "STOP",
+      "trunk_x": -1.10811146778876
+    },
+    {
+      "t": 5.14,
+      "from": "STOP",
+      "to": "LOOK_LEFT",
+      "trunk_x": -1.0523265501972647
+    },
+    {
+      "t": 7.54,
+      "from": "LOOK_LEFT",
+      "to": "LOOK_RIGHT",
+      "trunk_x": -1.052279913363095
+    },
+    {
+      "t": 9.96,
+      "from": "LOOK_RIGHT",
+      "to": "LOOK_LEFT_AGAIN",
+      "trunk_x": -1.0523223939402457
+    },
+    {
+      "t": 11.88,
+      "from": "LOOK_LEFT_AGAIN",
+      "to": "WAIT_FOR_GAP",
+      "trunk_x": -1.0523621388952642
+    },
+    {
+      "t": 24.080000000000002,
+      "from": "WAIT_FOR_GAP",
+      "to": "CROSSING",
+      "trunk_x": -1.0520572469360951
+    },
+    {
+      "t": 31.32,
+      "from": "CROSSING",
+      "to": "SAFE",
+      "trunk_x": 1.109519399220035
+    }
+  ],
+  "stop_x_m": -1.0523220907486102,
+  "stop_leading_edge_x_m": -0.9220220907486102,
+  "stop_wait_line_margin_m": 0.14202209074861016,
+  "min_wait_line_margin_m": 0.1345832549645437,
+  "max_x_before_crossing_m": -1.0448832549645437,
+  "wait_line_x_m": -0.78,
+  "scan": [
+    {
+      "phase": "LOOK_LEFT",
+      "sector": "left",
+      "steps": 120,
+      "sector_visible_steps": 115,
+      "sector_visible_pct": 95.83333333333333,
+      "peak_sector_fraction": 1.0,
+      "start_s": 5.159999999999999,
+      "end_s": 7.54,
+      "occurred": true,
+      "sector_seen": true
+    },
+    {
+      "phase": "LOOK_RIGHT",
+      "sector": "right",
+      "steps": 121,
+      "sector_visible_steps": 90,
+      "sector_visible_pct": 74.3801652892562,
+      "peak_sector_fraction": 1.0,
+      "start_s": 7.56,
+      "end_s": 9.959999999999999,
+      "occurred": true,
+      "sector_seen": true
+    },
+    {
+      "phase": "LOOK_LEFT_AGAIN",
+      "sector": "left",
+      "steps": 96,
+      "sector_visible_steps": 71,
+      "sector_visible_pct": 73.95833333333333,
+      "peak_sector_fraction": 1.0,
+      "start_s": 9.98,
+      "end_s": 11.879999999999999,
+      "occurred": true,
+      "sector_seen": true
+    }
+  ],
+  "scan_log": [
+    {
+      "phase": "LOOK_LEFT",
+      "sector": "left",
+      "start_s": 5.14,
+      "end_s": 7.54,
+      "duration_s": 2.4000000000000004,
+      "sector_confirmed": true
+    },
+    {
+      "phase": "LOOK_RIGHT",
+      "sector": "right",
+      "start_s": 7.54,
+      "end_s": 9.96,
+      "duration_s": 2.420000000000001,
+      "sector_confirmed": true
+    },
+    {
+      "phase": "LOOK_LEFT_AGAIN",
+      "sector": "left",
+      "start_s": 9.96,
+      "end_s": 11.88,
+      "duration_s": 1.92,
+      "sector_confirmed": true
+    }
+  ],
+  "rejected_gaps": [
+    {
+      "safe": false,
+      "worst_margin_s": -0.9963043478260869,
+      "limiting_vehicle": "bike",
+      "crossing_duration_s": 8.116210213516437,
+      "start_x": -1.0523621388952642,
+      "blocking": [
+        {
+          "vehicle": "bike",
+          "lane": "near",
+          "margin_s": -0.9963043478260869,
+          "vehicle_window_s": [
+            2.1670652173913023,
+            3.163369565217389
+          ],
+          "duck_window_s": [
+            1.0867729079325967,
+            5.714463488625608
+          ],
+          "range_m": 2.5797738654124616,
+          "speed_mps": 0.92
+        },
+        {
+          "vehicle": "scooter",
+          "lane": "far",
+          "margin_s": -0.8487037037037024,
+          "vehicle_window_s": [
+            3.9719444444444423,
+            4.820648148148145
+          ],
+          "duck_window_s": [
+            2.6932924563545564,
+            8.116210213516437
+          ],
+          "range_m": 4.922474936395711,
+          "speed_mps": 1.08
+        }
+      ],
+      "first_rejected_at_s": 11.9,
+      "last_rejected_at_s": 13.120000000000001,
+      "ticks": 62
+    },
+    {
+      "safe": false,
+      "worst_margin_s": -0.8487037037037037,
+      "limiting_vehicle": "scooter",
+      "crossing_duration_s": 8.116223635831588,
+      "start_x": -1.0523652126054337,
+      "blocking": [
+        {
+          "vehicle": "scooter",
+          "lane": "far",
+          "margin_s": -0.8487037037037037,
+          "vehicle_window_s": [
+            2.7119444444444443,
+            3.560648148148148
+          ],
+          "duck_window_s": [
+            2.6933332844753837,
+            8.116271251557073
+          ],
+          "range_m": 3.630740924198139,
+          "speed_mps": 1.08
+        },
+        {
+          "vehicle": "bike",
+          "lane": "near",
+          "margin_s": -0.816555829163967,
+          "vehicle_window_s": [
+            0.9070652173913041,
+            1.9033695652173908
+          ],
+          "duck_window_s": [
+            1.0868137360534238,
+            5.714524526666244
+          ],
+          "range_m": 1.5152131630389385,
+          "speed_mps": 0.92
+        }
+      ],
+      "first_rejected_at_s": 13.14,
+      "last_rejected_at_s": 14.52,
+      "ticks": 70
+    },
+    {
+      "safe": false,
+      "worst_margin_s": -0.904339622641511,
+      "limiting_vehicle": "van",
+      "crossing_duration_s": 8.11634583129909,
+      "start_x": -1.0523931953674917,
+      "blocking": [
+        {
+          "vehicle": "van",
+          "lane": "far",
+          "margin_s": -0.904339622641511,
+          "vehicle_window_s": [
+            7.151603773584907,
+            8.055943396226418
+          ],
+          "duck_window_s": [
+            2.6934474606059493,
+            8.116441944872271
+          ],
+          "range_m": 8.16100484217661,
+          "speed_mps": 1.06
+        },
+        {
+          "vehicle": "taxi",
+          "lane": "near",
+          "margin_s": 0.8675140823441421,
+          "vehicle_window_s": [
+            6.582209302325582,
+            7.69686046511628
+          ],
+          "duck_window_s": [
+            1.0869279121839897,
+            5.71469521998144
+          ],
+          "range_m": 6.196632846879084,
+          "speed_mps": 0.86
+        }
+      ],
+      "first_rejected_at_s": 14.540000000000001,
+      "last_rejected_at_s": 17.76,
+      "ticks": 162
+    },
+    {
+      "safe": false,
+      "worst_margin_s": -1.1146511627906985,
+      "limiting_vehicle": "taxi",
+      "crossing_duration_s": 8.116550363331998,
+      "start_x": -1.0524400332030275,
+      "blocking": [
+        {
+          "vehicle": "taxi",
+          "lane": "near",
+          "margin_s": -1.1146511627906985,
+          "vehicle_window_s": [
+            4.462209302325582,
+            5.5768604651162805
+          ],
+          "duck_window_s": [
+            1.0869814272881415,
+            5.714775225062147
+          ],
+          "range_m": 4.393682366059305,
+          "speed_mps": 0.86
+        },
+        {
+          "vehicle": "van",
+          "lane": "far",
+          "margin_s": -0.9043396226415092,
+          "vehicle_window_s": [
+            5.0316037735849015,
+            5.935943396226411
+          ],
+          "duck_window_s": [
+            2.6935009757101014,
+            8.116521949952977
+          ],
+          "range_m": 5.955078091623185,
+          "speed_mps": 1.06
+        }
+      ],
+      "first_rejected_at_s": 17.78,
+      "last_rejected_at_s": 23.68,
+      "ticks": 296
+    }
+  ],
+  "rejected_gap_count": 4,
+  "gap_decisions": [
+    {
+      "safe": false,
+      "worst_margin_s": -0.9963043478260869,
+      "limiting_vehicle": "bike",
+      "crossing_duration_s": 8.116210213516437,
+      "start_x": -1.0523621388952642,
+      "blocking": [
+        {
+          "vehicle": "bike",
+          "lane": "near",
+          "margin_s": -0.9963043478260869,
+          "vehicle_window_s": [
+            2.1670652173913023,
+            3.163369565217389
+          ],
+          "duck_window_s": [
+            1.0867729079325967,
+            5.714463488625608
+          ],
+          "range_m": 2.5797738654124616,
+          "speed_mps": 0.92
+        },
+        {
+          "vehicle": "scooter",
+          "lane": "far",
+          "margin_s": -0.8487037037037024,
+          "vehicle_window_s": [
+            3.9719444444444423,
+            4.820648148148145
+          ],
+          "duck_window_s": [
+            2.6932924563545564,
+            8.116210213516437
+          ],
+          "range_m": 4.922474936395711,
+          "speed_mps": 1.08
+        }
+      ],
+      "first_rejected_at_s": 11.9,
+      "last_rejected_at_s": 13.120000000000001,
+      "ticks": 62
+    },
+    {
+      "safe": false,
+      "worst_margin_s": -0.8487037037037037,
+      "limiting_vehicle": "scooter",
+      "crossing_duration_s": 8.116223635831588,
+      "start_x": -1.0523652126054337,
+      "blocking": [
+        {
+          "vehicle": "scooter",
+          "lane": "far",
+          "margin_s": -0.8487037037037037,
+          "vehicle_window_s": [
+            2.7119444444444443,
+            3.560648148148148
+          ],
+          "duck_window_s": [
+            2.6933332844753837,
+            8.116271251557073
+          ],
+          "range_m": 3.630740924198139,
+          "speed_mps": 1.08
+        },
+        {
+          "vehicle": "bike",
+          "lane": "near",
+          "margin_s": -0.816555829163967,
+          "vehicle_window_s": [
+            0.9070652173913041,
+            1.9033695652173908
+          ],
+          "duck_window_s": [
+            1.0868137360534238,
+            5.714524526666244
+          ],
+          "range_m": 1.5152131630389385,
+          "speed_mps": 0.92
+        }
+      ],
+      "first_rejected_at_s": 13.14,
+      "last_rejected_at_s": 14.52,
+      "ticks": 70
+    },
+    {
+      "safe": false,
+      "worst_margin_s": -0.904339622641511,
+      "limiting_vehicle": "van",
+      "crossing_duration_s": 8.11634583129909,
+      "start_x": -1.0523931953674917,
+      "blocking": [
+        {
+          "vehicle": "van",
+          "lane": "far",
+          "margin_s": -0.904339622641511,
+          "vehicle_window_s": [
+            7.151603773584907,
+            8.055943396226418
+          ],
+          "duck_window_s": [
+            2.6934474606059493,
+            8.116441944872271
+          ],
+          "range_m": 8.16100484217661,
+          "speed_mps": 1.06
+        },
+        {
+          "vehicle": "taxi",
+          "lane": "near",
+          "margin_s": 0.8675140823441421,
+          "vehicle_window_s": [
+            6.582209302325582,
+            7.69686046511628
+          ],
+          "duck_window_s": [
+            1.0869279121839897,
+            5.71469521998144
+          ],
+          "range_m": 6.196632846879084,
+          "speed_mps": 0.86
+        }
+      ],
+      "first_rejected_at_s": 14.540000000000001,
+      "last_rejected_at_s": 17.76,
+      "ticks": 162
+    },
+    {
+      "safe": false,
+      "worst_margin_s": -1.1146511627906985,
+      "limiting_vehicle": "taxi",
+      "crossing_duration_s": 8.116550363331998,
+      "start_x": -1.0524400332030275,
+      "blocking": [
+        {
+          "vehicle": "taxi",
+          "lane": "near",
+          "margin_s": -1.1146511627906985,
+          "vehicle_window_s": [
+            4.462209302325582,
+            5.5768604651162805
+          ],
+          "duck_window_s": [
+            1.0869814272881415,
+            5.714775225062147
+          ],
+          "range_m": 4.393682366059305,
+          "speed_mps": 0.86
+        },
+        {
+          "vehicle": "van",
+          "lane": "far",
+          "margin_s": -0.9043396226415092,
+          "vehicle_window_s": [
+            5.0316037735849015,
+            5.935943396226411
+          ],
+          "duck_window_s": [
+            2.6935009757101014,
+            8.116521949952977
+          ],
+          "range_m": 5.955078091623185,
+          "speed_mps": 1.06
+        }
+      ],
+      "first_rejected_at_s": 17.78,
+      "last_rejected_at_s": 23.68,
+      "ticks": 296
+    },
+    {
+      "safe": true,
+      "worst_margin_s": 10.476592680369619,
+      "limiting_vehicle": "courier",
+      "crossing_duration_s": 8.116933705538163,
+      "start_x": -1.0525278185682394,
+      "blocking": [],
+      "accepted_at_s": 24.080000000000002,
+      "wait_duration_s": 12.200000000000001
+    }
+  ],
+  "commitment": {
+    "committed_at_s": 24.080000000000002,
+    "wait_duration_s": 12.200000000000001,
+    "start_x": -1.0525278185682394,
+    "worst_margin_s": 10.476592680369619,
+    "limiting_vehicle": "courier",
+    "crossing_duration_estimate_s": 8.116933705538163,
+    "rejected_gaps": 4,
+    "arrived_at_s": 31.32,
+    "crossing_duration_s": 7.239999999999998,
+    "end_x": 1.102401949816137
+  },
+  "crossing_path_m": 2.2707533919241034,
+  "crossing_net_m": 2.1767502554679585,
+  "crossing_duration_s": 7.239999999999998,
+  "crossing_estimate_s": 8.116933705538163,
+  "wait_duration_s": 12.200000000000001,
+  "total_path_m": 3.498232914562721,
+  "longest_zero_command_run_in_road": 0,
+  "worst_in_road_advance_m": 0.1470050603458965,
+  "in_road_steps": 222,
+  "crossing_steps": 362,
+  "final_x_m": 1.1798767228056872,
+  "reverse_after_safe_m": 0.006953484699860457,
+  "min_vehicle_clearance_m": 0.5531449158404101,
+  "contact_steps": 0,
+  "stationary_command_max": 0.0,
+  "stationary_steps": 1747,
+  "min_trunk_z_m": 0.10996091327313541,
+  "final_trunk_z_m": 0.11626596760869314,
+  "nominal_trunk_z_m": 0.116,
+  "fallen_steps": 0,
+  "timeouts": [],
+  "gates": {
+    "state_order": true,
+    "stops_before_line": true,
+    "no_early_encroach": true,
+    "scan_phases": true,
+    "scan_sectors_seen": true,
+    "rejected_unsafe_gap": true,
+    "commit_margin": true,
+    "crossing_continuous": true,
+    "crossing_moved": true,
+    "reaches_safe_zone": true,
+    "final_state_safe": true,
+    "no_reverse": true,
+    "no_vehicle_contact": true,
+    "positive_clearance": true,
+    "still_when_still": true,
+    "no_falls": true,
+    "min_trunk_z": true,
+    "final_trunk_z": true,
+    "no_timeouts": true
+  },
+  "all_gates_pass": true,
+  "frames": 2300,
+  "fps": 50,
+  "width": 960,
+  "height": 640
+}

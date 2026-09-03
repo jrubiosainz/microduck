@@ -1,0 +1,522 @@
+{
+  "seconds": 86.0,
+  "control_steps": 4300,
+  "control_hz": 50.0,
+  "guardian": "nadia",
+  "observation_dim": 61,
+  "action_scale": 0.9,
+  "gyro_sensor": "imu_ang_vel",
+  "policy_sha256": "e36332d383997d51401897734cd3e79cf5038406feddb18b4d57ecfb141daa6c",
+  "fallen_steps": 0,
+  "contact_steps": 0,
+  "min_trunk_z_m": 0.11113,
+  "final_trunk_z_m": 0.1193,
+  "path_m": 16.1122,
+  "min_person_clearance_m": 0.2846,
+  "min_person_clearance_name": "nadia",
+  "min_guardian_clearance_m": 0.2846,
+  "min_scenery_clearance_m": 0.004,
+  "min_scenery_clearance_geom": "obs_hedge_s",
+  "duck_planar_radius_m": 0.1162,
+  "duck_exact_radius_m": 0.0827,
+  "adult_half_extent_m": 0.1155,
+  "adult_half_extent_basis": "pose-zero sample; not a gait maximum",
+  "states_visited": [
+    "BESIDE_LEFT",
+    "BESIDE_RIGHT",
+    "CROSS_BEHIND",
+    "FALL_BACK",
+    "JOIN_OTHER_SIDE",
+    "JOIN_SIDE",
+    "SIDE_BLOCKED"
+  ],
+  "declared_states": [
+    "ACQUIRE",
+    "JOIN_SIDE",
+    "BESIDE_LEFT",
+    "BESIDE_RIGHT",
+    "SIDE_BLOCKED",
+    "FALL_BACK",
+    "CROSS_BEHIND",
+    "JOIN_OTHER_SIDE",
+    "BESIDE",
+    "DONE"
+  ],
+  "forbidden_states": [
+    "HOLD",
+    "DONE"
+  ],
+  "forbidden_state_steps": {
+    "HOLD": 0,
+    "DONE": 0
+  },
+  "state_steps": {
+    "JOIN_SIDE": 313,
+    "BESIDE_LEFT": 130,
+    "SIDE_BLOCKED": 1,
+    "FALL_BACK": 222,
+    "CROSS_BEHIND": 226,
+    "JOIN_OTHER_SIDE": 576,
+    "BESIDE_RIGHT": 2832
+  },
+  "state_seconds": {
+    "JOIN_SIDE": 6.26,
+    "BESIDE_LEFT": 2.6,
+    "SIDE_BLOCKED": 0.02,
+    "FALL_BACK": 4.44,
+    "CROSS_BEHIND": 4.52,
+    "JOIN_OTHER_SIDE": 11.52,
+    "BESIDE_RIGHT": 56.64
+  },
+  "transitions": [
+    {
+      "t": 0.0,
+      "from": "ACQUIRE",
+      "to": "JOIN_SIDE",
+      "side": "left",
+      "reason": "right blocked by static:hedge_s"
+    },
+    {
+      "t": 6.26,
+      "from": "JOIN_SIDE",
+      "to": "BESIDE_LEFT",
+      "side": "left",
+      "reason": "formation established"
+    },
+    {
+      "t": 8.86,
+      "from": "BESIDE_LEFT",
+      "to": "SIDE_BLOCKED",
+      "cause": "static",
+      "detail": "kiosk",
+      "blocked_for_s": 1.0
+    },
+    {
+      "t": 8.88,
+      "from": "SIDE_BLOCKED",
+      "to": "FALL_BACK",
+      "to_side": "right",
+      "reason": "dropping behind to cross"
+    },
+    {
+      "t": 13.32,
+      "from": "FALL_BACK",
+      "to": "CROSS_BEHIND",
+      "longitudinal_m": -0.6215,
+      "reason": "clear astern; crossing"
+    },
+    {
+      "t": 17.84,
+      "from": "CROSS_BEHIND",
+      "to": "JOIN_OTHER_SIDE",
+      "side": "right",
+      "reason": "crossed astern; closing into the far slot"
+    },
+    {
+      "t": 29.36,
+      "from": "JOIN_OTHER_SIDE",
+      "to": "BESIDE_RIGHT",
+      "side": "right",
+      "reason": "formation re-established on the other side"
+    }
+  ],
+  "join_path_m": 1.3125,
+  "join_net_m": 1.1401,
+  "join_completed": true,
+  "first_beside_at_s": 6.28,
+  "first_beside_side": "left",
+  "initial_join_lateral_m": 0.515,
+  "beside_steps": 2962,
+  "beside_seconds": 59.24,
+  "beside_path_m": 10.8483,
+  "beside_side_seconds": {
+    "BESIDE_LEFT": 2.6,
+    "BESIDE_RIGHT": 56.64
+  },
+  "formation_steps": 3262,
+  "formation_seconds": 65.24,
+  "formation_fraction_of_beside": 1.1013,
+  "beside_lateral_min_m": 0.4757,
+  "beside_lateral_max_m": 0.7237,
+  "beside_lateral_mean_m": 0.5784,
+  "beside_longitudinal_min_m": -0.6444,
+  "beside_longitudinal_max_m": 0.0938,
+  "beside_longitudinal_abs_max_m": 0.6444,
+  "beside_band_m": [
+    0.45,
+    0.75
+  ],
+  "longitudinal_tolerance_m": 0.55,
+  "max_forward_longitudinal_m": 0.0938,
+  "max_forward_during_switch_m": -0.42,
+  "forward_half_plane_limit_m": 0.22,
+  "side_decisions": [
+    {
+      "t": 0.0,
+      "kind": "initial",
+      "side": 1,
+      "side_name": "left",
+      "reason": "right blocked by static:hedge_s",
+      "left": {
+        "side": 1,
+        "usable": true,
+        "static_gap_m": 1.07,
+        "static_name": "hedge_s",
+        "person_gap_m": 5.5195,
+        "person_name": "rafa",
+        "person_dt_s": 0.0,
+        "cause": "",
+        "detail": ""
+      },
+      "right": {
+        "side": -1,
+        "usable": false,
+        "static_gap_m": -0.09,
+        "static_name": "hedge_s",
+        "person_gap_m": 6.4697,
+        "person_name": "iris",
+        "person_dt_s": 0.0,
+        "cause": "static",
+        "detail": "hedge_s"
+      }
+    },
+    {
+      "t": 8.86,
+      "kind": "blocked",
+      "side": -1,
+      "side_name": "right",
+      "reason": "left blocked by static:kiosk",
+      "left": {
+        "side": 1,
+        "usable": false,
+        "static_gap_m": 0.1082,
+        "static_name": "kiosk",
+        "person_gap_m": 1.0028,
+        "person_name": "iris",
+        "person_dt_s": 3.0,
+        "cause": "static",
+        "detail": "kiosk"
+      },
+      "right": {
+        "side": -1,
+        "usable": true,
+        "static_gap_m": 0.27,
+        "static_name": "wall",
+        "person_gap_m": 1.9467,
+        "person_name": "iris",
+        "person_dt_s": 3.0,
+        "cause": "",
+        "detail": ""
+      }
+    }
+  ],
+  "side_decision_count": 2,
+  "refusal_count": 2,
+  "blocked_tick_count": 498,
+  "switch_causes": [
+    [
+      "static",
+      "kiosk"
+    ]
+  ],
+  "switches": [
+    {
+      "index": 0,
+      "from_side": "left",
+      "to_side": "right",
+      "blocked_at_s": 8.86,
+      "cause": "static",
+      "detail": "kiosk",
+      "blocked_for_s": 1.0,
+      "far_clear_for_s": 1.0,
+      "static_gap_m": 0.1082,
+      "person_gap_m": 1.0028,
+      "fell_back_at_s": 13.32,
+      "longitudinal_at_cross_m": -0.6215,
+      "crossed_at_s": 17.84,
+      "joined_at_s": 29.36,
+      "duration_s": 20.5,
+      "path_m": 3.9514,
+      "net_m": 2.5871,
+      "lateral_start_m": 0.7269,
+      "lateral_end_m": -0.6276,
+      "lateral_travel_m": 1.3545,
+      "sides_are_opposite": true,
+      "min_longitudinal_m": -1.1511,
+      "max_longitudinal_m": -0.42,
+      "min_guardian_clearance_m": 0.5628
+    }
+  ],
+  "completed_switches": 1,
+  "cross_behind_threshold_m": 0.62,
+  "post_switch_steps": 2832,
+  "post_switch_seconds": 56.64,
+  "post_switch_lateral_min_m": 0.4757,
+  "post_switch_lateral_max_m": 0.6907,
+  "post_switch_longitudinal_abs_max_m": 0.6444,
+  "post_switch_side": "right",
+  "route": {
+    "name": "nadia",
+    "corners": [
+      [
+        -4.1,
+        -2.35
+      ],
+      [
+        0.4,
+        -2.35
+      ],
+      [
+        1.8,
+        -1.05
+      ],
+      [
+        4.05,
+        -1.05
+      ],
+      [
+        4.45,
+        1.55
+      ]
+    ],
+    "length_m": 10.9566,
+    "speed_mps": 0.118,
+    "start_t_s": 0.0,
+    "finish_t_s": 92.852,
+    "corner_radius_m": 0.9,
+    "bends": [
+      {
+        "turn_deg": 42.879,
+        "hand": "left",
+        "radius_m": 0.9,
+        "arc_len_m": 0.6735,
+        "start_s_m": 4.1466,
+        "start_t_s": 35.14,
+        "end_t_s": 40.848
+      },
+      {
+        "turn_deg": -42.879,
+        "hand": "right",
+        "radius_m": 0.9,
+        "arc_len_m": 0.6735,
+        "start_s_m": 6.0238,
+        "start_t_s": 51.049,
+        "end_t_s": 56.757
+      },
+      {
+        "turn_deg": 81.254,
+        "hand": "left",
+        "radius_m": 0.9,
+        "arc_len_m": 1.2763,
+        "start_s_m": 7.8218,
+        "start_t_s": 66.286,
+        "end_t_s": 77.103
+      }
+    ]
+  },
+  "bends": [
+    {
+      "turn_deg": 42.879,
+      "hand": "left",
+      "radius_m": 0.9,
+      "arc_len_m": 0.6735,
+      "start_s_m": 4.1466,
+      "start_t_s": 35.14,
+      "end_t_s": 40.848,
+      "beside_steps": 286,
+      "beside_seconds": 5.72,
+      "max_lateral_m": 0.6249,
+      "max_abs_longitudinal_m": 0.497,
+      "followed": true
+    },
+    {
+      "turn_deg": -42.879,
+      "hand": "right",
+      "radius_m": 0.9,
+      "arc_len_m": 0.6735,
+      "start_s_m": 6.0238,
+      "start_t_s": 51.049,
+      "end_t_s": 56.757,
+      "beside_steps": 285,
+      "beside_seconds": 5.7,
+      "max_lateral_m": 0.6027,
+      "max_abs_longitudinal_m": 0.2491,
+      "followed": true
+    },
+    {
+      "turn_deg": 81.254,
+      "hand": "left",
+      "radius_m": 0.9,
+      "arc_len_m": 1.2763,
+      "start_s_m": 7.8218,
+      "start_t_s": 66.286,
+      "end_t_s": 77.103,
+      "beside_steps": 541,
+      "beside_seconds": 10.82,
+      "max_lateral_m": 0.5714,
+      "max_abs_longitudinal_m": 0.5159,
+      "followed": true
+    }
+  ],
+  "bends_followed": 3,
+  "visible_steps": 4300,
+  "visible_fraction": 1.0,
+  "los_steps": 4300,
+  "visible_with_los_steps": 4300,
+  "visible_fraction_with_los": 1.0,
+  "blocked_by": {},
+  "timeouts": [],
+  "all_gates_pass": true,
+  "gate_results": [
+    {
+      "gate": "the duck walked into formation rather than spawning in it",
+      "pass": true,
+      "evidence": "path 1.312 m, net 1.140 m before first BESIDE at 6.28s"
+    },
+    {
+      "gate": "the initial join is a real SIDE slot, not a trailing position",
+      "pass": true,
+      "evidence": "lateral 0.515 m on the left at first BESIDE"
+    },
+    {
+      "gate": "at least 18s spent beside her",
+      "pass": true,
+      "evidence": "59.24s in BESIDE_LEFT/BESIDE_RIGHT ({'BESIDE_LEFT': 2.6, 'BESIDE_RIGHT': 56.64})"
+    },
+    {
+      "gate": "at least 1.6 m walked while beside her",
+      "pass": true,
+      "evidence": "10.848 m of path in formation"
+    },
+    {
+      "gate": "the lateral offset stayed inside the 0.45-0.75 m band while beside her",
+      "pass": true,
+      "evidence": "lateral 0.4757-0.7237 m (mean 0.5784)"
+    },
+    {
+      "gate": "the longitudinal error stayed bounded while beside her",
+      "pass": true,
+      "evidence": "|longitudinal| <= 0.6444 m against a 0.55 m tolerance"
+    },
+    {
+      "gate": "at least 2 side decisions were made",
+      "pass": true,
+      "evidence": "2 decision(s): initial->left (right blocked by static:hedge_s); blocked->right (left blocked by static:kiosk)"
+    },
+    {
+      "gate": "at least 1 completed physical side switch",
+      "pass": true,
+      "evidence": "1 completed switch(es): left->right at 8.86s"
+    },
+    {
+      "gate": "every switch was caused by a MEASURED blockage of the duck's own side",
+      "pass": true,
+      "evidence": "switch 0: static:kiosk measured for 1.0s (static gap 0.1082 m, person gap 1.0028 m)"
+    },
+    {
+      "gate": "an unsafe side was refused while the other stayed available",
+      "pass": true,
+      "evidence": "2 refusal decision(s), 498 tick(s) with the duck's own side measured unusable"
+    },
+    {
+      "gate": "every switch crossed BEHIND her, never through her forward half-plane",
+      "pass": true,
+      "evidence": "switch 0: max longitudinal -0.42 m <= 0.22 m"
+    },
+    {
+      "gate": "every switch reached at least 0.45 m astern before crossing",
+      "pass": true,
+      "evidence": "switch 0: -1.1511 m astern"
+    },
+    {
+      "gate": "the duck never got ahead of her at ANY tick of the whole rollout",
+      "pass": true,
+      "evidence": "max longitudinal 0.0938 m over 4300 steps, limit 0.22 m"
+    },
+    {
+      "gate": "every switch is a real path with real net and lateral displacement",
+      "pass": true,
+      "evidence": "switch 0: path 3.9514 m, net 2.5871 m, lateral 0.7269 -> -0.6276 m"
+    },
+    {
+      "gate": "the duck kept clear of her legs throughout every switch",
+      "pass": true,
+      "evidence": "switch 0: min clearance 0.5628 m"
+    },
+    {
+      "gate": "the opposite-side formation is stable after the switch",
+      "pass": true,
+      "evidence": "56.64s on the right at lateral 0.4757-0.6907 m"
+    },
+    {
+      "gate": "the formation followed at least 3 route bends",
+      "pass": true,
+      "evidence": "left 42.9 deg: 5.72s beside, max lateral 0.6249 m -> followed; right -42.9 deg: 5.7s beside, max lateral 0.6027 m -> followed; left 81.3 deg: 10.82s beside, max lateral 0.5714 m -> followed"
+    },
+    {
+      "gate": "the route contains both a left and a right bend",
+      "pass": true,
+      "evidence": "bends: ['left', 'right', 'left']"
+    },
+    {
+      "gate": "guardian visible in >= 95% of steps with line of sight",
+      "pass": true,
+      "evidence": "100.00% of 4300 LOS steps (100.00% overall)"
+    },
+    {
+      "gate": "positive clearance to every person at all times",
+      "pass": true,
+      "evidence": "min 0.2846 m to nadia"
+    },
+    {
+      "gate": "positive clearance to every obstacle and wall",
+      "pass": true,
+      "evidence": "min 0.0040 m to obs_hedge_s"
+    },
+    {
+      "gate": "zero contacts",
+      "pass": true,
+      "evidence": "0 steps with non-positive clearance"
+    },
+    {
+      "gate": "exactly zero HOLD and DONE steps",
+      "pass": true,
+      "evidence": "forbidden state steps: {'HOLD': 0, 'DONE': 0}"
+    },
+    {
+      "gate": "every visited state is one this behavior declares",
+      "pass": true,
+      "evidence": "visited ['BESIDE_LEFT', 'BESIDE_RIGHT', 'CROSS_BEHIND', 'FALL_BACK', 'JOIN_OTHER_SIDE', 'JOIN_SIDE', 'SIDE_BLOCKED']"
+    },
+    {
+      "gate": "no phase hit its ceiling",
+      "pass": true,
+      "evidence": "timeouts: none"
+    },
+    {
+      "gate": "zero falls",
+      "pass": true,
+      "evidence": "0 steps below 0.09 m"
+    },
+    {
+      "gate": "trunk never below 0.09 m",
+      "pass": true,
+      "evidence": "min 0.1111 m"
+    },
+    {
+      "gate": "final trunk height near the nominal 0.116 m",
+      "pass": true,
+      "evidence": "0.1193 m"
+    },
+    {
+      "gate": "the exact imu_ang_vel sensor, 61-D observation and 0.9 action scale",
+      "pass": true,
+      "evidence": "gyro=imu_ang_vel, obs=61-D, action_scale=0.9"
+    },
+    {
+      "gate": "the byte-identical stock walking policy",
+      "pass": true,
+      "evidence": "sha256 e36332d383997d51401897734cd3e79cf5038406feddb18b4d57ecfb141daa6c"
+    }
+  ]
+}

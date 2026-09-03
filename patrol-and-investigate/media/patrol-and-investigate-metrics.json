@@ -1,0 +1,1852 @@
+{
+  "gyro_sensor": "imu_ang_vel",
+  "observation_dim": 61,
+  "action_scale": 0.9,
+  "policy_sha256": "e36332d383997d51401897734cd3e79cf5038406feddb18b4d57ecfb141daa6c",
+  "control_hz": 50.0,
+  "decimation": 10,
+  "seconds": 148.0,
+  "steps": 7400,
+  "path_m": 15.9467,
+  "net_m": 0.2023,
+  "start_xy": [
+    0.0001,
+    -0.86
+  ],
+  "final_xy": [
+    -0.1936,
+    -0.8018
+  ],
+  "min_trunk_z_m": 0.1119,
+  "final_trunk_z_m": 0.11626,
+  "fallen_steps": 0,
+  "contact_steps": 0,
+  "walk_path_m": 15.7156,
+  "walk_seconds": 90.6,
+  "spin_rate_measured_dps": 1.6,
+  "checkpoint_declared_order": [
+    "dock-gate",
+    "east-aisle",
+    "north-bay",
+    "server-door",
+    "west-stair"
+  ],
+  "checkpoint_visited_order": [
+    "dock-gate",
+    "east-aisle",
+    "north-bay",
+    "server-door",
+    "west-stair"
+  ],
+  "checkpoint_in_declared_order": true,
+  "checkpoint_all_visited": true,
+  "checkpoint_no_repeats": true,
+  "checkpoint_count": 5,
+  "visits": [
+    {
+      "index": 0,
+      "name": "dock-gate",
+      "arrived_at_s": 4.92,
+      "ended_at_s": 9.14,
+      "stopped_s": 1.4,
+      "scan_s": 0.02,
+      "scan_arc_deg": 0.0,
+      "bodies_seen": [
+        "trolley"
+      ],
+      "result": "detect",
+      "detected": "trolley",
+      "still_path_m": 0.0,
+      "arrival_error_m": 0.199
+    },
+    {
+      "index": 1,
+      "name": "east-aisle",
+      "arrived_at_s": 15.48,
+      "ended_at_s": 48.08,
+      "stopped_s": 1.42,
+      "scan_s": 3.66,
+      "scan_arc_deg": 94.32,
+      "bodies_seen": [
+        "crate"
+      ],
+      "result": "detect",
+      "detected": "crate",
+      "still_path_m": 0.0,
+      "arrival_error_m": 0.1987
+    },
+    {
+      "index": 2,
+      "name": "north-bay",
+      "arrived_at_s": 54.32,
+      "ended_at_s": 98.38,
+      "stopped_s": 1.42,
+      "scan_s": 1.72,
+      "scan_arc_deg": 44.29,
+      "bodies_seen": [
+        "visitor"
+      ],
+      "result": "detect",
+      "detected": "visitor",
+      "still_path_m": 0.0,
+      "arrival_error_m": 0.1986
+    },
+    {
+      "index": 3,
+      "name": "server-door",
+      "arrived_at_s": 112.5,
+      "ended_at_s": 120.46,
+      "stopped_s": 1.4,
+      "scan_s": 5.36,
+      "scan_arc_deg": 138.05,
+      "bodies_seen": [],
+      "result": "clear",
+      "detected": "",
+      "still_path_m": 0.0,
+      "arrival_error_m": 0.1983
+    },
+    {
+      "index": 4,
+      "name": "west-stair",
+      "arrived_at_s": 126.7,
+      "ended_at_s": 134.68,
+      "stopped_s": 1.42,
+      "scan_s": 5.36,
+      "scan_arc_deg": 138.2,
+      "bodies_seen": [],
+      "result": "clear",
+      "detected": "",
+      "still_path_m": 0.0,
+      "arrival_error_m": 0.1986
+    }
+  ],
+  "checkpoint_arrival_error_m": {
+    "dock-gate": 0.197,
+    "east-aisle": 0.2382,
+    "north-bay": 0.1803,
+    "server-door": 0.1953,
+    "west-stair": 0.1956
+  },
+  "circuit_length_m": 5.1601,
+  "corner_turns_deg": [
+    60.001,
+    60.001,
+    59.999,
+    60.001,
+    60.001
+  ],
+  "reached_home_at_s": 140.14000000000001,
+  "home_seconds": 7.88,
+  "min_home_distance_m": 0.194,
+  "home_xy": [
+    0.0,
+    -0.86
+  ],
+  "scan_scans": [
+    {
+      "checkpoint": "dock-gate",
+      "stopped_s": 1.4,
+      "scan_s": 0.02,
+      "scan_arc_deg": 0.0,
+      "bodies_seen": [
+        "trolley"
+      ],
+      "result": "detect",
+      "detected": "trolley",
+      "still_path_m": 0.0,
+      "arrival_error_m": 0.199
+    },
+    {
+      "checkpoint": "east-aisle",
+      "stopped_s": 1.42,
+      "scan_s": 3.66,
+      "scan_arc_deg": 94.32,
+      "bodies_seen": [
+        "crate"
+      ],
+      "result": "detect",
+      "detected": "crate",
+      "still_path_m": 0.0,
+      "arrival_error_m": 0.1987
+    },
+    {
+      "checkpoint": "north-bay",
+      "stopped_s": 1.42,
+      "scan_s": 1.72,
+      "scan_arc_deg": 44.29,
+      "bodies_seen": [
+        "visitor"
+      ],
+      "result": "detect",
+      "detected": "visitor",
+      "still_path_m": 0.0,
+      "arrival_error_m": 0.1986
+    },
+    {
+      "checkpoint": "server-door",
+      "stopped_s": 1.4,
+      "scan_s": 5.36,
+      "scan_arc_deg": 138.05,
+      "bodies_seen": [],
+      "result": "clear",
+      "detected": "",
+      "still_path_m": 0.0,
+      "arrival_error_m": 0.1983
+    },
+    {
+      "checkpoint": "west-stair",
+      "stopped_s": 1.42,
+      "scan_s": 5.36,
+      "scan_arc_deg": 138.2,
+      "bodies_seen": [],
+      "result": "clear",
+      "detected": "",
+      "still_path_m": 0.0,
+      "arrival_error_m": 0.1986
+    }
+  ],
+  "scan_completed_scan_arcs_deg": [
+    138.05,
+    138.2
+  ],
+  "scan_min_completed_scan_arc_deg": 138.05,
+  "scan_min_stopped_s": 1.4,
+  "scan_max_still_path_m": 0.0,
+  "scan_max_arrival_error_m": 0.199,
+  "scan_scan_sweep_deg": 46.0,
+  "scan_scan_arc_complete_deg": 138.0,
+  "memory_interruptions": [
+    {
+      "index": 0,
+      "at_s": 21.16,
+      "target_index": 1,
+      "target_name": "east-aisle",
+      "resume_xy": [
+        0.8099,
+        0.2441
+      ],
+      "completed_before": [
+        "dock-gate"
+      ],
+      "reason": "crate needs investigating",
+      "anomaly": "crate",
+      "resumed_at_s": 47.08,
+      "return_error_m": 0.1581,
+      "resumed_target_name": "east-aisle",
+      "route_preserved": true
+    },
+    {
+      "index": 1,
+      "at_s": 58.06,
+      "target_index": 2,
+      "target_name": "north-bay",
+      "resume_xy": [
+        0.1733,
+        0.7652
+      ],
+      "completed_before": [
+        "dock-gate",
+        "east-aisle"
+      ],
+      "reason": "visitor needs investigating",
+      "anomaly": "visitor",
+      "resumed_at_s": 97.38,
+      "return_error_m": 0.1596,
+      "resumed_target_name": "north-bay",
+      "route_preserved": true
+    }
+  ],
+  "memory_count": 2,
+  "memory_all_preserved": true,
+  "memory_max_return_error_m": 0.1596,
+  "memory_resumed_targets": [
+    "east-aisle",
+    "north-bay"
+  ],
+  "memory_interrupted_targets": [
+    "east-aisle",
+    "north-bay"
+  ],
+  "standoff_investigations": [
+    {
+      "index": 0,
+      "target": "crate",
+      "detected_at_s": 21.16,
+      "detect_range_m": 1.4221,
+      "interrupted_checkpoint": "east-aisle",
+      "interrupted_index": 1,
+      "approach_began_s": 22.76,
+      "approach_start_range_m": 1.4222,
+      "approach_end_range_m": 1.0656,
+      "range_reduction_m": 0.3566,
+      "approach_path_m": 0.7017,
+      "standoff_m": 0.6,
+      "standoff_xy": [
+        1.2866,
+        0.4134
+      ],
+      "rejected_standoffs": 3,
+      "observations": [
+        {
+          "angle_deg": -26.0,
+          "began_at_s": 27.62,
+          "held_s": 2.22,
+          "visible_fraction": 1.0,
+          "steps": 112,
+          "min_range_m": 1.0637
+        },
+        {
+          "angle_deg": 0.0,
+          "began_at_s": 29.84,
+          "held_s": 2.22,
+          "visible_fraction": 1.0,
+          "steps": 111,
+          "min_range_m": 1.0676
+        },
+        {
+          "angle_deg": 26.0,
+          "began_at_s": 32.06,
+          "held_s": 2.22,
+          "visible_fraction": 1.0,
+          "steps": 111,
+          "min_range_m": 1.0677
+        }
+      ],
+      "angles_held": 3,
+      "observe_command_max": 0.0,
+      "verdict": "suspicious",
+      "rule": "stationary 18.7s outside any designated stow area with nobody within 0.90 m",
+      "confidence": 0.9801,
+      "resumed_at_s": 47.08,
+      "return_error_m": 0.1581,
+      "resumed_checkpoint": "east-aisle",
+      "route_preserved": true,
+      "min_clearance_m": 0.517,
+      "min_zone_gap_m": 2.4585,
+      "ended_at_s": 47.08
+    },
+    {
+      "index": 1,
+      "target": "visitor",
+      "detected_at_s": 58.06,
+      "detect_range_m": 2.3056,
+      "interrupted_checkpoint": "north-bay",
+      "interrupted_index": 2,
+      "approach_began_s": 59.66,
+      "approach_start_range_m": 2.3056,
+      "approach_end_range_m": 1.126,
+      "range_reduction_m": 1.1796,
+      "approach_path_m": 1.8014,
+      "standoff_m": 0.6,
+      "standoff_xy": [
+        -1.1375,
+        0.9871
+      ],
+      "rejected_standoffs": 3,
+      "observations": [
+        {
+          "angle_deg": -26.0,
+          "began_at_s": 71.72,
+          "held_s": 2.2,
+          "visible_fraction": 1.0,
+          "steps": 111,
+          "min_range_m": 1.121
+        },
+        {
+          "angle_deg": 0.0,
+          "began_at_s": 73.92,
+          "held_s": 2.2,
+          "visible_fraction": 1.0,
+          "steps": 110,
+          "min_range_m": 1.1267
+        },
+        {
+          "angle_deg": 26.0,
+          "began_at_s": 76.12,
+          "held_s": 2.2,
+          "visible_fraction": 1.0,
+          "steps": 110,
+          "min_range_m": 1.1267
+        }
+      ],
+      "angles_held": 3,
+      "observe_command_max": 0.0,
+      "verdict": "intrusion",
+      "rule": "person inside the marked restricted zone for 23.4s, past the 2.5s dwell that separates entering from crossing",
+      "confidence": 0.99,
+      "resumed_at_s": 97.38,
+      "return_error_m": 0.1596,
+      "resumed_checkpoint": "north-bay",
+      "route_preserved": true,
+      "min_clearance_m": 0.6085,
+      "min_zone_gap_m": 0.2742,
+      "ended_at_s": 97.38
+    }
+  ],
+  "standoff_count": 2,
+  "standoff_range_reductions_m": [
+    0.3566,
+    1.1796
+  ],
+  "standoff_approach_paths_m": [
+    0.7017,
+    1.8014
+  ],
+  "standoff_final_standoffs_m": [
+    1.0656,
+    1.126
+  ],
+  "standoff_min_clearances_m": [
+    0.517,
+    0.6085
+  ],
+  "standoff_angles_held": [
+    3,
+    3
+  ],
+  "standoff_band_m": [
+    0.45,
+    0.75
+  ],
+  "standoff_declared_angles_deg": [
+    -26.0,
+    0.0,
+    26.0
+  ],
+  "verdict_verdicts": [
+    {
+      "t": 6.94,
+      "target": "trolley",
+      "verdict": "benign",
+      "rule": "standing in the designated stow area obs_pallet_s",
+      "confidence": 0.7045,
+      "margin_m": 0.0,
+      "margin_s": 0.0,
+      "evidence": {
+        "stow_area": "obs_pallet_s",
+        "attended_by": "",
+        "nearest_person_m": 1.7998,
+        "attendance_radius_m": 0.9,
+        "position": [
+          1.16,
+          -1.86
+        ],
+        "range_m": 1.5147,
+        "seen_s": 1.98
+      }
+    },
+    {
+      "t": 34.28,
+      "target": "crate",
+      "verdict": "suspicious",
+      "rule": "stationary 18.7s outside any designated stow area with nobody within 0.90 m",
+      "confidence": 0.9801,
+      "margin_m": 1.3763,
+      "margin_s": 13.74,
+      "evidence": {
+        "stationary_s": 18.74,
+        "unattended_bar_s": 5.0,
+        "stow_area": "",
+        "nearest_person": "emil",
+        "nearest_person_m": 2.2763,
+        "attendance_radius_m": 0.9,
+        "position": [
+          2.15,
+          0.72
+        ],
+        "range_m": 1.0677,
+        "seen_s": 17.96
+      }
+    },
+    {
+      "t": 78.32,
+      "target": "visitor",
+      "verdict": "intrusion",
+      "rule": "person inside the marked restricted zone for 23.4s, past the 2.5s dwell that separates entering from crossing",
+      "confidence": 0.99,
+      "margin_m": 0.44,
+      "margin_s": 20.86,
+      "evidence": {
+        "zone": "server-annex",
+        "position": [
+          -2.1,
+          1.15
+        ],
+        "depth_inside_m": 0.44,
+        "dwell_s": 23.36,
+        "dwell_bar_s": 2.5,
+        "range_m": 1.1267,
+        "seen_s": 23.36
+      }
+    }
+  ],
+  "verdict_verdict_by_target": {
+    "trolley": "benign",
+    "crate": "suspicious",
+    "visitor": "intrusion"
+  },
+  "verdict_expected": {
+    "crate": "suspicious",
+    "visitor": "intrusion",
+    "trolley": "benign"
+  },
+  "verdict_all_correct": true,
+  "verdict_investigated": [
+    "crate",
+    "visitor"
+  ],
+  "verdict_dismissed": [
+    "trolley"
+  ],
+  "verdict_expected_investigated": [
+    "crate",
+    "visitor"
+  ],
+  "verdict_expected_dismissed": [
+    "trolley"
+  ],
+  "verdict_camera_gate_ticks": {
+    "trolley": 875,
+    "rosa": 839,
+    "crate": 1204,
+    "emil": 668,
+    "visitor": 1769,
+    "nadia": 544
+  },
+  "verdict_first_in_camera_gate_s": {
+    "trolley": 4.96,
+    "rosa": 14.98,
+    "crate": 15.54,
+    "emil": 36.54,
+    "visitor": 51.88,
+    "nadia": 121.24
+  },
+  "verdict_observations": {
+    "crate": {
+      "first_seen_s": 15.54,
+      "seen_s": 24.08,
+      "stationary_s": 81.68,
+      "settled_since_s": 15.54,
+      "in_zone_s": 0.0,
+      "nearest_person": "emil",
+      "nearest_person_m": 2.2763,
+      "stow_area": ""
+    },
+    "emil": {
+      "first_seen_s": 36.54,
+      "seen_s": 13.36,
+      "stationary_s": 111.44,
+      "settled_since_s": 36.54,
+      "in_zone_s": 0.0,
+      "nearest_person": "rosa",
+      "nearest_person_m": 0.6031,
+      "stow_area": ""
+    },
+    "nadia": {
+      "first_seen_s": 121.24,
+      "seen_s": 10.88,
+      "stationary_s": 17.94,
+      "settled_since_s": 121.24,
+      "in_zone_s": 0.0,
+      "nearest_person": "rosa",
+      "nearest_person_m": 0.4554,
+      "stow_area": ""
+    },
+    "rosa": {
+      "first_seen_s": 14.98,
+      "seen_s": 16.78,
+      "stationary_s": 25.46,
+      "settled_since_s": 122.52,
+      "in_zone_s": 0.0,
+      "nearest_person": "nadia",
+      "nearest_person_m": 0.4554,
+      "stow_area": "obs_pallet_s"
+    },
+    "trolley": {
+      "first_seen_s": 4.96,
+      "seen_s": 17.5,
+      "stationary_s": 143.02,
+      "settled_since_s": 4.96,
+      "in_zone_s": 0.0,
+      "nearest_person": "rosa",
+      "nearest_person_m": 0.4177,
+      "stow_area": "obs_pallet_s"
+    },
+    "visitor": {
+      "first_seen_s": 51.88,
+      "seen_s": 35.38,
+      "stationary_s": 67.44,
+      "settled_since_s": 51.88,
+      "in_zone_s": 35.38,
+      "nearest_person": "nadia",
+      "nearest_person_m": 3.8419,
+      "stow_area": ""
+    }
+  },
+  "min_body_clearance_m": 0.517,
+  "min_body_clearance_name": "crate",
+  "min_clearance_by_body_m": {
+    "crate": 0.517,
+    "emil": 0.971,
+    "nadia": 0.9474,
+    "rosa": 1.1346,
+    "trolley": 1.1788,
+    "visitor": 0.6085
+  },
+  "min_scenery_clearance_m": 0.1157,
+  "min_scenery_clearance_geom": "obs_zone_post_se",
+  "min_zone_gap_m": 0.2742,
+  "zone_breach_steps": 0,
+  "restricted_zone": {
+    "name": "server-annex",
+    "center": [
+      -2.1,
+      1.15
+    ],
+    "half": [
+      0.44,
+      0.44
+    ]
+  },
+  "duck_planar_radius_m": 0.1162,
+  "duck_exact_planar_radius_m": 0.0827,
+  "duck_exact_lateral_half_width_m": 0.0781,
+  "declared_states": [
+    "PATROL",
+    "CHECKPOINT_STOP",
+    "SCAN",
+    "CLEAR",
+    "DETECT",
+    "INVESTIGATE_PLAN",
+    "APPROACH",
+    "OBSERVE",
+    "CLASSIFY",
+    "RETURN_TO_PATROL",
+    "RESUME",
+    "HOME",
+    "DONE"
+  ],
+  "states_visited": [
+    "APPROACH",
+    "CHECKPOINT_STOP",
+    "CLASSIFY",
+    "CLEAR",
+    "DETECT",
+    "DONE",
+    "HOME",
+    "INVESTIGATE_PLAN",
+    "OBSERVE",
+    "PATROL",
+    "RESUME",
+    "RETURN_TO_PATROL",
+    "SCAN"
+  ],
+  "state_steps": {
+    "PATROL": 2214,
+    "CHECKPOINT_STOP": 353,
+    "SCAN": 806,
+    "DETECT": 90,
+    "CLASSIFY": 331,
+    "INVESTIGATE_PLAN": 160,
+    "APPROACH": 844,
+    "OBSERVE": 665,
+    "RETURN_TO_PATROL": 1372,
+    "RESUME": 100,
+    "CLEAR": 120,
+    "HOME": 93,
+    "DONE": 252
+  },
+  "state_seconds": {
+    "PATROL": 44.28,
+    "CHECKPOINT_STOP": 7.06,
+    "SCAN": 16.12,
+    "DETECT": 1.8,
+    "CLASSIFY": 6.62,
+    "INVESTIGATE_PLAN": 3.2,
+    "APPROACH": 16.88,
+    "OBSERVE": 13.3,
+    "RETURN_TO_PATROL": 27.44,
+    "RESUME": 2.0,
+    "CLEAR": 2.4,
+    "HOME": 1.86,
+    "DONE": 5.04
+  },
+  "state_command_max": {
+    "PATROL": 0.58,
+    "CHECKPOINT_STOP": 0.0,
+    "SCAN": 0.0,
+    "DETECT": 0.0,
+    "CLASSIFY": 0.0,
+    "INVESTIGATE_PLAN": 0.0,
+    "APPROACH": 0.58,
+    "OBSERVE": 0.0,
+    "RETURN_TO_PATROL": 0.58,
+    "RESUME": 0.58,
+    "CLEAR": 0.0,
+    "HOME": 0.0,
+    "DONE": 0.0
+  },
+  "state_path_m": {
+    "PATROL": 7.98778,
+    "CHECKPOINT_STOP": 0.11972,
+    "SCAN": 0.00781,
+    "DETECT": 0.00087,
+    "CLASSIFY": 0.00378,
+    "INVESTIGATE_PLAN": 0.00209,
+    "APPROACH": 2.50314,
+    "OBSERVE": 0.06567,
+    "RETURN_TO_PATROL": 4.91019,
+    "RESUME": 0.31445,
+    "CLEAR": 0.00162,
+    "HOME": 0.02703,
+    "DONE": 0.00251
+  },
+  "zero_command_states": [
+    "CHECKPOINT_STOP",
+    "SCAN",
+    "CLEAR",
+    "DETECT",
+    "INVESTIGATE_PLAN",
+    "OBSERVE",
+    "CLASSIFY",
+    "HOME",
+    "DONE"
+  ],
+  "zero_command_violations": [],
+  "max_abs_vy_command": 0.0,
+  "zero_state_path_m": {
+    "CHECKPOINT_STOP": 0.11972,
+    "SCAN": 0.00781,
+    "CLEAR": 0.00162,
+    "DETECT": 0.00087,
+    "INVESTIGATE_PLAN": 0.00209,
+    "OBSERVE": 0.06567,
+    "CLASSIFY": 0.00378,
+    "HOME": 0.02703,
+    "DONE": 0.00251
+  },
+  "zero_episodes": [
+    {
+      "state": "CHECKPOINT_STOP",
+      "from_s": 4.94,
+      "to_s": 6.34,
+      "path_m": 0.02209,
+      "net_m": 0.00455
+    },
+    {
+      "state": "SCAN",
+      "from_s": 6.34,
+      "to_s": 6.36,
+      "path_m": 1e-05,
+      "net_m": 1e-05
+    },
+    {
+      "state": "DETECT",
+      "from_s": 6.36,
+      "to_s": 6.96,
+      "path_m": 0.00018,
+      "net_m": 0.00014
+    },
+    {
+      "state": "CLASSIFY",
+      "from_s": 6.96,
+      "to_s": 9.16,
+      "path_m": 0.00103,
+      "net_m": 0.00034
+    },
+    {
+      "state": "CHECKPOINT_STOP",
+      "from_s": 15.5,
+      "to_s": 16.92,
+      "path_m": 0.02697,
+      "net_m": 0.00199
+    },
+    {
+      "state": "SCAN",
+      "from_s": 16.92,
+      "to_s": 20.58,
+      "path_m": 0.00174,
+      "net_m": 0.00037
+    },
+    {
+      "state": "DETECT",
+      "from_s": 20.58,
+      "to_s": 21.18,
+      "path_m": 0.00035,
+      "net_m": 2e-05
+    },
+    {
+      "state": "INVESTIGATE_PLAN",
+      "from_s": 21.18,
+      "to_s": 22.78,
+      "path_m": 0.00104,
+      "net_m": 0.00023
+    },
+    {
+      "state": "OBSERVE",
+      "from_s": 27.62,
+      "to_s": 34.3,
+      "path_m": 0.03256,
+      "net_m": 0.00488
+    },
+    {
+      "state": "CLASSIFY",
+      "from_s": 34.3,
+      "to_s": 36.5,
+      "path_m": 0.00144,
+      "net_m": 0.00027
+    },
+    {
+      "state": "CHECKPOINT_STOP",
+      "from_s": 54.34,
+      "to_s": 55.76,
+      "path_m": 0.02128,
+      "net_m": 0.00484
+    },
+    {
+      "state": "SCAN",
+      "from_s": 55.76,
+      "to_s": 57.48,
+      "path_m": 0.00045,
+      "net_m": 0.00017
+    },
+    {
+      "state": "DETECT",
+      "from_s": 57.48,
+      "to_s": 58.08,
+      "path_m": 0.00034,
+      "net_m": 3e-05
+    },
+    {
+      "state": "INVESTIGATE_PLAN",
+      "from_s": 58.08,
+      "to_s": 59.68,
+      "path_m": 0.00105,
+      "net_m": 0.00024
+    },
+    {
+      "state": "OBSERVE",
+      "from_s": 71.72,
+      "to_s": 78.34,
+      "path_m": 0.03311,
+      "net_m": 0.00668
+    },
+    {
+      "state": "CLASSIFY",
+      "from_s": 78.34,
+      "to_s": 80.56,
+      "path_m": 0.00131,
+      "net_m": 0.00034
+    },
+    {
+      "state": "CHECKPOINT_STOP",
+      "from_s": 112.52,
+      "to_s": 113.92,
+      "path_m": 0.0249,
+      "net_m": 0.0012
+    },
+    {
+      "state": "SCAN",
+      "from_s": 113.92,
+      "to_s": 119.28,
+      "path_m": 0.00289,
+      "net_m": 0.00042
+    },
+    {
+      "state": "CLEAR",
+      "from_s": 119.28,
+      "to_s": 120.48,
+      "path_m": 0.00087,
+      "net_m": 0.00029
+    },
+    {
+      "state": "CHECKPOINT_STOP",
+      "from_s": 126.72,
+      "to_s": 128.14,
+      "path_m": 0.02448,
+      "net_m": 0.00167
+    },
+    {
+      "state": "SCAN",
+      "from_s": 128.14,
+      "to_s": 133.5,
+      "path_m": 0.00271,
+      "net_m": 0.0004
+    },
+    {
+      "state": "CLEAR",
+      "from_s": 133.5,
+      "to_s": 134.7,
+      "path_m": 0.00075,
+      "net_m": 0.00033
+    },
+    {
+      "state": "HOME",
+      "from_s": 141.12,
+      "to_s": 142.98,
+      "path_m": 0.02703,
+      "net_m": 0.00897
+    },
+    {
+      "state": "DONE",
+      "from_s": 142.98,
+      "to_s": 148.0,
+      "path_m": 0.00251,
+      "net_m": 5e-05
+    }
+  ],
+  "worst_zero_episode_path_m": 0.03311,
+  "worst_zero_episode_net_m": 0.00897,
+  "zero_drift_reference_m": 0.0054,
+  "longest_illegal_zero_run": 10,
+  "illegal_zero_windows": [
+    {
+      "from_s": 82.7,
+      "to_s": 82.9,
+      "steps": 10
+    },
+    {
+      "from_s": 83.02,
+      "to_s": 83.12,
+      "steps": 5
+    }
+  ],
+  "forbidden_state_steps": {
+    "ABANDON_PATROL": 0,
+    "CONTACT_TARGET": 0
+  },
+  "transitions": [
+    {
+      "t": 4.92,
+      "from": "PATROL",
+      "to": "CHECKPOINT_STOP",
+      "checkpoint": "dock-gate",
+      "arrival_error_m": 0.199,
+      "reason": "arrived at dock-gate: stopping"
+    },
+    {
+      "t": 6.32,
+      "from": "CHECKPOINT_STOP",
+      "to": "SCAN",
+      "checkpoint": "dock-gate",
+      "reason": "stopped; sweeping the head across the facility"
+    },
+    {
+      "t": 6.34,
+      "from": "SCAN",
+      "to": "DETECT",
+      "target": "trolley",
+      "verdict": "benign",
+      "range_m": 1.5146,
+      "reason": "trolley confirmed in the head camera during the sweep"
+    },
+    {
+      "t": 6.94,
+      "from": "DETECT",
+      "to": "CLASSIFY",
+      "target": "trolley",
+      "verdict": "benign",
+      "reason": "trolley explained by a benign rule; dismissed without leaving the route"
+    },
+    {
+      "t": 9.14,
+      "from": "CLASSIFY",
+      "to": "PATROL",
+      "target": "trolley",
+      "reason": "trolley dismissed; the patrol was never interrupted"
+    },
+    {
+      "t": 15.48,
+      "from": "PATROL",
+      "to": "CHECKPOINT_STOP",
+      "checkpoint": "east-aisle",
+      "arrival_error_m": 0.1987,
+      "reason": "arrived at east-aisle: stopping"
+    },
+    {
+      "t": 16.9,
+      "from": "CHECKPOINT_STOP",
+      "to": "SCAN",
+      "checkpoint": "east-aisle",
+      "reason": "stopped; sweeping the head across the facility"
+    },
+    {
+      "t": 20.56,
+      "from": "SCAN",
+      "to": "DETECT",
+      "target": "crate",
+      "verdict": "suspicious",
+      "range_m": 1.4221,
+      "reason": "crate confirmed in the head camera during the sweep"
+    },
+    {
+      "t": 21.16,
+      "from": "DETECT",
+      "to": "INVESTIGATE_PLAN",
+      "target": "crate",
+      "verdict": "suspicious",
+      "reason": "crate warrants a closer look; planning a safe standoff"
+    },
+    {
+      "t": 22.76,
+      "from": "INVESTIGATE_PLAN",
+      "to": "APPROACH",
+      "target": "crate",
+      "reason": "standoff chosen; approaching to a safe observation distance"
+    },
+    {
+      "t": 27.6,
+      "from": "APPROACH",
+      "to": "OBSERVE",
+      "target": "crate",
+      "range_m": 1.0656,
+      "reason": "stopped 1.066 m from crate; observing from a standoff"
+    },
+    {
+      "t": 34.28,
+      "from": "OBSERVE",
+      "to": "CLASSIFY",
+      "target": "crate",
+      "angles": 3,
+      "reason": "3 viewing angles held; classifying"
+    },
+    {
+      "t": 36.48,
+      "from": "CLASSIFY",
+      "to": "RETURN_TO_PATROL",
+      "target": "crate",
+      "reason": "investigation recorded; returning to the point the patrol was interrupted"
+    },
+    {
+      "t": 47.08,
+      "from": "RETURN_TO_PATROL",
+      "to": "RESUME",
+      "error_m": 0.1581,
+      "reason": "back within 0.158 m of the interruption point"
+    },
+    {
+      "t": 48.08,
+      "from": "RESUME",
+      "to": "PATROL",
+      "target": "crate",
+      "next_checkpoint": "east-aisle",
+      "reason": "patrol resumed toward east-aisle"
+    },
+    {
+      "t": 54.32,
+      "from": "PATROL",
+      "to": "CHECKPOINT_STOP",
+      "checkpoint": "north-bay",
+      "arrival_error_m": 0.1986,
+      "reason": "arrived at north-bay: stopping"
+    },
+    {
+      "t": 55.74,
+      "from": "CHECKPOINT_STOP",
+      "to": "SCAN",
+      "checkpoint": "north-bay",
+      "reason": "stopped; sweeping the head across the facility"
+    },
+    {
+      "t": 57.46,
+      "from": "SCAN",
+      "to": "DETECT",
+      "target": "visitor",
+      "verdict": "intrusion",
+      "range_m": 2.3056,
+      "reason": "visitor confirmed in the head camera during the sweep"
+    },
+    {
+      "t": 58.06,
+      "from": "DETECT",
+      "to": "INVESTIGATE_PLAN",
+      "target": "visitor",
+      "verdict": "intrusion",
+      "reason": "visitor warrants a closer look; planning a safe standoff"
+    },
+    {
+      "t": 59.66,
+      "from": "INVESTIGATE_PLAN",
+      "to": "APPROACH",
+      "target": "visitor",
+      "reason": "standoff chosen; approaching to a safe observation distance"
+    },
+    {
+      "t": 71.7,
+      "from": "APPROACH",
+      "to": "OBSERVE",
+      "target": "visitor",
+      "range_m": 1.126,
+      "reason": "stopped 1.126 m from visitor; observing from a standoff"
+    },
+    {
+      "t": 78.32,
+      "from": "OBSERVE",
+      "to": "CLASSIFY",
+      "target": "visitor",
+      "angles": 3,
+      "reason": "3 viewing angles held; classifying"
+    },
+    {
+      "t": 80.54,
+      "from": "CLASSIFY",
+      "to": "RETURN_TO_PATROL",
+      "target": "visitor",
+      "reason": "investigation recorded; returning to the point the patrol was interrupted"
+    },
+    {
+      "t": 97.38,
+      "from": "RETURN_TO_PATROL",
+      "to": "RESUME",
+      "error_m": 0.1596,
+      "reason": "back within 0.160 m of the interruption point"
+    },
+    {
+      "t": 98.38,
+      "from": "RESUME",
+      "to": "PATROL",
+      "target": "visitor",
+      "next_checkpoint": "north-bay",
+      "reason": "patrol resumed toward north-bay"
+    },
+    {
+      "t": 112.5,
+      "from": "PATROL",
+      "to": "CHECKPOINT_STOP",
+      "checkpoint": "server-door",
+      "arrival_error_m": 0.1983,
+      "reason": "arrived at server-door: stopping"
+    },
+    {
+      "t": 113.9,
+      "from": "CHECKPOINT_STOP",
+      "to": "SCAN",
+      "checkpoint": "server-door",
+      "reason": "stopped; sweeping the head across the facility"
+    },
+    {
+      "t": 119.26,
+      "from": "SCAN",
+      "to": "CLEAR",
+      "checkpoint": "server-door",
+      "arc_deg": 138.0,
+      "seen": 0,
+      "reason": "sweep complete, nothing to investigate"
+    },
+    {
+      "t": 120.46,
+      "from": "CLEAR",
+      "to": "PATROL",
+      "reason": "checkpoint clear; walking the next leg"
+    },
+    {
+      "t": 126.7,
+      "from": "PATROL",
+      "to": "CHECKPOINT_STOP",
+      "checkpoint": "west-stair",
+      "arrival_error_m": 0.1986,
+      "reason": "arrived at west-stair: stopping"
+    },
+    {
+      "t": 128.12,
+      "from": "CHECKPOINT_STOP",
+      "to": "SCAN",
+      "checkpoint": "west-stair",
+      "reason": "stopped; sweeping the head across the facility"
+    },
+    {
+      "t": 133.48,
+      "from": "SCAN",
+      "to": "CLEAR",
+      "checkpoint": "west-stair",
+      "arc_deg": 138.2,
+      "seen": 0,
+      "reason": "sweep complete, nothing to investigate"
+    },
+    {
+      "t": 134.68,
+      "from": "CLEAR",
+      "to": "PATROL",
+      "reason": "checkpoint clear; walking the next leg"
+    },
+    {
+      "t": 141.1,
+      "from": "PATROL",
+      "to": "HOME",
+      "reason": "the circuit is complete; standing down at the guard post"
+    },
+    {
+      "t": 142.96,
+      "from": "HOME",
+      "to": "DONE",
+      "reason": "patrol complete: five checkpoints visited in order, two investigations, home"
+    }
+  ],
+  "timeouts": [],
+  "subject_visibility": {
+    "route": {
+      "role": "route",
+      "steps": 5313,
+      "los_steps": 5313,
+      "visible_with_los": 5313,
+      "fraction_with_los": 1.0
+    },
+    "trolley": {
+      "role": "trolley",
+      "steps": 139,
+      "los_steps": 139,
+      "visible_with_los": 139,
+      "fraction_with_los": 1.0
+    },
+    "crate": {
+      "role": "object",
+      "steps": 795,
+      "los_steps": 795,
+      "visible_with_los": 795,
+      "fraction_with_los": 1.0
+    },
+    "visitor": {
+      "role": "intruder",
+      "steps": 1153,
+      "los_steps": 1153,
+      "visible_with_los": 1153,
+      "fraction_with_los": 1.0
+    }
+  },
+  "subject_sequence": [
+    {
+      "subject": "route",
+      "from_s": 0.02,
+      "to_s": 6.36
+    },
+    {
+      "subject": "trolley",
+      "from_s": 6.38,
+      "to_s": 9.14
+    },
+    {
+      "subject": "route",
+      "from_s": 9.16,
+      "to_s": 20.58
+    },
+    {
+      "subject": "crate",
+      "from_s": 20.6,
+      "to_s": 36.48
+    },
+    {
+      "subject": "route",
+      "from_s": 36.5,
+      "to_s": 57.48
+    },
+    {
+      "subject": "visitor",
+      "from_s": 57.5,
+      "to_s": 80.54
+    },
+    {
+      "subject": "route",
+      "from_s": 80.56,
+      "to_s": 148.0
+    }
+  ],
+  "visible_fraction_with_los": 1.0,
+  "monitor_steps": 2090,
+  "monitor_los_steps": 2090,
+  "monitor_visible_fraction_with_los": 1.0,
+  "camera_active_steps": 7371,
+  "camera_active_fraction": 0.9960810810810811,
+  "blocked_by": {},
+  "max_bodies_visible": 4,
+  "bodies_ever_seen": [
+    "crate",
+    "emil",
+    "nadia",
+    "rosa",
+    "trolley",
+    "visitor"
+  ],
+  "interlock_holds": 15,
+  "interlock_reasons": {
+    "the next 0.34 m would cross into the server-annex restricted zone": 15
+  },
+  "body_names": [
+    "rosa",
+    "emil",
+    "nadia",
+    "visitor",
+    "crate",
+    "trolley"
+  ],
+  "person_names": [
+    "rosa",
+    "emil",
+    "nadia",
+    "visitor"
+  ],
+  "object_names": [
+    "crate",
+    "trolley"
+  ],
+  "anomaly_names": [
+    "visitor",
+    "crate",
+    "trolley"
+  ],
+  "body_routes": [
+    {
+      "name": "rosa",
+      "corners": [
+        [
+          0.35,
+          1.92
+        ],
+        [
+          -0.2,
+          1.98
+        ],
+        [
+          -1.3,
+          1.85
+        ],
+        [
+          -1.7,
+          0.35
+        ],
+        [
+          -1.12,
+          -0.85
+        ],
+        [
+          -1.05,
+          -1.7
+        ],
+        [
+          -0.1,
+          -1.98
+        ],
+        [
+          0.75,
+          -1.78
+        ]
+      ],
+      "length_m": 7.1632,
+      "speed_mps": 0.136,
+      "start_t_s": 0.5,
+      "hold_windows_s": [],
+      "finish_t_s": 53.17,
+      "corner_radius_m": 0.26,
+      "bends": [
+        {
+          "turn_deg": 12.966,
+          "hand": "left",
+          "radius_m": 0.26,
+          "arc_len_m": 0.0588,
+          "start_s_m": 0.5237,
+          "end_s_m": 0.5826
+        },
+        {
+          "turn_deg": 68.329,
+          "hand": "left",
+          "radius_m": 0.26,
+          "arc_len_m": 0.3101,
+          "start_s_m": 1.4842,
+          "end_s_m": 1.7943
+        },
+        {
+          "turn_deg": 40.727,
+          "hand": "left",
+          "radius_m": 0.26,
+          "arc_len_m": 0.1848,
+          "start_s_m": 3.0737,
+          "end_s_m": 3.2585
+        },
+        {
+          "turn_deg": -21.088,
+          "hand": "right",
+          "radius_m": 0.26,
+          "arc_len_m": 0.0957,
+          "start_s_m": 4.4465,
+          "end_s_m": 4.5422
+        },
+        {
+          "turn_deg": 68.87,
+          "hand": "left",
+          "radius_m": 0.26,
+          "arc_len_m": 0.3125,
+          "start_s_m": 5.1684,
+          "end_s_m": 5.4809
+        },
+        {
+          "turn_deg": 29.663,
+          "hand": "left",
+          "radius_m": 0.26,
+          "arc_len_m": 0.1346,
+          "start_s_m": 6.2242,
+          "end_s_m": 6.3588
+        }
+      ],
+      "kind": "staff",
+      "role": "background",
+      "appears_at_s": 0.5
+    },
+    {
+      "name": "emil",
+      "corners": [
+        [
+          -1.3,
+          -1.95
+        ],
+        [
+          -0.3,
+          -2.0
+        ],
+        [
+          0.55,
+          -1.95
+        ],
+        [
+          1.14,
+          -1.32
+        ]
+      ],
+      "length_m": 2.7058,
+      "speed_mps": 0.112,
+      "start_t_s": 1.0,
+      "hold_windows_s": [
+        [
+          26.0,
+          260.0
+        ]
+      ],
+      "finish_t_s": 259.159,
+      "corner_radius_m": 0.26,
+      "bends": [
+        {
+          "turn_deg": 6.229,
+          "hand": "left",
+          "radius_m": 0.26,
+          "arc_len_m": 0.0283,
+          "start_s_m": 0.9871,
+          "end_s_m": 1.0154
+        },
+        {
+          "turn_deg": 43.511,
+          "hand": "left",
+          "radius_m": 0.26,
+          "arc_len_m": 0.1974,
+          "start_s_m": 1.7489,
+          "end_s_m": 1.9464
+        }
+      ],
+      "kind": "staff",
+      "role": "background",
+      "appears_at_s": 1.0
+    },
+    {
+      "name": "nadia",
+      "corners": [
+        [
+          -2.58,
+          0.2
+        ],
+        [
+          -1.3,
+          0.25
+        ],
+        [
+          -1.18,
+          -0.9
+        ],
+        [
+          -1.3,
+          -1.86
+        ],
+        [
+          -0.4,
+          -1.95
+        ],
+        [
+          0.3,
+          -1.85
+        ]
+      ],
+      "length_m": 4.8018,
+      "speed_mps": 0.104,
+      "start_t_s": 1.2,
+      "hold_windows_s": [],
+      "finish_t_s": 47.371,
+      "corner_radius_m": 0.26,
+      "bends": [
+        {
+          "turn_deg": -86.28,
+          "hand": "right",
+          "radius_m": 0.26,
+          "arc_len_m": 0.3915,
+          "start_s_m": 1.0373,
+          "end_s_m": 1.4289
+        },
+        {
+          "turn_deg": -13.082,
+          "hand": "right",
+          "radius_m": 0.26,
+          "arc_len_m": 0.0594,
+          "start_s_m": 2.3116,
+          "end_s_m": 2.371
+        },
+        {
+          "turn_deg": 91.414,
+          "hand": "left",
+          "radius_m": 0.26,
+          "arc_len_m": 0.4148,
+          "start_s_m": 3.0422,
+          "end_s_m": 3.457
+        },
+        {
+          "turn_deg": 13.841,
+          "hand": "left",
+          "radius_m": 0.26,
+          "arc_len_m": 0.0628,
+          "start_s_m": 4.0634,
+          "end_s_m": 4.1262
+        }
+      ],
+      "kind": "staff",
+      "role": "background",
+      "appears_at_s": 1.2
+    },
+    {
+      "name": "visitor",
+      "corners": [
+        [
+          -2.75,
+          2.05
+        ],
+        [
+          -2.45,
+          1.7
+        ],
+        [
+          -2.16,
+          1.4
+        ],
+        [
+          -2.1,
+          1.15
+        ]
+      ],
+      "length_m": 1.133,
+      "speed_mps": 0.26,
+      "start_t_s": 30.0,
+      "hold_windows_s": [],
+      "finish_t_s": 34.358,
+      "corner_radius_m": 0.18,
+      "bends": [
+        {
+          "turn_deg": 3.428,
+          "hand": "left",
+          "radius_m": 0.18,
+          "arc_len_m": 0.0108,
+          "start_s_m": 0.4556,
+          "end_s_m": 0.4664
+        },
+        {
+          "turn_deg": -30.533,
+          "hand": "right",
+          "radius_m": 0.18,
+          "arc_len_m": 0.0959,
+          "start_s_m": 0.8291,
+          "end_s_m": 0.925
+        }
+      ],
+      "kind": "intruder",
+      "role": "intrusion",
+      "appears_at_s": 30.0
+    },
+    {
+      "name": "crate",
+      "corners": [
+        [
+          2.15,
+          0.72
+        ]
+      ],
+      "length_m": 0.0,
+      "speed_mps": 0.0,
+      "start_t_s": 10.0,
+      "hold_windows_s": [],
+      "finish_t_s": 10.0,
+      "bends": [],
+      "kind": "object",
+      "role": "suspicious",
+      "appears_at_s": 10.0
+    },
+    {
+      "name": "trolley",
+      "corners": [
+        [
+          1.16,
+          -1.86
+        ]
+      ],
+      "length_m": 0.0,
+      "speed_mps": 0.0,
+      "start_t_s": 3.0,
+      "hold_windows_s": [],
+      "finish_t_s": 3.0,
+      "bends": [],
+      "kind": "trolley",
+      "role": "benign",
+      "appears_at_s": 3.0
+    }
+  ],
+  "appearance_times_s": {
+    "crate": 10.0,
+    "trolley": 3.0,
+    "rosa": 0.5,
+    "emil": 1.0,
+    "nadia": 1.2,
+    "visitor": 30.0
+  },
+  "moving_bodies": 4,
+  "moving_fraction": {
+    "rosa": 0.355,
+    "emil": 0.163,
+    "nadia": 0.312,
+    "visitor": 0.029,
+    "crate": 0.0,
+    "trolley": 0.0
+  },
+  "max_actor_heading_step_deg": 1.6552,
+  "zone_occupancy_s": {
+    "rosa": 0.0,
+    "emil": 0.0,
+    "nadia": 0.0,
+    "visitor": 115.6,
+    "crate": 0.0,
+    "trolley": 0.0
+  },
+  "fixture_names": [
+    "obs_rack_core",
+    "obs_shelf_ne",
+    "obs_shelf_sw",
+    "obs_pallet_s",
+    "obs_column_e",
+    "obs_column_w",
+    "obs_bin_n",
+    "obs_zone_post_sw",
+    "obs_zone_post_nw",
+    "obs_zone_post_se",
+    "obs_zone_post_ne"
+  ],
+  "fixture_count": 11,
+  "body_count": 6,
+  "all_gates_pass": true,
+  "gate_results": [
+    {
+      "gate": "all 5 checkpoints were visited IN THE DECLARED ORDER, exactly once each",
+      "pass": true,
+      "evidence": "visited ['dock-gate', 'east-aisle', 'north-bay', 'server-door', 'west-stair'] against the declared ['dock-gate', 'east-aisle', 'north-bay', 'server-door', 'west-stair']"
+    },
+    {
+      "gate": "the duck stopped ON each checkpoint",
+      "pass": true,
+      "evidence": "dock-gate 0.199 m; east-aisle 0.199 m; north-bay 0.199 m; server-door 0.198 m; west-stair 0.199 m -- each against a 0.22 m bar"
+    },
+    {
+      "gate": "THE FULL LOOP WAS COMPLETED and the duck returned home",
+      "pass": true,
+      "evidence": "first on the guard-post pad at 140.14000000000001s, closest 0.194 m to its centre, stood there 7.88s"
+    },
+    {
+      "gate": "the duck physically walked at least 9.0 m",
+      "pass": true,
+      "evidence": "15.9467 m of path over a 5.1601 m circuit plus two investigations, 15.7156 m of it in the walking states over 90.6s"
+    },
+    {
+      "gate": "every checkpoint was a REAL STOP: exact zero, and stationary on the floor",
+      "pass": true,
+      "evidence": "shortest stop 1.4s, worst path during a stop-and-scan 0.0 m against a 0.045 m bar; MEASURED zero-command drift is 0.0054 m per 10 s"
+    },
+    {
+      "gate": "every COMPLETED scan swept at least 100 deg of real head travel",
+      "pass": true,
+      "evidence": "completed sweeps [138.05, 138.2] deg; the arc is MEASURED from the pose the head actually reached, and a scan cut short by a detection legitimately sweeps less"
+    },
+    {
+      "gate": "the camera resolved real bodies during the scans",
+      "pass": true,
+      "evidence": "dock-gate: ['trolley']; east-aisle: ['crate']; north-bay: ['visitor']; server-door: nobody; west-stair: nobody"
+    },
+    {
+      "gate": "3 anomalies were classified, and EVERY verdict was correct",
+      "pass": true,
+      "evidence": "{'trolley': 'benign', 'crate': 'suspicious', 'visitor': 'intrusion'} against the scenario's {'crate': 'suspicious', 'visitor': 'intrusion', 'trolley': 'benign'}"
+    },
+    {
+      "gate": "2 DISTINCT anomalies were investigated: a suspicious unattended object and an unauthorised person in a restricted zone",
+      "pass": true,
+      "evidence": "investigated ['crate', 'visitor'], expected ['crate', 'visitor']"
+    },
+    {
+      "gate": "the benign distractor was EXPLICITLY DISMISSED, with a recorded rule",
+      "pass": true,
+      "evidence": "trolley: standing in the designated stow area obs_pallet_s"
+    },
+    {
+      "gate": "EVERY anomaly was detected only INSIDE the camera gate",
+      "pass": true,
+      "evidence": "trolley: 875 ticks in frustum, first at 4.96s; crate: 1204 ticks in frustum, first at 15.54s; visitor: 1769 ticks in frustum, first at 51.88s -- each against 20 ticks"
+    },
+    {
+      "gate": "BOTH approaches physically reduced the range by at least 0.30 m",
+      "pass": true,
+      "evidence": "crate: 1.422 -> 1.066 m (+0.357 m); visitor: 2.306 -> 1.126 m (+1.180 m)"
+    },
+    {
+      "gate": "each approach was a REAL WALK on the floor",
+      "pass": true,
+      "evidence": "crate: 0.702 m of path; visitor: 1.801 m of path -- each against 0.25 m"
+    },
+    {
+      "gate": "each approach STOPPED inside the 0.45-0.75 m safe observation standoff band",
+      "pass": true,
+      "evidence": "crate: closest MEASURED surface clearance 0.5170 m; visitor: closest MEASURED surface clearance 0.6085 m"
+    },
+    {
+      "gate": "each observation held all 3 declared viewing angles, with the target in frame",
+      "pass": true,
+      "evidence": "crate: -26deg 2.2s 100% seen, +0deg 2.2s 100% seen, +26deg 2.2s 100% seen; visitor: -26deg 2.2s 100% seen, +0deg 2.2s 100% seen, +26deg 2.2s 100% seen"
+    },
+    {
+      "gate": "the command was EXACTLY zero throughout every observation",
+      "pass": true,
+      "evidence": "OBSERVE max command 0.0, CLASSIFY max 0.0"
+    },
+    {
+      "gate": "the patrol was INTERRUPTED and the original checkpoint was PRESERVED",
+      "pass": true,
+      "evidence": "broke off toward east-aisle at 21.16s for crate, resumed toward east-aisle; broke off toward north-bay at 58.06s for visitor, resumed toward north-bay"
+    },
+    {
+      "gate": "the duck physically RETURNED to the point it broke off at, before advancing",
+      "pass": true,
+      "evidence": "crate: came back within 0.158 m of [0.8099, 0.2441]; visitor: came back within 0.160 m of [0.1733, 0.7652] -- each against a 0.16 m bar"
+    },
+    {
+      "gate": "THE DUCK NEVER ENTERED THE RESTRICTED ZONE",
+      "pass": true,
+      "evidence": "closest approach to the server-annex rectangle +0.2742 m over 7400 control ticks, 0 breaches"
+    },
+    {
+      "gate": "positive clearance to every body at all times - NO CONTACT with any anomaly or person",
+      "pass": true,
+      "evidence": "min 0.5170 m to crate; per body {'crate': 0.517, 'emil': 0.971, 'nadia': 0.9474, 'rosa': 1.1346, 'trolley': 1.1788, 'visitor': 0.6085}"
+    },
+    {
+      "gate": "positive clearance to every fixture and wall",
+      "pass": true,
+      "evidence": "min 0.1157 m to obs_zone_post_se over 11 fixtures"
+    },
+    {
+      "gate": "zero contacts",
+      "pass": true,
+      "evidence": "0 steps with non-positive clearance"
+    },
+    {
+      "gate": "the command was EXACTLY zero in every zero-command state",
+      "pass": true,
+      "evidence": "0 violation(s) across CHECKPOINT_STOP=0.0, SCAN=0.0, CLEAR=0.0, DETECT=0.0, INVESTIGATE_PLAN=0.0, OBSERVE=0.0, CLASSIFY=0.0, HOME=0.0, DONE=0.0"
+    },
+    {
+      "gate": "every zero-command state was a real standstill on the floor",
+      "pass": true,
+      "evidence": "worst episode 0.03311 m of path and 0.00897 m net over 24 episodes, against 0.045 m and 0.02 m per episode"
+    },
+    {
+      "gate": "NO ZERO-COMMAND PLATEAU outside the states allowed to hold one",
+      "pass": true,
+      "evidence": "longest run of exact zeros outside the permitted states: 10 tick(s) (0.20s); windows [{'from_s': 82.7, 'to_s': 82.9, 'steps': 10}, {'from_s': 83.02, 'to_s': 83.12, 'steps': 5}]"
+    },
+    {
+      "gate": "NO DECORATIVE COMMANDS: no lateral term at ANY tick, and no turn-in-place",
+      "pass": true,
+      "evidence": "largest |vy| over all 7400 control ticks: 0.0; turning in place was MEASURED at 1.6 deg/s and is never commanded, which is why every scan is a HEAD sweep"
+    },
+    {
+      "gate": "the camera was ACTIVE on a target in >= 95% of control ticks",
+      "pass": true,
+      "evidence": "99.61% of 7400 ticks (7371 active)"
+    },
+    {
+      "gate": "the investigated body was visible in >= 90% of monitoring steps where line of sight existed",
+      "pass": true,
+      "evidence": "100.00% of 2090 LOS steps in 2090 monitor steps (100.00% over the run)"
+    },
+    {
+      "gate": "the facility is populated: at least 6 bodies and 10 fixtures",
+      "pass": true,
+      "evidence": "6 bodies (['rosa', 'emil', 'nadia', 'visitor', 'crate', 'trolley']) and 11 fixtures"
+    },
+    {
+      "gate": "at least 3 bodies were genuinely moving",
+      "pass": true,
+      "evidence": "4 of 6 moved; fractions {'rosa': 0.355, 'emil': 0.163, 'nadia': 0.312, 'visitor': 0.029, 'crate': 0.0, 'trolley': 0.0}"
+    },
+    {
+      "gate": "every scripted person's heading is continuous",
+      "pass": true,
+      "evidence": "largest single-tick heading change 1.6552 deg against a 6.0 deg bound"
+    },
+    {
+      "gate": "exactly ONE person entered the restricted zone, and the duck named that person",
+      "pass": true,
+      "evidence": "seconds inside the rectangle: {'visitor': 115.6}; the duck classified intrusion"
+    },
+    {
+      "gate": "every declared state was visited",
+      "pass": true,
+      "evidence": "visited ['APPROACH', 'CHECKPOINT_STOP', 'CLASSIFY', 'CLEAR', 'DETECT', 'DONE', 'HOME', 'INVESTIGATE_PLAN', 'OBSERVE', 'PATROL', 'RESUME', 'RETURN_TO_PATROL', 'SCAN']"
+    },
+    {
+      "gate": "every visited state is one this behavior declares",
+      "pass": true,
+      "evidence": "visited ['APPROACH', 'CHECKPOINT_STOP', 'CLASSIFY', 'CLEAR', 'DETECT', 'DONE', 'HOME', 'INVESTIGATE_PLAN', 'OBSERVE', 'PATROL', 'RESUME', 'RETURN_TO_PATROL', 'SCAN']"
+    },
+    {
+      "gate": "exactly zero ABANDON_PATROL and CONTACT_TARGET steps",
+      "pass": true,
+      "evidence": "forbidden state steps: {'ABANDON_PATROL': 0, 'CONTACT_TARGET': 0}"
+    },
+    {
+      "gate": "no phase hit its ceiling",
+      "pass": true,
+      "evidence": "timeouts: none"
+    },
+    {
+      "gate": "zero falls",
+      "pass": true,
+      "evidence": "0 steps below 0.09 m"
+    },
+    {
+      "gate": "trunk never below 0.09 m",
+      "pass": true,
+      "evidence": "min 0.1119 m"
+    },
+    {
+      "gate": "final trunk height near the nominal 0.116 m",
+      "pass": true,
+      "evidence": "0.1163 m"
+    },
+    {
+      "gate": "the exact imu_ang_vel sensor, 61-D observation and 0.9 action scale",
+      "pass": true,
+      "evidence": "gyro=imu_ang_vel, obs=61-D, action_scale=0.9"
+    },
+    {
+      "gate": "the byte-identical stock walking policy",
+      "pass": true,
+      "evidence": "sha256 e36332d383997d51401897734cd3e79cf5038406feddb18b4d57ecfb141daa6c"
+    }
+  ]
+}

@@ -1,0 +1,701 @@
+{
+  "duration_s": 50.0,
+  "control_steps": 2500,
+  "ctrl_hz": 50.0,
+  "decimation": 10,
+  "duck_planar_radius_m": 0.1162387493529064,
+  "duck_exact_planar_radius_m": 0.0827438816405902,
+  "duck_lateral_half_m": 0.07102843901416092,
+  "adult_lateral_half_m": 0.104,
+  "adult_exact_planar_radius_m": 0.1154984471899917,
+  "passing_geometry": {
+    "corridor_half_width_m": 0.21,
+    "corridor_width_m": 0.42,
+    "duck_lateral_half_m": 0.0705,
+    "adult_lateral_half_m": 0.104,
+    "max_centre_separation_m": 0.2455,
+    "separation_to_touch_m": 0.1745,
+    "separation_to_pass_safely_m": 0.27449999999999997,
+    "best_possible_surface_gap_m": 0.07100000000000001,
+    "fits_at_all": true,
+    "fits_safely": false,
+    "safe_gap_m": 0.1,
+    "shortfall_m": 0.02899999999999997
+  },
+  "center_passage_half_m": 0.20400000000000001,
+  "clear_abs_y_m": 0.33430000000000004,
+  "destination_x_m": 1.6,
+  "state_sequence": [
+    "CRUISE",
+    "DETECT",
+    "SELECT_ALCOVE",
+    "PULL_OVER",
+    "YIELD",
+    "CLEAR",
+    "REJOIN",
+    "RESUME",
+    "DETECT",
+    "SELECT_ALCOVE",
+    "PULL_OVER",
+    "YIELD",
+    "CLEAR",
+    "REJOIN",
+    "RESUME",
+    "DONE"
+  ],
+  "expected_state_sequence": [
+    "CRUISE",
+    "DETECT",
+    "SELECT_ALCOVE",
+    "PULL_OVER",
+    "YIELD",
+    "CLEAR",
+    "REJOIN",
+    "RESUME",
+    "DETECT",
+    "SELECT_ALCOVE",
+    "PULL_OVER",
+    "YIELD",
+    "CLEAR",
+    "REJOIN",
+    "RESUME",
+    "DONE"
+  ],
+  "state_step_counts": {
+    "CRUISE": 280,
+    "DETECT": 61,
+    "SELECT_ALCOVE": 50,
+    "PULL_OVER": 526,
+    "YIELD": 552,
+    "CLEAR": 50,
+    "REJOIN": 219,
+    "RESUME": 513,
+    "DONE": 249
+  },
+  "transitions": [
+    {
+      "t": 5.6000000000000005,
+      "from": "CRUISE",
+      "to": "DETECT",
+      "trunk_x": -1.1809619812081227,
+      "trunk_y": -0.03471504546877517
+    },
+    {
+      "t": 6.22,
+      "from": "DETECT",
+      "to": "SELECT_ALCOVE",
+      "trunk_x": -1.092140329013144,
+      "trunk_y": -0.034901055643745627
+    },
+    {
+      "t": 6.72,
+      "from": "SELECT_ALCOVE",
+      "to": "PULL_OVER",
+      "trunk_x": -1.0222616326184417,
+      "trunk_y": -0.04362423654004977
+    },
+    {
+      "t": 12.82,
+      "from": "PULL_OVER",
+      "to": "YIELD",
+      "trunk_x": -0.3219678362322203,
+      "trunk_y": -0.34537078584054953
+    },
+    {
+      "t": 17.14,
+      "from": "YIELD",
+      "to": "CLEAR",
+      "trunk_x": -0.3237977995692046,
+      "trunk_y": -0.3474349639038556
+    },
+    {
+      "t": 17.64,
+      "from": "CLEAR",
+      "to": "REJOIN",
+      "trunk_x": -0.32361248578005636,
+      "trunk_y": -0.3472272837144774
+    },
+    {
+      "t": 20.06,
+      "from": "REJOIN",
+      "to": "RESUME",
+      "trunk_x": -0.37922991801016614,
+      "trunk_y": -0.08995285364491441
+    },
+    {
+      "t": 25.32,
+      "from": "RESUME",
+      "to": "DETECT",
+      "trunk_x": 0.33975097969852314,
+      "trunk_y": -0.012439872335710466
+    },
+    {
+      "t": 25.92,
+      "from": "DETECT",
+      "to": "SELECT_ALCOVE",
+      "trunk_x": 0.42130971775797266,
+      "trunk_y": -0.028654905420163516
+    },
+    {
+      "t": 26.42,
+      "from": "SELECT_ALCOVE",
+      "to": "PULL_OVER",
+      "trunk_x": 0.49366667619865634,
+      "trunk_y": -0.014423773633304212
+    },
+    {
+      "t": 30.84,
+      "from": "PULL_OVER",
+      "to": "YIELD",
+      "trunk_x": 0.8802973647685175,
+      "trunk_y": 0.3529629251356002
+    },
+    {
+      "t": 37.56,
+      "from": "YIELD",
+      "to": "CLEAR",
+      "trunk_x": 0.8720013669027205,
+      "trunk_y": 0.3696470453308079
+    },
+    {
+      "t": 38.06,
+      "from": "CLEAR",
+      "to": "REJOIN",
+      "trunk_x": 0.8722243145578565,
+      "trunk_y": 0.3693981870934511
+    },
+    {
+      "t": 40.02,
+      "from": "REJOIN",
+      "to": "RESUME",
+      "trunk_x": 0.9109151673670068,
+      "trunk_y": 0.09242348850218174
+    },
+    {
+      "t": 45.02,
+      "from": "RESUME",
+      "to": "DONE",
+      "trunk_x": 1.6053080480818291,
+      "trunk_y": 0.0521322646311592
+    }
+  ],
+  "cycles": [
+    {
+      "index": 1,
+      "person": "chen",
+      "head_on": true,
+      "detected_at_s": 5.6000000000000005,
+      "detect_range_m": 4.797349348657147,
+      "detect_time_to_meet_s": 8.985088122602049,
+      "detect_min_clearance_m": 1.5,
+      "counterfactual_clearance_m": -0.11699027857350702,
+      "alcoves_considered": 4,
+      "alcoves_rejected": [
+        "bay_shallow",
+        "bay_crates",
+        "bay_far"
+      ],
+      "clearance_rejections": [
+        "bay_shallow",
+        "bay_crates"
+      ],
+      "selected_alcove": "bay_open",
+      "selected_park_y": -0.397,
+      "selected_margin_s": 2.020892789962039,
+      "selected_clears_passage": true,
+      "selected_reachable": true,
+      "pull_over_duration_s": 6.1000000000000005,
+      "pull_over_path_m": 1.0970181845914748,
+      "pull_over_lateral_m": 0.2987933597491018,
+      "park_xy": [
+        -0.32267470909264345,
+        -0.3424175962891516
+      ],
+      "park_clears_passage": true,
+      "min_passage_intrusion_m": -0.014023368564689359,
+      "yield_duration_s": 4.32,
+      "yield_steps": 216,
+      "yield_command_max": 0.0,
+      "adult_passed_during_yield": true,
+      "adult_offset_range_m": [
+        -0.674998823466096,
+        1.129167836232221
+      ],
+      "clear_range_m": 0.6056854215464619,
+      "tracking_fraction": 0.9259259259259259,
+      "tracking_fraction_in_sightline": 1.0,
+      "sightline_half_span_m": 0.8491978609625668,
+      "tracking_steps_in_sightline": 182,
+      "rejoin_duration_s": 2.419999999999998,
+      "rejoin_path_m": 0.367609004837131,
+      "rejoin_lateral_m": 0.25223711024573126,
+      "rejoin_xy": [
+        -0.3781340429760448,
+        -0.09499017346874616
+      ],
+      "detect_steps": 31
+    },
+    {
+      "index": 2,
+      "person": "diaz",
+      "head_on": true,
+      "detected_at_s": 25.32,
+      "detect_range_m": 4.794681308906376,
+      "detect_time_to_meet_s": 8.980323765904242,
+      "detect_min_clearance_m": 1.5,
+      "counterfactual_clearance_m": -0.1655669743293201,
+      "alcoves_considered": 4,
+      "alcoves_rejected": [
+        "bay_shallow",
+        "bay_crates",
+        "bay_open"
+      ],
+      "clearance_rejections": [],
+      "selected_alcove": "bay_far",
+      "selected_park_y": 0.397,
+      "selected_margin_s": 4.293739898837408,
+      "selected_clears_passage": true,
+      "selected_reachable": true,
+      "pull_over_duration_s": 4.419999999999998,
+      "pull_over_path_m": 0.7982648736758116,
+      "pull_over_lateral_m": 0.3610931954655403,
+      "park_xy": [
+        0.8807774747709962,
+        0.3466694218322361
+      ],
+      "park_clears_passage": true,
+      "min_passage_intrusion_m": -0.04420236703501565,
+      "yield_duration_s": 6.720000000000002,
+      "yield_steps": 336,
+      "yield_command_max": 0.0,
+      "adult_passed_during_yield": true,
+      "adult_offset_range_m": [
+        -0.647213362693963,
+        2.158502635231483
+      ],
+      "clear_range_m": 0.6098400640433087,
+      "tracking_fraction": 0.5982142857142857,
+      "tracking_fraction_in_sightline": 1.0,
+      "sightline_half_span_m": 0.8491978609625668,
+      "tracking_steps_in_sightline": 179,
+      "rejoin_duration_s": 1.9600000000000009,
+      "rejoin_path_m": 0.34102004355536497,
+      "rejoin_lateral_m": 0.2731308279716926,
+      "rejoin_xy": [
+        0.9095360348395874,
+        0.09626735912175856
+      ],
+      "detect_steps": 30
+    }
+  ],
+  "cycle_count": 2,
+  "decisions": [
+    {
+      "encounter": {
+        "person": "chen",
+        "range_m": 4.797349348657147,
+        "closing_speed_mps": 0.56,
+        "time_to_meet_s": 8.985088122602049,
+        "meet_x": 0.07426298850713975,
+        "adult_x": 3.8480000000000003,
+        "adult_y": 0.02,
+        "adult_speed_mps": 0.42,
+        "adult_direction": -1.0,
+        "counterfactual_clearance_m": -0.11699027857350702,
+        "head_on": true
+      },
+      "considered": 4,
+      "selected": {
+        "alcove": "bay_open",
+        "side": -1,
+        "center_x": -0.3,
+        "usable_outer_y": 0.59,
+        "max_trunk_abs_y": 0.4597,
+        "park_y": -0.397,
+        "clears_passage": true,
+        "clearance_headroom_m": 0.12539999999999996,
+        "reachable": true,
+        "behind": false,
+        "travel_time_s": 6.627916733847487,
+        "time_available_s": 8.648809523809526,
+        "time_margin_s": 2.020892789962039,
+        "viable": true,
+        "rejected_because": []
+      },
+      "candidates": [
+        {
+          "alcove": "bay_shallow",
+          "side": -1,
+          "center_x": -0.98,
+          "usable_outer_y": 0.31,
+          "max_trunk_abs_y": 0.1797,
+          "park_y": -0.257,
+          "clears_passage": false,
+          "clearance_headroom_m": -0.15460000000000004,
+          "reachable": true,
+          "behind": false,
+          "travel_time_s": 2.9383398726425836,
+          "time_available_s": 10.648809523809524,
+          "time_margin_s": 7.710469651166941,
+          "viable": false,
+          "rejected_because": [
+            "too shallow: footprint cannot clear the passage"
+          ]
+        },
+        {
+          "alcove": "bay_crates",
+          "side": 1,
+          "center_x": -0.92,
+          "usable_outer_y": 0.34,
+          "max_trunk_abs_y": 0.20970000000000003,
+          "park_y": 0.272,
+          "clears_passage": false,
+          "clearance_headroom_m": -0.12460000000000002,
+          "reachable": true,
+          "behind": false,
+          "travel_time_s": 3.734316377357416,
+          "time_available_s": 10.267857142857142,
+          "time_margin_s": 6.533540765499726,
+          "viable": false,
+          "rejected_because": [
+            "obstructed: usable depth too small"
+          ]
+        },
+        {
+          "alcove": "bay_open",
+          "side": -1,
+          "center_x": -0.3,
+          "usable_outer_y": 0.59,
+          "max_trunk_abs_y": 0.4597,
+          "park_y": -0.397,
+          "clears_passage": true,
+          "clearance_headroom_m": 0.12539999999999996,
+          "reachable": true,
+          "behind": false,
+          "travel_time_s": 6.627916733847487,
+          "time_available_s": 8.648809523809526,
+          "time_margin_s": 2.020892789962039,
+          "viable": true,
+          "rejected_because": []
+        },
+        {
+          "alcove": "bay_far",
+          "side": 1,
+          "center_x": 0.95,
+          "usable_outer_y": 0.59,
+          "max_trunk_abs_y": 0.4597,
+          "park_y": 0.397,
+          "clears_passage": true,
+          "clearance_headroom_m": 0.12539999999999996,
+          "reachable": false,
+          "behind": false,
+          "travel_time_s": 19.627916733847485,
+          "time_available_s": 5.672619047619048,
+          "time_margin_s": -13.955297686228437,
+          "viable": false,
+          "rejected_because": [
+            "not reachable in time: needs 19.63s, has 5.67s"
+          ]
+        }
+      ],
+      "rejected": [
+        {
+          "alcove": "bay_shallow",
+          "side": -1,
+          "center_x": -0.98,
+          "usable_outer_y": 0.31,
+          "max_trunk_abs_y": 0.1797,
+          "park_y": -0.257,
+          "clears_passage": false,
+          "clearance_headroom_m": -0.15460000000000004,
+          "reachable": true,
+          "behind": false,
+          "travel_time_s": 2.9383398726425836,
+          "time_available_s": 10.648809523809524,
+          "time_margin_s": 7.710469651166941,
+          "viable": false,
+          "rejected_because": [
+            "too shallow: footprint cannot clear the passage"
+          ]
+        },
+        {
+          "alcove": "bay_crates",
+          "side": 1,
+          "center_x": -0.92,
+          "usable_outer_y": 0.34,
+          "max_trunk_abs_y": 0.20970000000000003,
+          "park_y": 0.272,
+          "clears_passage": false,
+          "clearance_headroom_m": -0.12460000000000002,
+          "reachable": true,
+          "behind": false,
+          "travel_time_s": 3.734316377357416,
+          "time_available_s": 10.267857142857142,
+          "time_margin_s": 6.533540765499726,
+          "viable": false,
+          "rejected_because": [
+            "obstructed: usable depth too small"
+          ]
+        },
+        {
+          "alcove": "bay_far",
+          "side": 1,
+          "center_x": 0.95,
+          "usable_outer_y": 0.59,
+          "max_trunk_abs_y": 0.4597,
+          "park_y": 0.397,
+          "clears_passage": true,
+          "clearance_headroom_m": 0.12539999999999996,
+          "reachable": false,
+          "behind": false,
+          "travel_time_s": 19.627916733847485,
+          "time_available_s": 5.672619047619048,
+          "time_margin_s": -13.955297686228437,
+          "viable": false,
+          "rejected_because": [
+            "not reachable in time: needs 19.63s, has 5.67s"
+          ]
+        }
+      ],
+      "viable_count": 1,
+      "decided_at_s": 6.22
+    },
+    {
+      "encounter": {
+        "person": "diaz",
+        "range_m": 4.794681308906376,
+        "closing_speed_mps": 0.56,
+        "time_to_meet_s": 8.980323765904242,
+        "meet_x": 1.5938640183202188,
+        "adult_x": 5.365600000000001,
+        "adult_y": -0.02,
+        "adult_speed_mps": 0.42,
+        "adult_direction": -1.0,
+        "counterfactual_clearance_m": -0.1655669743293201,
+        "head_on": true
+      },
+      "considered": 4,
+      "selected": {
+        "alcove": "bay_far",
+        "side": 1,
+        "center_x": 0.95,
+        "usable_outer_y": 0.59,
+        "max_trunk_abs_y": 0.4597,
+        "park_y": 0.397,
+        "clears_passage": true,
+        "clearance_headroom_m": 0.12539999999999996,
+        "reachable": true,
+        "behind": false,
+        "travel_time_s": 4.992212482114975,
+        "time_available_s": 9.285952380952383,
+        "time_margin_s": 4.293739898837408,
+        "viable": true,
+        "rejected_because": []
+      },
+      "candidates": [
+        {
+          "alcove": "bay_shallow",
+          "side": -1,
+          "center_x": -0.98,
+          "usable_outer_y": 0.31,
+          "max_trunk_abs_y": 0.1797,
+          "park_y": -0.257,
+          "clears_passage": false,
+          "clearance_headroom_m": -0.15460000000000004,
+          "reachable": false,
+          "behind": true,
+          "travel_time_s": Infinity,
+          "time_available_s": 14.26214285714286,
+          "time_margin_s": -Infinity,
+          "viable": false,
+          "rejected_because": [
+            "too shallow: footprint cannot clear the passage",
+            "behind the duck"
+          ]
+        },
+        {
+          "alcove": "bay_crates",
+          "side": 1,
+          "center_x": -0.92,
+          "usable_outer_y": 0.34,
+          "max_trunk_abs_y": 0.20970000000000003,
+          "park_y": 0.272,
+          "clears_passage": false,
+          "clearance_headroom_m": -0.12460000000000002,
+          "reachable": false,
+          "behind": true,
+          "travel_time_s": Infinity,
+          "time_available_s": 13.88119047619048,
+          "time_margin_s": -Infinity,
+          "viable": false,
+          "rejected_because": [
+            "obstructed: usable depth too small",
+            "behind the duck"
+          ]
+        },
+        {
+          "alcove": "bay_open",
+          "side": -1,
+          "center_x": -0.3,
+          "usable_outer_y": 0.59,
+          "max_trunk_abs_y": 0.4597,
+          "park_y": -0.397,
+          "clears_passage": true,
+          "clearance_headroom_m": 0.12539999999999996,
+          "reachable": false,
+          "behind": true,
+          "travel_time_s": Infinity,
+          "time_available_s": 12.262142857142857,
+          "time_margin_s": -Infinity,
+          "viable": false,
+          "rejected_because": [
+            "behind the duck"
+          ]
+        },
+        {
+          "alcove": "bay_far",
+          "side": 1,
+          "center_x": 0.95,
+          "usable_outer_y": 0.59,
+          "max_trunk_abs_y": 0.4597,
+          "park_y": 0.397,
+          "clears_passage": true,
+          "clearance_headroom_m": 0.12539999999999996,
+          "reachable": true,
+          "behind": false,
+          "travel_time_s": 4.992212482114975,
+          "time_available_s": 9.285952380952383,
+          "time_margin_s": 4.293739898837408,
+          "viable": true,
+          "rejected_because": []
+        }
+      ],
+      "rejected": [
+        {
+          "alcove": "bay_shallow",
+          "side": -1,
+          "center_x": -0.98,
+          "usable_outer_y": 0.31,
+          "max_trunk_abs_y": 0.1797,
+          "park_y": -0.257,
+          "clears_passage": false,
+          "clearance_headroom_m": -0.15460000000000004,
+          "reachable": false,
+          "behind": true,
+          "travel_time_s": Infinity,
+          "time_available_s": 14.26214285714286,
+          "time_margin_s": -Infinity,
+          "viable": false,
+          "rejected_because": [
+            "too shallow: footprint cannot clear the passage",
+            "behind the duck"
+          ]
+        },
+        {
+          "alcove": "bay_crates",
+          "side": 1,
+          "center_x": -0.92,
+          "usable_outer_y": 0.34,
+          "max_trunk_abs_y": 0.20970000000000003,
+          "park_y": 0.272,
+          "clears_passage": false,
+          "clearance_headroom_m": -0.12460000000000002,
+          "reachable": false,
+          "behind": true,
+          "travel_time_s": Infinity,
+          "time_available_s": 13.88119047619048,
+          "time_margin_s": -Infinity,
+          "viable": false,
+          "rejected_because": [
+            "obstructed: usable depth too small",
+            "behind the duck"
+          ]
+        },
+        {
+          "alcove": "bay_open",
+          "side": -1,
+          "center_x": -0.3,
+          "usable_outer_y": 0.59,
+          "max_trunk_abs_y": 0.4597,
+          "park_y": -0.397,
+          "clears_passage": true,
+          "clearance_headroom_m": 0.12539999999999996,
+          "reachable": false,
+          "behind": true,
+          "travel_time_s": Infinity,
+          "time_available_s": 12.262142857142857,
+          "time_margin_s": -Infinity,
+          "viable": false,
+          "rejected_because": [
+            "behind the duck"
+          ]
+        }
+      ],
+      "viable_count": 1,
+      "decided_at_s": 25.92
+    }
+  ],
+  "opening_progress_m": 0.7662778516452717,
+  "resume_progress_m": 0.6978846763541896,
+  "total_path_m": 5.940338083029822,
+  "forward_progress_m": 3.6841540514332545,
+  "final_x_m": 1.607420711193777,
+  "max_x_m": 1.611110366520017,
+  "min_person_clearance_m": 0.17382631119204722,
+  "min_wall_clearance_m": 0.015701287546810196,
+  "min_wall_geom": "bay_far_cheek_hi",
+  "wall_geom_count": 21,
+  "contact_steps": 0,
+  "yield_command_max": 0.0,
+  "stationary_command_max": 0.0,
+  "stationary_steps": 851,
+  "decorative_commands": [],
+  "decorative_command_count": 0,
+  "unsafe_proximity_m": 0.7,
+  "clear_range_required_m": 0.55,
+  "raw_tracking_fractions": [
+    0.9259259259259259,
+    0.5982142857142857
+  ],
+  "sightline_tracking_fractions": [
+    1.0,
+    1.0
+  ],
+  "min_trunk_z_m": 0.10947883551894295,
+  "final_trunk_z_m": 0.11627609563401438,
+  "nominal_trunk_z_m": 0.116,
+  "fallen_steps": 0,
+  "timeouts": [],
+  "gates": {
+    "state_order": true,
+    "real_forward_start": true,
+    "detects_before_unsafe": true,
+    "counterfactual_recorded": true,
+    "evaluated_enough": true,
+    "rejected_on_clearance": true,
+    "selection_is_viable": true,
+    "pull_over_moved": true,
+    "footprint_cleared": true,
+    "yield_command_zero": true,
+    "adult_passed": true,
+    "no_early_rejoin": true,
+    "rejoin_centred": true,
+    "resumed_forward": true,
+    "reached_destination": true,
+    "person_clearance": true,
+    "wall_clearance": true,
+    "no_contacts": true,
+    "tracking": true,
+    "no_decorative_commands": true,
+    "still_when_still": true,
+    "no_falls": true,
+    "min_trunk_z": true,
+    "final_trunk_z": true,
+    "no_timeouts": true
+  },
+  "all_gates_pass": true,
+  "frames": 2500,
+  "fps": 50,
+  "width": 960,
+  "height": 640
+}

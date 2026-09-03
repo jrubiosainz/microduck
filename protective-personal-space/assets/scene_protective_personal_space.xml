@@ -1,0 +1,115 @@
+<mujoco model="scene_protective_personal_space">
+  <include file="robot_walk.xml" />
+  <visual><headlight diffuse=".8 .8 .8" ambient=".45 .45 .45" specular="0 0 0"/>
+    <global azimuth="145" elevation="-30" offwidth="1600" offheight="1200"/></visual>
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1=".18 .21 .27" rgb2=".04 .05 .08" width="512" height="3072"/>
+    <texture type="2d" name="ground" builtin="checker" rgb1=".28 .29 .31" rgb2=".22 .23 .25" width="256" height="256"/>
+    <material name="ground" texture="ground" texuniform="true" texrepeat="18 15"/>
+    <material name="floor" rgba=".34 .35 .38 1"/><material name="wall" rgba=".72 .71 .68 1"/>
+    <material name="kioskmat" rgba=".25 .39 .57 1"/><material name="columnmat" rgba=".68 .68 .66 1"/>
+    <material name="plantmat" rgba=".25 .48 .28 1"/><material name="benchmat" rgba=".48 .35 .24 1"/>
+    <material name="bollardmat" rgba=".85 .58 .16 1"/><material name="skin" rgba=".86 .66 .52 1"/>
+    <material name="trouser" rgba=".12 .15 .20 1"/><material name="shoe" rgba=".04 .05 .06 1"/>
+    <material name="buffer" rgba=".20 .78 .98 .18"/><material name="escort" rgba=".24 .95 .55 .55"/>
+    <material name="threat" rgba=".98 .30 .24 .48"/><material name="escape" rgba=".98 .78 .22 .48"/>
+    <material name="aina_shirt" rgba="0.470 0.490 0.530 1"/>
+    <material name="dario_shirt" rgba="0.960 0.520 0.140 1"/>
+    <material name="noor_shirt" rgba="0.180 0.720 0.560 1"/>
+    <material name="piet_shirt" rgba="0.880 0.230 0.290 1"/>
+    <material name="yara_shirt" rgba="0.560 0.400 0.900 1"/>
+    <material name="kwame_shirt" rgba="0.930 0.800 0.220 1"/>
+    <material name="liesl_shirt" rgba="0.240 0.560 0.940 1"/>
+    <material name="tomas_shirt" rgba="0.760 0.360 0.720 1"/>
+  </asset>
+  <worldbody>
+    <light pos="0 0 4" dir="0 0 -1" directional="true"/>
+    <geom name="ground_plane" type="plane" size="0 0 .05" material="ground"/>
+    <body name="pps_rig" mocap="true" pos="0 0 .2"><camera name="pps_camera" fovy="140"/></body>
+    <geom name="plaza_floor" type="box" pos="0.0000 0.0000 0.0020" size="3.6000 3.0000 0.0020" material="floor" contype="0" conaffinity="0"/>
+    <geom name="wall_e" type="box" pos="3.6600 0.0000 1.0000" size="0.0600 3.1200 1.0000" material="wall" contype="0" conaffinity="0"/>
+    <geom name="wall_w" type="box" pos="-3.6600 0.0000 1.0000" size="0.0600 3.1200 1.0000" material="wall" contype="0" conaffinity="0"/>
+    <geom name="wall_n" type="box" pos="0.0000 3.0600 1.0000" size="3.7200 0.0600 1.0000" material="wall" contype="0" conaffinity="0"/>
+    <geom name="wall_s" type="box" pos="0.0000 -3.0600 1.0000" size="3.7200 0.0600 1.0000" material="wall" contype="0" conaffinity="0"/>
+    <geom name="obs_kiosk_e" type="box" pos="3.3000 0.7200 0.6500" size="0.1600 0.3800 0.6500" material="kioskmat" contype="0" conaffinity="0"/>
+    <geom name="obs_lamp_nw" type="cylinder" pos="-1.9200 1.8600 0.8000" size="0.0900 0.8000" material="columnmat" contype="0" conaffinity="0"/>
+    <geom name="obs_planter_s" type="cylinder" pos="-1.0600 -1.4200 0.2200" size="0.3400 0.2200" material="plantmat" contype="0" conaffinity="0"/>
+    <geom name="obs_bench_w" type="box" pos="-2.7200 0.1000 0.2200" size="0.2400 0.7000 0.2200" material="benchmat" contype="0" conaffinity="0"/>
+    <geom name="obs_bench_ne" type="box" pos="2.5200 2.5500 0.2100" size="0.4600 0.1800 0.2100" material="benchmat" contype="0" conaffinity="0"/>
+    <geom name="obs_bollard_se" type="cylinder" pos="2.2400 -1.9200 0.2400" size="0.1000 0.2400" material="bollardmat" contype="0" conaffinity="0"/>
+    <geom name="obs_bollard_sw" type="cylinder" pos="-2.3000 -2.2800 0.2400" size="0.1000 0.2400" material="bollardmat" contype="0" conaffinity="0"/>
+    <body name="ward_buffer" mocap="true" pos="0 0 -3"><geom name="ward_buffer_disc" type="cylinder" size="1.950 .004" material="buffer" contype="0" conaffinity="0"/></body>
+    <body name="escort_target" mocap="true" pos="0 0 -3"><geom name="escort_target_disc" type="cylinder" size="0.100 .004" material="escort" contype="0" conaffinity="0"/></body>
+    <body name="interpose_target" mocap="true" pos="0 0 -3"><geom name="interpose_target_disc" type="cylinder" size="0.100 .004" material="threat" contype="0" conaffinity="0"/></body>
+    <body name="escape_target" mocap="true" pos="0 0 -3"><geom name="escape_target_disc" type="cylinder" size="0.100 .004" material="escape" contype="0" conaffinity="0"/></body>
+    <body name="active_threat" mocap="true" pos="0 0 -3"><geom name="active_threat_disc" type="cylinder" size="0.080 .004" material="threat" contype="0" conaffinity="0"/></body>
+    <body name="prediction_0" mocap="true" pos="0 0 -3"><geom name="prediction_0_disc" type="cylinder" size="0.035 .004" material="threat" contype="0" conaffinity="0"/></body>
+    <body name="prediction_1" mocap="true" pos="0 0 -3"><geom name="prediction_1_disc" type="cylinder" size="0.035 .004" material="threat" contype="0" conaffinity="0"/></body>
+    <body name="prediction_2" mocap="true" pos="0 0 -3"><geom name="prediction_2_disc" type="cylinder" size="0.035 .004" material="threat" contype="0" conaffinity="0"/></body>
+    <body name="prediction_3" mocap="true" pos="0 0 -3"><geom name="prediction_3_disc" type="cylinder" size="0.035 .004" material="threat" contype="0" conaffinity="0"/></body>
+    <body name="prediction_4" mocap="true" pos="0 0 -3"><geom name="prediction_4_disc" type="cylinder" size="0.035 .004" material="threat" contype="0" conaffinity="0"/></body>
+    <body name="prediction_5" mocap="true" pos="0 0 -3"><geom name="prediction_5_disc" type="cylinder" size="0.035 .004" material="threat" contype="0" conaffinity="0"/></body>
+    <body name="prediction_6" mocap="true" pos="0 0 -3"><geom name="prediction_6_disc" type="cylinder" size="0.035 .004" material="threat" contype="0" conaffinity="0"/></body>
+    <body name="prediction_7" mocap="true" pos="0 0 -3"><geom name="prediction_7_disc" type="cylinder" size="0.035 .004" material="threat" contype="0" conaffinity="0"/></body>
+    <body name="prediction_8" mocap="true" pos="0 0 -3"><geom name="prediction_8_disc" type="cylinder" size="0.035 .004" material="threat" contype="0" conaffinity="0"/></body>
+    <body name="prediction_9" mocap="true" pos="0 0 -3"><geom name="prediction_9_disc" type="cylinder" size="0.035 .004" material="threat" contype="0" conaffinity="0"/></body>
+    <body name="prediction_10" mocap="true" pos="0 0 -3"><geom name="prediction_10_disc" type="cylinder" size="0.035 .004" material="threat" contype="0" conaffinity="0"/></body>
+    <body name="prediction_11" mocap="true" pos="0 0 -3"><geom name="prediction_11_disc" type="cylinder" size="0.035 .004" material="threat" contype="0" conaffinity="0"/></body>
+    <body name="prediction_12" mocap="true" pos="0 0 -3"><geom name="prediction_12_disc" type="cylinder" size="0.035 .004" material="threat" contype="0" conaffinity="0"/></body>
+    <body name="prediction_13" mocap="true" pos="0 0 -3"><geom name="prediction_13_disc" type="cylinder" size="0.035 .004" material="threat" contype="0" conaffinity="0"/></body>
+    <body name="prediction_14" mocap="true" pos="0 0 -3"><geom name="prediction_14_disc" type="cylinder" size="0.035 .004" material="threat" contype="0" conaffinity="0"/></body>
+    <body name="prediction_15" mocap="true" pos="0 0 -3"><geom name="prediction_15_disc" type="cylinder" size="0.035 .004" material="threat" contype="0" conaffinity="0"/></body>
+    <body name="actor_aina" mocap="true" pos="0 0 -3">
+      <geom name="aina_torso" type="capsule" fromto="0 0 -0.1000 0 0 0.1600" size="0.0780" material="aina_shirt" contype="0" conaffinity="0"/>
+      <geom name="aina_head" type="sphere" pos="0 0 0.2550" size="0.0640" material="skin" contype="0" conaffinity="0"/>
+      <body name="aina_leg_l" pos="0 +0.0360 -0.1000"><joint name="aina_hip_l" type="hinge" axis="0 1 0" range="-42 42" damping="1"/><geom type="capsule" fromto="0 0 0 0 0 -0.2600" size="0.0330" material="trouser" contype="0" conaffinity="0"/><geom type="capsule" fromto="0 0 -0.2600 0.0700 0 -0.2720" size="0.0350" material="shoe" contype="0" conaffinity="0"/></body>
+      <body name="aina_leg_r" pos="0 -0.0360 -0.1000"><joint name="aina_hip_r" type="hinge" axis="0 1 0" range="-42 42" damping="1"/><geom type="capsule" fromto="0 0 0 0 0 -0.2600" size="0.0330" material="trouser" contype="0" conaffinity="0"/><geom type="capsule" fromto="0 0 -0.2600 0.0700 0 -0.2720" size="0.0350" material="shoe" contype="0" conaffinity="0"/></body>
+    </body>
+    <body name="actor_dario" mocap="true" pos="0 0 -3">
+      <geom name="dario_torso" type="capsule" fromto="0 0 -0.1040 0 0 0.1664" size="0.0811" material="dario_shirt" contype="0" conaffinity="0"/>
+      <geom name="dario_head" type="sphere" pos="0 0 0.2652" size="0.0666" material="skin" contype="0" conaffinity="0"/>
+      <body name="dario_leg_l" pos="0 +0.0374 -0.1040"><joint name="dario_hip_l" type="hinge" axis="0 1 0" range="-42 42" damping="1"/><geom type="capsule" fromto="0 0 0 0 0 -0.2704" size="0.0343" material="trouser" contype="0" conaffinity="0"/><geom type="capsule" fromto="0 0 -0.2704 0.0728 0 -0.2829" size="0.0364" material="shoe" contype="0" conaffinity="0"/></body>
+      <body name="dario_leg_r" pos="0 -0.0374 -0.1040"><joint name="dario_hip_r" type="hinge" axis="0 1 0" range="-42 42" damping="1"/><geom type="capsule" fromto="0 0 0 0 0 -0.2704" size="0.0343" material="trouser" contype="0" conaffinity="0"/><geom type="capsule" fromto="0 0 -0.2704 0.0728 0 -0.2829" size="0.0364" material="shoe" contype="0" conaffinity="0"/></body>
+    </body>
+    <body name="actor_noor" mocap="true" pos="0 0 -3">
+      <geom name="noor_torso" type="capsule" fromto="0 0 -0.0975 0 0 0.1560" size="0.0760" material="noor_shirt" contype="0" conaffinity="0"/>
+      <geom name="noor_head" type="sphere" pos="0 0 0.2486" size="0.0624" material="skin" contype="0" conaffinity="0"/>
+      <body name="noor_leg_l" pos="0 +0.0351 -0.0975"><joint name="noor_hip_l" type="hinge" axis="0 1 0" range="-42 42" damping="1"/><geom type="capsule" fromto="0 0 0 0 0 -0.2535" size="0.0322" material="trouser" contype="0" conaffinity="0"/><geom type="capsule" fromto="0 0 -0.2535 0.0683 0 -0.2652" size="0.0341" material="shoe" contype="0" conaffinity="0"/></body>
+      <body name="noor_leg_r" pos="0 -0.0351 -0.0975"><joint name="noor_hip_r" type="hinge" axis="0 1 0" range="-42 42" damping="1"/><geom type="capsule" fromto="0 0 0 0 0 -0.2535" size="0.0322" material="trouser" contype="0" conaffinity="0"/><geom type="capsule" fromto="0 0 -0.2535 0.0683 0 -0.2652" size="0.0341" material="shoe" contype="0" conaffinity="0"/></body>
+    </body>
+    <body name="actor_piet" mocap="true" pos="0 0 -3">
+      <geom name="piet_torso" type="capsule" fromto="0 0 -0.1050 0 0 0.1680" size="0.0819" material="piet_shirt" contype="0" conaffinity="0"/>
+      <geom name="piet_head" type="sphere" pos="0 0 0.2678" size="0.0672" material="skin" contype="0" conaffinity="0"/>
+      <body name="piet_leg_l" pos="0 +0.0378 -0.1050"><joint name="piet_hip_l" type="hinge" axis="0 1 0" range="-42 42" damping="1"/><geom type="capsule" fromto="0 0 0 0 0 -0.2730" size="0.0347" material="trouser" contype="0" conaffinity="0"/><geom type="capsule" fromto="0 0 -0.2730 0.0735 0 -0.2856" size="0.0368" material="shoe" contype="0" conaffinity="0"/></body>
+      <body name="piet_leg_r" pos="0 -0.0378 -0.1050"><joint name="piet_hip_r" type="hinge" axis="0 1 0" range="-42 42" damping="1"/><geom type="capsule" fromto="0 0 0 0 0 -0.2730" size="0.0347" material="trouser" contype="0" conaffinity="0"/><geom type="capsule" fromto="0 0 -0.2730 0.0735 0 -0.2856" size="0.0368" material="shoe" contype="0" conaffinity="0"/></body>
+    </body>
+    <body name="actor_yara" mocap="true" pos="0 0 -3">
+      <geom name="yara_torso" type="capsule" fromto="0 0 -0.0965 0 0 0.1544" size="0.0753" material="yara_shirt" contype="0" conaffinity="0"/>
+      <geom name="yara_head" type="sphere" pos="0 0 0.2461" size="0.0618" material="skin" contype="0" conaffinity="0"/>
+      <body name="yara_leg_l" pos="0 +0.0347 -0.0965"><joint name="yara_hip_l" type="hinge" axis="0 1 0" range="-42 42" damping="1"/><geom type="capsule" fromto="0 0 0 0 0 -0.2509" size="0.0318" material="trouser" contype="0" conaffinity="0"/><geom type="capsule" fromto="0 0 -0.2509 0.0675 0 -0.2625" size="0.0338" material="shoe" contype="0" conaffinity="0"/></body>
+      <body name="yara_leg_r" pos="0 -0.0347 -0.0965"><joint name="yara_hip_r" type="hinge" axis="0 1 0" range="-42 42" damping="1"/><geom type="capsule" fromto="0 0 0 0 0 -0.2509" size="0.0318" material="trouser" contype="0" conaffinity="0"/><geom type="capsule" fromto="0 0 -0.2509 0.0675 0 -0.2625" size="0.0338" material="shoe" contype="0" conaffinity="0"/></body>
+    </body>
+    <body name="actor_kwame" mocap="true" pos="0 0 -3">
+      <geom name="kwame_torso" type="capsule" fromto="0 0 -0.1055 0 0 0.1688" size="0.0823" material="kwame_shirt" contype="0" conaffinity="0"/>
+      <geom name="kwame_head" type="sphere" pos="0 0 0.2690" size="0.0675" material="skin" contype="0" conaffinity="0"/>
+      <body name="kwame_leg_l" pos="0 +0.0380 -0.1055"><joint name="kwame_hip_l" type="hinge" axis="0 1 0" range="-42 42" damping="1"/><geom type="capsule" fromto="0 0 0 0 0 -0.2743" size="0.0348" material="trouser" contype="0" conaffinity="0"/><geom type="capsule" fromto="0 0 -0.2743 0.0738 0 -0.2870" size="0.0369" material="shoe" contype="0" conaffinity="0"/></body>
+      <body name="kwame_leg_r" pos="0 -0.0380 -0.1055"><joint name="kwame_hip_r" type="hinge" axis="0 1 0" range="-42 42" damping="1"/><geom type="capsule" fromto="0 0 0 0 0 -0.2743" size="0.0348" material="trouser" contype="0" conaffinity="0"/><geom type="capsule" fromto="0 0 -0.2743 0.0738 0 -0.2870" size="0.0369" material="shoe" contype="0" conaffinity="0"/></body>
+    </body>
+    <body name="actor_liesl" mocap="true" pos="0 0 -3">
+      <geom name="liesl_torso" type="capsule" fromto="0 0 -0.0985 0 0 0.1576" size="0.0768" material="liesl_shirt" contype="0" conaffinity="0"/>
+      <geom name="liesl_head" type="sphere" pos="0 0 0.2512" size="0.0630" material="skin" contype="0" conaffinity="0"/>
+      <body name="liesl_leg_l" pos="0 +0.0355 -0.0985"><joint name="liesl_hip_l" type="hinge" axis="0 1 0" range="-42 42" damping="1"/><geom type="capsule" fromto="0 0 0 0 0 -0.2561" size="0.0325" material="trouser" contype="0" conaffinity="0"/><geom type="capsule" fromto="0 0 -0.2561 0.0690 0 -0.2679" size="0.0345" material="shoe" contype="0" conaffinity="0"/></body>
+      <body name="liesl_leg_r" pos="0 -0.0355 -0.0985"><joint name="liesl_hip_r" type="hinge" axis="0 1 0" range="-42 42" damping="1"/><geom type="capsule" fromto="0 0 0 0 0 -0.2561" size="0.0325" material="trouser" contype="0" conaffinity="0"/><geom type="capsule" fromto="0 0 -0.2561 0.0690 0 -0.2679" size="0.0345" material="shoe" contype="0" conaffinity="0"/></body>
+    </body>
+    <body name="actor_tomas" mocap="true" pos="0 0 -3">
+      <geom name="tomas_torso" type="capsule" fromto="0 0 -0.1020 0 0 0.1632" size="0.0796" material="tomas_shirt" contype="0" conaffinity="0"/>
+      <geom name="tomas_head" type="sphere" pos="0 0 0.2601" size="0.0653" material="skin" contype="0" conaffinity="0"/>
+      <body name="tomas_leg_l" pos="0 +0.0367 -0.1020"><joint name="tomas_hip_l" type="hinge" axis="0 1 0" range="-42 42" damping="1"/><geom type="capsule" fromto="0 0 0 0 0 -0.2652" size="0.0337" material="trouser" contype="0" conaffinity="0"/><geom type="capsule" fromto="0 0 -0.2652 0.0714 0 -0.2774" size="0.0357" material="shoe" contype="0" conaffinity="0"/></body>
+      <body name="tomas_leg_r" pos="0 -0.0367 -0.1020"><joint name="tomas_hip_r" type="hinge" axis="0 1 0" range="-42 42" damping="1"/><geom type="capsule" fromto="0 0 0 0 0 -0.2652" size="0.0337" material="trouser" contype="0" conaffinity="0"/><geom type="capsule" fromto="0 0 -0.2652 0.0714 0 -0.2774" size="0.0357" material="shoe" contype="0" conaffinity="0"/></body>
+    </body>
+  </worldbody>
+  <keyframe>
+    <key name="INIT" qpos="0.6200 -2.4200 .12 0.642788 0 0 0.766044 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" ctrl="0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+    <key name="STAND" qpos="0.6200 -2.4200 .12 0.642788 0 0 0.766044 0 -0.0872664626 -0.457924 -0.004940 0.452984 0.3490658504 0.3490658504 0 0 0 0.0872664626 0.457924 0.004940 -0.452984 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" ctrl="0 -0.0872664626 -0.457924 -0.004940 0.452984 0.3490658504 0.3490658504 0 0 0 0.0872664626 0.457924 0.004940 -0.452984"/>
+  </keyframe>
+</mujoco>

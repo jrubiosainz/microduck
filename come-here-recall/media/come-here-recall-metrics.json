@@ -1,0 +1,333 @@
+{
+  "duration_s": 54.0,
+  "control_steps": 2700,
+  "ctrl_hz": 50.0,
+  "decimation": 10,
+  "duck_planar_radius_m": 0.11623874935290637,
+  "standoff_band_m": [
+    0.45,
+    0.75
+  ],
+  "max_facing_error_deg": 30.0,
+  "expected_order": [
+    "red",
+    "yellow",
+    "green"
+  ],
+  "completed_order": [
+    "red",
+    "yellow",
+    "green"
+  ],
+  "recalls_completed": 3,
+  "distinct_callers": [
+    "green",
+    "red",
+    "yellow"
+  ],
+  "min_call_bearing_gap_deg": 111.62678950491517,
+  "cycles": [
+    {
+      "cycle": 1,
+      "caller": "red",
+      "call_start_s": 1.5,
+      "search_start_s": 1.5,
+      "search_duration_s": 2.84,
+      "lock_s": 4.34,
+      "lock_range_m": 1.9401097791088353,
+      "lock_off_axis_deg": 1.204042022607507,
+      "lock_gate_open": true,
+      "lock_caller_visible": true,
+      "lock_is_active_caller": true,
+      "call_bearing_deg": -3.6137725350492538,
+      "approach_start_s": 5.24,
+      "approach_end_s": 11.5,
+      "approach_duration_s": 6.26,
+      "approach_timeout": false,
+      "approach_start_range_m": 1.9300380215675306,
+      "approach_min_range_m": 0.6096400739602769,
+      "arrival_range_m": 0.609282645785875,
+      "final_range_m": 0.48474044001712974,
+      "range_reduction_m": 1.3203979476072538,
+      "approach_path_m": 1.2493160297205992,
+      "approach_net_m": 1.0297152157698872,
+      "approach_visible_pct": 100.0,
+      "arrived_visible_pct": 100.0,
+      "min_caller_clearance_m": 0.2600826247103787,
+      "final_facing_error_deg": 23.18323155105457,
+      "caller_changed": false,
+      "moved": true,
+      "closed": true,
+      "in_band": true,
+      "facing": true
+    },
+    {
+      "cycle": 2,
+      "caller": "yellow",
+      "call_start_s": 15.5,
+      "search_start_s": 15.5,
+      "search_duration_s": 0.740000000000002,
+      "lock_s": 16.240000000000002,
+      "lock_range_m": 1.5826041421774892,
+      "lock_off_axis_deg": 1.4754723223795079,
+      "lock_gate_open": true,
+      "lock_caller_visible": true,
+      "lock_is_active_caller": true,
+      "call_bearing_deg": -115.2405620399644,
+      "approach_start_s": 17.16,
+      "approach_end_s": 23.78,
+      "approach_duration_s": 6.620000000000001,
+      "approach_timeout": false,
+      "approach_start_range_m": 1.591565280140033,
+      "approach_min_range_m": 0.6080087995654542,
+      "arrival_range_m": 0.6078341578072678,
+      "final_range_m": 0.5084356616052885,
+      "range_reduction_m": 0.9835564805745789,
+      "approach_path_m": 1.209297369049122,
+      "approach_net_m": 0.8661544916596108,
+      "approach_visible_pct": 100.0,
+      "arrived_visible_pct": 100.0,
+      "min_caller_clearance_m": 0.28744142773851733,
+      "final_facing_error_deg": -17.362452731520822,
+      "caller_changed": false,
+      "moved": true,
+      "closed": true,
+      "in_band": true,
+      "facing": true
+    },
+    {
+      "cycle": 3,
+      "caller": "green",
+      "call_start_s": 30.0,
+      "search_start_s": 30.0,
+      "search_duration_s": 4.520000000000003,
+      "lock_s": 34.52,
+      "lock_range_m": 2.396219709488838,
+      "lock_off_axis_deg": 0.9701485485272809,
+      "lock_gate_open": true,
+      "lock_caller_visible": true,
+      "lock_is_active_caller": true,
+      "call_bearing_deg": 115.72035813599469,
+      "approach_start_s": 35.44,
+      "approach_end_s": 48.300000000000004,
+      "approach_duration_s": 12.860000000000007,
+      "approach_timeout": false,
+      "approach_start_range_m": 2.4403003546237265,
+      "approach_min_range_m": 0.6078519051981048,
+      "arrival_range_m": 0.607600171136959,
+      "final_range_m": 0.5013317065288194,
+      "range_reduction_m": 1.8324484494256217,
+      "approach_path_m": 2.6624351500513437,
+      "approach_net_m": 2.038042789940198,
+      "approach_visible_pct": 100.0,
+      "arrived_visible_pct": 100.0,
+      "min_caller_clearance_m": 0.2813332056894239,
+      "final_facing_error_deg": 9.356162512431142,
+      "caller_changed": false,
+      "moved": true,
+      "closed": true,
+      "in_band": true,
+      "facing": true
+    }
+  ],
+  "transitions": [
+    {
+      "t": 1.5,
+      "from": "LISTEN",
+      "to": "SEARCH",
+      "caller": "red",
+      "locked": null,
+      "cycle": 1
+    },
+    {
+      "t": 4.34,
+      "from": "SEARCH",
+      "to": "CALLER_LOCK",
+      "caller": "red",
+      "locked": "red",
+      "cycle": 1
+    },
+    {
+      "t": 5.24,
+      "from": "CALLER_LOCK",
+      "to": "APPROACH",
+      "caller": "red",
+      "locked": "red",
+      "cycle": 1
+    },
+    {
+      "t": 11.5,
+      "from": "APPROACH",
+      "to": "ARRIVED",
+      "caller": "red",
+      "locked": "red",
+      "cycle": 1
+    },
+    {
+      "t": 13.5,
+      "from": "ARRIVED",
+      "to": "LISTEN",
+      "caller": "red",
+      "locked": null,
+      "cycle": 2
+    },
+    {
+      "t": 15.5,
+      "from": "LISTEN",
+      "to": "SEARCH",
+      "caller": "yellow",
+      "locked": null,
+      "cycle": 2
+    },
+    {
+      "t": 16.240000000000002,
+      "from": "SEARCH",
+      "to": "CALLER_LOCK",
+      "caller": "yellow",
+      "locked": "yellow",
+      "cycle": 2
+    },
+    {
+      "t": 17.16,
+      "from": "CALLER_LOCK",
+      "to": "APPROACH",
+      "caller": "yellow",
+      "locked": "yellow",
+      "cycle": 2
+    },
+    {
+      "t": 23.78,
+      "from": "APPROACH",
+      "to": "ARRIVED",
+      "caller": "yellow",
+      "locked": "yellow",
+      "cycle": 2
+    },
+    {
+      "t": 25.78,
+      "from": "ARRIVED",
+      "to": "LISTEN",
+      "caller": "yellow",
+      "locked": null,
+      "cycle": 3
+    },
+    {
+      "t": 30.0,
+      "from": "LISTEN",
+      "to": "SEARCH",
+      "caller": "green",
+      "locked": null,
+      "cycle": 3
+    },
+    {
+      "t": 34.52,
+      "from": "SEARCH",
+      "to": "CALLER_LOCK",
+      "caller": "green",
+      "locked": "green",
+      "cycle": 3
+    },
+    {
+      "t": 35.44,
+      "from": "CALLER_LOCK",
+      "to": "APPROACH",
+      "caller": "green",
+      "locked": "green",
+      "cycle": 3
+    },
+    {
+      "t": 48.300000000000004,
+      "from": "APPROACH",
+      "to": "ARRIVED",
+      "caller": "green",
+      "locked": "green",
+      "cycle": 3
+    },
+    {
+      "t": 50.300000000000004,
+      "from": "ARRIVED",
+      "to": "LISTEN",
+      "caller": "green",
+      "locked": null,
+      "cycle": 4
+    }
+  ],
+  "refused_calls": [
+    {
+      "caller": "blue",
+      "call_start_s": 22.0,
+      "refused_at_s": 22.0,
+      "busy_with": "yellow",
+      "state": "APPROACH"
+    }
+  ],
+  "min_trunk_z_m": 0.11116120340419271,
+  "final_trunk_z_m": 0.11627149675006357,
+  "nominal_trunk_z_m": 0.116,
+  "fallen_steps": 0,
+  "min_clearance_any_adult_m": 0.16025771380946116,
+  "contact_steps": 0,
+  "stationary_command_max": 0.0,
+  "stationary_steps": 1413,
+  "approach_steps": 1287,
+  "approach_pct": 47.666666666666664,
+  "state_step_counts": {
+    "LISTEN": 571,
+    "SEARCH": 405,
+    "CALLER_LOCK": 137,
+    "APPROACH": 1287,
+    "ARRIVED": 300
+  },
+  "gates": {
+    "recalls": true,
+    "distinct_callers": true,
+    "caller_order": true,
+    "distinct_bearings": true,
+    "no_wrong_locks": true,
+    "locks_were_seen": true,
+    "approach_visibility": true,
+    "arrived_visibility": true,
+    "approach_moved": true,
+    "approach_closed": true,
+    "standoff_band": true,
+    "faces_caller": true,
+    "still_when_still": true,
+    "no_caller_change": true,
+    "no_person_contact": true,
+    "no_falls": true,
+    "min_trunk_z": true,
+    "final_trunk_z": true,
+    "refused_interrupt": true
+  },
+  "all_gates_pass": true,
+  "calls": [
+    {
+      "caller": "red",
+      "start_s": 1.5,
+      "duration_s": 11.0,
+      "expected": true
+    },
+    {
+      "caller": "yellow",
+      "start_s": 15.5,
+      "duration_s": 12.0,
+      "expected": true
+    },
+    {
+      "caller": "blue",
+      "start_s": 22.0,
+      "duration_s": 2.5,
+      "expected": false
+    },
+    {
+      "caller": "green",
+      "start_s": 30.0,
+      "duration_s": 13.5,
+      "expected": true
+    }
+  ],
+  "frames": 2700,
+  "fps": 50,
+  "width": 960,
+  "height": 640
+}

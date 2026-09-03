@@ -1,0 +1,624 @@
+{
+  "seconds": 190.0,
+  "control_steps": 9500,
+  "control_hz": 50.0,
+  "policy_sha256": "e36332d383997d51401897734cd3e79cf5038406feddb18b4d57ecfb141daa6c",
+  "observation_dim": 61,
+  "action_scale": 0.9,
+  "gyro_sensor": "imu_ang_vel",
+  "protected_person": "aina",
+  "states_visited": [
+    "DONE",
+    "ESCAPE_GAP",
+    "ESCORT",
+    "HOLD_BUFFER",
+    "INTERPOSE",
+    "MONITOR",
+    "MULTI_THREAT",
+    "PERSON_APPROACH",
+    "PREDICT_INTRUSION",
+    "RECOVER",
+    "RETREAT",
+    "RETURN_ESCORT",
+    "THREAT_CLEAR"
+  ],
+  "transitions": [
+    {
+      "t": 7.32,
+      "from": "ESCORT",
+      "to": "MONITOR",
+      "reason": "neutral escort established"
+    },
+    {
+      "t": 22.42,
+      "from": "MONITOR",
+      "to": "PREDICT_INTRUSION",
+      "threat": "dario",
+      "name": "dario",
+      "range_m": 1.5318,
+      "cpa_m": 1.4249,
+      "ttc_s": 4.89,
+      "bearing_deg": -2.37,
+      "closing_mps": 0.0422,
+      "intrusion": true
+    },
+    {
+      "t": 22.44,
+      "from": "PREDICT_INTRUSION",
+      "to": "INTERPOSE",
+      "threat": "dario"
+    },
+    {
+      "t": 22.78,
+      "from": "INTERPOSE",
+      "to": "HOLD_BUFFER",
+      "threat": "dario"
+    },
+    {
+      "t": 35.84,
+      "from": "HOLD_BUFFER",
+      "to": "THREAT_CLEAR",
+      "threat": "dario"
+    },
+    {
+      "t": 36.96,
+      "from": "THREAT_CLEAR",
+      "to": "RETURN_ESCORT",
+      "reason": "threat clear held"
+    },
+    {
+      "t": 38.24,
+      "from": "RETURN_ESCORT",
+      "to": "MONITOR",
+      "reason": "escort restored"
+    },
+    {
+      "t": 49.76,
+      "from": "MONITOR",
+      "to": "PREDICT_INTRUSION",
+      "threat": "noor",
+      "name": "noor",
+      "range_m": 1.7529,
+      "cpa_m": 1.6396,
+      "ttc_s": 4.592,
+      "bearing_deg": 178.73,
+      "closing_mps": 0.0477,
+      "intrusion": true
+    },
+    {
+      "t": 49.78,
+      "from": "PREDICT_INTRUSION",
+      "to": "INTERPOSE",
+      "threat": "noor"
+    },
+    {
+      "t": 61.0,
+      "from": "INTERPOSE",
+      "to": "HOLD_BUFFER",
+      "threat": "noor"
+    },
+    {
+      "t": 61.32,
+      "from": "HOLD_BUFFER",
+      "to": "THREAT_CLEAR",
+      "threat": "noor"
+    },
+    {
+      "t": 62.42,
+      "from": "THREAT_CLEAR",
+      "to": "RETURN_ESCORT",
+      "reason": "threat clear held"
+    },
+    {
+      "t": 71.44,
+      "from": "RETURN_ESCORT",
+      "to": "MONITOR",
+      "reason": "escort restored"
+    },
+    {
+      "t": 72.0,
+      "from": "MONITOR",
+      "to": "PREDICT_INTRUSION",
+      "threat": "yara",
+      "name": "yara",
+      "range_m": 1.2855,
+      "cpa_m": 1.0797,
+      "ttc_s": 6.644,
+      "bearing_deg": 38.98,
+      "closing_mps": 0.057,
+      "intrusion": true
+    },
+    {
+      "t": 72.02,
+      "from": "PREDICT_INTRUSION",
+      "to": "INTERPOSE",
+      "threat": "yara"
+    },
+    {
+      "t": 74.4,
+      "from": "INTERPOSE",
+      "to": "HOLD_BUFFER",
+      "threat": "yara"
+    },
+    {
+      "t": 82.8,
+      "from": "HOLD_BUFFER",
+      "to": "PERSON_APPROACH",
+      "reason": "protected person closing"
+    },
+    {
+      "t": 82.82,
+      "from": "PERSON_APPROACH",
+      "to": "RETREAT",
+      "reason": "yielding to protected person"
+    },
+    {
+      "t": 87.66,
+      "from": "RETREAT",
+      "to": "RECOVER",
+      "reason": "retreat range gained"
+    },
+    {
+      "t": 89.44,
+      "from": "RECOVER",
+      "to": "MONITOR",
+      "reason": "escort recovered"
+    },
+    {
+      "t": 104.08,
+      "from": "MONITOR",
+      "to": "MULTI_THREAT",
+      "primary": "kwame",
+      "secondary": "tomas"
+    },
+    {
+      "t": 104.1,
+      "from": "MULTI_THREAT",
+      "to": "ESCAPE_GAP",
+      "primary": "kwame",
+      "secondary": "tomas"
+    },
+    {
+      "t": 115.3,
+      "from": "ESCAPE_GAP",
+      "to": "RECOVER",
+      "reason": "safe gap reached"
+    },
+    {
+      "t": 121.42,
+      "from": "RECOVER",
+      "to": "MONITOR",
+      "reason": "escort recovered"
+    },
+    {
+      "t": 122.34,
+      "from": "MONITOR",
+      "to": "PREDICT_INTRUSION",
+      "threat": "liesl",
+      "name": "liesl",
+      "range_m": 0.8689,
+      "cpa_m": 0.0601,
+      "ttc_s": 5.502,
+      "bearing_deg": 51.9,
+      "closing_mps": 0.1572,
+      "intrusion": true
+    },
+    {
+      "t": 122.36,
+      "from": "PREDICT_INTRUSION",
+      "to": "INTERPOSE",
+      "threat": "liesl"
+    },
+    {
+      "t": 131.62,
+      "from": "INTERPOSE",
+      "to": "HOLD_BUFFER",
+      "threat": "liesl"
+    },
+    {
+      "t": 163.06,
+      "from": "HOLD_BUFFER",
+      "to": "THREAT_CLEAR",
+      "threat": "liesl"
+    },
+    {
+      "t": 164.18,
+      "from": "THREAT_CLEAR",
+      "to": "RETURN_ESCORT",
+      "reason": "threat clear held"
+    },
+    {
+      "t": 173.2,
+      "from": "RETURN_ESCORT",
+      "to": "MONITOR",
+      "reason": "escort restored"
+    },
+    {
+      "t": 188.0,
+      "from": "MONITOR",
+      "to": "DONE",
+      "reason": "session complete in escort"
+    }
+  ],
+  "episodes": [
+    {
+      "index": 0,
+      "kind": "intrusion",
+      "started_at_s": 22.42,
+      "selected": "dario",
+      "secondary": null,
+      "target": [
+        1.41658015643862,
+        -0.9565641896547377
+      ],
+      "name": "dario",
+      "range_m": 1.5318,
+      "cpa_m": 1.4249,
+      "ttc_s": 4.89,
+      "bearing_deg": -2.37,
+      "closing_mps": 0.0422,
+      "intrusion": true,
+      "ended_at_s": 38.24,
+      "outcome": "recovered",
+      "duration_s": 15.82,
+      "path_m": 0.4343,
+      "rows": 792,
+      "between_ticks": 791,
+      "target_reduction_m": 0.3182,
+      "min_person_clearance_m": 0.5583,
+      "active_visible_fraction": 0.0
+    },
+    {
+      "index": 1,
+      "kind": "intrusion",
+      "started_at_s": 49.76,
+      "selected": "noor",
+      "secondary": null,
+      "target": [
+        -0.3527907330519716,
+        -0.348905512391121
+      ],
+      "name": "noor",
+      "range_m": 1.7529,
+      "cpa_m": 1.6396,
+      "ttc_s": 4.592,
+      "bearing_deg": 178.73,
+      "closing_mps": 0.0477,
+      "intrusion": true,
+      "ended_at_s": 71.44,
+      "outcome": "recovered",
+      "duration_s": 21.68,
+      "path_m": 5.6484,
+      "rows": 1085,
+      "between_ticks": 295,
+      "target_reduction_m": 1.6444,
+      "min_person_clearance_m": 0.4877,
+      "active_visible_fraction": 0.6015
+    },
+    {
+      "index": 2,
+      "kind": "intrusion",
+      "started_at_s": 72.0,
+      "selected": "yara",
+      "secondary": null,
+      "target": [
+        1.0954328976611736,
+        0.43988536016472185
+      ],
+      "name": "yara",
+      "range_m": 1.2855,
+      "cpa_m": 1.0797,
+      "ttc_s": 6.644,
+      "bearing_deg": 38.98,
+      "closing_mps": 0.057,
+      "intrusion": true,
+      "ended_at_s": 82.8,
+      "outcome": "yielded_to_ward",
+      "duration_s": 10.8,
+      "path_m": 0.6815,
+      "rows": 541,
+      "between_ticks": 447,
+      "target_reduction_m": 0.5894,
+      "min_person_clearance_m": 0.2797,
+      "active_visible_fraction": 0.3315
+    },
+    {
+      "index": 3,
+      "kind": "ward_approach",
+      "started_at_s": 82.8,
+      "selected": "aina",
+      "secondary": null,
+      "target": null,
+      "ended_at_s": 89.44,
+      "outcome": "recovered",
+      "duration_s": 6.64,
+      "path_m": 1.0005,
+      "rows": 333,
+      "between_ticks": 1,
+      "target_reduction_m": 0.0,
+      "min_person_clearance_m": 0.282,
+      "active_visible_fraction": 0.997
+    },
+    {
+      "index": 4,
+      "kind": "squeeze",
+      "started_at_s": 104.08,
+      "selected": "kwame",
+      "secondary": "tomas",
+      "target": [
+        1.2247839535910168,
+        0.05737357874480764
+      ],
+      "bearing_deg": -145.76,
+      "secondary_bearing_deg": 65.48,
+      "separation_deg": 148.75,
+      "gap_score": 1.3596,
+      "ended_at_s": 121.42,
+      "outcome": "recovered",
+      "duration_s": 17.34,
+      "path_m": 4.8133,
+      "rows": 868,
+      "between_ticks": 113,
+      "target_reduction_m": 1.1129,
+      "min_person_clearance_m": 0.0077,
+      "active_visible_fraction": 0.9493
+    },
+    {
+      "index": 5,
+      "kind": "intrusion",
+      "started_at_s": 122.34,
+      "selected": "liesl",
+      "secondary": null,
+      "target": [
+        1.0466163603530148,
+        2.381383911779232
+      ],
+      "name": "liesl",
+      "range_m": 0.8689,
+      "cpa_m": 0.0601,
+      "ttc_s": 5.502,
+      "bearing_deg": 51.9,
+      "closing_mps": 0.1572,
+      "intrusion": true,
+      "ended_at_s": 173.2,
+      "outcome": "recovered",
+      "duration_s": 50.86,
+      "path_m": 5.1077,
+      "rows": 2544,
+      "between_ticks": 1420,
+      "target_reduction_m": 1.3879,
+      "min_person_clearance_m": 0.0883,
+      "active_visible_fraction": 0.6123
+    }
+  ],
+  "episode_kinds": [
+    "intrusion",
+    "intrusion",
+    "intrusion",
+    "ward_approach",
+    "squeeze",
+    "intrusion"
+  ],
+  "intrusion_count": 4,
+  "protective_cycle_count": 5,
+  "intrusion_people": [
+    "dario",
+    "noor",
+    "yara",
+    "liesl"
+  ],
+  "intrusion_bearings_deg": [
+    -2.37,
+    178.73,
+    38.98,
+    -145.76,
+    51.9
+  ],
+  "bearings_alternate": true,
+  "false_alarm_seen": true,
+  "false_alarm_dismissed": true,
+  "squeeze": {
+    "index": 4,
+    "kind": "squeeze",
+    "started_at_s": 104.08,
+    "selected": "kwame",
+    "secondary": "tomas",
+    "target": [
+      1.2247839535910168,
+      0.05737357874480764
+    ],
+    "bearing_deg": -145.76,
+    "secondary_bearing_deg": 65.48,
+    "separation_deg": 148.75,
+    "gap_score": 1.3596,
+    "ended_at_s": 121.42,
+    "outcome": "recovered",
+    "duration_s": 17.34,
+    "path_m": 4.8133,
+    "rows": 868,
+    "between_ticks": 113,
+    "target_reduction_m": 1.1129,
+    "min_person_clearance_m": 0.0077,
+    "active_visible_fraction": 0.9493
+  },
+  "ward_approach": {
+    "index": 3,
+    "kind": "ward_approach",
+    "started_at_s": 82.8,
+    "selected": "aina",
+    "secondary": null,
+    "target": null,
+    "ended_at_s": 89.44,
+    "outcome": "recovered",
+    "duration_s": 6.64,
+    "path_m": 1.0005,
+    "rows": 333,
+    "between_ticks": 1,
+    "target_reduction_m": 0.0,
+    "min_person_clearance_m": 0.282,
+    "active_visible_fraction": 0.997
+  },
+  "retreat_path_m": 0.5756,
+  "retreat_range_gain_m": 0.1038,
+  "path_m": 22.1214,
+  "walk_path_m": 21.7457,
+  "min_person_clearance_m": 0.0077,
+  "min_person_clearance_name": "aina",
+  "min_scenery_clearance_m": 0.2754,
+  "min_scenery_clearance_name": "wall_n",
+  "contact_steps": 0,
+  "fallen_steps": 0,
+  "min_trunk_z_m": 0.11058,
+  "final_trunk_z_m": 0.11628,
+  "final_state": "DONE",
+  "final_escort_distance_m": 0.076,
+  "ward_visible_fraction_with_los": 0.9794,
+  "active_visible_fraction": 0.9889,
+  "zero_state_peak": 0.0,
+  "sub_gait_ticks": 0,
+  "max_abs_vy": 0.0,
+  "duck_planar_radius_m": 0.1162,
+  "buffer_m": 1.95,
+  "retreat_target_m": 0.34,
+  "retreat_required_gain_m": 0.1,
+  "gate_results": [
+    {
+      "gate": "protected identity remains Aina",
+      "pass": true,
+      "evidence": "aina"
+    },
+    {
+      "gate": "neutral escort physically joined",
+      "pass": true,
+      "evidence": "path 22.1214 m; final slot 0.076 m"
+    },
+    {
+      "gate": "four distinct genuine intrusion cycles",
+      "pass": true,
+      "evidence": "[('dario', 'recovered'), ('noor', 'recovered'), ('yara', 'yielded_to_ward'), ('liesl', 'recovered')]"
+    },
+    {
+      "gate": "intrusions alternate bearings",
+      "pass": true,
+      "evidence": "[-2.37, 178.73, 38.98, -145.76, 51.9]"
+    },
+    {
+      "gate": "false near-pass dismissed",
+      "pass": true,
+      "evidence": "Piet observed without episode"
+    },
+    {
+      "gate": "every intrusion produced a physical protective path",
+      "pass": true,
+      "evidence": "[0.4343, 5.6484, 0.6815, 5.1077]"
+    },
+    {
+      "gate": "every interpose reduced target error",
+      "pass": true,
+      "evidence": "[0.3182, 1.6444, 0.5894, 1.3879]"
+    },
+    {
+      "gate": "interpose reached the between-bearing",
+      "pass": true,
+      "evidence": "[791, 295, 447, 1420]"
+    },
+    {
+      "gate": "simultaneous squeeze used safe-gap branch",
+      "pass": true,
+      "evidence": "('kwame', 'tomas')"
+    },
+    {
+      "gate": "squeeze escape was a real path",
+      "pass": true,
+      "evidence": "4.8133"
+    },
+    {
+      "gate": "ward approach triggered retreat",
+      "pass": true,
+      "evidence": "path 0.5756 m"
+    },
+    {
+      "gate": "retreat increased ward range",
+      "pass": true,
+      "evidence": "gain 0.1038 m"
+    },
+    {
+      "gate": "escort restored after episodes",
+      "pass": true,
+      "evidence": "DONE slot 0.076"
+    },
+    {
+      "gate": "ward visible >=95% with LOS",
+      "pass": true,
+      "evidence": "0.9794"
+    },
+    {
+      "gate": "active people visible while acted on",
+      "pass": true,
+      "evidence": "0.9889"
+    },
+    {
+      "gate": "positive person clearance",
+      "pass": true,
+      "evidence": "0.0077"
+    },
+    {
+      "gate": "positive scenery clearance",
+      "pass": true,
+      "evidence": "0.2754"
+    },
+    {
+      "gate": "zero geometric contacts",
+      "pass": true,
+      "evidence": "0"
+    },
+    {
+      "gate": "exact zero in declared hold states",
+      "pass": true,
+      "evidence": "0.0"
+    },
+    {
+      "gate": "no decorative sub-gait commands",
+      "pass": true,
+      "evidence": "0"
+    },
+    {
+      "gate": "no lateral policy command",
+      "pass": true,
+      "evidence": "0.0"
+    },
+    {
+      "gate": "real physical locomotion",
+      "pass": true,
+      "evidence": "21.7457"
+    },
+    {
+      "gate": "zero falls",
+      "pass": true,
+      "evidence": "0"
+    },
+    {
+      "gate": "trunk stays above 0.09m",
+      "pass": true,
+      "evidence": "0.11058"
+    },
+    {
+      "gate": "final trunk near nominal",
+      "pass": true,
+      "evidence": "0.11628"
+    },
+    {
+      "gate": "exact sensor observation and scale",
+      "pass": true,
+      "evidence": "imu_ang_vel / 61D / .9"
+    },
+    {
+      "gate": "stock walking policy",
+      "pass": true,
+      "evidence": "e36332d383997d51401897734cd3e79cf5038406feddb18b4d57ecfb141daa6c"
+    }
+  ],
+  "gates_passed": 27,
+  "gates_total": 27,
+  "all_gates_pass": true
+}

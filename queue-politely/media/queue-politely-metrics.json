@@ -1,0 +1,635 @@
+{
+  "seconds": 58.0,
+  "control_steps": 2900,
+  "policy_sha256": "e36332d383997d51401897734cd3e79cf5038406feddb18b4d57ecfb141daa6c",
+  "action_scale": 0.9,
+  "observation_dim": 61,
+  "gyro_sensor": "imu_ang_vel",
+  "duck_planar_radius_m": 0.1162,
+  "duck_exact_planar_radius_m": 0.0827,
+  "adult_half_extent_m": 0.1244,
+  "geometry": {
+    "slot_spacing_m": 0.55,
+    "straggler_gap_m": 0.9,
+    "duck_planar_radius_m": 0.1303,
+    "adult_half_extent_m": 0.1647,
+    "duck_needs_m": 0.71,
+    "straggler_gap_surface_slack_m": 0.155,
+    "straggler_gap_fits_duck": true,
+    "nominal_gap_fits_duck": false,
+    "lane_half_width_m": 0.42,
+    "lane_slack_each_side_m": 0.2897,
+    "queue_band_m": 0.3,
+    "path_length_m": 4.6478,
+    "fold_sweep_deg": 180.0
+  },
+  "state_sequence": [
+    "APPROACH",
+    "OBSERVE_QUEUE",
+    "IDENTIFY_TAIL",
+    "EVALUATE_GAPS",
+    "JOIN",
+    "WAIT",
+    "ADVANCE",
+    "WAIT",
+    "ADVANCE",
+    "WAIT",
+    "ADVANCE",
+    "WAIT",
+    "ADVANCE",
+    "AT_COUNTER",
+    "DONE"
+  ],
+  "transitions": [
+    {
+      "t": 4.0,
+      "from": "APPROACH",
+      "to": "OBSERVE_QUEUE",
+      "duck_arc": 4.595067795439832
+    },
+    {
+      "t": 6.4,
+      "from": "OBSERVE_QUEUE",
+      "to": "IDENTIFY_TAIL",
+      "seen": 5
+    },
+    {
+      "t": 8.02,
+      "from": "IDENTIFY_TAIL",
+      "to": "EVALUATE_GAPS",
+      "tail": "eriksson"
+    },
+    {
+      "t": 10.02,
+      "from": "EVALUATE_GAPS",
+      "to": "JOIN",
+      "target_arc": 3.13,
+      "behind": "eriksson"
+    },
+    {
+      "t": 18.0,
+      "from": "JOIN",
+      "to": "WAIT",
+      "duck_arc": 3.1480475859527988
+    },
+    {
+      "t": 23.76,
+      "from": "WAIT",
+      "to": "ADVANCE",
+      "target_arc": 2.9260535656149975
+    },
+    {
+      "t": 33.56,
+      "from": "ADVANCE",
+      "to": "WAIT",
+      "duck_arc": 1.698472372199768
+    },
+    {
+      "t": 34.8,
+      "from": "WAIT",
+      "to": "ADVANCE",
+      "target_arc": 1.4778702671923372
+    },
+    {
+      "t": 38.92,
+      "from": "ADVANCE",
+      "to": "WAIT",
+      "duck_arc": 1.1439948951078405
+    },
+    {
+      "t": 40.4,
+      "from": "WAIT",
+      "to": "ADVANCE",
+      "target_arc": 0.9053006020046872
+    },
+    {
+      "t": 44.48,
+      "from": "ADVANCE",
+      "to": "WAIT",
+      "duck_arc": 0.5949204082066932
+    },
+    {
+      "t": 46.0,
+      "from": "WAIT",
+      "to": "ADVANCE",
+      "to_counter": true
+    },
+    {
+      "t": 50.14,
+      "from": "ADVANCE",
+      "to": "AT_COUNTER",
+      "duck_arc": 0.012671432498937032
+    },
+    {
+      "t": 52.56,
+      "from": "AT_COUNTER",
+      "to": "DONE",
+      "duck_arc": 0.012779078152933086
+    }
+  ],
+  "timeouts": [],
+  "decision_reading": {
+    "order": [
+      "alvarez",
+      "bianchi",
+      "chandra",
+      "dubois",
+      "eriksson"
+    ],
+    "tail": "eriksson",
+    "arcs_m": {
+      "alvarez": 0.0,
+      "bianchi": 0.55,
+      "chandra": 1.1,
+      "dubois": 1.65,
+      "eriksson": 2.55
+    },
+    "excluded_off_path_m": {
+      "nakamura": 0.8248,
+      "okafor": 0.4131
+    },
+    "naive_orders": {
+      "by_range": [
+        "alvarez",
+        "bianchi",
+        "chandra",
+        "eriksson",
+        "dubois"
+      ],
+      "by_max_minus_x": [
+        "alvarez",
+        "eriksson",
+        "bianchi",
+        "dubois",
+        "chandra"
+      ]
+    },
+    "naive_tails": {
+      "by_range": "dubois",
+      "by_max_minus_x": "chandra"
+    },
+    "truth": [
+      "alvarez",
+      "bianchi",
+      "chandra",
+      "dubois",
+      "eriksson"
+    ],
+    "gaps": [
+      {
+        "gap": "beside_counter",
+        "kind": "side",
+        "xy": [
+          0.3,
+          -0.6
+        ],
+        "arc_s_m": 3.0478,
+        "off_path_m": 0.64,
+        "ahead": null,
+        "behind": "alvarez",
+        "separation_m": 0.6708,
+        "physically_fits": true,
+        "verdict": "reject",
+        "reason": "empty floor beside alvarez, who is being served: taking it would put the duck at the counter ahead of the whole queue"
+      },
+      {
+        "gap": "between_alvarez_bianchi",
+        "kind": "cut_in",
+        "xy": [
+          -0.275,
+          0.0
+        ],
+        "arc_s_m": 0.275,
+        "off_path_m": 0.0,
+        "ahead": "alvarez",
+        "behind": "bianchi",
+        "separation_m": 0.55,
+        "physically_fits": false,
+        "verdict": "reject",
+        "reason": "0.55 m between alvarez and bianchi is too narrow, and would cut in front of bianchi anyway"
+      },
+      {
+        "gap": "between_bianchi_chandra",
+        "kind": "cut_in",
+        "xy": [
+          -0.7925,
+          -0.1401
+        ],
+        "arc_s_m": 0.825,
+        "off_path_m": 0.0,
+        "ahead": "bianchi",
+        "behind": "chandra",
+        "separation_m": 0.55,
+        "physically_fits": false,
+        "verdict": "reject",
+        "reason": "0.55 m between bianchi and chandra is too narrow, and would cut in front of chandra anyway"
+      },
+      {
+        "gap": "between_chandra_dubois",
+        "kind": "cut_in",
+        "xy": [
+          -1.02,
+          -0.6211
+        ],
+        "arc_s_m": 1.375,
+        "off_path_m": 0.0,
+        "ahead": "chandra",
+        "behind": "dubois",
+        "separation_m": 0.55,
+        "physically_fits": false,
+        "verdict": "reject",
+        "reason": "0.55 m between chandra and dubois is too narrow, and would cut in front of dubois anyway"
+      },
+      {
+        "gap": "between_dubois_eriksson",
+        "kind": "cut_in",
+        "xy": [
+          -0.6412,
+          -1.1911
+        ],
+        "arc_s_m": 2.1,
+        "off_path_m": 0.0,
+        "ahead": "dubois",
+        "behind": "eriksson",
+        "separation_m": 0.9,
+        "physically_fits": true,
+        "verdict": "reject",
+        "reason": "0.90 m between dubois and eriksson is wide enough for the duck, but standing there cuts in front of eriksson"
+      },
+      {
+        "gap": "behind_tail",
+        "kind": "tail",
+        "xy": [
+          0.3822,
+          -1.24
+        ],
+        "arc_s_m": 3.13,
+        "off_path_m": 0.0,
+        "ahead": "eriksson",
+        "behind": null,
+        "separation_m": 0.58,
+        "physically_fits": true,
+        "verdict": "join",
+        "reason": "behind eriksson, the last person in line"
+      }
+    ],
+    "rejected_available": [
+      {
+        "gap": "beside_counter",
+        "kind": "side",
+        "xy": [
+          0.3,
+          -0.6
+        ],
+        "arc_s_m": 3.0478,
+        "off_path_m": 0.64,
+        "ahead": null,
+        "behind": "alvarez",
+        "separation_m": 0.6708,
+        "physically_fits": true,
+        "verdict": "reject",
+        "reason": "empty floor beside alvarez, who is being served: taking it would put the duck at the counter ahead of the whole queue"
+      },
+      {
+        "gap": "between_dubois_eriksson",
+        "kind": "cut_in",
+        "xy": [
+          -0.6412,
+          -1.1911
+        ],
+        "arc_s_m": 2.1,
+        "off_path_m": 0.0,
+        "ahead": "dubois",
+        "behind": "eriksson",
+        "separation_m": 0.9,
+        "physically_fits": true,
+        "verdict": "reject",
+        "reason": "0.90 m between dubois and eriksson is wide enough for the duck, but standing there cuts in front of eriksson"
+      }
+    ]
+  },
+  "accepted_gap": {
+    "gap": "behind_tail",
+    "kind": "tail",
+    "xy": [
+      0.3822,
+      -1.24
+    ],
+    "arc_s_m": 3.13,
+    "off_path_m": 0.0,
+    "ahead": "eriksson",
+    "behind": null,
+    "separation_m": 0.58,
+    "physically_fits": true,
+    "verdict": "join",
+    "reason": "behind eriksson, the last person in line"
+  },
+  "rejected_gaps": [
+    {
+      "gap": "beside_counter",
+      "kind": "side",
+      "xy": [
+        0.3,
+        -0.6
+      ],
+      "arc_s_m": 3.0478,
+      "off_path_m": 0.64,
+      "ahead": null,
+      "behind": "alvarez",
+      "separation_m": 0.6708,
+      "physically_fits": true,
+      "verdict": "reject",
+      "reason": "empty floor beside alvarez, who is being served: taking it would put the duck at the counter ahead of the whole queue"
+    },
+    {
+      "gap": "between_alvarez_bianchi",
+      "kind": "cut_in",
+      "xy": [
+        -0.275,
+        0.0
+      ],
+      "arc_s_m": 0.275,
+      "off_path_m": 0.0,
+      "ahead": "alvarez",
+      "behind": "bianchi",
+      "separation_m": 0.55,
+      "physically_fits": false,
+      "verdict": "reject",
+      "reason": "0.55 m between alvarez and bianchi is too narrow, and would cut in front of bianchi anyway"
+    },
+    {
+      "gap": "between_bianchi_chandra",
+      "kind": "cut_in",
+      "xy": [
+        -0.7925,
+        -0.1401
+      ],
+      "arc_s_m": 0.825,
+      "off_path_m": 0.0,
+      "ahead": "bianchi",
+      "behind": "chandra",
+      "separation_m": 0.55,
+      "physically_fits": false,
+      "verdict": "reject",
+      "reason": "0.55 m between bianchi and chandra is too narrow, and would cut in front of chandra anyway"
+    },
+    {
+      "gap": "between_chandra_dubois",
+      "kind": "cut_in",
+      "xy": [
+        -1.02,
+        -0.6211
+      ],
+      "arc_s_m": 1.375,
+      "off_path_m": 0.0,
+      "ahead": "chandra",
+      "behind": "dubois",
+      "separation_m": 0.55,
+      "physically_fits": false,
+      "verdict": "reject",
+      "reason": "0.55 m between chandra and dubois is too narrow, and would cut in front of dubois anyway"
+    },
+    {
+      "gap": "between_dubois_eriksson",
+      "kind": "cut_in",
+      "xy": [
+        -0.6412,
+        -1.1911
+      ],
+      "arc_s_m": 2.1,
+      "off_path_m": 0.0,
+      "ahead": "dubois",
+      "behind": "eriksson",
+      "separation_m": 0.9,
+      "physically_fits": true,
+      "verdict": "reject",
+      "reason": "0.90 m between dubois and eriksson is wide enough for the duck, but standing there cuts in front of eriksson"
+    }
+  ],
+  "rejected_available_gaps": [
+    {
+      "gap": "beside_counter",
+      "kind": "side",
+      "xy": [
+        0.3,
+        -0.6
+      ],
+      "arc_s_m": 3.0478,
+      "off_path_m": 0.64,
+      "ahead": null,
+      "behind": "alvarez",
+      "separation_m": 0.6708,
+      "physically_fits": true,
+      "verdict": "reject",
+      "reason": "empty floor beside alvarez, who is being served: taking it would put the duck at the counter ahead of the whole queue"
+    },
+    {
+      "gap": "between_dubois_eriksson",
+      "kind": "cut_in",
+      "xy": [
+        -0.6412,
+        -1.1911
+      ],
+      "arc_s_m": 2.1,
+      "off_path_m": 0.0,
+      "ahead": "dubois",
+      "behind": "eriksson",
+      "separation_m": 0.9,
+      "physically_fits": true,
+      "verdict": "reject",
+      "reason": "0.90 m between dubois and eriksson is wide enough for the duck, but standing there cuts in front of eriksson"
+    }
+  ],
+  "join_evidence": {
+    "t": 18.02,
+    "duck_arc_m": 3.1484416287399846,
+    "behind": "eriksson",
+    "longitudinal_m": 0.5984416287399847,
+    "lateral_m": 0.1486767604772099,
+    "in_band": true,
+    "duck_xy": [
+      0.40065418351431287,
+      -1.3886767604772101
+    ]
+  },
+  "order_samples_total": 2299,
+  "order_wrong_samples": 0,
+  "tail_wrong_samples": 0,
+  "first_wrong_order": null,
+  "naive_tails_at_decision": {
+    "by_range": "dubois",
+    "by_max_minus_x": "chandra"
+  },
+  "true_tail_at_decision": "eriksson",
+  "wrong_lock_steps": 0,
+  "overtaking_events": [],
+  "remaining_monotone": true,
+  "cycles": [
+    {
+      "index": 1,
+      "kind": "advance",
+      "behind": "eriksson",
+      "started_s": 23.76,
+      "completed_s": 33.56,
+      "duration_s": 9.8,
+      "path_m": 1.8642,
+      "arc_progress_m": 1.4504,
+      "final_arc_m": 1.6984,
+      "final_standoff_m": 0.5984,
+      "standoff_gradeable": true,
+      "standoff_in_band": true,
+      "max_cross_track_m": 0.1485,
+      "max_inside_cut_m": 0.0383,
+      "tracked_fraction": 1.0,
+      "tracked_steps": 490,
+      "steps_after_subject_served": 0,
+      "command_peak": 0.55
+    },
+    {
+      "index": 2,
+      "kind": "advance",
+      "behind": "eriksson",
+      "started_s": 34.800000000000004,
+      "completed_s": 38.92,
+      "duration_s": 4.119999999999997,
+      "path_m": 0.7382,
+      "arc_progress_m": 0.5545,
+      "final_arc_m": 1.144,
+      "final_standoff_m": 0.594,
+      "standoff_gradeable": true,
+      "standoff_in_band": true,
+      "max_cross_track_m": 0.0604,
+      "max_inside_cut_m": -0.0053,
+      "tracked_fraction": 1.0,
+      "tracked_steps": 206,
+      "steps_after_subject_served": 0,
+      "command_peak": 0.55
+    },
+    {
+      "index": 3,
+      "kind": "advance",
+      "behind": "eriksson",
+      "started_s": 40.4,
+      "completed_s": 44.480000000000004,
+      "duration_s": 4.080000000000005,
+      "path_m": 0.7268,
+      "arc_progress_m": 0.5497,
+      "final_arc_m": 0.5949,
+      "final_standoff_m": 0.5949,
+      "standoff_gradeable": true,
+      "standoff_in_band": true,
+      "max_cross_track_m": 0.0555,
+      "max_inside_cut_m": 0.0005,
+      "tracked_fraction": 1.0,
+      "tracked_steps": 204,
+      "steps_after_subject_served": 0,
+      "command_peak": 0.55
+    },
+    {
+      "index": 4,
+      "kind": "to_counter",
+      "behind": null,
+      "started_s": 46.0,
+      "completed_s": 50.14,
+      "duration_s": 4.140000000000001,
+      "path_m": 0.7428,
+      "arc_progress_m": 0.5829,
+      "final_arc_m": 0.0127,
+      "final_standoff_m": null,
+      "standoff_gradeable": false,
+      "standoff_in_band": false,
+      "max_cross_track_m": 0.0473,
+      "max_inside_cut_m": -0.0018,
+      "tracked_fraction": null,
+      "tracked_steps": 0,
+      "steps_after_subject_served": 0,
+      "command_peak": 0.55
+    }
+  ],
+  "wait_advance_cycles": 3,
+  "to_counter_cycles": 1,
+  "stationary_command_peak": {
+    "OBSERVE_QUEUE": 0.0,
+    "IDENTIFY_TAIL": 0.0,
+    "EVALUATE_GAPS": 0.0,
+    "WAIT": 0.0,
+    "AT_COUNTER": 0.0,
+    "DONE": 0.0
+  },
+  "decorative_commands": [],
+  "counter_reached_s": 50.160000000000004,
+  "last_service_s": 46.0,
+  "services": [
+    {
+      "person": "alvarez",
+      "served_at_s": 22.0,
+      "initial_place": 1
+    },
+    {
+      "person": "bianchi",
+      "served_at_s": 28.0,
+      "initial_place": 2
+    },
+    {
+      "person": "chandra",
+      "served_at_s": 34.0,
+      "initial_place": 3
+    },
+    {
+      "person": "dubois",
+      "served_at_s": 40.0,
+      "initial_place": 4
+    },
+    {
+      "person": "eriksson",
+      "served_at_s": 46.0,
+      "initial_place": 5
+    }
+  ],
+  "bystanders_wrongly_included": [],
+  "path_m": 6.7595,
+  "min_person_clearance_m": 0.2155,
+  "min_person_clearance_who": "okafor",
+  "min_scenery_clearance_m": 0.0978,
+  "min_scenery_clearance_geom": "post_r_8",
+  "contact_steps": 0,
+  "fallen_steps": 0,
+  "min_trunk_z_m": 0.1112,
+  "final_trunk_z_m": 0.1163,
+  "tracked_fractions": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "gates": {
+    "state_order": true,
+    "order_inferred": true,
+    "tail_correct": true,
+    "no_wrong_locks": true,
+    "naive_would_fail": true,
+    "bystanders_excluded": true,
+    "rejected_enough": true,
+    "joined_behind_tail": true,
+    "join_band": true,
+    "no_overtaking": true,
+    "wait_advance_cycles": true,
+    "stationary_command_zero": true,
+    "advances_are_real": true,
+    "bend_followed": true,
+    "predecessor_visible": true,
+    "counter_last": true,
+    "person_clearance": true,
+    "scenery_clearance": true,
+    "no_contacts": true,
+    "no_decorative_commands": true,
+    "no_falls": true,
+    "min_trunk_z": true,
+    "final_trunk_z": true,
+    "no_timeouts": true
+  },
+  "all_gates_pass": true,
+  "frames": 2900,
+  "fps": 50,
+  "width": 960,
+  "height": 640
+}

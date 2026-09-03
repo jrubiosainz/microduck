@@ -1,0 +1,1475 @@
+{
+  "seconds": 110.0,
+  "control_steps": 5500,
+  "control_hz": 50.0,
+  "guardian": "nadia",
+  "observation_dim": 61,
+  "action_scale": 0.9,
+  "gyro_sensor": "imu_ang_vel",
+  "policy_sha256": "e36332d383997d51401897734cd3e79cf5038406feddb18b4d57ecfb141daa6c",
+  "fallen_steps": 0,
+  "contact_steps": 0,
+  "min_trunk_z_m": 0.11232,
+  "final_trunk_z_m": 0.11626,
+  "path_m": 11.1874,
+  "net_m": 6.7436,
+  "walk_path_m": 11.0582,
+  "walk_seconds": 68.12,
+  "max_cross_track_m": 0.0738,
+  "min_person_clearance_m": 0.2365,
+  "min_person_clearance_name": "tomas",
+  "min_clearance_by_person_m": {
+    "leila": 0.3129,
+    "marek": 0.916,
+    "nadia": 0.402,
+    "odile": 0.4891,
+    "priya": 0.3258,
+    "sami": 0.3752,
+    "tomas": 0.2365,
+    "vera": 1.0404
+  },
+  "min_scenery_clearance_m": 0.1907,
+  "min_scenery_clearance_geom": "wall_door_s",
+  "duck_planar_radius_m": 0.1162,
+  "duck_exact_radius_m": 0.0827,
+  "duck_lateral_half_m": 0.0735,
+  "adult_lateral_half_m": 0.1086,
+  "adult_half_extent_basis": "pose-zero sample; not a gait maximum",
+  "abreast_slack_m": {
+    "concourse_door": 0.3007,
+    "lift_front": 0.3607
+  },
+  "abreast_margin_required_m": 0.26,
+  "states_visited": [
+    "APPROACH_DOOR",
+    "APPROACH_LIFT",
+    "DONE",
+    "DOORS_OPEN",
+    "DOORS_OPEN_TARGET",
+    "FOLLOW_GUARDIAN_IN",
+    "FOLLOW_OUT",
+    "FOLLOW_THROUGH",
+    "LET_OCCUPANTS_EXIT",
+    "POSITION_INSIDE",
+    "RIDE",
+    "WAIT_SIDE",
+    "YIELD_EXITERS"
+  ],
+  "declared_states": [
+    "APPROACH_DOOR",
+    "YIELD_EXITERS",
+    "FOLLOW_THROUGH",
+    "APPROACH_LIFT",
+    "WAIT_SIDE",
+    "DOORS_OPEN",
+    "LET_OCCUPANTS_EXIT",
+    "FOLLOW_GUARDIAN_IN",
+    "POSITION_INSIDE",
+    "RIDE",
+    "DOORS_OPEN_TARGET",
+    "FOLLOW_OUT",
+    "DONE"
+  ],
+  "state_order": [
+    "YIELD_EXITERS",
+    "FOLLOW_THROUGH",
+    "APPROACH_LIFT",
+    "WAIT_SIDE",
+    "DOORS_OPEN",
+    "LET_OCCUPANTS_EXIT",
+    "FOLLOW_GUARDIAN_IN",
+    "POSITION_INSIDE",
+    "RIDE",
+    "DOORS_OPEN_TARGET",
+    "FOLLOW_OUT",
+    "DONE"
+  ],
+  "forbidden_states": [
+    "PUSH_THROUGH",
+    "BOARD_FIRST"
+  ],
+  "forbidden_state_steps": {
+    "PUSH_THROUGH": 0,
+    "BOARD_FIRST": 0
+  },
+  "state_steps": {
+    "APPROACH_DOOR": 466,
+    "YIELD_EXITERS": 382,
+    "FOLLOW_THROUGH": 717,
+    "APPROACH_LIFT": 605,
+    "WAIT_SIDE": 277,
+    "DOORS_OPEN": 26,
+    "LET_OCCUPANTS_EXIT": 557,
+    "FOLLOW_GUARDIAN_IN": 723,
+    "POSITION_INSIDE": 102,
+    "RIDE": 494,
+    "DOORS_OPEN_TARGET": 169,
+    "FOLLOW_OUT": 793,
+    "DONE": 189
+  },
+  "state_seconds": {
+    "APPROACH_DOOR": 9.32,
+    "YIELD_EXITERS": 7.64,
+    "FOLLOW_THROUGH": 14.34,
+    "APPROACH_LIFT": 12.1,
+    "WAIT_SIDE": 5.54,
+    "DOORS_OPEN": 0.52,
+    "LET_OCCUPANTS_EXIT": 11.14,
+    "FOLLOW_GUARDIAN_IN": 14.46,
+    "POSITION_INSIDE": 2.04,
+    "RIDE": 9.88,
+    "DOORS_OPEN_TARGET": 3.38,
+    "FOLLOW_OUT": 15.86,
+    "DONE": 3.78
+  },
+  "state_command_max": {
+    "APPROACH_DOOR": 0.402201,
+    "YIELD_EXITERS": 0.0,
+    "FOLLOW_THROUGH": 0.405953,
+    "APPROACH_LIFT": 0.58,
+    "WAIT_SIDE": 0.0,
+    "DOORS_OPEN": 0.0,
+    "LET_OCCUPANTS_EXIT": 0.0,
+    "FOLLOW_GUARDIAN_IN": 0.58,
+    "POSITION_INSIDE": 0.26,
+    "RIDE": 0.0,
+    "DOORS_OPEN_TARGET": 0.0,
+    "FOLLOW_OUT": 0.442681,
+    "DONE": 0.0
+  },
+  "state_path_m": {
+    "APPROACH_DOOR": 1.5944,
+    "YIELD_EXITERS": 0.0307,
+    "FOLLOW_THROUGH": 2.2616,
+    "APPROACH_LIFT": 2.084,
+    "WAIT_SIDE": 0.0276,
+    "DOORS_OPEN": 0.0003,
+    "LET_OCCUPANTS_EXIT": 0.007,
+    "FOLLOW_GUARDIAN_IN": 2.3033,
+    "POSITION_INSIDE": 0.3138,
+    "RIDE": 0.0324,
+    "DOORS_OPEN_TARGET": 0.0023,
+    "FOLLOW_OUT": 2.5011,
+    "DONE": 0.0289
+  },
+  "zero_command_states": [
+    "YIELD_EXITERS",
+    "WAIT_SIDE",
+    "DOORS_OPEN",
+    "LET_OCCUPANTS_EXIT",
+    "RIDE",
+    "DOORS_OPEN_TARGET",
+    "DONE"
+  ],
+  "zero_command_violations": [],
+  "zero_state_path_m": {
+    "YIELD_EXITERS": 0.0307,
+    "WAIT_SIDE": 0.0276,
+    "DOORS_OPEN": 0.0003,
+    "LET_OCCUPANTS_EXIT": 0.007,
+    "RIDE": 0.0324,
+    "DOORS_OPEN_TARGET": 0.0023,
+    "DONE": 0.0289
+  },
+  "zero_state_path_bound_m": 0.04,
+  "zero_drift_reference_m": 0.0055,
+  "transitions": [
+    {
+      "t": 9.32,
+      "from": "APPROACH_DOOR",
+      "to": "YIELD_EXITERS",
+      "exiters_pending": 2,
+      "reason": "reached the holding point outside the threshold"
+    },
+    {
+      "t": 16.96,
+      "from": "YIELD_EXITERS",
+      "to": "FOLLOW_THROUGH",
+      "clear_for_s": 0.6,
+      "reason": "every exiter measured clear; door passable"
+    },
+    {
+      "t": 31.3,
+      "from": "FOLLOW_THROUGH",
+      "to": "APPROACH_LIFT",
+      "guardian_gap_m": 2.3667,
+      "reason": "through the doorway; heading for the lift"
+    },
+    {
+      "t": 43.4,
+      "from": "APPROACH_LIFT",
+      "to": "WAIT_SIDE",
+      "lift_open_fraction": 0.0,
+      "reason": "reached the holding spot beside the lift doors"
+    },
+    {
+      "t": 48.94,
+      "from": "WAIT_SIDE",
+      "to": "DOORS_OPEN",
+      "waited_s": 5.54,
+      "open_fraction": 0.0213,
+      "reason": "the doors began to open"
+    },
+    {
+      "t": 49.46,
+      "from": "DOORS_OPEN",
+      "to": "LET_OCCUPANTS_EXIT",
+      "open_fraction": 0.5718,
+      "occupants_in_cabin": 3,
+      "reason": "doors open; occupants coming out"
+    },
+    {
+      "t": 60.6,
+      "from": "LET_OCCUPANTS_EXIT",
+      "to": "FOLLOW_GUARDIAN_IN",
+      "occupants_exited": 3,
+      "reason": "every occupant clear; following her in"
+    },
+    {
+      "t": 75.06,
+      "from": "FOLLOW_GUARDIAN_IN",
+      "to": "POSITION_INSIDE",
+      "guardian_gap_m": 1.0268,
+      "reason": "inside the car; moving out of the way"
+    },
+    {
+      "t": 77.1,
+      "from": "POSITION_INSIDE",
+      "to": "RIDE",
+      "reason": "standing clear inside the car"
+    },
+    {
+      "t": 86.98,
+      "from": "RIDE",
+      "to": "DOORS_OPEN_TARGET",
+      "rode_s": 9.88,
+      "reason": "arrived; the rear doors are opening"
+    },
+    {
+      "t": 90.36,
+      "from": "DOORS_OPEN_TARGET",
+      "to": "FOLLOW_OUT",
+      "reason": "she is out; following her"
+    },
+    {
+      "t": 106.22,
+      "from": "FOLLOW_OUT",
+      "to": "DONE",
+      "reason": "off the lift, journey complete"
+    }
+  ],
+  "timeouts": [],
+  "route_length_m": 8.0805,
+  "route_bends": [
+    {
+      "turn_deg": -17.403,
+      "hand": "right",
+      "radius_m": 0.41,
+      "arc_len_m": 0.1245,
+      "start_s_m": 1.3415,
+      "end_s_m": 1.4661,
+      "min_radius_for_hand_m": 0.3962,
+      "walkable": true
+    },
+    {
+      "turn_deg": 63.391,
+      "hand": "left",
+      "radius_m": 0.41,
+      "arc_len_m": 0.4536,
+      "start_s_m": 2.6301,
+      "end_s_m": 3.0838,
+      "min_radius_for_hand_m": 0.3567,
+      "walkable": true
+    },
+    {
+      "turn_deg": -63.391,
+      "hand": "right",
+      "radius_m": 0.41,
+      "arc_len_m": 0.4536,
+      "start_s_m": 3.6245,
+      "end_s_m": 4.0781,
+      "min_radius_for_hand_m": 0.3962,
+      "walkable": true
+    },
+    {
+      "turn_deg": -87.877,
+      "hand": "right",
+      "radius_m": 0.41,
+      "arc_len_m": 0.6288,
+      "start_s_m": 4.1299,
+      "end_s_m": 4.7587,
+      "min_radius_for_hand_m": 0.3962,
+      "walkable": true
+    },
+    {
+      "turn_deg": 87.877,
+      "hand": "left",
+      "radius_m": 0.41,
+      "arc_len_m": 0.6288,
+      "start_s_m": 4.8053,
+      "end_s_m": 5.4341,
+      "min_radius_for_hand_m": 0.3567,
+      "walkable": true
+    },
+    {
+      "turn_deg": 25.463,
+      "hand": "left",
+      "radius_m": 0.41,
+      "arc_len_m": 0.1822,
+      "start_s_m": 5.9064,
+      "end_s_m": 6.0886,
+      "min_radius_for_hand_m": 0.3567,
+      "walkable": true
+    },
+    {
+      "turn_deg": -72.754,
+      "hand": "right",
+      "radius_m": 0.41,
+      "arc_len_m": 0.5206,
+      "start_s_m": 6.1592,
+      "end_s_m": 6.6798,
+      "min_radius_for_hand_m": 0.3962,
+      "walkable": true
+    },
+    {
+      "turn_deg": 47.291,
+      "hand": "left",
+      "radius_m": 0.41,
+      "arc_len_m": 0.3384,
+      "start_s_m": 7.0828,
+      "end_s_m": 7.4212,
+      "min_radius_for_hand_m": 0.3567,
+      "walkable": true
+    },
+    {
+      "turn_deg": -17.199,
+      "hand": "right",
+      "radius_m": 0.41,
+      "arc_len_m": 0.1231,
+      "start_s_m": 7.5797,
+      "end_s_m": 7.7028,
+      "min_radius_for_hand_m": 0.3962,
+      "walkable": true
+    }
+  ],
+  "route_crossings": [
+    {
+      "aperture": "concourse_door",
+      "crossed": true,
+      "arc_s_m": 2.2645,
+      "xy": [
+        -1.0988,
+        0.0
+      ],
+      "offset_from_centre_m": 0.0,
+      "clear_half_w_m": 0.33,
+      "margin_m": 0.33
+    },
+    {
+      "aperture": "lift_front",
+      "crossed": true,
+      "arc_s_m": 5.6604,
+      "xy": [
+        1.3413,
+        0.1
+      ],
+      "offset_from_centre_m": 0.0,
+      "clear_half_w_m": 0.36,
+      "margin_m": 0.36
+    },
+    {
+      "aperture": "lift_rear",
+      "crossed": true,
+      "arc_s_m": 7.6421,
+      "xy": [
+        3.1001,
+        -0.3547
+      ],
+      "offset_from_centre_m": -0.0047,
+      "clear_half_w_m": 0.36,
+      "margin_m": 0.3553
+    }
+  ],
+  "leg_names": [
+    "approach_door",
+    "through_door",
+    "approach_lift",
+    "board_cabin",
+    "leave_cabin"
+  ],
+  "leg_bounds_m": [
+    1.404,
+    2.8564,
+    4.4443,
+    6.4199,
+    8.0805
+  ],
+  "final_arc_s_m": 8.0069,
+  "final_route_remaining_m": 0.0736,
+  "yields": [
+    {
+      "index": 0,
+      "kind": "door",
+      "began_at_s": 9.32,
+      "exiters_pending_at_stop": 2,
+      "exiters_in_aperture_at_stop": 0,
+      "door_open_fraction_at_stop": 1.0,
+      "ended_at_s": 16.96,
+      "duration_s": 7.64,
+      "clear_sustained_s": 0.6,
+      "door_open_fraction_at_end": 1.0,
+      "exiters_still_pending": 0,
+      "state_path_m": 0.0307,
+      "max_command": 0.0
+    }
+  ],
+  "yield_count": 1,
+  "exiters_used_door": [
+    "leila",
+    "tomas"
+  ],
+  "door_exiter_names": [
+    "tomas",
+    "leila"
+  ],
+  "boarding": {
+    "occupants_exited_before_entry": 3,
+    "cleared_at_s": 60.6,
+    "clear_sustained_s": 0.6,
+    "lift_open_fraction_at_clear": 1.0,
+    "duck_entered_at_s": 75.06,
+    "guardian_gap_at_entry_m": 1.0268,
+    "guardian_inside_at_entry": true,
+    "positioned_at_s": 77.1,
+    "rode_for_s": 9.88,
+    "guardian_exited_at_s": 90.36,
+    "rear_open_fraction_at_exit": 1.0,
+    "duck_exited_at_s": 106.22,
+    "beyond_rear_m": 0.347
+  },
+  "occupants_used_lift": [
+    "marek",
+    "odile",
+    "priya"
+  ],
+  "occupant_names": [
+    "priya",
+    "marek",
+    "odile"
+  ],
+  "max_occupants_exited": 3,
+  "min_occupants_required": 2,
+  "ride_seconds": 9.88,
+  "cabin_seconds": 24.76,
+  "min_cabin_margin_m": 0.1157,
+  "cabin_outside_while_riding_steps": 0,
+  "zone_worst": {
+    "concourse_door_threshold": {
+      "worst_m": 0.4259,
+      "at_s": 23.08,
+      "steps": 390
+    },
+    "lift_front_passage": {
+      "worst_m": 0.5397,
+      "at_s": 67.68,
+      "steps": 522
+    },
+    "lift_front_threshold": {
+      "worst_m": 0.4246,
+      "at_s": 68.98,
+      "steps": 497
+    }
+  },
+  "zone_violation_steps": {},
+  "aperture_steps": {
+    "concourse_door": 329,
+    "lift_front": 342,
+    "lift_rear": 345
+  },
+  "aperture_shared_steps": {},
+  "aperture_shared_with": {},
+  "crossings": [
+    {
+      "aperture": "concourse_door",
+      "entered_at_s": 22.84,
+      "open_fraction_at_entry": 1.0,
+      "effective_gap_at_entry_m": 0.66,
+      "duck_xy": [
+        -1.4362,
+        -0.0306
+      ]
+    },
+    {
+      "aperture": "lift_front",
+      "entered_at_s": 68.64,
+      "open_fraction_at_entry": 1.0,
+      "effective_gap_at_entry_m": 0.72,
+      "duck_xy": [
+        1.0064,
+        0.1648
+      ]
+    },
+    {
+      "aperture": "lift_rear",
+      "entered_at_s": 99.26,
+      "open_fraction_at_entry": 1.0,
+      "effective_gap_at_entry_m": 0.72,
+      "duck_xy": [
+        2.764,
+        -0.2608
+      ]
+    }
+  ],
+  "door_schedule": [
+    {
+      "door": "concourse_door",
+      "opens_at_s": 5.0,
+      "closes_at_s": null,
+      "ramp_s": 1.3,
+      "label": "automatic door in the concourse divider"
+    },
+    {
+      "door": "lift_front",
+      "opens_at_s": 48.76,
+      "closes_at_s": 79.0,
+      "ramp_s": 1.3,
+      "label": "lift doors, lobby side"
+    },
+    {
+      "door": "lift_rear",
+      "opens_at_s": 86.8,
+      "closes_at_s": null,
+      "ramp_s": 1.3,
+      "label": "lift doors, target floor"
+    }
+  ],
+  "door_passable_fraction": 0.55,
+  "min_guardian_gap_m": 0.3257,
+  "max_guardian_gap_m": 2.6539,
+  "overtake_steps": 0,
+  "guardian_gap_samples": 5087,
+  "interlock_holds": 0,
+  "interlock_reasons": {},
+  "controller_interlock_holds": 0,
+  "people": [
+    "nadia",
+    "tomas",
+    "leila",
+    "priya",
+    "marek",
+    "odile",
+    "sami",
+    "vera"
+  ],
+  "other_adults": [
+    "tomas",
+    "leila",
+    "priya",
+    "marek",
+    "odile",
+    "sami",
+    "vera"
+  ],
+  "moving_adults": 7,
+  "actor_moving_fraction": {
+    "nadia": 0.447,
+    "tomas": 0.195,
+    "leila": 0.21,
+    "priya": 0.141,
+    "marek": 0.158,
+    "odile": 0.164,
+    "sami": 0.718,
+    "vera": 0.568
+  },
+  "actor_routes": [
+    {
+      "name": "nadia",
+      "corners": [
+        [
+          -1.95,
+          0.52
+        ],
+        [
+          -1.62,
+          0.56
+        ],
+        [
+          -1.34,
+          0.28
+        ],
+        [
+          -1.1,
+          0.0
+        ],
+        [
+          -0.42,
+          0.06
+        ],
+        [
+          0.55,
+          0.1
+        ],
+        [
+          1.34,
+          0.1
+        ],
+        [
+          2.35,
+          -0.3
+        ],
+        [
+          3.1,
+          -0.35
+        ],
+        [
+          4.05,
+          -0.5
+        ]
+      ],
+      "length_m": 6.2975,
+      "speed_mps": 0.128,
+      "start_t_s": 8.27,
+      "hold_windows_s": [
+        [
+          32.11,
+          47.48
+        ],
+        [
+          59.47,
+          82.13
+        ]
+      ],
+      "finish_t_s": 95.499,
+      "corner_radius_m": 0.28,
+      "bends": [
+        {
+          "turn_deg": -51.911,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.2537,
+          "start_s_m": 0.1961,
+          "end_s_m": 0.4498
+        },
+        {
+          "turn_deg": -4.399,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.0215,
+          "start_s_m": 0.6987,
+          "end_s_m": 0.7202
+        },
+        {
+          "turn_deg": 54.441,
+          "hand": "left",
+          "radius_m": 0.28,
+          "arc_len_m": 0.266,
+          "start_s_m": 0.9342,
+          "end_s_m": 1.2003
+        },
+        {
+          "turn_deg": -2.681,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.0131,
+          "start_s_m": 1.7323,
+          "end_s_m": 1.7454
+        },
+        {
+          "turn_deg": -2.361,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.0115,
+          "start_s_m": 2.7039,
+          "end_s_m": 2.7155
+        },
+        {
+          "turn_deg": -21.606,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.1056,
+          "start_s_m": 3.4463,
+          "end_s_m": 3.5519
+        },
+        {
+          "turn_deg": 17.791,
+          "hand": "left",
+          "radius_m": 0.28,
+          "arc_len_m": 0.0869,
+          "start_s_m": 4.5409,
+          "end_s_m": 4.6279
+        },
+        {
+          "turn_deg": -5.159,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.0252,
+          "start_s_m": 5.3231,
+          "end_s_m": 5.3483
+        }
+      ]
+    },
+    {
+      "name": "tomas",
+      "corners": [
+        [
+          0.3,
+          -0.2
+        ],
+        [
+          -0.55,
+          -0.15
+        ],
+        [
+          -1.1,
+          -0.15
+        ],
+        [
+          -1.85,
+          -0.42
+        ],
+        [
+          -2.75,
+          -0.85
+        ],
+        [
+          -3.85,
+          -1.05
+        ]
+      ],
+      "length_m": 4.3126,
+      "speed_mps": 0.2,
+      "start_t_s": 4.4,
+      "hold_windows_s": [],
+      "finish_t_s": 25.963,
+      "corner_radius_m": 0.28,
+      "bends": [
+        {
+          "turn_deg": 3.366,
+          "hand": "left",
+          "radius_m": 0.28,
+          "arc_len_m": 0.0165,
+          "start_s_m": 0.8432,
+          "end_s_m": 0.8597
+        },
+        {
+          "turn_deg": 19.799,
+          "hand": "left",
+          "radius_m": 0.28,
+          "arc_len_m": 0.0968,
+          "start_s_m": 1.3526,
+          "end_s_m": 1.4494
+        },
+        {
+          "turn_deg": 5.739,
+          "hand": "left",
+          "radius_m": 0.28,
+          "arc_len_m": 0.028,
+          "start_s_m": 2.1836,
+          "end_s_m": 2.2116
+        },
+        {
+          "turn_deg": -15.233,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.0744,
+          "start_s_m": 3.1576,
+          "end_s_m": 3.232
+        }
+      ]
+    },
+    {
+      "name": "leila",
+      "corners": [
+        [
+          0.48,
+          0.2
+        ],
+        [
+          -0.45,
+          0.15
+        ],
+        [
+          -1.1,
+          0.15
+        ],
+        [
+          -1.9,
+          0.44
+        ],
+        [
+          -2.8,
+          0.86
+        ],
+        [
+          -3.85,
+          1.02
+        ]
+      ],
+      "length_m": 4.486,
+      "speed_mps": 0.194,
+      "start_t_s": 5.2,
+      "hold_windows_s": [],
+      "finish_t_s": 28.324,
+      "corner_radius_m": 0.28,
+      "bends": [
+        {
+          "turn_deg": -3.077,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.015,
+          "start_s_m": 0.9238,
+          "end_s_m": 0.9389
+        },
+        {
+          "turn_deg": -19.926,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.0974,
+          "start_s_m": 1.5322,
+          "end_s_m": 1.6295
+        },
+        {
+          "turn_deg": -5.091,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.0249,
+          "start_s_m": 2.4188,
+          "end_s_m": 2.4437
+        },
+        {
+          "turn_deg": 16.353,
+          "hand": "left",
+          "radius_m": 0.28,
+          "arc_len_m": 0.0799,
+          "start_s_m": 3.3842,
+          "end_s_m": 3.4641
+        }
+      ]
+    },
+    {
+      "name": "priya",
+      "corners": [
+        [
+          2.3,
+          0.24
+        ],
+        [
+          1.34,
+          0.1
+        ],
+        [
+          0.6,
+          0.3
+        ],
+        [
+          -0.3,
+          0.78
+        ],
+        [
+          -1.05,
+          1.35
+        ]
+      ],
+      "length_m": 3.6967,
+      "speed_mps": 0.238,
+      "start_t_s": 49.2,
+      "hold_windows_s": [],
+      "finish_t_s": 64.733,
+      "corner_radius_m": 0.28,
+      "bends": [
+        {
+          "turn_deg": -23.421,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.1145,
+          "start_s_m": 0.9121,
+          "end_s_m": 1.0266
+        },
+        {
+          "turn_deg": -12.948,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.0633,
+          "start_s_m": 1.7033,
+          "end_s_m": 1.7666
+        },
+        {
+          "turn_deg": -9.162,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.0448,
+          "start_s_m": 2.7324,
+          "end_s_m": 2.7772
+        }
+      ]
+    },
+    {
+      "name": "marek",
+      "corners": [
+        [
+          2.55,
+          -0.06
+        ],
+        [
+          1.34,
+          0.08
+        ],
+        [
+          0.55,
+          -0.3
+        ],
+        [
+          -0.25,
+          -0.85
+        ],
+        [
+          -1.05,
+          -1.35
+        ]
+      ],
+      "length_m": 4.0045,
+      "speed_mps": 0.23,
+      "start_t_s": 50.0,
+      "hold_windows_s": [],
+      "finish_t_s": 67.411,
+      "corner_radius_m": 0.28,
+      "bends": [
+        {
+          "turn_deg": 32.288,
+          "hand": "left",
+          "radius_m": 0.28,
+          "arc_len_m": 0.1578,
+          "start_s_m": 1.137,
+          "end_s_m": 1.2948
+        },
+        {
+          "turn_deg": 8.82,
+          "hand": "left",
+          "radius_m": 0.28,
+          "arc_len_m": 0.0431,
+          "start_s_m": 2.0688,
+          "end_s_m": 2.1119
+        },
+        {
+          "turn_deg": -2.503,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.0122,
+          "start_s_m": 3.055,
+          "end_s_m": 3.0673
+        }
+      ]
+    },
+    {
+      "name": "odile",
+      "corners": [
+        [
+          2.15,
+          -0.42
+        ],
+        [
+          1.44,
+          0.06
+        ],
+        [
+          0.62,
+          0.02
+        ],
+        [
+          -0.15,
+          0.52
+        ],
+        [
+          -0.95,
+          1.72
+        ]
+      ],
+      "length_m": 4.0243,
+      "speed_mps": 0.224,
+      "start_t_s": 50.8,
+      "hold_windows_s": [],
+      "finish_t_s": 68.766,
+      "corner_radius_m": 0.28,
+      "bends": [
+        {
+          "turn_deg": 36.854,
+          "hand": "left",
+          "radius_m": 0.28,
+          "arc_len_m": 0.1801,
+          "start_s_m": 0.7637,
+          "end_s_m": 0.9438
+        },
+        {
+          "turn_deg": -35.79,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.1749,
+          "start_s_m": 1.5811,
+          "end_s_m": 1.756
+        },
+        {
+          "turn_deg": -23.312,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.1139,
+          "start_s_m": 2.5259,
+          "end_s_m": 2.6399
+        }
+      ]
+    },
+    {
+      "name": "sami",
+      "corners": [
+        [
+          -3.85,
+          1.7
+        ],
+        [
+          -2.7,
+          1.15
+        ],
+        [
+          -2.05,
+          0.55
+        ],
+        [
+          -2.35,
+          -1.15
+        ],
+        [
+          -3.55,
+          -1.75
+        ],
+        [
+          -3.9,
+          -0.6
+        ],
+        [
+          -3.2,
+          1.3
+        ]
+      ],
+      "length_m": 8.2241,
+      "speed_mps": 0.104,
+      "start_t_s": 0.0,
+      "hold_windows_s": [],
+      "finish_t_s": 79.078,
+      "corner_radius_m": 0.28,
+      "bends": [
+        {
+          "turn_deg": -17.149,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.0838,
+          "start_s_m": 1.2325,
+          "end_s_m": 1.3163
+        },
+        {
+          "turn_deg": -57.299,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.28,
+          "start_s_m": 2.0057,
+          "end_s_m": 2.2858
+        },
+        {
+          "turn_deg": -53.427,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.2611,
+          "start_s_m": 3.7181,
+          "end_s_m": 3.9792
+        },
+        {
+          "turn_deg": -99.638,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.4869,
+          "start_s_m": 4.8484,
+          "end_s_m": 5.3353
+        },
+        {
+          "turn_deg": -37.152,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.1816,
+          "start_s_m": 6.1118,
+          "end_s_m": 6.2933
+        }
+      ]
+    },
+    {
+      "name": "vera",
+      "corners": [
+        [
+          0.25,
+          -1.95
+        ],
+        [
+          -0.6,
+          -1.65
+        ],
+        [
+          -1.55,
+          -1.25
+        ],
+        [
+          -2.2,
+          -1.7
+        ],
+        [
+          -3.0,
+          -1.95
+        ],
+        [
+          -3.6,
+          -0.95
+        ],
+        [
+          -2.9,
+          0.4
+        ]
+      ],
+      "length_m": 6.126,
+      "speed_mps": 0.098,
+      "start_t_s": 3.0,
+      "hold_windows_s": [],
+      "finish_t_s": 65.51,
+      "corner_radius_m": 0.28,
+      "bends": [
+        {
+          "turn_deg": -3.394,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.0166,
+          "start_s_m": 0.8931,
+          "end_s_m": 0.9097
+        },
+        {
+          "turn_deg": 57.529,
+          "hand": "left",
+          "radius_m": 0.28,
+          "arc_len_m": 0.2811,
+          "start_s_m": 1.7785,
+          "end_s_m": 2.0596
+        },
+        {
+          "turn_deg": -17.341,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.0847,
+          "start_s_m": 2.6538,
+          "end_s_m": 2.7385
+        },
+        {
+          "turn_deg": -76.39,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.3733,
+          "start_s_m": 3.3137,
+          "end_s_m": 3.687
+        },
+        {
+          "turn_deg": -58.371,
+          "hand": "right",
+          "radius_m": 0.28,
+          "arc_len_m": 0.2853,
+          "start_s_m": 4.4765,
+          "end_s_m": 4.7617
+        }
+      ]
+    }
+  ],
+  "actor_names": [
+    "nadia",
+    "tomas",
+    "leila",
+    "priya",
+    "marek",
+    "odile",
+    "sami",
+    "vera"
+  ],
+  "visible_steps": 4717,
+  "los_steps": 4870,
+  "visible_with_los_steps": 4606,
+  "visible_fraction_with_los": 0.9458,
+  "monitor_steps": 1242,
+  "monitor_los_steps": 612,
+  "monitor_visible_with_los_steps": 612,
+  "monitor_visible_fraction_with_los": 1.0,
+  "monitor_states": [
+    "YIELD_EXITERS",
+    "WAIT_SIDE",
+    "DOORS_OPEN",
+    "LET_OCCUPANTS_EXIT"
+  ],
+  "blocked_by": {
+    "leaf_concourse_door_s_panel": 263,
+    "wall_lift_n": 442,
+    "out_of_frustum": 78
+  },
+  "subject_visibility": {
+    "leila": {
+      "steps": 848,
+      "los_steps": 842,
+      "visible_with_los": 579,
+      "fraction_with_los": 0.6876,
+      "role": "door_exiter"
+    },
+    "marek": {
+      "steps": 860,
+      "los_steps": 236,
+      "visible_with_los": 236,
+      "fraction_with_los": 1.0,
+      "role": "occupant"
+    },
+    "nadia": {
+      "steps": 3792,
+      "los_steps": 3792,
+      "visible_with_los": 3791,
+      "fraction_with_los": 0.9997,
+      "role": "guardian"
+    }
+  },
+  "subject_sequence": [
+    {
+      "subject": "leila",
+      "from_s": 0.02,
+      "to_s": 16.96
+    },
+    {
+      "subject": "nadia",
+      "from_s": 16.98,
+      "to_s": 43.4
+    },
+    {
+      "subject": "marek",
+      "from_s": 43.42,
+      "to_s": 60.6
+    },
+    {
+      "subject": "nadia",
+      "from_s": 60.62,
+      "to_s": 110.0
+    }
+  ],
+  "subject_role_order": [
+    "door_exiter",
+    "guardian",
+    "occupant",
+    "guardian"
+  ],
+  "expected_subject_role_order": [
+    "door_exiter",
+    "guardian",
+    "occupant",
+    "guardian"
+  ],
+  "spin_best_rate_dps": 1.6,
+  "spin_180_seconds": 112.5,
+  "guardian_name": "nadia",
+  "all_gates_pass": true,
+  "gate_results": [
+    {
+      "gate": "the duck physically walked at least 6.0 m",
+      "pass": true,
+      "evidence": "11.1874 m of path, 11.0582 m of it in the walking states over 68.12s"
+    },
+    {
+      "gate": "the journey made at least 5.5 m of net progress",
+      "pass": true,
+      "evidence": "net 6.7436 m from start to finish"
+    },
+    {
+      "gate": "every bend in the route is inside the MEASURED turning circle for its own sign",
+      "pass": true,
+      "evidence": "right -17.4 deg at r=0.41 m (needs 0.3962 m); left +63.4 deg at r=0.41 m (needs 0.3567 m); right -63.4 deg at r=0.41 m (needs 0.3962 m); right -87.9 deg at r=0.41 m (needs 0.3962 m); left +87.9 deg at r=0.41 m (needs 0.3567 m); left +25.5 deg at r=0.41 m (needs 0.3567 m); right -72.8 deg at r=0.41 m (needs 0.3962 m); left +47.3 deg at r=0.41 m (needs 0.3567 m); right -17.2 deg at r=0.41 m (needs 0.3962 m)"
+    },
+    {
+      "gate": "the route passes through the middle of every aperture",
+      "pass": true,
+      "evidence": "concourse_door: +0.0000 m off centre, 0.33 m to the jamb; lift_front: +0.0000 m off centre, 0.36 m to the jamb; lift_rear: -0.0047 m off centre, 0.3553 m to the jamb"
+    },
+    {
+      "gate": "the duck stayed on its own route",
+      "pass": true,
+      "evidence": "max cross-track 0.0738 m"
+    },
+    {
+      "gate": "the duck yielded at the doorway before entering it",
+      "pass": true,
+      "evidence": "yield 0 (door): stopped 9.32s, released 16.96s, 7.64s with 2 exiter(s) pending"
+    },
+    {
+      "gate": "NO THRESHOLD ENCROACHMENT before the exiters were clear",
+      "pass": true,
+      "evidence": "0 early step(s) in the door threshold band; worst penetration over the whole run 0.4259 m at 23.08s"
+    },
+    {
+      "gate": "at least 2 people came OUT through the doorway",
+      "pass": true,
+      "evidence": "['leila', 'tomas'] occupied the door aperture, of ['tomas', 'leila']"
+    },
+    {
+      "gate": "the duck was NEVER in the doorway at the same time as anybody else",
+      "pass": true,
+      "evidence": "0 shared step(s) of 329 the duck spent in it; the opening has 0.3007 m of slack for two abreast, so this is a claim about the robot"
+    },
+    {
+      "gate": "the duck entered the doorway BEHIND the guardian",
+      "pass": true,
+      "evidence": "0 step(s) ahead of her over 5087 samples; minimum gap along the shared route 0.3257 m"
+    },
+    {
+      "gate": "the duck waited BESIDE the lift doors for at least 2.5s",
+      "pass": true,
+      "evidence": "WAIT_SIDE for 5.54s at max command 0.0"
+    },
+    {
+      "gate": "the duck NEVER stood in the lift's exit passage before boarding",
+      "pass": true,
+      "evidence": "0 early step(s) in the door-centre passage; worst penetration over the whole run 0.5397 m"
+    },
+    {
+      "gate": "at least 2 occupants EXITED before the duck entered",
+      "pass": true,
+      "evidence": "3 of 3 had cleared at 60.6s; 3 exited in total, ['marek', 'odile', 'priya'] used the aperture"
+    },
+    {
+      "gate": "the duck did not move until the LAST occupant was clear",
+      "pass": true,
+      "evidence": "LET_OCCUPANTS_EXIT for 11.14s at max command 0.0, drifting 0.007 m"
+    },
+    {
+      "gate": "the duck boarded AFTER the guardian",
+      "pass": true,
+      "evidence": "she was inside the car at the duck's entry (75.06s), gap 1.0268 m"
+    },
+    {
+      "gate": "the duck was NEVER in the lift aperture at the same time as anybody else",
+      "pass": true,
+      "evidence": "front 0 of 342; rear 0 of 345"
+    },
+    {
+      "gate": "the duck's position inside the cabin is real and inside its bounds",
+      "pass": true,
+      "evidence": "inside for 24.76s with a minimum face margin of 0.1157 m; 0 step(s) outside it while riding"
+    },
+    {
+      "gate": "the ride was exactly still for at least 8s",
+      "pass": true,
+      "evidence": "RIDE for 9.88s at max command 0.0, drifting 0.0324 m against the MEASURED 0.0055 m per 10 s"
+    },
+    {
+      "gate": "the guardian left the cabin FIRST at the target floor",
+      "pass": true,
+      "evidence": "she was out at 90.36s, the duck at 106.22s"
+    },
+    {
+      "gate": "NO MOVEMENT THROUGH A CLOSED DOOR: every aperture was open when the duck entered it",
+      "pass": true,
+      "evidence": "concourse_door: entered 22.84s at 1.0 open (0.66 m clear); lift_front: entered 68.64s at 1.0 open (0.72 m clear); lift_rear: entered 99.26s at 1.0 open (0.72 m clear)"
+    },
+    {
+      "gate": "the duck NEVER overtook or crossed the guardian",
+      "pass": true,
+      "evidence": "0 overtaking step(s); gap ranged 0.3257 to 2.6539 m"
+    },
+    {
+      "gate": "the duck stayed close enough to have actually followed her",
+      "pass": true,
+      "evidence": "maximum gap 2.6539 m against a 4.2 m limit"
+    },
+    {
+      "gate": "the command was EXACTLY zero in every zero-command state",
+      "pass": true,
+      "evidence": "0 violation(s) across YIELD_EXITERS=0.0, WAIT_SIDE=0.0, DOORS_OPEN=0.0, LET_OCCUPANTS_EXIT=0.0, RIDE=0.0, DOORS_OPEN_TARGET=0.0, DONE=0.0"
+    },
+    {
+      "gate": "every zero-command state was a real standstill on the floor",
+      "pass": true,
+      "evidence": "DONE drifted 0.0289 m; DOORS_OPEN drifted 0.0003 m; DOORS_OPEN_TARGET drifted 0.0023 m; LET_OCCUPANTS_EXIT drifted 0.007 m; RIDE drifted 0.0324 m; WAIT_SIDE drifted 0.0276 m; YIELD_EXITERS drifted 0.0307 m against a 0.04 m bound (0.0055 m per 10 s MEASURED)"
+    },
+    {
+      "gate": "the active person was visible in >= 95% of monitoring steps where line of sight existed",
+      "pass": true,
+      "evidence": "100.00% of 612 LOS steps in 1242 monitor steps (94.58% over the whole run)"
+    },
+    {
+      "gate": "the duck watched the right person, in the right order",
+      "pass": true,
+      "evidence": "watched ['door_exiter', 'guardian', 'occupant', 'guardian'], expected ['door_exiter', 'guardian', 'occupant', 'guardian']"
+    },
+    {
+      "gate": "at least 5 adults besides the guardian were moving",
+      "pass": true,
+      "evidence": "7 of 7 changed position: ['tomas', 'leila', 'priya', 'marek', 'odile', 'sami', 'vera']"
+    },
+    {
+      "gate": "positive clearance to every person at all times",
+      "pass": true,
+      "evidence": "min 0.2365 m to tomas; per person {'leila': 0.3129, 'marek': 0.916, 'nadia': 0.402, 'odile': 0.4891, 'priya': 0.3258, 'sami': 0.3752, 'tomas': 0.2365, 'vera': 1.0404}"
+    },
+    {
+      "gate": "positive clearance to every wall, jamb, cabin panel and door leaf",
+      "pass": true,
+      "evidence": "min 0.1907 m to wall_door_s"
+    },
+    {
+      "gate": "zero contacts",
+      "pass": true,
+      "evidence": "0 steps with non-positive clearance"
+    },
+    {
+      "gate": "every declared state was visited",
+      "pass": true,
+      "evidence": "visited ['APPROACH_DOOR', 'APPROACH_LIFT', 'DONE', 'DOORS_OPEN', 'DOORS_OPEN_TARGET', 'FOLLOW_GUARDIAN_IN', 'FOLLOW_OUT', 'FOLLOW_THROUGH', 'LET_OCCUPANTS_EXIT', 'POSITION_INSIDE', 'RIDE', 'WAIT_SIDE', 'YIELD_EXITERS']"
+    },
+    {
+      "gate": "every visited state is one this behavior declares",
+      "pass": true,
+      "evidence": "visited ['APPROACH_DOOR', 'APPROACH_LIFT', 'DONE', 'DOORS_OPEN', 'DOORS_OPEN_TARGET', 'FOLLOW_GUARDIAN_IN', 'FOLLOW_OUT', 'FOLLOW_THROUGH', 'LET_OCCUPANTS_EXIT', 'POSITION_INSIDE', 'RIDE', 'WAIT_SIDE', 'YIELD_EXITERS']"
+    },
+    {
+      "gate": "the states ran in the declared order",
+      "pass": true,
+      "evidence": "['YIELD_EXITERS', 'FOLLOW_THROUGH', 'APPROACH_LIFT', 'WAIT_SIDE', 'DOORS_OPEN', 'LET_OCCUPANTS_EXIT', 'FOLLOW_GUARDIAN_IN', 'POSITION_INSIDE', 'RIDE', 'DOORS_OPEN_TARGET', 'FOLLOW_OUT', 'DONE'] against the declared ['YIELD_EXITERS', 'FOLLOW_THROUGH', 'APPROACH_LIFT', 'WAIT_SIDE', 'DOORS_OPEN', 'LET_OCCUPANTS_EXIT', 'FOLLOW_GUARDIAN_IN', 'POSITION_INSIDE', 'RIDE', 'DOORS_OPEN_TARGET', 'FOLLOW_OUT', 'DONE']"
+    },
+    {
+      "gate": "exactly zero PUSH_THROUGH and BOARD_FIRST steps",
+      "pass": true,
+      "evidence": "forbidden state steps: {'PUSH_THROUGH': 0, 'BOARD_FIRST': 0}"
+    },
+    {
+      "gate": "no phase hit its ceiling",
+      "pass": true,
+      "evidence": "timeouts: none"
+    },
+    {
+      "gate": "zero falls",
+      "pass": true,
+      "evidence": "0 steps below 0.09 m"
+    },
+    {
+      "gate": "trunk never below 0.09 m",
+      "pass": true,
+      "evidence": "min 0.1123 m"
+    },
+    {
+      "gate": "final trunk height near the nominal 0.116 m",
+      "pass": true,
+      "evidence": "0.1163 m"
+    },
+    {
+      "gate": "the exact imu_ang_vel sensor, 61-D observation and 0.9 action scale",
+      "pass": true,
+      "evidence": "gyro=imu_ang_vel, obs=61-D, action_scale=0.9"
+    },
+    {
+      "gate": "the byte-identical stock walking policy",
+      "pass": true,
+      "evidence": "sha256 e36332d383997d51401897734cd3e79cf5038406feddb18b4d57ecfb141daa6c"
+    }
+  ]
+}
